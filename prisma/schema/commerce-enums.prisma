@@ -1,0 +1,263 @@
+enum CatalogStatus {
+  DRAFT    @map("draft")
+  ACTIVE   @map("active")
+  ARCHIVED @map("archived")
+
+  @@map("catalog_status")
+  @@schema("app")
+}
+
+enum MediaKind {
+  IMAGE    @map("image")
+  VIDEO    @map("video")
+  DOCUMENT @map("document")
+
+  @@map("media_kind")
+  @@schema("app")
+}
+
+enum MediaUploadStatus {
+  UPLOADING @map("uploading")
+  READY     @map("ready")
+  FAILED    @map("failed")
+
+  @@map("media_upload_status")
+  @@schema("app")
+}
+
+enum ProductMediaRole {
+  PRIMARY  @map("primary")
+  GALLERY  @map("gallery")
+  SWATCH   @map("swatch")
+  VIDEO    @map("video")
+  DOCUMENT @map("document")
+
+  @@map("product_media_role")
+  @@schema("app")
+}
+
+enum PriceKind {
+  REGULAR @map("regular")
+  SALE    @map("sale")
+
+  @@map("price_kind")
+  @@schema("app")
+}
+
+enum PriceMode {
+  FIXED      @map("fixed")
+  ON_REQUEST @map("on_request")
+
+  @@map("price_mode")
+  @@schema("app")
+}
+
+enum DataQualityStatus {
+  VERIFIED        @map("verified")
+  REVIEW_REQUIRED @map("review_required")
+
+  @@map("data_quality_status")
+  @@schema("app")
+}
+
+enum InventoryMovementType {
+  RECEIPT     @map("receipt")
+  ADJUSTMENT  @map("adjustment")
+  RESERVATION @map("reservation")
+  RELEASE     @map("release")
+  SALE        @map("sale")
+  RETURN      @map("return")
+  DAMAGE      @map("damage")
+  CUSTOMER_COMPENSATION @map("customer_compensation")
+  WARRANTY_REPLACEMENT  @map("warranty_replacement")
+  RETURN_RESTOCK        @map("return_restock")
+  RETURN_DAMAGED        @map("return_damaged")
+  RETURN_DISPOSAL       @map("return_disposal")
+  GOODWILL_GIFT         @map("goodwill_gift")
+
+  @@map("inventory_movement_type")
+  @@schema("app")
+}
+
+enum InventoryReservationStatus {
+  ACTIVE   @map("active")
+  RELEASED @map("released")
+  CONSUMED @map("consumed")
+  EXPIRED  @map("expired")
+
+  @@map("inventory_reservation_status")
+  @@schema("app")
+}
+
+enum CartStatus {
+  ACTIVE    @map("active")
+  CONVERTED @map("converted")
+  ABANDONED @map("abandoned")
+  EXPIRED   @map("expired")
+
+  @@map("cart_status")
+  @@schema("app")
+}
+
+enum OrderStatus {
+  DRAFT           @map("draft")
+  PENDING_PAYMENT @map("pending_payment")
+  CONFIRMED       @map("confirmed")
+  PROCESSING      @map("processing")
+  COMPLETED       @map("completed")
+  CANCELED        @map("canceled")
+
+  @@map("order_status")
+  @@schema("app")
+}
+
+enum OrderPaymentStatus {
+  UNPAID             @map("unpaid")
+  PENDING            @map("pending")
+  PARTIALLY_PAID     @map("partially_paid")
+  PAID               @map("paid")
+  PARTIALLY_REFUNDED @map("partially_refunded")
+  REFUNDED           @map("refunded")
+  FAILED             @map("failed")
+  VOIDED             @map("voided")
+
+  @@map("order_payment_status")
+  @@schema("app")
+}
+
+enum FulfillmentStatus {
+  UNFULFILLED @map("unfulfilled")
+  PARTIAL     @map("partial")
+  FULFILLED   @map("fulfilled")
+  RETURNED    @map("returned")
+  CANCELED    @map("canceled")
+
+  @@map("fulfillment_status")
+  @@schema("app")
+}
+
+enum OrderAddressKind {
+  SHIPPING @map("shipping")
+  BILLING  @map("billing")
+
+  @@map("order_address_kind")
+  @@schema("app")
+}
+
+enum PaymentMethod {
+  NOWPAYMENTS   @map("nowpayments")
+  WIRE_TRANSFER @map("wire_transfer")
+  ZELLE         @map("zelle")
+  OTHER_MANUAL  @map("other_manual")
+
+  @@map("payment_method")
+  @@schema("app")
+}
+
+enum PaymentStatus {
+  CREATED               @map("created")
+  PENDING               @map("pending")
+  AWAITING_CONFIRMATION @map("awaiting_confirmation")
+  PROCESSING            @map("processing")
+  PARTIALLY_PAID        @map("partially_paid")
+  OVERPAID              @map("overpaid")
+  REVIEW_REQUIRED       @map("review_required")
+  CONFIRMED             @map("confirmed")
+  PARTIALLY_REFUNDED    @map("partially_refunded")
+  REFUNDED              @map("refunded")
+  FAILED                @map("failed")
+  EXPIRED               @map("expired")
+  CANCELED              @map("canceled")
+
+  @@map("payment_status")
+  @@schema("app")
+}
+
+enum ManualPaymentProofStatus {
+  PENDING  @map("pending")
+  APPROVED @map("approved")
+  REJECTED @map("rejected")
+
+  @@map("manual_payment_proof_status")
+  @@schema("app")
+}
+
+enum ShipmentStatus {
+  DRAFT         @map("draft")
+  LABEL_CREATED @map("label_created")
+  IN_TRANSIT    @map("in_transit")
+  DELIVERED     @map("delivered")
+  EXCEPTION     @map("exception")
+  RETURNED      @map("returned")
+  CANCELED      @map("canceled")
+
+  @@map("shipment_status")
+  @@schema("app")
+}
+
+enum TrackingEventStatus {
+  INFO             @map("info")
+  LABEL_CREATED    @map("label_created")
+  PICKED_UP        @map("picked_up")
+  IN_TRANSIT       @map("in_transit")
+  OUT_FOR_DELIVERY @map("out_for_delivery")
+  DELIVERED        @map("delivered")
+  EXCEPTION        @map("exception")
+  RETURNED         @map("returned")
+
+  @@map("tracking_event_status")
+  @@schema("app")
+}
+
+enum InquirySource {
+  WEB      @map("web")
+  WHATSAPP @map("whatsapp")
+  EMAIL    @map("email")
+  PHONE    @map("phone")
+  OTHER    @map("other")
+
+  @@map("inquiry_source")
+  @@schema("app")
+}
+
+enum InquiryStatus {
+  OPEN             @map("open")
+  IN_PROGRESS      @map("in_progress")
+  WAITING_CUSTOMER @map("waiting_customer")
+  RESOLVED         @map("resolved")
+  CLOSED           @map("closed")
+
+  @@map("inquiry_status")
+  @@schema("app")
+}
+
+enum ContentStatus {
+  DRAFT     @map("draft")
+  PUBLISHED @map("published")
+  ARCHIVED  @map("archived")
+
+  @@map("content_status")
+  @@schema("app")
+}
+
+enum ContentFormat {
+  MARKDOWN  @map("markdown")
+  RICH_TEXT @map("rich_text")
+  HTML      @map("html")
+
+  @@map("content_format")
+  @@schema("app")
+}
+
+enum ManagedPageRoute {
+  ABOUT               @map("about")
+  SHIPPING            @map("shipping")
+  RETURNS_AND_REFUNDS @map("returns_and_refunds")
+  PRIVACY_POLICY      @map("privacy_policy")
+  TERMS_OF_SERVICE    @map("terms_of_service")
+  PAYMENT_POLICY      @map("payment_policy")
+  RESEARCH_USE_POLICY @map("research_use_policy")
+
+  @@map("managed_page_route")
+  @@schema("app")
+}

@@ -1,0 +1,87 @@
+model InventoryLocation {
+  id          BigInt           @id @default(autoincrement())
+  publicId    String           @unique(map: "inventory_locations_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  code        String           @unique(map: "inventory_locations_code_key") @db.VarChar(80)
+  name        String           @db.VarChar(180)
+  countryCode String           @default("US") @map("country_code") @db.Char(2)
+  region      String?          @db.VarChar(120)
+  city        String?          @db.VarChar(120)
+  isActive    Boolean          @default(true) @map("is_active")
+  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime         @updatedAt @map("updated_at") @db.Timestamptz(3)
+  levels      InventoryLevel[]
+
+  @@index([isActive], map: "inventory_locations_is_active_idx")
+  @@map("inventory_locations")
+  @@schema("app")
+}
+
+model InventoryLevel {
+  id                  BigInt                 @id @default(autoincrement())
+  variantId           BigInt                 @map("variant_id")
+  locationId          BigInt                 @map("location_id")
+  onHandQuantity      Int                    @default(0) @map("on_hand_quantity")
+  reservedQuantity    Int                    @default(0) @map("reserved_quantity")
+  safetyStockQuantity Int                    @default(0) @map("safety_stock_quantity")
+  allowBackorder      Boolean                @default(false) @map("allow_backorder")
+  createdAt           DateTime               @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt           DateTime               @updatedAt @map("updated_at") @db.Timestamptz(3)
+  variant             ProductVariant         @relation(fields: [variantId], references: [id], onDelete: Restrict, map: "inventory_levels_variant_id_fkey")
+  location            InventoryLocation      @relation(fields: [locationId], references: [id], onDelete: Restrict, map: "inventory_levels_location_id_fkey")
+  movements           InventoryMovement[]
+  reservations        InventoryReservation[]
+
+  @@unique([variantId, locationId], map: "inventory_levels_variant_location_key")
+  @@index([locationId], map: "inventory_levels_location_id_idx")
+  @@map("inventory_levels")
+  @@schema("app")
+}
+
+model InventoryMovement {
+  id               BigInt                @id @default(autoincrement())
+  publicId         String                @unique(map: "inventory_movements_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  idempotencyKey   String?               @unique(map: "inventory_movements_idempotency_key_key") @map("idempotency_key") @db.VarChar(160)
+  inventoryLevelId BigInt                @map("inventory_level_id")
+  type             InventoryMovementType
+  quantityDelta    Int                   @map("quantity_delta")
+  onHandAfter      Int                   @map("on_hand_after")
+  referenceType    String?               @map("reference_type") @db.VarChar(80)
+  referenceId      String?               @map("reference_id") @db.VarChar(255)
+  reason           String?               @db.Text
+  createdByUserId  String?               @map("created_by_user_id") @db.Uuid
+  occurredAt       DateTime              @default(now()) @map("occurred_at") @db.Timestamptz(3)
+  createdAt        DateTime              @default(now()) @map("created_at") @db.Timestamptz(3)
+  inventoryLevel   InventoryLevel        @relation(fields: [inventoryLevelId], references: [id], onDelete: Restrict, map: "inventory_movements_level_id_fkey")
+  createdBy        User?                 @relation("InventoryMovementActor", fields: [createdByUserId], references: [id], onDelete: SetNull, map: "inventory_movements_user_id_fkey")
+
+  @@index([inventoryLevelId, occurredAt], map: "inventory_movements_level_time_idx")
+  @@index([createdByUserId], map: "inventory_movements_user_id_idx")
+  @@index([referenceType, referenceId], map: "inventory_movements_reference_idx")
+  @@index([occurredAt(sort: Desc), id(sort: Desc)], map: "inventory_movements_occurred_at_id_idx")
+  @@map("inventory_movements")
+  @@schema("app")
+}
+
+model InventoryReservation {
+  id               BigInt                     @id @default(autoincrement())
+  publicId         String                     @unique(map: "inventory_reservations_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  inventoryLevelId BigInt                     @map("inventory_level_id")
+  cartItemId       BigInt?                    @map("cart_item_id")
+  orderItemId      BigInt?                    @map("order_item_id")
+  status           InventoryReservationStatus @default(ACTIVE)
+  quantity         Int
+  expiresAt        DateTime?                  @map("expires_at") @db.Timestamptz(3)
+  releasedAt       DateTime?                  @map("released_at") @db.Timestamptz(3)
+  consumedAt       DateTime?                  @map("consumed_at") @db.Timestamptz(3)
+  createdAt        DateTime                   @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime                   @updatedAt @map("updated_at") @db.Timestamptz(3)
+  inventoryLevel   InventoryLevel             @relation(fields: [inventoryLevelId], references: [id], onDelete: Restrict, map: "inventory_reservations_level_id_fkey")
+  cartItem         CartItem?                  @relation(fields: [cartItemId], references: [id], onDelete: Restrict, map: "inventory_reservations_cart_item_id_fkey")
+  orderItem        OrderItem?                 @relation(fields: [orderItemId], references: [id], onDelete: Restrict, map: "inventory_reservations_order_item_id_fkey")
+
+  @@index([inventoryLevelId, status, expiresAt], map: "inventory_reservations_level_status_idx")
+  @@index([cartItemId], map: "inventory_reservations_cart_item_id_idx")
+  @@index([orderItemId], map: "inventory_reservations_order_item_id_idx")
+  @@map("inventory_reservations")
+  @@schema("app")
+}

@@ -1,0 +1,180 @@
+name: ti-shop
+
+services:
+  app:
+    build:
+      context: .
+      target: runner
+    image: "${TI_SHOP_APP_IMAGE:-ti-shop:local}"
+    init: true
+    restart: unless-stopped
+    user: "1000:1000"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      DATABASE_URL: "${DATABASE_URL:?DATABASE_URL must be set}"
+      SITE_URL: "${SITE_URL:?SITE_URL must be set}"
+      BETTER_AUTH_SECRET: "${BETTER_AUTH_SECRET:?BETTER_AUTH_SECRET must be set}"
+      DB_POOL_MAX: "${DB_POOL_MAX:-10}"
+      DB_POOL_IDLE_TIMEOUT_MS: "${DB_POOL_IDLE_TIMEOUT_MS:-10000}"
+      DB_POOL_CONNECTION_TIMEOUT_MS: "${DB_POOL_CONNECTION_TIMEOUT_MS:-5000}"
+      DB_POOL_MAX_LIFETIME_SECONDS: "${DB_POOL_MAX_LIFETIME_SECONDS:-1800}"
+      AUTH_CLIENT_IP_HEADER: "x-ti-shop-client-ip"
+      AUTH_TRUSTED_PROXY_CIDRS: "172.31.250.10/32"
+      NOWPAYMENTS_MODE: "${NOWPAYMENTS_MODE:-disabled}"
+      NOWPAYMENTS_API_BASE_URL: "${NOWPAYMENTS_API_BASE_URL:-}"
+      NOWPAYMENTS_API_KEY: "${NOWPAYMENTS_API_KEY:-}"
+      NOWPAYMENTS_IPN_SECRET: "${NOWPAYMENTS_IPN_SECRET:-}"
+      NOWPAYMENTS_TIMEOUT_MS: "${NOWPAYMENTS_TIMEOUT_MS:-10000}"
+      # Product image object storage (Supabase Storage, S3-compatible).
+      # Fail-closed: leave unset to run with image uploads disabled.
+      STORAGE_PROVIDER: "${STORAGE_PROVIDER:-}"
+      STORAGE_BUCKET_PRODUCT_IMAGES: "${STORAGE_BUCKET_PRODUCT_IMAGES:-}"
+      STORAGE_S3_ENDPOINT: "${STORAGE_S3_ENDPOINT:-}"
+      STORAGE_S3_REGION: "${STORAGE_S3_REGION:-}"
+      STORAGE_S3_ACCESS_KEY_ID: "${STORAGE_S3_ACCESS_KEY_ID:-}"
+      STORAGE_S3_SECRET_ACCESS_KEY: "${STORAGE_S3_SECRET_ACCESS_KEY:-}"
+      STORAGE_PUBLIC_BASE_URL: "${STORAGE_PUBLIC_BASE_URL:-}"
+      STORAGE_REQUEST_TIMEOUT_MS: "${STORAGE_REQUEST_TIMEOUT_MS:-15000}"
+      PRODUCT_IMAGE_MAX_BYTES: "${PRODUCT_IMAGE_MAX_BYTES:-10485760}"
+      PRODUCT_IMAGE_ALLOWED_TYPES: "${PRODUCT_IMAGE_ALLOWED_TYPES:-image/jpeg,image/png,image/webp,image/avif}"
+    expose:
+      - "3000"
+    networks:
+      - backend
+      - egress
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000,mode=1770
+      - /app/.next/cache:rw,noexec,nosuid,size=256m,uid=1000,gid=1000,mode=0770
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - >-
+          fetch('http://127.0.0.1:3000/api/ready').then((response) => {
+          if (!response.ok) process.exit(1) }).catch(() => process.exit(1))
+      interval: 15s
+      timeout: 5s
+      start_period: 30s
+      retries: 5
+    stop_grace_period: 30s
+
+  proxy:
+    image: "nginxinc/nginx-unprivileged:1.28.0-alpine3.21@sha256:c97ff0bf7cbae369953c6da1232ec14ad9f971d66360c5698db0856a4cd657a0"
+    init: true
+    restart: unless-stopped
+    user: "101:101"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    entrypoint:
+      - /usr/sbin/nginx
+    command:
+      - -g
+      - daemon off;
+    depends_on:
+      app:
+        condition: service_healthy
+    ports:
+      - "${TI_SHOP_BIND_ADDRESS:-127.0.0.1}:${TI_SHOP_HTTP_PORT:-8080}:8080"
+    networks:
+      edge: {}
+      backend:
+        ipv4_address: 172.31.250.10
+    volumes:
+      - type: bind
+        source: ./deploy/nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=32m,uid=101,gid=101,mode=1770
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - --quiet
+        - --tries=1
+        - --output-document=/dev/null
+        - http://127.0.0.1:8080/nginx-health
+      interval: 15s
+      timeout: 3s
+      start_period: 5s
+      retries: 3
+    stop_grace_period: 10s
+
+  # One-off jobs are profile-gated so `docker compose up` never runs a
+  # migration, seed, or reconciliation implicitly. Targeted `compose run`
+  # commands can invoke these services without enabling the profile globally.
+  migrate:
+    profiles:
+      - operations
+    build:
+      context: .
+      target: migrator
+    image: "${TI_SHOP_MIGRATOR_IMAGE:-ti-shop:migrator-local}"
+    init: true
+    user: "1000:1000"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      DIRECT_URL: "${DIRECT_URL:-}"
+    networks:
+      - egress
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000,mode=1770
+
+  operations:
+    profiles:
+      - operations
+    build:
+      context: .
+      target: operations
+    image: "${TI_SHOP_OPERATIONS_IMAGE:-ti-shop:operations-local}"
+    init: true
+    user: "1000:1000"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      DATABASE_URL: "${DATABASE_URL:-}"
+      DB_POOL_MAX: "${DB_POOL_MAX:-10}"
+      DB_POOL_IDLE_TIMEOUT_MS: "${DB_POOL_IDLE_TIMEOUT_MS:-10000}"
+      DB_POOL_CONNECTION_TIMEOUT_MS: "${DB_POOL_CONNECTION_TIMEOUT_MS:-5000}"
+      DB_POOL_MAX_LIFETIME_SECONDS: "${DB_POOL_MAX_LIFETIME_SECONDS:-1800}"
+      # Storage cleanup/scan jobs (storage:process-outbox, storage:scan-orphans)
+      # need the same object storage scope as the app.
+      STORAGE_PROVIDER: "${STORAGE_PROVIDER:-}"
+      STORAGE_BUCKET_PRODUCT_IMAGES: "${STORAGE_BUCKET_PRODUCT_IMAGES:-}"
+      STORAGE_S3_ENDPOINT: "${STORAGE_S3_ENDPOINT:-}"
+      STORAGE_S3_REGION: "${STORAGE_S3_REGION:-}"
+      STORAGE_S3_ACCESS_KEY_ID: "${STORAGE_S3_ACCESS_KEY_ID:-}"
+      STORAGE_S3_SECRET_ACCESS_KEY: "${STORAGE_S3_SECRET_ACCESS_KEY:-}"
+      STORAGE_PUBLIC_BASE_URL: "${STORAGE_PUBLIC_BASE_URL:-}"
+      STORAGE_REQUEST_TIMEOUT_MS: "${STORAGE_REQUEST_TIMEOUT_MS:-15000}"
+    networks:
+      - egress
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000,mode=1770
+
+networks:
+  edge:
+    driver: bridge
+  backend:
+    driver: bridge
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.31.250.0/24
+  egress:
+    driver: bridge

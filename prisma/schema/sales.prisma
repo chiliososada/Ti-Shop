@@ -1,0 +1,162 @@
+model Cart {
+  id                 BigInt                  @id @default(autoincrement())
+  publicId           String                  @unique(map: "carts_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  userId             String?                 @map("user_id") @db.Uuid
+  anonymousTokenHash String?                 @unique(map: "carts_anonymous_token_hash_key") @map("anonymous_token_hash") @db.Char(64)
+  status             CartStatus              @default(ACTIVE)
+  currency           String                  @default("USD") @db.Char(3)
+  expiresAt          DateTime?               @map("expires_at") @db.Timestamptz(3)
+  abandonedAt        DateTime?               @map("abandoned_at") @db.Timestamptz(3)
+  createdAt          DateTime                @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt          DateTime                @updatedAt @map("updated_at") @db.Timestamptz(3)
+  user               User?                   @relation(fields: [userId], references: [id], onDelete: SetNull, map: "carts_user_id_fkey")
+  items              CartItem[]
+  order              Order?
+  whatsappIntents    WhatsAppContactIntent[]
+
+  @@index([userId, status, updatedAt], map: "carts_user_status_updated_at_idx")
+  @@index([status, expiresAt], map: "carts_status_expires_at_idx")
+  @@map("carts")
+  @@schema("app")
+}
+
+model CartItem {
+  id                    BigInt                 @id @default(autoincrement())
+  cartId                BigInt                 @map("cart_id")
+  variantId             BigInt                 @map("variant_id")
+  quantity              Int
+  unitPriceMinor        BigInt?                @map("unit_price_minor")
+  currency              String                 @default("USD") @db.Char(3)
+  customizations        Json?
+  createdAt             DateTime               @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt             DateTime               @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt             DateTime?              @map("deleted_at") @db.Timestamptz(3)
+  cart                  Cart                   @relation(fields: [cartId], references: [id], onDelete: Cascade, map: "cart_items_cart_id_fkey")
+  variant               ProductVariant         @relation(fields: [variantId], references: [id], onDelete: Restrict, map: "cart_items_variant_id_fkey")
+  inventoryReservations InventoryReservation[]
+
+  @@index([cartId, deletedAt], map: "cart_items_cart_deleted_at_idx")
+  @@index([variantId], map: "cart_items_variant_id_idx")
+  @@map("cart_items")
+  @@schema("app")
+}
+
+model Order {
+  id                 BigInt                  @id @default(autoincrement())
+  publicId           String                  @unique(map: "orders_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  orderNumber        String                  @unique(map: "orders_order_number_key") @map("order_number") @db.VarChar(40)
+  cartId             BigInt?                 @unique(map: "orders_cart_id_key") @map("cart_id")
+  userId             String?                 @map("user_id") @db.Uuid
+  customerEmail      String                  @map("customer_email") @db.VarChar(320)
+  customerPhone      String?                 @map("customer_phone") @db.VarChar(32)
+  currency           String                  @default("USD") @db.Char(3)
+  status             OrderStatus             @default(DRAFT)
+  paymentStatus      OrderPaymentStatus      @default(UNPAID) @map("payment_status")
+  fulfillmentStatus  FulfillmentStatus       @default(UNFULFILLED) @map("fulfillment_status")
+  subtotalMinor      BigInt                  @default(0) @map("subtotal_minor")
+  discountMinor      BigInt                  @default(0) @map("discount_minor")
+  shippingMinor      BigInt                  @default(0) @map("shipping_minor")
+  taxMinor           BigInt                  @default(0) @map("tax_minor")
+  totalMinor         BigInt                  @default(0) @map("total_minor")
+  customerNote       String?                 @map("customer_note") @db.Text
+  placedAt           DateTime?               @map("placed_at") @db.Timestamptz(3)
+  confirmedAt        DateTime?               @map("confirmed_at") @db.Timestamptz(3)
+  completedAt        DateTime?               @map("completed_at") @db.Timestamptz(3)
+  canceledAt         DateTime?               @map("canceled_at") @db.Timestamptz(3)
+  cancellationReason String?                 @map("cancellation_reason") @db.Text
+  // Set when a locked partner settlement includes this order's profit;
+  // cleared if that settlement is voided. Guards against double settlement.
+  profitSettledSettlementId BigInt?           @map("profit_settled_settlement_id")
+  createdAt          DateTime                @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt          DateTime                @updatedAt @map("updated_at") @db.Timestamptz(3)
+  cart               Cart?                   @relation(fields: [cartId], references: [id], onDelete: SetNull, map: "orders_cart_id_fkey")
+  customer           User?                   @relation("OrderCustomer", fields: [userId], references: [id], onDelete: SetNull, map: "orders_user_id_fkey")
+  profitSettledIn    PartnerSettlement?      @relation("OrderSettledIn", fields: [profitSettledSettlementId], references: [id], onDelete: SetNull, map: "orders_profit_settled_settlement_id_fkey")
+  items              OrderItem[]
+  addresses          OrderAddress[]
+  payments           Payment[]
+  shipments          Shipment[]
+  inquiries          Inquiry[]
+  whatsappIntents    WhatsAppContactIntent[]
+  internalNotes      InternalNote[]
+  afterSalesEvents   AfterSalesEvent[]       @relation("AfterSalesOrder")
+  afterSalesApplied  AfterSalesItem[]        @relation("AfterSalesItemAppliedOrder")
+  financialAdjustments FinancialAdjustment[] @relation("AdjustmentOrder")
+  conversionEntries  CryptoConversionEntry[] @relation("ConversionEntryOrder")
+
+  @@index([userId, createdAt], map: "orders_user_created_at_idx")
+  @@index([status, createdAt], map: "orders_status_created_at_idx")
+  @@index([paymentStatus, createdAt], map: "orders_payment_status_idx")
+  @@index([fulfillmentStatus, createdAt], map: "orders_fulfillment_status_idx")
+  @@index([createdAt(sort: Desc), id(sort: Desc)], map: "orders_created_at_id_idx")
+  // orders_fulfillment_queue_idx is a partial index maintained in migration
+  // SQL because Prisma cannot describe its operational queue predicate.
+  @@map("orders")
+  @@schema("app")
+}
+
+model OrderItem {
+  id                    BigInt                 @id @default(autoincrement())
+  orderId               BigInt                 @map("order_id")
+  productId             BigInt?                @map("product_id")
+  variantId             BigInt?                @map("variant_id")
+  productName           String                 @map("product_name") @db.VarChar(255)
+  productSlug           String?                @map("product_slug") @db.VarChar(220)
+  variantName           String?                @map("variant_name") @db.VarChar(255)
+  sku                   String?                @db.VarChar(120)
+  optionValues          Json?                  @map("option_values")
+  quantity              Int
+  fulfilledQuantity     Int                    @default(0) @map("fulfilled_quantity")
+  unitPriceMinor        BigInt                 @map("unit_price_minor")
+  discountMinor         BigInt                 @default(0) @map("discount_minor")
+  taxMinor              BigInt                 @default(0) @map("tax_minor")
+  lineTotalMinor        BigInt                 @map("line_total_minor")
+  currency              String                 @default("USD") @db.Char(3)
+  weightGrams           Int?                   @map("weight_grams")
+  // Immutable unit-cost snapshot locked when the paid order consumes
+  // inventory. Historical profit reads these columns, never current costs.
+  unitCostUsdMinor      BigInt?                @map("unit_cost_usd_minor")
+  totalCogsUsdMinor     BigInt?                @map("total_cogs_usd_minor")
+  costMethod            CostMethod?            @map("cost_method")
+  costSnapshotAt        DateTime?              @map("cost_snapshot_at") @db.Timestamptz(3)
+  // Present on zero-priced compensation lines added to a later order; the
+  // goods cost belongs to the referenced after-sales event, not this order.
+  compensationEventId   BigInt?                @map("compensation_event_id")
+  createdAt             DateTime               @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt             DateTime               @updatedAt @map("updated_at") @db.Timestamptz(3)
+  order                 Order                  @relation(fields: [orderId], references: [id], onDelete: Cascade, map: "order_items_order_id_fkey")
+  product               Product?               @relation(fields: [productId], references: [id], onDelete: SetNull, map: "order_items_product_id_fkey")
+  variant               ProductVariant?        @relation(fields: [variantId], references: [id], onDelete: SetNull, map: "order_items_variant_id_fkey")
+  compensationEvent     AfterSalesEvent?       @relation("OrderItemCompensationEvent", fields: [compensationEventId], references: [id], onDelete: SetNull, map: "order_items_compensation_event_id_fkey")
+  inventoryReservations InventoryReservation[]
+  shipmentItems         ShipmentItem[]
+  afterSalesItems       AfterSalesItem[]       @relation("AfterSalesItemOrderItem")
+  financialAdjustments  FinancialAdjustment[]  @relation("AdjustmentOrderItem")
+
+  @@index([orderId], map: "order_items_order_id_idx")
+  @@index([productId], map: "order_items_product_id_idx")
+  @@index([variantId], map: "order_items_variant_id_idx")
+  @@map("order_items")
+  @@schema("app")
+}
+
+model OrderAddress {
+  id            BigInt           @id @default(autoincrement())
+  orderId       BigInt           @map("order_id")
+  kind          OrderAddressKind
+  recipientName String           @map("recipient_name") @db.VarChar(255)
+  company       String?          @db.VarChar(255)
+  line1         String           @db.VarChar(255)
+  line2         String?          @db.VarChar(255)
+  city          String           @db.VarChar(120)
+  region        String           @db.VarChar(120)
+  postalCode    String           @map("postal_code") @db.VarChar(20)
+  countryCode   String           @default("US") @map("country_code") @db.Char(2)
+  phone         String?          @db.VarChar(32)
+  createdAt     DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  order         Order            @relation(fields: [orderId], references: [id], onDelete: Cascade, map: "order_addresses_order_id_fkey")
+
+  @@unique([orderId, kind], map: "order_addresses_order_kind_key")
+  @@map("order_addresses")
+  @@schema("app")
+}

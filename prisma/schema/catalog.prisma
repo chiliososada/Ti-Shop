@@ -1,0 +1,261 @@
+model Category {
+  id              BigInt            @id @default(autoincrement())
+  publicId        String            @unique(map: "categories_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  legacySourceId  String?           @unique(map: "categories_legacy_source_id_key") @map("legacy_source_id") @db.VarChar(220)
+  sourceHash      String?           @map("source_hash") @db.VarChar(64)
+  parentId        BigInt?           @map("parent_id")
+  slug            String            @unique(map: "categories_slug_key") @db.VarChar(180)
+  name            String            @db.VarChar(255)
+  description     String?           @db.Text
+  status          CatalogStatus     @default(DRAFT)
+  position        Int               @default(0)
+  publishedAt     DateTime?         @map("published_at") @db.Timestamptz(3)
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime          @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt       DateTime?         @map("deleted_at") @db.Timestamptz(3)
+  legacyMetadata  Json?             @map("legacy_metadata")
+  parent          Category?         @relation("CategoryTree", fields: [parentId], references: [id], onDelete: SetNull, map: "categories_parent_id_fkey")
+  children        Category[]        @relation("CategoryTree")
+  products        ProductCategory[]
+  seo             SeoMetadata?
+  navigationItems NavigationItem[]
+
+  @@index([parentId], map: "categories_parent_id_idx")
+  @@index([status, publishedAt, deletedAt], map: "categories_publish_idx")
+  @@map("categories")
+  @@schema("app")
+}
+
+model Tag {
+  id        BigInt        @id @default(autoincrement())
+  publicId  String        @unique(map: "tags_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  slug      String        @unique(map: "tags_slug_key") @db.VarChar(180)
+  name      String        @db.VarChar(160)
+  status    CatalogStatus @default(DRAFT)
+  createdAt DateTime      @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime      @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt DateTime?     @map("deleted_at") @db.Timestamptz(3)
+  products  ProductTag[]
+
+  @@index([status, deletedAt], map: "tags_status_deleted_at_idx")
+  @@map("tags")
+  @@schema("app")
+}
+
+model Product {
+  id                  BigInt                   @id @default(autoincrement())
+  publicId            String                   @unique(map: "products_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  legacySourceId      String?                  @unique(map: "products_legacy_source_id_key") @map("legacy_source_id") @db.VarChar(220)
+  sourceHash          String?                  @map("source_hash") @db.VarChar(64)
+  slug                String                   @unique(map: "products_slug_key") @db.VarChar(220)
+  title               String                   @db.VarChar(255)
+  subtitle            String?                  @db.VarChar(255)
+  shortDescription    String?                  @map("short_description") @db.Text
+  description         String?                  @db.Text
+  brand               String?                  @db.VarChar(160)
+  purity              String?                  @db.VarChar(80)
+  casNumber           String?                  @map("cas_number") @db.VarChar(160)
+  appearance          String?                  @db.Text
+  storageInstructions String?                  @map("storage_instructions") @db.Text
+  legacyMetadata      Json?                    @map("legacy_metadata")
+  dataQualityStatus   DataQualityStatus        @default(REVIEW_REQUIRED) @map("data_quality_status")
+  status              CatalogStatus            @default(DRAFT)
+  isFeatured          Boolean                  @default(false) @map("is_featured")
+  position            Int                      @default(0)
+  publishedAt         DateTime?                @map("published_at") @db.Timestamptz(3)
+  createdAt           DateTime                 @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt           DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt           DateTime?                @map("deleted_at") @db.Timestamptz(3)
+  variants            ProductVariant[]
+  categories          ProductCategory[]
+  tags                ProductTag[]
+  media               ProductMedia[]
+  orderItems          OrderItem[]
+  inquiries           Inquiry[]
+  whatsappIntents     WhatsAppContactIntent[]
+  navigationItems     NavigationItem[]
+  placements          MerchandisingPlacement[]
+  seo                 SeoMetadata?
+
+  @@index([status, publishedAt, deletedAt], map: "products_publish_idx")
+  @@index([isFeatured, status, publishedAt], map: "products_featured_idx")
+  @@index([casNumber], map: "products_cas_number_idx")
+  @@index([dataQualityStatus, status], map: "products_quality_status_idx")
+  // products_live_sort_idx is a partial index maintained in migration SQL;
+  // Prisma cannot describe its WHERE deleted_at IS NULL predicate.
+  @@map("products")
+  @@schema("app")
+}
+
+model ProductVariant {
+  id                BigInt           @id @default(autoincrement())
+  publicId          String           @unique(map: "product_variants_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  productId         BigInt           @map("product_id")
+  sku               String?          @unique(map: "product_variants_sku_key") @db.VarChar(120)
+  barcode           String?          @unique(map: "product_variants_barcode_key") @db.VarChar(120)
+  title             String           @db.VarChar(255)
+  priceMode         PriceMode        @default(ON_REQUEST) @map("price_mode")
+  status            CatalogStatus    @default(DRAFT)
+  optionValues      Json?            @map("option_values")
+  weightGrams       Int?             @map("weight_grams")
+  lengthMillimeters Int?             @map("length_millimeters")
+  widthMillimeters  Int?             @map("width_millimeters")
+  heightMillimeters Int?             @map("height_millimeters")
+  requiresShipping  Boolean          @default(true) @map("requires_shipping")
+  trackInventory    Boolean          @default(true) @map("track_inventory")
+  position          Int              @default(0)
+  publishedAt       DateTime?        @map("published_at") @db.Timestamptz(3)
+  createdAt         DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime         @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt         DateTime?        @map("deleted_at") @db.Timestamptz(3)
+  product           Product          @relation(fields: [productId], references: [id], onDelete: Restrict, map: "product_variants_product_id_fkey")
+  prices            Price[]
+  media             ProductMedia[]
+  inventoryLevels   InventoryLevel[]
+  cartItems         CartItem[]
+  orderItems        OrderItem[]
+  procurementItems  ProcurementOrderItem[] @relation("ProcurementOrderItemVariant")
+  costState         InventoryCostState?    @relation("InventoryCostStateVariant")
+  costEntries       InventoryCostEntry[]   @relation("InventoryCostEntryVariant")
+  afterSalesItems   AfterSalesItem[]       @relation("AfterSalesItemVariant")
+
+  @@index([productId, status, position], map: "product_variants_product_status_idx")
+  @@index([status, publishedAt, deletedAt], map: "product_variants_publish_idx")
+  @@map("product_variants")
+  @@schema("app")
+}
+
+model ProductCategory {
+  productId  BigInt   @map("product_id")
+  categoryId BigInt   @map("category_id")
+  position   Int      @default(0)
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade, map: "product_categories_product_id_fkey")
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade, map: "product_categories_category_id_fkey")
+
+  @@id([productId, categoryId], map: "product_categories_pkey")
+  @@index([categoryId, position], map: "product_categories_category_idx")
+  @@map("product_categories")
+  @@schema("app")
+}
+
+model ProductTag {
+  productId BigInt   @map("product_id")
+  tagId     BigInt   @map("tag_id")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade, map: "product_tags_product_id_fkey")
+  tag       Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade, map: "product_tags_tag_id_fkey")
+
+  @@id([productId, tagId], map: "product_tags_pkey")
+  @@index([tagId], map: "product_tags_tag_id_idx")
+  @@map("product_tags")
+  @@schema("app")
+}
+
+model MerchandisingPlacement {
+  id        BigInt   @id @default(autoincrement())
+  publicId  String   @unique(map: "merchandising_placements_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  key       String   @db.VarChar(100)
+  productId BigInt   @map("product_id")
+  position  Int      @default(0)
+  isActive  Boolean  @default(true) @map("is_active")
+  metadata  Json?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade, map: "merchandising_placements_product_id_fkey")
+
+  @@unique([key, productId], map: "merchandising_placements_key_product_key")
+  @@unique([key, position], map: "merchandising_placements_key_position_key")
+  @@index([key, position], map: "merchandising_placements_key_position_idx")
+  @@index([productId], map: "merchandising_placements_product_id_idx")
+  @@map("merchandising_placements")
+  @@schema("app")
+}
+
+model Media {
+  id               BigInt               @id @default(autoincrement())
+  publicId         String               @unique(map: "media_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  kind             MediaKind
+  storageProvider  String               @map("storage_provider") @db.VarChar(80)
+  storageKey       String               @unique(map: "media_storage_key_key") @map("storage_key") @db.Text
+  bucket           String?              @db.VarChar(120)
+  publicUrl        String?              @map("public_url") @db.Text
+  originalFilename String?              @map("original_filename") @db.VarChar(255)
+  title            String?              @db.VarChar(255)
+  altText          String?              @map("alt_text") @db.VarChar(500)
+  mimeType         String?              @map("mime_type") @db.VarChar(160)
+  width            Int?
+  height           Int?
+  sizeBytes        BigInt?              @map("size_bytes")
+  checksum         String?              @db.VarChar(128)
+  // Rendition set produced by the upload pipeline. Shape:
+  // { original|thumb|card|detail: { key, width, height, sizeBytes } }
+  variants         Json?
+  uploadStatus     MediaUploadStatus    @default(READY) @map("upload_status")
+  createdByUserId  String?              @map("created_by_user_id") @db.Uuid
+  isPrivate        Boolean              @default(false) @map("is_private")
+  createdAt        DateTime             @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime             @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt        DateTime?            @map("deleted_at") @db.Timestamptz(3)
+  createdBy        User?                @relation("MediaCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull, map: "media_created_by_user_id_fkey")
+  products         ProductMedia[]
+  paymentProofs    ManualPaymentProof[]
+  seoOpenGraph     SeoMetadata[]        @relation("SeoOpenGraphMedia")
+  blogHeroes       BlogPost[]           @relation("BlogPostHeroMedia")
+  pageHeroes       Page[]               @relation("PageHeroMedia")
+
+  @@index([kind, deletedAt], map: "media_kind_deleted_at_idx")
+  @@index([uploadStatus, updatedAt], map: "media_upload_status_idx")
+  @@index([checksum], map: "media_checksum_idx")
+  @@index([createdByUserId], map: "media_created_by_user_id_idx")
+  @@map("media")
+  @@schema("app")
+}
+
+model ProductMedia {
+  id        BigInt           @id @default(autoincrement())
+  productId BigInt           @map("product_id")
+  variantId BigInt?          @map("variant_id")
+  mediaId   BigInt           @map("media_id")
+  role      ProductMediaRole @default(GALLERY)
+  position  Int              @default(0)
+  createdAt DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  product   Product          @relation(fields: [productId], references: [id], onDelete: Cascade, map: "product_media_product_id_fkey")
+  variant   ProductVariant?  @relation(fields: [variantId], references: [id], onDelete: Cascade, map: "product_media_variant_id_fkey")
+  media     Media            @relation(fields: [mediaId], references: [id], onDelete: Cascade, map: "product_media_media_id_fkey")
+
+  @@index([productId, role, position], map: "product_media_product_role_idx")
+  @@index([variantId, position], map: "product_media_variant_idx")
+  @@index([mediaId], map: "product_media_media_id_idx")
+  // Two partial/nulls-not-distinct uniqueness guards live in migration SQL,
+  // because Prisma cannot describe them:
+  //   product_media_primary_unique  — unique (product_id) where role='primary'
+  //                                   and variant_id is null
+  //   product_media_link_unique     — unique (product_id, media_id, variant_id)
+  //                                   nulls not distinct
+  @@map("product_media")
+  @@schema("app")
+}
+
+model Price {
+  id           BigInt         @id @default(autoincrement())
+  publicId     String         @unique(map: "prices_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  variantId    BigInt         @map("variant_id")
+  currency     String         @default("USD") @db.Char(3)
+  kind         PriceKind      @default(REGULAR)
+  amountMinor  BigInt         @map("amount_minor")
+  countryCode  String?        @map("country_code") @db.Char(2)
+  taxInclusive Boolean        @default(false) @map("tax_inclusive")
+  isActive     Boolean        @default(true) @map("is_active")
+  startsAt     DateTime?      @map("starts_at") @db.Timestamptz(3)
+  endsAt       DateTime?      @map("ends_at") @db.Timestamptz(3)
+  createdAt    DateTime       @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt    DateTime       @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt    DateTime?      @map("deleted_at") @db.Timestamptz(3)
+  variant      ProductVariant @relation(fields: [variantId], references: [id], onDelete: Cascade, map: "prices_variant_id_fkey")
+
+  @@index([variantId, currency, countryCode, isActive], map: "prices_lookup_idx")
+  @@index([isActive, startsAt, endsAt], map: "prices_window_idx")
+  @@map("prices")
+  @@schema("app")
+}

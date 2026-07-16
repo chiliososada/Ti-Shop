@@ -1,0 +1,1420 @@
+[
+  {
+    "id": "bac-water",
+    "name": "Bacteriostatic Water 3ml",
+    "category": "bac-water",
+    "price": 9,
+    "purity": "",
+    "cas": "7732-18-5",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/bac-water-1.jpg",
+    "shortDescription": "Bacteriostatic-water catalog listing for laboratory workflows. Confirm composition and presentation before ordering.",
+    "description": "Bacteriostatic-water catalog listing for laboratory workflows. Confirm the current composition, presentation, documentation and handling instructions before ordering."
+  },
+  {
+    "id": "ace-031",
+    "name": "ACE-031 1mg",
+    "category": "muscle-growth",
+    "price": 69,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/ace-031-1.jpg",
+    "gallery": [
+      "/products/ace-031-2.jpg",
+      "/products/ace-031-3.jpg",
+      "/products/ace-031-4.jpg",
+      "/products/ace-031-5.jpg"
+    ],
+    "shortDescription": "ActRIIB-Fc soluble receptor — myostatin/activin pathway inhibition research.",
+    "description": "ActRIIB-Fc soluble receptor — myostatin/activin pathway inhibition research."
+  },
+  {
+    "id": "bpc157-500mcg",
+    "name": "BPC-157 500mcg",
+    "category": "muscle-growth",
+    "price": 67,
+    "purity": "",
+    "cas": "137525-51-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/bpc157-500mcg-1.jpg",
+    "gallery": [
+      "/products/bpc157-500mcg-2.jpg",
+      "/products/bpc157-500mcg-3.jpg",
+      "/products/bpc157-500mcg-4.jpg",
+      "/products/bpc157-500mcg-5.jpg"
+    ],
+    "shortDescription": "BPC-157 500 mcg catalog presentation for tissue-pathway research.",
+    "description": "BPC-157 500 mcg catalog presentation for laboratory tissue-pathway research."
+  },
+  {
+    "id": "cjc-1295-without-dac",
+    "name": "CJC-1295 without DAC 2mg",
+    "category": "muscle-growth",
+    "price": 56,
+    "purity": "",
+    "cas": "863288-34-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/cjc-1295-without-dac--1.jpg",
+    "gallery": [
+      "/products/cjc-1295-without-dac--2.jpg",
+      "/products/cjc-1295-without-dac--3.jpg",
+      "/products/cjc-1295-without-dac--4.jpg",
+      "/products/cjc-1295-without-dac--5.jpg"
+    ],
+    "shortDescription": "GHRH analogue (modified Mod-GRF 1-29) — paired with GHRPs for pulsatile GH research.",
+    "description": "GHRH analogue (modified Mod-GRF 1-29) — paired with GHRPs for pulsatile GH research."
+  },
+  {
+    "id": "cjc-1295-without-dac-5mg-ipa-5mg",
+    "name": "CJC-1295 5mg + Ipamorelin 5mg Blend",
+    "category": "muscle-growth",
+    "price": 115,
+    "purity": "",
+    "cas": "863288-34-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/cjc-1295-without-dac-5mg-ipa-5mg-1.jpg",
+    "gallery": [
+      "/products/cjc-1295-without-dac-5mg-ipa-5mg-2.jpg",
+      "/products/cjc-1295-without-dac-5mg-ipa-5mg-3.jpg",
+      "/products/cjc-1295-without-dac-5mg-ipa-5mg-4.jpg",
+      "/products/cjc-1295-without-dac-5mg-ipa-5mg-5.jpg"
+    ],
+    "shortDescription": "CJC-1295 + Ipamorelin combination catalog presentation for GHRH/GHRP pathway research.",
+    "description": "CJC-1295 + Ipamorelin combination catalog presentation for laboratory GHRH/GHRP pathway research."
+  },
+  {
+    "id": "frag-17-23",
+    "name": "Fragment 17-23 10mg",
+    "category": "muscle-growth",
+    "price": null,
+    "purity": "",
+    "cas": "77591-33-4",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/frag-17-23-1.jpg",
+    "gallery": [
+      "/products/frag-17-23-2.jpg",
+      "/products/frag-17-23-3.jpg",
+      "/products/frag-17-23-4.jpg",
+      "/products/frag-17-23-5.jpg"
+    ],
+    "shortDescription": "TB-500 fragment (residues 17-23) catalog listing for sequence and tissue-pathway research.",
+    "description": "TB-500 fragment (residues 17-23) catalog listing for laboratory sequence and tissue-pathway research."
+  },
+  {
+    "id": "fst-344",
+    "name": "Follistatin-344 1mg",
+    "category": "muscle-growth",
+    "price": 319,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/fst-344-1.jpg",
+    "gallery": [
+      "/products/fst-344-2.jpg",
+      "/products/fst-344-3.jpg",
+      "/products/fst-344-4.jpg",
+      "/products/fst-344-5.jpg"
+    ],
+    "shortDescription": "Follistatin-344 catalog listing for myostatin-pathway research.",
+    "description": "Follistatin-344 catalog listing for laboratory myostatin-pathway research."
+  },
+  {
+    "id": "ghrp-2",
+    "name": "GHRP-2 5mg",
+    "category": "muscle-growth",
+    "price": 48,
+    "purity": "",
+    "cas": "158861-67-7",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/ghrp-2-1.jpg",
+    "gallery": [
+      "/products/ghrp-2-2.jpg",
+      "/products/ghrp-2-3.jpg",
+      "/products/ghrp-2-4.jpg",
+      "/products/ghrp-2-5.jpg"
+    ],
+    "shortDescription": "Growth-hormone-releasing peptide catalog listing for ghrelin-receptor research.",
+    "description": "Growth-hormone-releasing peptide catalog listing for laboratory ghrelin-receptor research."
+  },
+  {
+    "id": "ghrp-6",
+    "name": "GHRP-6 5mg",
+    "category": "muscle-growth",
+    "price": 32,
+    "purity": "",
+    "cas": "87616-84-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/ghrp-6-1.jpg",
+    "gallery": [
+      "/products/ghrp-6-2.jpg",
+      "/products/ghrp-6-3.jpg",
+      "/products/ghrp-6-4.jpg",
+      "/products/ghrp-6-5.jpg"
+    ],
+    "shortDescription": "GH-releasing peptide catalog listing for ghrelin-receptor and endocrine research.",
+    "description": "GH-releasing peptide catalog listing for laboratory ghrelin-receptor and endocrine research."
+  },
+  {
+    "id": "hexarelin-acetate",
+    "name": "Hexarelin Acetate 2mg",
+    "category": "muscle-growth",
+    "price": 46,
+    "purity": "",
+    "cas": "140703-51-1",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/hexarelin-acetate-1.jpg",
+    "gallery": [
+      "/products/hexarelin-acetate-2.jpg",
+      "/products/hexarelin-acetate-3.jpg",
+      "/products/hexarelin-acetate-4.jpg",
+      "/products/hexarelin-acetate-5.jpg"
+    ],
+    "shortDescription": "Synthetic GHRP hexapeptide catalog listing for endocrine research.",
+    "description": "Synthetic GHRP hexapeptide catalog listing for laboratory endocrine research."
+  },
+  {
+    "id": "hgh",
+    "name": "HGH 10iu",
+    "category": "muscle-growth",
+    "price": 63,
+    "purity": "",
+    "cas": "12629-01-5",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/hgh-2.jpg",
+    "gallery": [
+      "/products/hgh-1.png",
+      "/products/hgh-2.jpg",
+      "/products/hgh-3.jpg",
+      "/products/hgh-4.jpg",
+      "/products/hgh-5.jpg",
+      "/products/hgh-fragment-176-191-1.jpg",
+      "/products/hgh-fragment-176-191-2.webp",
+      "/products/hgh-fragment-176-191-3.webp",
+      "/products/hgh-fragment-176-191-4.webp",
+      "/products/hgh-fragment-176-191-5.jpg"
+    ],
+    "shortDescription": "191-aa somatropin catalog listing for growth-hormone research.",
+    "description": "191-aa somatropin catalog listing for laboratory growth-hormone research. Confirm presentation and product details before ordering."
+  },
+  {
+    "id": "igf-1-lr3-100mcg",
+    "name": "IGF-1 LR3 100mcg",
+    "category": "muscle-growth",
+    "price": 46,
+    "purity": "",
+    "cas": "946870-92-4",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/igf-1-lr3-100mcg-1.jpg",
+    "gallery": [
+      "/products/igf-1-lr3-100mcg-2.jpg",
+      "/products/igf-1-lr3-100mcg-3.jpg",
+      "/products/igf-1-lr3-100mcg-4.jpg",
+      "/products/igf-1-lr3-100mcg-5.jpg"
+    ],
+    "shortDescription": "IGF-1 Long R3 100 mcg catalog presentation for IGF-related signaling research.",
+    "description": "IGF-1 Long R3 100 mcg catalog presentation for laboratory IGF-related signaling research."
+  },
+  {
+    "id": "igf-1-lr3-1mg",
+    "name": "IGF-1 LR3 1mg",
+    "category": "muscle-growth",
+    "price": 253,
+    "purity": "",
+    "cas": "946870-92-4",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/igf-1-lr3-1mg-1.jpg",
+    "gallery": [
+      "/products/igf-1-lr3-1mg-2.jpg",
+      "/products/igf-1-lr3-1mg-3.jpg",
+      "/products/igf-1-lr3-1mg-4.jpg",
+      "/products/igf-1-lr3-1mg-5.jpg"
+    ],
+    "shortDescription": "IGF-1 LR3 1 mg catalog presentation for IGF-related signaling research.",
+    "description": "IGF-1 LR3 1 mg catalog presentation for laboratory IGF-related signaling and tissue-pathway research."
+  },
+  {
+    "id": "ipamorelin",
+    "name": "Ipamorelin 2mg",
+    "category": "muscle-growth",
+    "price": 35,
+    "purity": "",
+    "cas": "170851-70-4",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/ipamorelin-1.jpg",
+    "gallery": [
+      "/products/ipamorelin-2.jpg",
+      "/products/ipamorelin-3.jpg",
+      "/products/ipamorelin-4.jpg",
+      "/products/ipamorelin-5.jpg"
+    ],
+    "shortDescription": "GHRP catalog listing for ghrelin-receptor and growth-axis research.",
+    "description": "GHRP catalog listing for laboratory ghrelin-receptor and growth-axis research.",
+    "featured": true
+  },
+  {
+    "id": "klow-bpc-10mg-ghk-cu50mg-tb500-10mg-kpv-10mg",
+    "name": "KLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg + KPV 10mg) 80mg",
+    "category": "muscle-growth",
+    "price": 265,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/klow-bpc-10mg-ghk-cu50mg-tb500-10mg-kpv-10mg--1.jpg",
+    "gallery": [
+      "/products/klow-bpc-10mg-ghk-cu50mg-tb500-10mg-kpv-10mg--2.jpg",
+      "/products/klow-bpc-10mg-ghk-cu50mg-tb500-10mg-kpv-10mg--3.jpg",
+      "/products/klow-bpc-10mg-ghk-cu50mg-tb500-10mg-kpv-10mg--4.jpg",
+      "/products/klow-bpc-10mg-ghk-cu50mg-tb500-10mg-kpv-10mg--5.jpg"
+    ],
+    "shortDescription": "Four-component BPC + GHK-Cu + TB-500 + KPV research-blend catalog listing.",
+    "description": "Four-component BPC + GHK-Cu + TB-500 + KPV catalog presentation for laboratory multi-pathway research."
+  },
+  {
+    "id": "mgf",
+    "name": "MGF 2mg",
+    "category": "muscle-growth",
+    "price": null,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/mgf-1.jpg",
+    "gallery": [
+      "/products/mgf-2.jpg",
+      "/products/mgf-3.jpg",
+      "/products/mgf-4.jpg",
+      "/products/mgf-5.jpg"
+    ],
+    "shortDescription": "Mechano Growth Factor (IGF-1 Ec) — muscle-damage-induced splice variant of IGF-1.",
+    "description": "Mechano Growth Factor (IGF-1 Ec) — muscle-damage-induced splice variant of IGF-1."
+  },
+  {
+    "id": "peg-mgf",
+    "name": "PEG-MGF 2mg",
+    "category": "muscle-growth",
+    "price": 95,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/peg-mgf-1.jpg",
+    "gallery": [
+      "/products/peg-mgf-2.jpg",
+      "/products/peg-mgf-3.jpg",
+      "/products/peg-mgf-4.jpg",
+      "/products/peg-mgf-5.jpg"
+    ],
+    "shortDescription": "PEGylated MGF — extended-half-life MGF variant for sustained research protocols.",
+    "description": "PEGylated MGF — extended-half-life MGF variant for sustained research protocols."
+  },
+  {
+    "id": "tb500",
+    "name": "TB-500 2mg",
+    "category": "muscle-growth",
+    "price": 52,
+    "purity": "",
+    "cas": "77591-33-4",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/tb500-1.jpg",
+    "gallery": [
+      "/products/tb500-2.jpg",
+      "/products/tb500-3.jpg",
+      "/products/tb500-4.jpg",
+      "/products/tb500-5.jpg"
+    ],
+    "shortDescription": "Thymosin Beta-4 fragment catalog listing for actin and tissue-pathway research.",
+    "description": "Thymosin Beta-4 fragment catalog listing for laboratory actin and tissue-pathway research.",
+    "featured": true
+  },
+  {
+    "id": "bpc-5mg-tb5mg",
+    "name": "BPC-157 5mg + TB-500 5mg Blend",
+    "category": "antibacterial",
+    "price": 104,
+    "purity": "",
+    "cas": "137525-51-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/bpc-5mg-tb5mg-1.jpg",
+    "gallery": [
+      "/products/bpc-5mg-tb5mg-2.jpg",
+      "/products/bpc-5mg-tb5mg-3.jpg",
+      "/products/bpc-5mg-tb5mg-4.jpg",
+      "/products/bpc-5mg-tb5mg-5.jpg"
+    ],
+    "shortDescription": "Pre-blended BPC-157 + TB-500 catalog presentation at a listed 1:1 ratio.",
+    "description": "Pre-blended BPC-157 + TB-500 catalog presentation for laboratory multi-pathway research at a listed 1:1 ratio."
+  },
+  {
+    "id": "dermorphin",
+    "name": "Dermorphin 10mg",
+    "category": "antibacterial",
+    "price": null,
+    "purity": "",
+    "cas": "77614-16-5",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/dermorphin-1.jpg",
+    "gallery": [
+      "/products/dermorphin-2.jpg",
+      "/products/dermorphin-3.jpg",
+      "/products/dermorphin-4.jpg",
+      "/products/dermorphin-5.jpg"
+    ],
+    "shortDescription": "Opioid heptapeptide from Phyllomedusa sauvagei — μ-opioid research compound.",
+    "description": "Opioid heptapeptide from Phyllomedusa sauvagei — μ-opioid research compound."
+  },
+  {
+    "id": "kpv",
+    "name": "KPV 5mg",
+    "category": "antibacterial",
+    "price": 47,
+    "purity": "",
+    "cas": "22429-58-9",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/kpv-1.jpg",
+    "gallery": [
+      "/products/kpv-2.jpg",
+      "/products/kpv-3.jpg",
+      "/products/kpv-4.jpg",
+      "/products/kpv-5.jpg"
+    ],
+    "shortDescription": "α-MSH C-terminal tripeptide catalog listing for immune and inflammation-pathway research.",
+    "description": "α-MSH C-terminal tripeptide catalog listing for laboratory immune, antimicrobial and inflammation-pathway research."
+  },
+  {
+    "id": "ll37",
+    "name": "LL-37 5mg",
+    "category": "antibacterial",
+    "price": 109,
+    "purity": "",
+    "cas": "154947-66-7",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/ll37-1.jpg",
+    "gallery": [
+      "/products/ll37-2.jpg",
+      "/products/ll37-3.jpg",
+      "/products/ll37-4.jpg",
+      "/products/ll37-5.jpg"
+    ],
+    "shortDescription": "Cathelicidin LL-37 catalog listing for antimicrobial and immune-pathway research.",
+    "description": "Cathelicidin LL-37 catalog listing for laboratory antimicrobial and immune-pathway research."
+  },
+  {
+    "id": "slu-pp-322",
+    "name": "SLU-PP-322 5mg",
+    "category": "antibacterial",
+    "price": 148,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/slu-pp-322-1.jpg",
+    "gallery": [
+      "/products/slu-pp-322-2.jpg",
+      "/products/slu-pp-322-3.jpg",
+      "/products/slu-pp-322-4.jpg",
+      "/products/slu-pp-322-5.jpg"
+    ],
+    "shortDescription": "SLU-PP-332 ERR agonist 50 mg — exercise-mimetic and metabolic research.",
+    "description": "SLU-PP-332 ERR agonist 50 mg — exercise-mimetic and metabolic research."
+  },
+  {
+    "id": "adamax",
+    "name": "Adamax 5mg",
+    "category": "growth-energy",
+    "price": null,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/adamax-1.jpg",
+    "gallery": [
+      "/products/adamax-2.jpg",
+      "/products/adamax-3.jpg",
+      "/products/adamax-4.jpg",
+      "/products/adamax-5.jpg"
+    ],
+    "shortDescription": "Proprietary growth-axis blend — multi-component GH-secretagogue research compound.",
+    "description": "Proprietary growth-axis blend — multi-component GH-secretagogue research compound."
+  },
+  {
+    "id": "cagrilintide",
+    "name": "Cagrilintide 5mg",
+    "category": "growth-energy",
+    "price": 127,
+    "purity": "",
+    "cas": "1415456-99-3",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/cagrilintide-1.jpg",
+    "gallery": [
+      "/products/cagrilintide-2.jpg",
+      "/products/cagrilintide-3.jpg",
+      "/products/cagrilintide-4.jpg",
+      "/products/cagrilintide-5.jpg"
+    ],
+    "shortDescription": "Amylin-analogue catalog listing for receptor and metabolic-pathway research.",
+    "description": "Amylin-analogue catalog listing for laboratory receptor and metabolic-pathway research."
+  },
+  {
+    "id": "cagrisema-2-5mg-2-5mg",
+    "name": "CagriSema 2.5mg + 2.5mg Blend",
+    "category": "growth-energy",
+    "price": 108,
+    "purity": "",
+    "cas": "910463-68-2",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/cagrisema-2-5mg-2-5mg--1.jpg",
+    "gallery": [
+      "/products/cagrisema-2-5mg-2-5mg--2.jpg",
+      "/products/cagrisema-2-5mg-2-5mg--3.jpg",
+      "/products/cagrisema-2-5mg-2-5mg--4.jpg",
+      "/products/cagrisema-2-5mg-2-5mg--5.jpg"
+    ],
+    "shortDescription": "Cagrilintide + Semaglutide combination catalog presentation at a listed 1:1 ratio.",
+    "description": "Cagrilintide + Semaglutide combination catalog presentation for laboratory dual-pathway research at a listed 1:1 ratio."
+  },
+  {
+    "id": "cjc1295-with-dac",
+    "name": "CJC-1295 with DAC 2mg",
+    "category": "growth-energy",
+    "price": 95,
+    "purity": "",
+    "cas": "863288-34-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/cjc1295-with-dac-1.jpg",
+    "gallery": [
+      "/products/cjc1295-with-dac-2.jpg",
+      "/products/cjc1295-with-dac-3.jpg",
+      "/products/cjc1295-with-dac-4.jpg",
+      "/products/cjc1295-with-dac-5.jpg"
+    ],
+    "shortDescription": "CJC-1295 with Drug Affinity Complex — extended half-life GHRH analogue.",
+    "description": "CJC-1295 with Drug Affinity Complex — extended half-life GHRH analogue."
+  },
+  {
+    "id": "dsip",
+    "name": "DSIP 2mg",
+    "category": "growth-energy",
+    "price": 37,
+    "purity": "",
+    "cas": "62568-57-4",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/dsip-1.jpg",
+    "gallery": [
+      "/products/dsip-2.jpg",
+      "/products/dsip-3.jpg",
+      "/products/dsip-4.jpg",
+      "/products/dsip-5.jpg"
+    ],
+    "shortDescription": "Delta Sleep Inducing Peptide catalog listing for circadian and neural-pathway research.",
+    "description": "Delta Sleep Inducing Peptide catalog listing for laboratory circadian and neural-pathway research."
+  },
+  {
+    "id": "epo",
+    "name": "EPO 3000iu",
+    "category": "growth-energy",
+    "price": null,
+    "purity": "",
+    "cas": "11096-26-7",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/epo-1.jpg",
+    "gallery": [
+      "/products/epo-2.jpg",
+      "/products/epo-3.jpg",
+      "/products/epo-4.jpg",
+      "/products/epo-5.jpg"
+    ],
+    "shortDescription": "Recombinant Erythropoietin — erythropoiesis and hypoxia-response research.",
+    "description": "Recombinant Erythropoietin — erythropoiesis and hypoxia-response research."
+  },
+  {
+    "id": "glutathione",
+    "name": "Glutathione 600mg",
+    "category": "growth-energy",
+    "price": 52,
+    "purity": "",
+    "cas": "70-18-8",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/glutathione-1.jpg",
+    "gallery": [
+      "/products/glutathione-2.jpg",
+      "/products/glutathione-3.jpg",
+      "/products/glutathione-4.jpg",
+      "/products/glutathione-5.jpg"
+    ],
+    "shortDescription": "Reduced L-glutathione tripeptide catalog listing for redox-pathway research.",
+    "description": "Reduced L-glutathione tripeptide catalog listing for laboratory redox-pathway research."
+  },
+  {
+    "id": "gonadorelin-acetate",
+    "name": "Gonadorelin Acetate 2mg",
+    "category": "growth-energy",
+    "price": 36,
+    "purity": "",
+    "cas": "33515-09-2",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/gonadorelin-acetate-1.jpg",
+    "gallery": [
+      "/products/gonadorelin-acetate-2.jpg",
+      "/products/gonadorelin-acetate-3.jpg",
+      "/products/gonadorelin-acetate-4.jpg",
+      "/products/gonadorelin-acetate-5.jpg"
+    ],
+    "shortDescription": "Decapeptide GnRH — stimulates LH/FSH release for reproductive research.",
+    "description": "Decapeptide GnRH — stimulates LH/FSH release for reproductive research."
+  },
+  {
+    "id": "hcg",
+    "name": "HCG 1000iu",
+    "category": "growth-energy",
+    "price": 92,
+    "purity": "",
+    "cas": "9002-61-3",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/hcg-1.jpg",
+    "gallery": [
+      "/products/hcg-2.jpg",
+      "/products/hcg-3.jpg",
+      "/products/hcg-4.jpg",
+      "/products/hcg-5.jpg"
+    ],
+    "shortDescription": "Human Chorionic Gonadotropin — reproductive endocrinology and LH-surrogate research.",
+    "description": "Human Chorionic Gonadotropin — reproductive endocrinology and LH-surrogate research."
+  },
+  {
+    "id": "hmg",
+    "name": "HMG 75iu",
+    "category": "growth-energy",
+    "price": 81,
+    "purity": "",
+    "cas": "9002-68-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/hmg-1.jpg",
+    "gallery": [
+      "/products/hmg-2.jpg",
+      "/products/hmg-3.jpg",
+      "/products/hmg-4.jpg",
+      "/products/hmg-5.jpg"
+    ],
+    "shortDescription": "Human Menopausal Gonadotropin (FSH + LH) — gonadotropin research compound.",
+    "description": "Human Menopausal Gonadotropin (FSH + LH) — gonadotropin research compound."
+  },
+  {
+    "id": "kisspetin-10",
+    "name": "Kisspeptin-10 5mg",
+    "category": "growth-energy",
+    "price": 63,
+    "purity": "",
+    "cas": "374675-21-5",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/kisspetin-10-1.jpg",
+    "gallery": [
+      "/products/kisspetin-10-2.jpg",
+      "/products/kisspetin-10-3.jpg",
+      "/products/kisspetin-10-4.jpg",
+      "/products/kisspetin-10-5.jpg"
+    ],
+    "shortDescription": "Kisspeptin-10 — hypothalamic peptide and GnRH-axis regulator.",
+    "description": "Kisspeptin-10 — hypothalamic peptide and GnRH-axis regulator."
+  },
+  {
+    "id": "nad",
+    "name": "NAD+ 100mg",
+    "category": "growth-energy",
+    "price": 49,
+    "purity": "",
+    "cas": "53-84-9",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/nad--1.jpg",
+    "gallery": [
+      "/products/nad--2.jpg",
+      "/products/nad--3.jpg",
+      "/products/nad--4.jpg",
+      "/products/nad--5.jpg"
+    ],
+    "shortDescription": "Nicotinamide adenine dinucleotide catalog listing for mitochondrial and sirtuin-pathway research.",
+    "description": "Nicotinamide adenine dinucleotide catalog listing for laboratory mitochondrial and sirtuin-pathway research."
+  },
+  {
+    "id": "pe-22-28",
+    "name": "PE-22-28 5mg",
+    "category": "growth-energy",
+    "price": null,
+    "purity": "",
+    "cas": "2409019-74-9",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/pe-22-28-1.jpg",
+    "gallery": [
+      "/products/pe-22-28-2.jpg",
+      "/products/pe-22-28-3.jpg",
+      "/products/pe-22-28-4.jpg",
+      "/products/pe-22-28-5.jpg"
+    ],
+    "shortDescription": "Spadin-derived peptide catalog listing for TREK-1 channel research.",
+    "description": "Spadin-derived peptide catalog listing for laboratory TREK-1 channel and neural-pathway research."
+  },
+  {
+    "id": "retatrutide-20mg-trizepatide-40mg",
+    "name": "Retatrutide 20mg + Tirzepatide 40mg Blend",
+    "category": "growth-energy",
+    "price": null,
+    "purity": "",
+    "cas": "2381089-83-2",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/retatrutide-20mg-trizepatide-40mg-1.jpg",
+    "gallery": [
+      "/products/retatrutide-20mg-trizepatide-40mg-2.jpg",
+      "/products/retatrutide-20mg-trizepatide-40mg-3.jpg",
+      "/products/retatrutide-20mg-trizepatide-40mg-4.jpg",
+      "/products/retatrutide-20mg-trizepatide-40mg-5.jpg"
+    ],
+    "shortDescription": "Retatrutide + Tirzepatide combination vial for comparative incretin research.",
+    "description": "Retatrutide + Tirzepatide combination vial for comparative incretin research."
+  },
+  {
+    "id": "selank",
+    "name": "Selank 5mg",
+    "category": "growth-energy",
+    "price": 46,
+    "purity": "",
+    "cas": "129954-34-3",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/selank-1.jpg",
+    "gallery": [
+      "/products/selank-1-2.jpg",
+      "/products/selank-1-3.jpg",
+      "/products/selank-1-4.jpg",
+      "/products/selank-1-5.jpg",
+      "/products/selank-1.jpg",
+      "/products/selank-2.jpg",
+      "/products/selank-3.jpg",
+      "/products/selank-4.jpg",
+      "/products/selank-5.jpg"
+    ],
+    "shortDescription": "Tuftsin-related heptapeptide catalog listing for neural-pathway research.",
+    "description": "Tuftsin-related heptapeptide catalog listing for laboratory neural-pathway research."
+  },
+  {
+    "id": "selank-1",
+    "name": "Selank 5mg",
+    "category": "growth-energy",
+    "price": 75,
+    "purity": "",
+    "cas": "129954-34-3",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/selank-1.jpg",
+    "gallery": [
+      "/products/selank-1-2.jpg",
+      "/products/selank-1-3.jpg",
+      "/products/selank-1-4.jpg",
+      "/products/selank-1-5.jpg"
+    ],
+    "shortDescription": "Selank 5 mg catalog presentation for laboratory research.",
+    "description": "Selank 5 mg catalog presentation for laboratory neural-pathway research."
+  },
+  {
+    "id": "semax",
+    "name": "Semax 5mg",
+    "category": "growth-energy",
+    "price": 46,
+    "purity": "",
+    "cas": "80714-61-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/semax-1.jpg",
+    "gallery": [
+      "/products/semax-2.jpg",
+      "/products/semax-3.jpg",
+      "/products/semax-4.jpg",
+      "/products/semax-5.jpg"
+    ],
+    "shortDescription": "ACTH 4-7 analogue catalog listing for neural and BDNF-pathway research.",
+    "description": "ACTH 4-7 analogue catalog listing for laboratory neural and BDNF-pathway research."
+  },
+  {
+    "id": "sermorelin-acetate",
+    "name": "Sermorelin Acetate 2mg",
+    "category": "growth-energy",
+    "price": 58,
+    "purity": "",
+    "cas": "86168-78-7",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/sermorelin-acetate-1.jpg",
+    "gallery": [
+      "/products/sermorelin-acetate-2.jpg",
+      "/products/sermorelin-acetate-3.jpg",
+      "/products/sermorelin-acetate-4.jpg",
+      "/products/sermorelin-acetate-5.jpg"
+    ],
+    "shortDescription": "GHRH 1-29 analogue — natural GH-axis research peptide.",
+    "description": "GHRH 1-29 analogue — natural GH-axis research peptide."
+  },
+  {
+    "id": "tesamorelin",
+    "name": "Tesamorelin 2mg",
+    "category": "growth-energy",
+    "price": 76,
+    "purity": "",
+    "cas": "218949-48-5",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/tesamorelin-1.jpg",
+    "gallery": [
+      "/products/tesamorelin-2.jpg",
+      "/products/tesamorelin-3.jpg",
+      "/products/tesamorelin-4.jpg",
+      "/products/tesamorelin-5.jpg"
+    ],
+    "shortDescription": "Stabilised GHRH analogue — visceral fat and IGF-1 axis research.",
+    "description": "Stabilised GHRH analogue — visceral fat and IGF-1 axis research."
+  },
+  {
+    "id": "thymalin",
+    "name": "Thymalin 10mg",
+    "category": "growth-energy",
+    "price": null,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/thymalin-1.jpg",
+    "gallery": [
+      "/products/thymalin-2.jpg",
+      "/products/thymalin-3.jpg",
+      "/products/thymalin-4.jpg",
+      "/products/thymalin-5.jpg"
+    ],
+    "shortDescription": "Thymic extract peptide-blend catalog listing for immune-pathway and gerontology research.",
+    "description": "Thymic extract peptide-blend catalog listing for laboratory immune-pathway and gerontology research."
+  },
+  {
+    "id": "thymosin-alpha-1",
+    "name": "Thymosin α-1 5mg",
+    "category": "growth-energy",
+    "price": 104,
+    "purity": "",
+    "cas": "62304-98-7",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/thymosin-alpha-1-1.jpg",
+    "gallery": [
+      "/products/thymosin-alpha-1-2.jpg",
+      "/products/thymosin-alpha-1-3.jpg",
+      "/products/thymosin-alpha-1-4.jpg",
+      "/products/thymosin-alpha-1-5.jpg"
+    ],
+    "shortDescription": "Thymosin α-1 28-aa peptide catalog listing for immune-signaling research.",
+    "description": "Thymosin α-1 28-aa peptide catalog listing for laboratory immune-signaling research."
+  },
+  {
+    "id": "vip",
+    "name": "VIP 5mg",
+    "category": "growth-energy",
+    "price": 99,
+    "purity": "",
+    "cas": "40077-57-4",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/vip-1.jpg",
+    "gallery": [
+      "/products/vip-2.jpg",
+      "/products/vip-3.jpg",
+      "/products/vip-4.jpg",
+      "/products/vip-5.jpg"
+    ],
+    "shortDescription": "Vasoactive intestinal peptide catalog listing for circadian and immune-pathway research.",
+    "description": "Vasoactive intestinal peptide catalog listing for laboratory circadian and immune-pathway research."
+  },
+  {
+    "id": "5-amino-1mq",
+    "name": "5-Amino-1MQ 5mg",
+    "category": "metabolic",
+    "price": 49,
+    "purity": "",
+    "cas": "1341200-45-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/5-amino-1mq-1.jpg",
+    "gallery": [
+      "/products/5-amino-1mq-2.webp",
+      "/products/5-amino-1mq-3.webp",
+      "/products/5-amino-1mq-4.webp",
+      "/products/5-amino-1mq-5.jpg",
+      "/products/5-amino-1mq-50mcg-1.jpg",
+      "/products/5-amino-1mq-50mcg-2.webp",
+      "/products/5-amino-1mq-50mcg-3.webp",
+      "/products/5-amino-1mq-50mcg-4.webp",
+      "/products/5-amino-1mq-50mcg-5.jpg"
+    ],
+    "shortDescription": "NNMT inhibitor — metabolic efficiency and methyl-donor pathway research.",
+    "description": "NNMT inhibitor — metabolic efficiency and methyl-donor pathway research."
+  },
+  {
+    "id": "5-amino-1mq-50mcg",
+    "name": "5-Amino-1MQ 50mcg",
+    "category": "metabolic",
+    "price": null,
+    "purity": "",
+    "cas": "1341200-45-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/5-amino-1mq-50mcg-1.jpg",
+    "gallery": [
+      "/products/5-amino-1mq-50mcg-2.webp",
+      "/products/5-amino-1mq-50mcg-3.webp",
+      "/products/5-amino-1mq-50mcg-4.webp",
+      "/products/5-amino-1mq-50mcg-5.jpg"
+    ],
+    "shortDescription": "5-Amino-1MQ at 50 mcg for titration studies of NNMT inhibition.",
+    "description": "5-Amino-1MQ at 50 mcg for titration studies of NNMT inhibition."
+  },
+  {
+    "id": "adipotidefttp",
+    "name": "Adipotide FTPP 2mg",
+    "category": "metabolic",
+    "price": 98,
+    "purity": "",
+    "cas": "901140-55-6",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/adipotidefttp-1.jpg",
+    "gallery": [
+      "/products/adipotidefttp-2.webp",
+      "/products/adipotidefttp-3.webp",
+      "/products/adipotidefttp-4.webp",
+      "/products/adipotidefttp-5.jpg"
+    ],
+    "shortDescription": "Alternative Adipotide FTPP preparation for comparative adipose-vasculature research.",
+    "description": "Alternative Adipotide FTPP preparation for comparative adipose-vasculature research."
+  },
+  {
+    "id": "aicar",
+    "name": "AICAR 50mg",
+    "category": "metabolic",
+    "price": 104,
+    "purity": "",
+    "cas": "2627-69-2",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/aicar-1.jpg",
+    "gallery": [
+      "/products/aicar-2.webp",
+      "/products/aicar-3.webp",
+      "/products/aicar-4.webp",
+      "/products/aicar-5.jpg"
+    ],
+    "shortDescription": "5-Aminoimidazole-4-carboxamide riboside — AMPK activator for metabolic research.",
+    "description": "5-Aminoimidazole-4-carboxamide riboside — AMPK activator for metabolic research."
+  },
+  {
+    "id": "aod9604",
+    "name": "AOD9604 2mg",
+    "category": "metabolic",
+    "price": 61,
+    "purity": "",
+    "cas": "221231-10-3",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/aod9604-1.jpg",
+    "gallery": [
+      "/products/aod9604-2.webp",
+      "/products/aod9604-3.webp",
+      "/products/aod9604-4.webp",
+      "/products/aod9604-5.jpg"
+    ],
+    "shortDescription": "Modified hGH 177-191 fragment catalog listing for metabolic-pathway research.",
+    "description": "Modified hGH 177-191 fragment catalog listing for laboratory metabolic-pathway research."
+  },
+  {
+    "id": "dulaglutide",
+    "name": "Dulaglutide 5mg",
+    "category": "metabolic",
+    "price": 190,
+    "purity": "",
+    "cas": "923950-08-7",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/dulaglutide-1.jpg",
+    "gallery": [
+      "/products/dulaglutide-2.webp",
+      "/products/dulaglutide-3.webp",
+      "/products/dulaglutide-4.webp",
+      "/products/dulaglutide-5.jpg"
+    ],
+    "shortDescription": "GLP-1 Fc-fusion peptide catalog listing for receptor-pathway research.",
+    "description": "GLP-1 Fc-fusion peptide catalog listing for laboratory receptor-pathway research."
+  },
+  {
+    "id": "ftpp-adipotide",
+    "name": "FTPP (Adipotide) 5mg",
+    "category": "metabolic",
+    "price": 98,
+    "purity": "",
+    "cas": "901140-55-6",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/ftpp-adipotide-1.jpg",
+    "gallery": [
+      "/products/ftpp-adipotide-2.webp",
+      "/products/ftpp-adipotide-3.webp",
+      "/products/ftpp-adipotide-4.webp",
+      "/products/ftpp-adipotide-5.jpg"
+    ],
+    "shortDescription": "FTPP (Adipotide) — pro-apoptotic CKGGRAKDC-KLAKLAK peptide targeting adipose vasculature.",
+    "description": "FTPP (Adipotide) — pro-apoptotic CKGGRAKDC-KLAKLAK peptide targeting adipose vasculature."
+  },
+  {
+    "id": "hgh-fragment-176-191",
+    "name": "HGH Fragment 176-191 1mg",
+    "category": "metabolic",
+    "price": 46,
+    "purity": "",
+    "cas": "221231-10-3",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/hgh-fragment-176-191-1.jpg",
+    "gallery": [
+      "/products/hgh-fragment-176-191-2.webp",
+      "/products/hgh-fragment-176-191-3.webp",
+      "/products/hgh-fragment-176-191-4.webp",
+      "/products/hgh-fragment-176-191-5.jpg"
+    ],
+    "shortDescription": "HGH 176-191 — lipolytic fragment of hGH without growth-axis signalling.",
+    "description": "HGH 176-191 — lipolytic fragment of hGH without growth-axis signalling."
+  },
+  {
+    "id": "l-carnitine",
+    "name": "L-Carnitine 5000mg",
+    "category": "metabolic",
+    "price": 78,
+    "purity": "",
+    "cas": "541-15-1",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/l-carnitine-1.jpg",
+    "gallery": [
+      "/products/l-carnitine-2.webp",
+      "/products/l-carnitine-3.webp",
+      "/products/l-carnitine-4.webp",
+      "/products/l-carnitine-5.jpg"
+    ],
+    "shortDescription": "L-Carnitine — fatty-acid transport into mitochondria for β-oxidation research.",
+    "description": "L-Carnitine — fatty-acid transport into mitochondria for β-oxidation research."
+  },
+  {
+    "id": "lipo-c",
+    "name": "Lipo-C 10ml",
+    "category": "metabolic",
+    "price": 90,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/lipo-c-1.jpg",
+    "gallery": [
+      "/products/lipo-c-2.webp",
+      "/products/lipo-c-3.webp",
+      "/products/lipo-c-4.webp",
+      "/products/lipo-c-5.jpg"
+    ],
+    "shortDescription": "Lipo-C methionine-inositol-choline catalog solution for pathway research.",
+    "description": "Lipo-C methionine-inositol-choline catalog solution for laboratory metabolic-pathway research."
+  },
+  {
+    "id": "liraglutide",
+    "name": "Liraglutide 5mg",
+    "category": "metabolic",
+    "price": 109,
+    "purity": "",
+    "cas": "204656-20-2",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/liraglutide-1.jpg",
+    "gallery": [
+      "/products/liraglutide-2.webp",
+      "/products/liraglutide-3.webp",
+      "/products/liraglutide-4.webp",
+      "/products/liraglutide-5.jpg"
+    ],
+    "shortDescription": "Acylated GLP-1 receptor-agonist catalog listing for incretin research.",
+    "description": "Acylated GLP-1 receptor-agonist catalog listing for laboratory incretin-receptor research."
+  },
+  {
+    "id": "mic-lipo-c-with-b12",
+    "name": "MIC Lipo-C with B12 10ml",
+    "category": "metabolic",
+    "price": 136,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/mic-lipo-c-with-b12--1.jpg",
+    "gallery": [
+      "/products/mic-lipo-c-with-b12--2.webp",
+      "/products/mic-lipo-c-with-b12--3.webp",
+      "/products/mic-lipo-c-with-b12--4.webp",
+      "/products/mic-lipo-c-with-b12--5.jpg"
+    ],
+    "shortDescription": "MIC Lipo-C with cyanocobalamin — combined lipotropic + B12 research formula.",
+    "description": "MIC Lipo-C with cyanocobalamin — combined lipotropic + B12 research formula."
+  },
+  {
+    "id": "mots-c-human",
+    "name": "MOTS-c 10mg",
+    "category": "metabolic",
+    "price": 78,
+    "purity": "",
+    "cas": "1627580-64-6",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/mots-c-human--1.jpg",
+    "gallery": [
+      "/products/mots-c-human--2.webp",
+      "/products/mots-c-human--3.webp",
+      "/products/mots-c-human--4.webp",
+      "/products/mots-c-human--5.jpg"
+    ],
+    "shortDescription": "Mitochondrial-derived peptide encoded in 12S rRNA — metabolic homeostasis research.",
+    "description": "Mitochondrial-derived peptide encoded in 12S rRNA — metabolic homeostasis research."
+  },
+  {
+    "id": "retatrutide",
+    "name": "Retatrutide 5mg",
+    "category": "metabolic",
+    "price": 64,
+    "purity": "",
+    "cas": "2381089-83-2",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/retatrutide-1.jpg",
+    "gallery": [
+      "/products/retatrutide-2.webp",
+      "/products/retatrutide-20mg-trizepatide-40mg-1.jpg",
+      "/products/retatrutide-20mg-trizepatide-40mg-2.jpg",
+      "/products/retatrutide-20mg-trizepatide-40mg-3.jpg",
+      "/products/retatrutide-20mg-trizepatide-40mg-4.jpg",
+      "/products/retatrutide-20mg-trizepatide-40mg-5.jpg",
+      "/products/retatrutide-3.webp",
+      "/products/retatrutide-4.webp",
+      "/products/retatrutide-5.jpg"
+    ],
+    "shortDescription": "GIP/GLP-1/Glucagon triple agonist — next-generation incretin research compound.",
+    "description": "GIP/GLP-1/Glucagon triple agonist — next-generation incretin research compound.",
+    "featured": true
+  },
+  {
+    "id": "semaglutide",
+    "name": "Semaglutide 2mg",
+    "category": "metabolic",
+    "price": 26,
+    "purity": "",
+    "cas": "910463-68-2",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/semaglutide-1.jpg",
+    "gallery": [
+      "/products/semaglutide-2.webp",
+      "/products/semaglutide-3.webp",
+      "/products/semaglutide-4.webp",
+      "/products/semaglutide-5.jpg"
+    ],
+    "shortDescription": "GLP-1 receptor agonist catalog listing for metabolic-pathway research.",
+    "description": "GLP-1 receptor agonist catalog listing for laboratory metabolic-pathway research.",
+    "featured": true
+  },
+  {
+    "id": "slu-pp-332-250mcg",
+    "name": "SLU-PP-332 250mcg",
+    "category": "metabolic",
+    "price": 47,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/slu-pp-332-250mcg-1.jpg",
+    "gallery": [
+      "/products/slu-pp-332-250mcg-2.webp",
+      "/products/slu-pp-332-250mcg-3.webp",
+      "/products/slu-pp-332-250mcg-4.webp",
+      "/products/slu-pp-332-250mcg-5.jpg"
+    ],
+    "shortDescription": "SLU-PP-332 250 mcg catalog presentation for ERR-pathway research.",
+    "description": "SLU-PP-332 250 mcg catalog presentation for laboratory ERR-pathway research."
+  },
+  {
+    "id": "survodutide",
+    "name": "Survodutide 10mg",
+    "category": "metabolic",
+    "price": 329,
+    "purity": "",
+    "cas": "2256565-85-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/survodutide-1.webp",
+    "gallery": [
+      "/products/survodutide-2.webp",
+      "/products/survodutide-3.webp",
+      "/products/survodutide-4.jpg",
+      "/products/survodutide-5.jpg"
+    ],
+    "shortDescription": "GLP-1 / glucagon dual-agonist catalog listing for receptor-pathway research.",
+    "description": "GLP-1 / glucagon dual-agonist catalog listing for laboratory receptor and metabolic-pathway research."
+  },
+  {
+    "id": "tesofensine",
+    "name": "Tesofensine 500mcg",
+    "category": "metabolic",
+    "price": null,
+    "purity": "",
+    "cas": "402856-42-2",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/tesofensine-1.webp",
+    "gallery": [
+      "/products/tesofensine-2.webp",
+      "/products/tesofensine-3.webp",
+      "/products/tesofensine-4.jpg",
+      "/products/tesofensine-5.jpg"
+    ],
+    "shortDescription": "Monoamine reuptake-inhibitor catalog listing for laboratory pathway research.",
+    "description": "Monoamine reuptake-inhibitor catalog listing for laboratory monoamine-pathway research."
+  },
+  {
+    "id": "tirzepatide",
+    "name": "Tirzepatide 5mg",
+    "category": "metabolic",
+    "price": 43,
+    "purity": "",
+    "cas": "2023788-19-2",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/tirzepatide-1.webp",
+    "gallery": [
+      "/products/tirzepatide-2.webp",
+      "/products/tirzepatide-3.webp",
+      "/products/tirzepatide-4.jpg",
+      "/products/tirzepatide-5.jpg"
+    ],
+    "shortDescription": "GIP + GLP-1 dual-agonist catalog listing for incretin-receptor research.",
+    "description": "GIP + GLP-1 dual-agonist catalog listing for laboratory incretin-receptor research.",
+    "featured": true
+  },
+  {
+    "id": "bpc-157",
+    "name": "BPC-157 2mg",
+    "category": "skin-aging",
+    "price": 37,
+    "purity": "",
+    "cas": "137525-51-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/bpc-157-1.webp",
+    "gallery": [
+      "/products/bpc-157-2.webp",
+      "/products/bpc-157-3.webp",
+      "/products/bpc-157-4.webp",
+      "/products/bpc-157-5.webp"
+    ],
+    "shortDescription": "Pentadecapeptide catalog listing commonly referenced in tissue-pathway research.",
+    "description": "Pentadecapeptide catalog listing for laboratory tissue and gastrointestinal-pathway research.",
+    "featured": true
+  },
+  {
+    "id": "epithalon",
+    "name": "Epithalon 10mg",
+    "category": "skin-aging",
+    "price": 55,
+    "purity": "",
+    "cas": "307297-39-8",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/epithalon-1.webp",
+    "gallery": [
+      "/products/epithalon-2.webp",
+      "/products/epithalon-3.webp",
+      "/products/epithalon-4.webp",
+      "/products/epithalon-5.webp"
+    ],
+    "shortDescription": "Ala-Glu-Asp-Gly tetrapeptide catalog listing for telomerase and pineal-pathway research.",
+    "description": "Ala-Glu-Asp-Gly tetrapeptide catalog listing for laboratory telomerase and pineal-pathway research."
+  },
+  {
+    "id": "fox04",
+    "name": "FOXO4 2mg",
+    "category": "skin-aging",
+    "price": 121,
+    "purity": "",
+    "cas": "2237217-70-4",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/fox04-1.webp",
+    "gallery": [
+      "/products/fox04-2.webp",
+      "/products/fox04-3.webp",
+      "/products/fox04-4.webp",
+      "/products/fox04-5.webp"
+    ],
+    "shortDescription": "FOXO4 research peptide — senolytic pathway and p53 interaction studies.",
+    "description": "FOXO4 research peptide — senolytic pathway and p53 interaction studies."
+  },
+  {
+    "id": "foxo4-dri",
+    "name": "FOXO4-DRI 10mg",
+    "category": "skin-aging",
+    "price": 529,
+    "purity": "",
+    "cas": "2237217-70-4",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/foxo4-dri-1.webp",
+    "gallery": [
+      "/products/foxo4-dri-2.webp",
+      "/products/foxo4-dri-3.webp",
+      "/products/foxo4-dri-4.webp",
+      "/products/foxo4-dri-5.webp"
+    ],
+    "shortDescription": "Retro-inverso D-isomer of FOXO4 catalog listing for senescence-pathway research.",
+    "description": "Retro-inverso D-isomer of FOXO4 catalog listing for laboratory senescence and p53-pathway research."
+  },
+  {
+    "id": "ghk-cu",
+    "name": "GHK-Cu 50mg",
+    "category": "skin-aging",
+    "price": 35,
+    "purity": "",
+    "cas": "49557-75-7",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/ghk-cu-1.webp",
+    "gallery": [
+      "/products/ghk-cu-2.webp",
+      "/products/ghk-cu-3.webp",
+      "/products/ghk-cu-4.webp",
+      "/products/ghk-cu-5.webp"
+    ],
+    "shortDescription": "Copper tripeptide GHK-Cu catalog listing for dermatology-related pathway research.",
+    "description": "Copper tripeptide GHK-Cu catalog listing for laboratory skin-signaling and extracellular-matrix pathway research.",
+    "featured": true
+  },
+  {
+    "id": "glow-bpc-157-10mg-ghk-cu50mg-tb500-10mg",
+    "name": "GLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg) 70mg",
+    "category": "skin-aging",
+    "price": 227,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/glow-bpc-157-10mg-ghk-cu50mg-tb500-10mg--1.webp",
+    "gallery": [
+      "/products/glow-bpc-157-10mg-ghk-cu50mg-tb500-10mg--2.webp",
+      "/products/glow-bpc-157-10mg-ghk-cu50mg-tb500-10mg--3.webp",
+      "/products/glow-bpc-157-10mg-ghk-cu50mg-tb500-10mg--4.webp",
+      "/products/glow-bpc-157-10mg-ghk-cu50mg-tb500-10mg--5.webp"
+    ],
+    "shortDescription": "Combined BPC-157 + GHK-Cu + TB-500 research-blend catalog listing.",
+    "description": "Combined BPC-157 + GHK-Cu + TB-500 catalog presentation for laboratory multi-pathway research."
+  },
+  {
+    "id": "lemon-bottle",
+    "name": "Lemon Bottle Research Solution 10ml",
+    "category": "skin-aging",
+    "price": 81,
+    "purity": "",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/lemon-bottle-1.webp",
+    "gallery": [
+      "/products/lemon-bottle-2.webp",
+      "/products/lemon-bottle-3.webp",
+      "/products/lemon-bottle-4.webp",
+      "/products/lemon-bottle-5.webp"
+    ],
+    "shortDescription": "Lemon Bottle catalog solution for laboratory formulation research.",
+    "description": "Lemon Bottle catalog solution for laboratory formulation and composition research."
+  },
+  {
+    "id": "melanotan-il",
+    "name": "Melanotan II 10mg",
+    "category": "skin-aging",
+    "price": 53,
+    "purity": "",
+    "cas": "121062-08-6",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/melanotan-il-2.webp",
+    "gallery": [
+      "/products/melanotan-il-1.png",
+      "/products/melanotan-il-2.webp",
+      "/products/melanotan-il-3.webp",
+      "/products/melanotan-il-4.webp",
+      "/products/melanotan-il-5.webp"
+    ],
+    "shortDescription": "Melanotan II cyclic α-MSH analogue catalog listing for melanocortin-receptor research.",
+    "description": "Melanotan II cyclic α-MSH analogue catalog listing for laboratory melanocortin-receptor research.",
+    "featured": true
+  },
+  {
+    "id": "melanotani",
+    "name": "Melanotan I 10mg",
+    "category": "skin-aging",
+    "price": 46,
+    "purity": "",
+    "cas": "75921-69-6",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/melanotani-1.webp",
+    "shortDescription": "Melanotan I (Afamelanotide) — α-MSH analogue for melanogenesis and photoprotection studies.",
+    "description": "Melanotan I (Afamelanotide) — α-MSH analogue for melanogenesis and photoprotection studies."
+  },
+  {
+    "id": "snap8",
+    "name": "SNAP-8 10mg",
+    "category": "skin-aging",
+    "price": 48,
+    "purity": "",
+    "cas": "868844-74-0",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/snap8-1.webp",
+    "shortDescription": "Extended hexapeptide SNAP-8 catalog listing for skin-related pathway research.",
+    "description": "Extended hexapeptide SNAP-8 catalog listing for laboratory skin-related signaling research."
+  },
+  {
+    "id": "ss-31",
+    "name": "SS-31 10mg",
+    "category": "skin-aging",
+    "price": 92,
+    "purity": "",
+    "cas": "736992-21-5",
+    "appearance": "",
+    "storage": "",
+    "image": "/products/ss-31-1.webp",
+    "shortDescription": "SS-31 (Elamipretide) — cardiolipin-binding mitochondrial antioxidant peptide.",
+    "description": "SS-31 (Elamipretide) — cardiolipin-binding mitochondrial antioxidant peptide."
+  }
+]

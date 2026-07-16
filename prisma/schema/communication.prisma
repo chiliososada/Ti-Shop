@@ -1,0 +1,93 @@
+model Inquiry {
+  id               BigInt                  @id @default(autoincrement())
+  publicId         String                  @unique(map: "inquiries_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  inquiryNumber    String                  @unique(map: "inquiries_inquiry_number_key") @map("inquiry_number") @db.VarChar(50)
+  customerUserId   String?                 @map("customer_user_id") @db.Uuid
+  assignedToUserId String?                 @map("assigned_to_user_id") @db.Uuid
+  orderId          BigInt?                 @map("order_id")
+  productId        BigInt?                 @map("product_id")
+  source           InquirySource
+  status           InquiryStatus           @default(OPEN)
+  customerName     String?                 @map("customer_name") @db.VarChar(255)
+  customerEmail    String?                 @map("customer_email") @db.VarChar(320)
+  customerPhone    String?                 @map("customer_phone") @db.VarChar(32)
+  subject          String                  @db.VarChar(255)
+  message          String                  @db.Text
+  resolvedAt       DateTime?               @map("resolved_at") @db.Timestamptz(3)
+  closedAt         DateTime?               @map("closed_at") @db.Timestamptz(3)
+  createdAt        DateTime                @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime                @updatedAt @map("updated_at") @db.Timestamptz(3)
+  customer         User?                   @relation("InquiryCustomer", fields: [customerUserId], references: [id], onDelete: SetNull, map: "inquiries_customer_user_id_fkey")
+  assignedTo       User?                   @relation("InquiryAssignee", fields: [assignedToUserId], references: [id], onDelete: SetNull, map: "inquiries_assigned_to_user_id_fkey")
+  order            Order?                  @relation(fields: [orderId], references: [id], onDelete: SetNull, map: "inquiries_order_id_fkey")
+  product          Product?                @relation(fields: [productId], references: [id], onDelete: SetNull, map: "inquiries_product_id_fkey")
+  whatsappIntents  WhatsAppContactIntent[]
+  internalNotes    InternalNote[]
+
+  @@index([customerUserId, createdAt], map: "inquiries_customer_created_at_idx")
+  @@index([assignedToUserId, status, updatedAt], map: "inquiries_assignee_status_idx")
+  @@index([orderId], map: "inquiries_order_id_idx")
+  @@index([productId], map: "inquiries_product_id_idx")
+  @@index([status, createdAt], map: "inquiries_status_created_at_idx")
+  @@map("inquiries")
+  @@schema("app")
+}
+
+model WhatsAppContactIntent {
+  id                 BigInt    @id @default(autoincrement())
+  publicId           String    @unique(map: "whatsapp_contact_intents_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  userId             String?   @map("user_id") @db.Uuid
+  inquiryId          BigInt?   @map("inquiry_id")
+  cartId             BigInt?   @map("cart_id")
+  orderId            BigInt?   @map("order_id")
+  productId          BigInt?   @map("product_id")
+  sourcePath         String?   @map("source_path") @db.Text
+  messageTemplateKey String?   @map("message_template_key") @db.VarChar(120)
+  prefilledMessage   String?   @map("prefilled_message") @db.Text
+  contextSnapshot    Json?     @map("context_snapshot")
+  openedAt           DateTime? @map("opened_at") @db.Timestamptz(3)
+  createdAt          DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  user               User?     @relation(fields: [userId], references: [id], onDelete: SetNull, map: "whatsapp_contact_intents_user_id_fkey")
+  inquiry            Inquiry?  @relation(fields: [inquiryId], references: [id], onDelete: SetNull, map: "whatsapp_contact_intents_inquiry_id_fkey")
+  cart               Cart?     @relation(fields: [cartId], references: [id], onDelete: SetNull, map: "whatsapp_contact_intents_cart_id_fkey")
+  order              Order?    @relation(fields: [orderId], references: [id], onDelete: SetNull, map: "whatsapp_contact_intents_order_id_fkey")
+  product            Product?  @relation(fields: [productId], references: [id], onDelete: SetNull, map: "whatsapp_contact_intents_product_id_fkey")
+
+  @@index([userId, createdAt], map: "whatsapp_contact_intents_user_idx")
+  @@index([inquiryId], map: "whatsapp_contact_intents_inquiry_id_idx")
+  @@index([cartId], map: "whatsapp_contact_intents_cart_id_idx")
+  @@index([orderId], map: "whatsapp_contact_intents_order_id_idx")
+  @@index([productId], map: "whatsapp_contact_intents_product_id_idx")
+  @@map("whatsapp_contact_intents")
+  @@schema("app")
+}
+
+model InternalNote {
+  id             BigInt    @id @default(autoincrement())
+  publicId       String    @unique(map: "internal_notes_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  authorUserId   String    @map("author_user_id") @db.Uuid
+  customerUserId String?   @map("customer_user_id") @db.Uuid
+  inquiryId      BigInt?   @map("inquiry_id")
+  orderId        BigInt?   @map("order_id")
+  paymentId      BigInt?   @map("payment_id")
+  shipmentId     BigInt?   @map("shipment_id")
+  body           String    @db.Text
+  isPinned       Boolean   @default(false) @map("is_pinned")
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  author         User      @relation("InternalNoteAuthor", fields: [authorUserId], references: [id], onDelete: Restrict, map: "internal_notes_author_user_id_fkey")
+  customer       User?     @relation("InternalNoteCustomer", fields: [customerUserId], references: [id], onDelete: SetNull, map: "internal_notes_customer_user_id_fkey")
+  inquiry        Inquiry?  @relation(fields: [inquiryId], references: [id], onDelete: Cascade, map: "internal_notes_inquiry_id_fkey")
+  order          Order?    @relation(fields: [orderId], references: [id], onDelete: Cascade, map: "internal_notes_order_id_fkey")
+  payment        Payment?  @relation(fields: [paymentId], references: [id], onDelete: Cascade, map: "internal_notes_payment_id_fkey")
+  shipment       Shipment? @relation(fields: [shipmentId], references: [id], onDelete: Cascade, map: "internal_notes_shipment_id_fkey")
+
+  @@index([authorUserId, createdAt], map: "internal_notes_author_created_at_idx")
+  @@index([customerUserId, createdAt], map: "internal_notes_customer_created_at_idx")
+  @@index([inquiryId, createdAt], map: "internal_notes_inquiry_created_at_idx")
+  @@index([orderId, createdAt], map: "internal_notes_order_created_at_idx")
+  @@index([paymentId, createdAt], map: "internal_notes_payment_created_at_idx")
+  @@index([shipmentId, createdAt], map: "internal_notes_shipment_created_at_idx")
+  @@map("internal_notes")
+  @@schema("app")
+}

@@ -1,0 +1,127 @@
+model BlogPost {
+  id                BigInt        @id @default(autoincrement())
+  publicId          String        @unique(map: "blog_posts_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  legacySourceId    String?       @unique(map: "blog_posts_legacy_source_id_key") @map("legacy_source_id") @db.VarChar(220)
+  sourceHash        String?       @map("source_hash") @db.VarChar(64)
+  slug              String        @unique(map: "blog_posts_slug_key") @db.VarChar(220)
+  title             String        @db.VarChar(255)
+  category          String?       @db.VarChar(160)
+  authorDisplayName String?       @map("author_display_name") @db.VarChar(255)
+  readingMinutes    Int?          @map("reading_minutes")
+  excerpt           String?       @db.Text
+  body              String        @db.Text
+  contentData       Json?         @map("content_data")
+  format            ContentFormat @default(MARKDOWN)
+  status            ContentStatus @default(DRAFT)
+  authorUserId      String?       @map("author_user_id") @db.Uuid
+  heroMediaId       BigInt?       @map("hero_media_id")
+  publishedAt       DateTime?     @map("published_at") @db.Timestamptz(3)
+  createdAt         DateTime      @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime      @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt         DateTime?     @map("deleted_at") @db.Timestamptz(3)
+  author            User?         @relation("BlogPostAuthor", fields: [authorUserId], references: [id], onDelete: SetNull, map: "blog_posts_author_user_id_fkey")
+  heroMedia         Media?        @relation("BlogPostHeroMedia", fields: [heroMediaId], references: [id], onDelete: SetNull, map: "blog_posts_hero_media_id_fkey")
+  seo               SeoMetadata?
+
+  @@index([status, publishedAt, deletedAt], map: "blog_posts_publish_idx")
+  @@index([authorUserId], map: "blog_posts_author_user_id_idx")
+  @@index([heroMediaId], map: "blog_posts_hero_media_id_idx")
+  @@map("blog_posts")
+  @@schema("app")
+}
+
+model Page {
+  id              BigInt            @id @default(autoincrement())
+  publicId        String            @unique(map: "pages_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  slug            String            @unique(map: "pages_slug_key") @db.VarChar(220)
+  managedRoute    ManagedPageRoute? @unique(map: "pages_managed_route_key") @map("managed_route")
+  title           String            @db.VarChar(255)
+  body            String            @db.Text
+  format          ContentFormat     @default(MARKDOWN)
+  status          ContentStatus     @default(DRAFT)
+  authorUserId    String?           @map("author_user_id") @db.Uuid
+  heroMediaId     BigInt?           @map("hero_media_id")
+  publishedAt     DateTime?         @map("published_at") @db.Timestamptz(3)
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime          @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt       DateTime?         @map("deleted_at") @db.Timestamptz(3)
+  author          User?             @relation("PageAuthor", fields: [authorUserId], references: [id], onDelete: SetNull, map: "pages_author_user_id_fkey")
+  heroMedia       Media?            @relation("PageHeroMedia", fields: [heroMediaId], references: [id], onDelete: SetNull, map: "pages_hero_media_id_fkey")
+  navigationItems NavigationItem[]
+  seo             SeoMetadata?
+
+  @@index([status, publishedAt, deletedAt], map: "pages_publish_idx")
+  @@index([authorUserId], map: "pages_author_user_id_idx")
+  @@index([heroMediaId], map: "pages_hero_media_id_idx")
+  @@map("pages")
+  @@schema("app")
+}
+
+model Faq {
+  id           BigInt        @id @default(autoincrement())
+  publicId     String        @unique(map: "faqs_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  slug         String        @unique(map: "faqs_slug_key") @db.VarChar(220)
+  question     String        @db.VarChar(500)
+  answer       String        @db.Text
+  category     String?       @db.VarChar(160)
+  status       ContentStatus @default(DRAFT)
+  position     Int           @default(0)
+  authorUserId String?       @map("author_user_id") @db.Uuid
+  publishedAt  DateTime?     @map("published_at") @db.Timestamptz(3)
+  createdAt    DateTime      @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt    DateTime      @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt    DateTime?     @map("deleted_at") @db.Timestamptz(3)
+  author       User?         @relation("FaqAuthor", fields: [authorUserId], references: [id], onDelete: SetNull, map: "faqs_author_user_id_fkey")
+  seo          SeoMetadata?
+
+  @@index([status, category, position], map: "faqs_status_category_idx")
+  @@index([authorUserId], map: "faqs_author_user_id_idx")
+  @@map("faqs")
+  @@schema("app")
+}
+
+model Navigation {
+  id        BigInt           @id @default(autoincrement())
+  publicId  String           @unique(map: "navigations_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  key       String           @unique(map: "navigations_key_key") @db.VarChar(100)
+  name      String           @db.VarChar(160)
+  status    ContentStatus    @default(DRAFT)
+  createdAt DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime         @updatedAt @map("updated_at") @db.Timestamptz(3)
+  items     NavigationItem[]
+
+  @@index([status], map: "navigations_status_idx")
+  @@map("navigations")
+  @@schema("app")
+}
+
+model NavigationItem {
+  id           BigInt           @id @default(autoincrement())
+  publicId     String           @unique(map: "navigation_items_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  navigationId BigInt           @map("navigation_id")
+  parentId     BigInt?          @map("parent_id")
+  pageId       BigInt?          @map("page_id")
+  categoryId   BigInt?          @map("category_id")
+  productId    BigInt?          @map("product_id")
+  label        String           @db.VarChar(160)
+  url          String           @db.Text
+  position     Int              @default(0)
+  openInNewTab Boolean          @default(false) @map("open_in_new_tab")
+  isVisible    Boolean          @default(true) @map("is_visible")
+  createdAt    DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt    DateTime         @updatedAt @map("updated_at") @db.Timestamptz(3)
+  navigation   Navigation       @relation(fields: [navigationId], references: [id], onDelete: Cascade, map: "navigation_items_navigation_id_fkey")
+  parent       NavigationItem?  @relation("NavigationItemTree", fields: [parentId], references: [id], onDelete: Cascade, map: "navigation_items_parent_id_fkey")
+  children     NavigationItem[] @relation("NavigationItemTree")
+  page         Page?            @relation(fields: [pageId], references: [id], onDelete: SetNull, map: "navigation_items_page_id_fkey")
+  category     Category?        @relation(fields: [categoryId], references: [id], onDelete: SetNull, map: "navigation_items_category_id_fkey")
+  product      Product?         @relation(fields: [productId], references: [id], onDelete: SetNull, map: "navigation_items_product_id_fkey")
+
+  @@index([navigationId, parentId, position], map: "navigation_items_tree_idx")
+  @@index([parentId], map: "navigation_items_parent_id_idx")
+  @@index([pageId], map: "navigation_items_page_id_idx")
+  @@index([categoryId], map: "navigation_items_category_id_idx")
+  @@index([productId], map: "navigation_items_product_id_idx")
+  @@map("navigation_items")
+  @@schema("app")
+}

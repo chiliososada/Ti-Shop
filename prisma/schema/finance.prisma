@@ -1,0 +1,511 @@
+// Internal finance: CNY procurement, inventory costing, after-sales economics,
+// crypto conversion batches, profit adjustments, and partner settlements.
+// Monetary columns are integer minor units (BigInt); rates and crypto
+// quantities are Decimal. Report base currency is USD; original-currency
+// amounts and their historical FX rates are always retained.
+
+enum ProcurementOrderStatus {
+  DRAFT    @map("draft")
+  ORDERED  @map("ordered")
+  PAID     @map("paid")
+  RECEIVED @map("received")
+  CANCELED @map("canceled")
+
+  @@map("procurement_order_status")
+  @@schema("app")
+}
+
+enum FxRateSource {
+  MANUAL @map("manual")
+  API    @map("api")
+
+  @@map("fx_rate_source")
+  @@schema("app")
+}
+
+enum CostMethod {
+  MOVING_AVERAGE @map("moving_average")
+  MANUAL         @map("manual")
+
+  @@map("cost_method")
+  @@schema("app")
+}
+
+enum InventoryCostEntryType {
+  PROCUREMENT_RECEIPT    @map("procurement_receipt")
+  PROCUREMENT_RETURN     @map("procurement_return")
+  SALE_CONSUMPTION       @map("sale_consumption")
+  RETURN_RESTOCK         @map("return_restock")
+  RETURN_DAMAGED         @map("return_damaged")
+  RETURN_DISPOSAL        @map("return_disposal")
+  CUSTOMER_COMPENSATION  @map("customer_compensation")
+  WARRANTY_REPLACEMENT   @map("warranty_replacement")
+  GOODWILL_GIFT          @map("goodwill_gift")
+  WRITE_OFF              @map("write_off")
+  MANUAL_ADJUSTMENT      @map("manual_adjustment")
+
+  @@map("inventory_cost_entry_type")
+  @@schema("app")
+}
+
+enum AfterSalesStatus {
+  DRAFT     @map("draft")
+  APPROVED  @map("approved")
+  COMPLETED @map("completed")
+  VOIDED    @map("voided")
+
+  @@map("after_sales_status")
+  @@schema("app")
+}
+
+enum AfterSalesResponsibility {
+  MERCHANT @map("merchant")
+  CARRIER  @map("carrier")
+  SUPPLIER @map("supplier")
+  CUSTOMER @map("customer")
+  OTHER    @map("other")
+
+  @@map("after_sales_responsibility")
+  @@schema("app")
+}
+
+enum AfterSalesItemKind {
+  RETURN       @map("return")
+  COMPENSATION @map("compensation")
+
+  @@map("after_sales_item_kind")
+  @@schema("app")
+}
+
+enum ReturnDisposition {
+  RESALABLE @map("resalable")
+  DAMAGED   @map("damaged")
+  LOST      @map("lost")
+  DESTROYED @map("destroyed")
+
+  @@map("return_disposition")
+  @@schema("app")
+}
+
+enum CompensationDelivery {
+  DEDICATED_SHIPMENT @map("dedicated_shipment")
+  NEXT_ORDER         @map("next_order")
+
+  @@map("compensation_delivery")
+  @@schema("app")
+}
+
+enum FinancialAdjustmentType {
+  REFUND                        @map("refund")
+  SHIPPING_REFUND               @map("shipping_refund")
+  RETURN_SHIPPING               @map("return_shipping")
+  DAMAGED_RETURN                @map("damaged_return")
+  COMPENSATION_PRODUCT          @map("compensation_product")
+  COMPENSATION_SHIPPING         @map("compensation_shipping")
+  PAYMENT_FEE                   @map("payment_fee")
+  CRYPTO_CONVERSION_FEE         @map("crypto_conversion_fee")
+  EXCHANGE_GAIN                 @map("exchange_gain")
+  EXCHANGE_LOSS                 @map("exchange_loss")
+  MANUAL_DIRECT_COST            @map("manual_direct_cost")
+  COST_CORRECTION               @map("cost_correction")
+  ROUNDING_ADJUSTMENT           @map("rounding_adjustment")
+  PARTNER_SETTLEMENT_CORRECTION @map("partner_settlement_correction")
+
+  @@map("financial_adjustment_type")
+  @@schema("app")
+}
+
+enum ConversionBatchKind {
+  USD_TO_CRYPTO @map("usd_to_crypto")
+  DIRECT_CRYPTO @map("direct_crypto")
+
+  @@map("conversion_batch_kind")
+  @@schema("app")
+}
+
+enum ConversionBatchStatus {
+  DRAFT     @map("draft")
+  COMPLETED @map("completed")
+  VOIDED    @map("voided")
+
+  @@map("conversion_batch_status")
+  @@schema("app")
+}
+
+enum PartnerSettlementStatus {
+  DRAFT                @map("draft")
+  PENDING_CONFIRMATION @map("pending_confirmation")
+  LOCKED               @map("locked")
+  PAID                 @map("paid")
+  VOIDED               @map("voided")
+
+  @@map("partner_settlement_status")
+  @@schema("app")
+}
+
+model Supplier {
+  id              BigInt             @id @default(autoincrement())
+  publicId        String             @unique(map: "suppliers_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  name            String             @db.VarChar(255)
+  contactName     String?            @map("contact_name") @db.VarChar(160)
+  contactDetails  String?            @map("contact_details") @db.Text
+  notes           String?            @db.Text
+  isActive        Boolean            @default(true) @map("is_active")
+  createdByUserId String?            @map("created_by_user_id") @db.Uuid
+  createdAt       DateTime           @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime           @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt       DateTime?          @map("deleted_at") @db.Timestamptz(3)
+  createdBy       User?              @relation("SupplierCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull, map: "suppliers_created_by_user_id_fkey")
+  purchaseOrders  ProcurementOrder[]
+
+  @@index([isActive, deletedAt], map: "suppliers_active_idx")
+  @@map("suppliers")
+  @@schema("app")
+}
+
+model ProcurementOrder {
+  id                       BigInt                 @id @default(autoincrement())
+  publicId                 String                 @unique(map: "procurement_orders_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  orderNumber              String                 @unique(map: "procurement_orders_order_number_key") @map("order_number") @db.VarChar(60)
+  supplierId               BigInt                 @map("supplier_id")
+  status                   ProcurementOrderStatus @default(DRAFT)
+  currency                 String                 @default("CNY") @db.Char(3)
+  goodsMinor               BigInt                 @default(0) @map("goods_minor")
+  domesticShippingMinor    BigInt                 @default(0) @map("domestic_shipping_minor")
+  internationalShippingMinor BigInt               @default(0) @map("international_shipping_minor")
+  customsMinor             BigInt                 @default(0) @map("customs_minor")
+  procurementFeeMinor      BigInt                 @default(0) @map("procurement_fee_minor")
+  packagingMinor           BigInt                 @default(0) @map("packaging_minor")
+  otherCostMinor           BigInt                 @default(0) @map("other_cost_minor")
+  totalMinor               BigInt                 @default(0) @map("total_minor")
+  // CNY per USD, e.g. 7.25000000. Original amounts stay in CNY minor units;
+  // USD conversions are derived and re-derivable from these columns.
+  fxRateCnyPerUsd          Decimal?               @map("fx_rate_cny_per_usd") @db.Decimal(18, 8)
+  fxRateDate               DateTime?              @map("fx_rate_date") @db.Timestamptz(3)
+  fxRateSource             FxRateSource?          @map("fx_rate_source")
+  fxRateNote               String?                @map("fx_rate_note") @db.VarChar(500)
+  totalUsdMinor            BigInt?                @map("total_usd_minor")
+  orderedAt                DateTime?              @map("ordered_at") @db.Timestamptz(3)
+  paidAt                   DateTime?              @map("paid_at") @db.Timestamptz(3)
+  receivedAt               DateTime?              @map("received_at") @db.Timestamptz(3)
+  notes                    String?                @db.Text
+  createdByUserId          String?                @map("created_by_user_id") @db.Uuid
+  updatedByUserId          String?                @map("updated_by_user_id") @db.Uuid
+  createdAt                DateTime               @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt                DateTime               @updatedAt @map("updated_at") @db.Timestamptz(3)
+  supplier                 Supplier               @relation(fields: [supplierId], references: [id], onDelete: Restrict, map: "procurement_orders_supplier_id_fkey")
+  createdBy                User?                  @relation("ProcurementOrderCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull, map: "procurement_orders_created_by_user_id_fkey")
+  updatedBy                User?                  @relation("ProcurementOrderUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: SetNull, map: "procurement_orders_updated_by_user_id_fkey")
+  items                    ProcurementOrderItem[]
+
+  @@index([supplierId, status], map: "procurement_orders_supplier_status_idx")
+  @@index([status, receivedAt], map: "procurement_orders_status_received_idx")
+  @@map("procurement_orders")
+  @@schema("app")
+}
+
+model ProcurementOrderItem {
+  id                  BigInt           @id @default(autoincrement())
+  publicId            String           @unique(map: "procurement_order_items_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  procurementOrderId  BigInt           @map("procurement_order_id")
+  variantId           BigInt           @map("variant_id")
+  quantity            Int
+  unitPriceMinor      BigInt           @map("unit_price_minor")
+  lineMinor           BigInt           @map("line_minor")
+  // Share of order-level extra costs (shipping/customs/fees/packaging/other)
+  // allocated to this line in CNY minor units; largest-remainder allocated.
+  allocatedCostMinor  BigInt           @default(0) @map("allocated_cost_minor")
+  totalMinor          BigInt           @map("total_minor")
+  totalUsdMinor       BigInt?          @map("total_usd_minor")
+  unitCostUsdMinor    BigInt?          @map("unit_cost_usd_minor")
+  receivedQuantity    Int              @default(0) @map("received_quantity")
+  createdAt           DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt           DateTime         @updatedAt @map("updated_at") @db.Timestamptz(3)
+  procurementOrder    ProcurementOrder @relation(fields: [procurementOrderId], references: [id], onDelete: Cascade, map: "procurement_order_items_order_id_fkey")
+  variant             ProductVariant   @relation("ProcurementOrderItemVariant", fields: [variantId], references: [id], onDelete: Restrict, map: "procurement_order_items_variant_id_fkey")
+
+  @@unique([procurementOrderId, variantId], map: "procurement_order_items_order_variant_key")
+  @@index([variantId], map: "procurement_order_items_variant_idx")
+  @@map("procurement_order_items")
+  @@schema("app")
+}
+
+// Moving-weighted-average valuation state per variant. Quantity and total
+// cost move together inside serializable transactions; average unit cost is
+// always derived as totalCostUsdMinor / quantity, never stored rounded.
+model InventoryCostState {
+  id                BigInt         @id @default(autoincrement())
+  variantId         BigInt         @unique(map: "inventory_cost_states_variant_id_key") @map("variant_id")
+  quantity          Int            @default(0)
+  totalCostUsdMinor BigInt         @default(0) @map("total_cost_usd_minor")
+  updatedAt         DateTime       @updatedAt @map("updated_at") @db.Timestamptz(3)
+  variant           ProductVariant @relation("InventoryCostStateVariant", fields: [variantId], references: [id], onDelete: Restrict, map: "inventory_cost_states_variant_id_fkey")
+
+  @@map("inventory_cost_states")
+  @@schema("app")
+}
+
+// Append-only costing journal. Every quantity/cost change of the valuation
+// state is recorded with its source so totals can be re-derived and audited.
+model InventoryCostEntry {
+  id                     BigInt                 @id @default(autoincrement())
+  publicId               String                 @unique(map: "inventory_cost_entries_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  variantId              BigInt                 @map("variant_id")
+  entryType              InventoryCostEntryType @map("entry_type")
+  quantityDelta          Int                    @map("quantity_delta")
+  costDeltaUsdMinor      BigInt                 @map("cost_delta_usd_minor")
+  quantityAfter          Int                    @map("quantity_after")
+  totalCostAfterUsdMinor BigInt                 @map("total_cost_after_usd_minor")
+  referenceType          String?                @map("reference_type") @db.VarChar(80)
+  referenceId            String?                @map("reference_id") @db.VarChar(255)
+  idempotencyKey         String?                @unique(map: "inventory_cost_entries_idempotency_key_key") @map("idempotency_key") @db.VarChar(200)
+  reason                 String?                @db.Text
+  createdByUserId        String?                @map("created_by_user_id") @db.Uuid
+  occurredAt             DateTime               @default(now()) @map("occurred_at") @db.Timestamptz(3)
+  createdAt              DateTime               @default(now()) @map("created_at") @db.Timestamptz(3)
+  variant                ProductVariant         @relation("InventoryCostEntryVariant", fields: [variantId], references: [id], onDelete: Restrict, map: "inventory_cost_entries_variant_id_fkey")
+  createdBy              User?                  @relation("InventoryCostEntryActor", fields: [createdByUserId], references: [id], onDelete: SetNull, map: "inventory_cost_entries_created_by_user_id_fkey")
+
+  @@index([variantId, occurredAt], map: "inventory_cost_entries_variant_time_idx")
+  @@index([referenceType, referenceId], map: "inventory_cost_entries_reference_idx")
+  @@map("inventory_cost_entries")
+  @@schema("app")
+}
+
+model AfterSalesEvent {
+  id                      BigInt                   @id @default(autoincrement())
+  publicId                String                   @unique(map: "after_sales_events_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  orderId                 BigInt                   @map("order_id")
+  status                  AfterSalesStatus         @default(DRAFT)
+  responsibility          AfterSalesResponsibility @default(MERCHANT)
+  reason                  String                   @db.Text
+  refundAmountMinor       BigInt                   @default(0) @map("refund_amount_minor")
+  shippingRefundMinor     BigInt                   @default(0) @map("shipping_refund_minor")
+  returnShippingCostMinor BigInt                   @default(0) @map("return_shipping_cost_minor")
+  compensationShippingCostMinor BigInt             @default(0) @map("compensation_shipping_cost_minor")
+  currency                String                   @default("USD") @db.Char(3)
+  evidenceNotes           String?                  @map("evidence_notes") @db.Text
+  createdByUserId         String?                  @map("created_by_user_id") @db.Uuid
+  approvedByUserId        String?                  @map("approved_by_user_id") @db.Uuid
+  completedAt             DateTime?                @map("completed_at") @db.Timestamptz(3)
+  voidedAt                DateTime?                @map("voided_at") @db.Timestamptz(3)
+  createdAt               DateTime                 @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt               DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(3)
+  order                   Order                    @relation("AfterSalesOrder", fields: [orderId], references: [id], onDelete: Restrict, map: "after_sales_events_order_id_fkey")
+  createdBy               User?                    @relation("AfterSalesCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull, map: "after_sales_events_created_by_user_id_fkey")
+  approvedBy              User?                    @relation("AfterSalesApprovedBy", fields: [approvedByUserId], references: [id], onDelete: SetNull, map: "after_sales_events_approved_by_user_id_fkey")
+  items                   AfterSalesItem[]
+  adjustments             FinancialAdjustment[]    @relation("AdjustmentAfterSalesEvent")
+  compensatedOrderItems   OrderItem[]              @relation("OrderItemCompensationEvent")
+
+  @@index([orderId, status], map: "after_sales_events_order_status_idx")
+  @@index([status, createdAt], map: "after_sales_events_status_created_idx")
+  @@map("after_sales_events")
+  @@schema("app")
+}
+
+model AfterSalesItem {
+  id                   BigInt               @id @default(autoincrement())
+  publicId             String               @unique(map: "after_sales_items_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  eventId              BigInt               @map("event_id")
+  kind                 AfterSalesItemKind
+  orderItemId          BigInt?              @map("order_item_id")
+  variantId            BigInt               @map("variant_id")
+  quantity             Int
+  disposition          ReturnDisposition?
+  restocked            Boolean              @default(false)
+  compensationDelivery CompensationDelivery? @map("compensation_delivery")
+  appliedToOrderId     BigInt?              @map("applied_to_order_id")
+  unitCostUsdMinor     BigInt?              @map("unit_cost_usd_minor")
+  totalCostUsdMinor    BigInt?              @map("total_cost_usd_minor")
+  costSnapshotAt       DateTime?            @map("cost_snapshot_at") @db.Timestamptz(3)
+  createdAt            DateTime             @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt            DateTime             @updatedAt @map("updated_at") @db.Timestamptz(3)
+  event                AfterSalesEvent      @relation(fields: [eventId], references: [id], onDelete: Cascade, map: "after_sales_items_event_id_fkey")
+  orderItem            OrderItem?           @relation("AfterSalesItemOrderItem", fields: [orderItemId], references: [id], onDelete: SetNull, map: "after_sales_items_order_item_id_fkey")
+  variant              ProductVariant       @relation("AfterSalesItemVariant", fields: [variantId], references: [id], onDelete: Restrict, map: "after_sales_items_variant_id_fkey")
+  appliedToOrder       Order?               @relation("AfterSalesItemAppliedOrder", fields: [appliedToOrderId], references: [id], onDelete: SetNull, map: "after_sales_items_applied_to_order_id_fkey")
+
+  @@index([eventId], map: "after_sales_items_event_idx")
+  @@index([variantId], map: "after_sales_items_variant_idx")
+  @@index([appliedToOrderId], map: "after_sales_items_applied_order_idx")
+  @@map("after_sales_items")
+  @@schema("app")
+}
+
+// Append-only financial adjustments. Signed USD amount: positive increases
+// distributable profit, negative decreases it. Corrections are made through
+// reversal rows, never by editing or deleting existing rows.
+model FinancialAdjustment {
+  id                    BigInt                  @id @default(autoincrement())
+  publicId              String                  @unique(map: "financial_adjustments_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  type                  FinancialAdjustmentType
+  orderId               BigInt?                 @map("order_id")
+  orderItemId           BigInt?                 @map("order_item_id")
+  paymentId             BigInt?                 @map("payment_id")
+  shipmentId            BigInt?                 @map("shipment_id")
+  afterSalesEventId     BigInt?                 @map("after_sales_event_id")
+  conversionBatchId     BigInt?                 @map("conversion_batch_id")
+  originalAmountMinor   BigInt                  @map("original_amount_minor")
+  originalCurrency      String                  @default("USD") @map("original_currency") @db.Char(3)
+  fxRate                Decimal?                @map("fx_rate") @db.Decimal(18, 8)
+  fxRateDate            DateTime?               @map("fx_rate_date") @db.Timestamptz(3)
+  fxRateSource          FxRateSource?           @map("fx_rate_source")
+  signedUsdMinor        BigInt                  @map("signed_usd_minor")
+  effectiveAt           DateTime                @map("effective_at") @db.Timestamptz(3)
+  reason                String                  @db.Text
+  isEstimated           Boolean                 @default(false) @map("is_estimated")
+  reversesId            BigInt?                 @unique(map: "financial_adjustments_reverses_id_key") @map("reverses_id")
+  settledInSettlementId BigInt?                 @map("settled_in_settlement_id")
+  createdByUserId       String?                 @map("created_by_user_id") @db.Uuid
+  approvedByUserId      String?                 @map("approved_by_user_id") @db.Uuid
+  createdAt             DateTime                @default(now()) @map("created_at") @db.Timestamptz(3)
+  order                 Order?                  @relation("AdjustmentOrder", fields: [orderId], references: [id], onDelete: Restrict, map: "financial_adjustments_order_id_fkey")
+  orderItem             OrderItem?              @relation("AdjustmentOrderItem", fields: [orderItemId], references: [id], onDelete: SetNull, map: "financial_adjustments_order_item_id_fkey")
+  payment               Payment?                @relation("AdjustmentPayment", fields: [paymentId], references: [id], onDelete: SetNull, map: "financial_adjustments_payment_id_fkey")
+  shipment              Shipment?               @relation("AdjustmentShipment", fields: [shipmentId], references: [id], onDelete: SetNull, map: "financial_adjustments_shipment_id_fkey")
+  afterSalesEvent       AfterSalesEvent?        @relation("AdjustmentAfterSalesEvent", fields: [afterSalesEventId], references: [id], onDelete: SetNull, map: "financial_adjustments_after_sales_event_id_fkey")
+  conversionBatch       CryptoConversionBatch?  @relation("AdjustmentConversionBatch", fields: [conversionBatchId], references: [id], onDelete: SetNull, map: "financial_adjustments_conversion_batch_id_fkey")
+  reverses              FinancialAdjustment?    @relation("AdjustmentReversal", fields: [reversesId], references: [id], onDelete: Restrict, map: "financial_adjustments_reverses_id_fkey")
+  reversedBy            FinancialAdjustment?    @relation("AdjustmentReversal")
+  settledInSettlement   PartnerSettlement?      @relation("AdjustmentSettledIn", fields: [settledInSettlementId], references: [id], onDelete: SetNull, map: "financial_adjustments_settled_in_settlement_id_fkey")
+  createdBy             User?                   @relation("AdjustmentCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull, map: "financial_adjustments_created_by_user_id_fkey")
+  approvedBy            User?                   @relation("AdjustmentApprovedBy", fields: [approvedByUserId], references: [id], onDelete: SetNull, map: "financial_adjustments_approved_by_user_id_fkey")
+
+  @@index([orderId, effectiveAt], map: "financial_adjustments_order_time_idx")
+  @@index([type, effectiveAt], map: "financial_adjustments_type_time_idx")
+  @@index([settledInSettlementId], map: "financial_adjustments_settlement_idx")
+  @@index([afterSalesEventId], map: "financial_adjustments_after_sales_idx")
+  @@index([conversionBatchId], map: "financial_adjustments_batch_idx")
+  @@map("financial_adjustments")
+  @@schema("app")
+}
+
+model CryptoConversionBatch {
+  id                    BigInt                  @id @default(autoincrement())
+  publicId              String                  @unique(map: "crypto_conversion_batches_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  batchNumber           String                  @unique(map: "crypto_conversion_batches_number_key") @map("batch_number") @db.VarChar(60)
+  kind                  ConversionBatchKind
+  status                ConversionBatchStatus   @default(DRAFT)
+  targetAsset           String                  @map("target_asset") @db.VarChar(20)
+  totalUsdMinor         BigInt                  @default(0) @map("total_usd_minor")
+  // Fee-rate snapshot in basis points taken from finance settings at batch
+  // creation. DIRECT_CRYPTO batches are constrained to 0 by a check below.
+  feeRateBps            Int                     @map("fee_rate_bps")
+  estimatedFeeUsdMinor  BigInt                  @default(0) @map("estimated_fee_usd_minor")
+  actualFeeUsdMinor     BigInt?                 @map("actual_fee_usd_minor")
+  chainFeeUsdMinor      BigInt?                 @map("chain_fee_usd_minor")
+  rate                  Decimal?                @db.Decimal(36, 18)
+  rateAt                DateTime?               @map("rate_at") @db.Timestamptz(3)
+  rateSource            String?                 @map("rate_source") @db.VarChar(160)
+  targetAmount          Decimal?                @map("target_amount") @db.Decimal(36, 18)
+  receivedAmount        Decimal?                @map("received_amount") @db.Decimal(36, 18)
+  transactionId         String?                 @map("transaction_id") @db.VarChar(255)
+  convertedAt           DateTime?               @map("converted_at") @db.Timestamptz(3)
+  notes                 String?                 @db.Text
+  createdByUserId       String?                 @map("created_by_user_id") @db.Uuid
+  completedByUserId     String?                 @map("completed_by_user_id") @db.Uuid
+  completedAt           DateTime?               @map("completed_at") @db.Timestamptz(3)
+  voidedAt              DateTime?               @map("voided_at") @db.Timestamptz(3)
+  createdAt             DateTime                @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt             DateTime                @updatedAt @map("updated_at") @db.Timestamptz(3)
+  createdBy             User?                   @relation("ConversionBatchCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull, map: "crypto_conversion_batches_created_by_user_id_fkey")
+  completedBy           User?                   @relation("ConversionBatchCompletedBy", fields: [completedByUserId], references: [id], onDelete: SetNull, map: "crypto_conversion_batches_completed_by_user_id_fkey")
+  entries               CryptoConversionEntry[]
+  adjustments           FinancialAdjustment[]   @relation("AdjustmentConversionBatch")
+
+  @@index([status, createdAt], map: "crypto_conversion_batches_status_idx")
+  @@map("crypto_conversion_batches")
+  @@schema("app")
+}
+
+model CryptoConversionEntry {
+  id                        BigInt                @id @default(autoincrement())
+  batchId                   BigInt                @map("batch_id")
+  paymentId                 BigInt                @map("payment_id")
+  orderId                   BigInt                @map("order_id")
+  usdAmountMinor            BigInt                @map("usd_amount_minor")
+  allocatedFeeUsdMinor      BigInt                @default(0) @map("allocated_fee_usd_minor")
+  allocatedChainFeeUsdMinor BigInt                @default(0) @map("allocated_chain_fee_usd_minor")
+  // Set to the payment id while the batch is live (draft/completed); cleared
+  // on void. The unique constraint therefore prevents one payment from being
+  // converted in two live batches while allowing re-use after a void.
+  activePaymentKey          BigInt?               @unique(map: "crypto_conversion_entries_active_payment_key") @map("active_payment_key")
+  createdAt                 DateTime              @default(now()) @map("created_at") @db.Timestamptz(3)
+  batch                     CryptoConversionBatch @relation(fields: [batchId], references: [id], onDelete: Cascade, map: "crypto_conversion_entries_batch_id_fkey")
+  payment                   Payment               @relation("ConversionEntryPayment", fields: [paymentId], references: [id], onDelete: Restrict, map: "crypto_conversion_entries_payment_id_fkey")
+  order                     Order                 @relation("ConversionEntryOrder", fields: [orderId], references: [id], onDelete: Restrict, map: "crypto_conversion_entries_order_id_fkey")
+
+  @@unique([batchId, paymentId], map: "crypto_conversion_entries_batch_payment_key")
+  @@index([orderId], map: "crypto_conversion_entries_order_idx")
+  @@map("crypto_conversion_entries")
+  @@schema("app")
+}
+
+model Partner {
+  id              BigInt              @id @default(autoincrement())
+  publicId        String              @unique(map: "partners_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  name            String              @db.VarChar(255)
+  shareBps        Int                 @map("share_bps")
+  effectiveFrom   DateTime            @map("effective_from") @db.Timestamptz(3)
+  isActive        Boolean             @default(true) @map("is_active")
+  notes           String?             @db.Text
+  createdByUserId String?             @map("created_by_user_id") @db.Uuid
+  createdAt       DateTime            @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime            @updatedAt @map("updated_at") @db.Timestamptz(3)
+  createdBy       User?               @relation("PartnerCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull, map: "partners_created_by_user_id_fkey")
+  settlements     PartnerSettlement[]
+
+  @@map("partners")
+  @@schema("app")
+}
+
+model PartnerSettlement {
+  id                     BigInt                  @id @default(autoincrement())
+  publicId               String                  @unique(map: "partner_settlements_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  settlementNumber       String                  @unique(map: "partner_settlements_number_key") @map("settlement_number") @db.VarChar(60)
+  partnerId              BigInt                  @map("partner_id")
+  status                 PartnerSettlementStatus @default(DRAFT)
+  periodStart            DateTime                @map("period_start") @db.Timestamptz(3)
+  periodEnd              DateTime                @map("period_end") @db.Timestamptz(3)
+  shareBpsSnapshot       Int                     @map("share_bps_snapshot")
+  calcVersion            Int                     @map("calc_version")
+  revenueUsdMinor        BigInt                  @default(0) @map("revenue_usd_minor")
+  cogsUsdMinor           BigInt                  @default(0) @map("cogs_usd_minor")
+  shippingCostUsdMinor   BigInt                  @default(0) @map("shipping_cost_usd_minor")
+  feesUsdMinor           BigInt                  @default(0) @map("fees_usd_minor")
+  afterSalesUsdMinor     BigInt                  @default(0) @map("after_sales_usd_minor")
+  otherAdjustmentsUsdMinor BigInt                @default(0) @map("other_adjustments_usd_minor")
+  profitUsdMinor         BigInt                  @default(0) @map("profit_usd_minor")
+  carryoverInUsdMinor    BigInt                  @default(0) @map("carryover_in_usd_minor")
+  distributableUsdMinor  BigInt                  @default(0) @map("distributable_usd_minor")
+  partnerShareUsdMinor   BigInt                  @default(0) @map("partner_share_usd_minor")
+  ownerShareUsdMinor     BigInt                  @default(0) @map("owner_share_usd_minor")
+  carryoverOutUsdMinor   BigInt                  @default(0) @map("carryover_out_usd_minor")
+  paidUsdMinor           BigInt                  @default(0) @map("paid_usd_minor")
+  paidAt                 DateTime?               @map("paid_at") @db.Timestamptz(3)
+  paymentMethod          String?                 @map("payment_method") @db.VarChar(120)
+  paymentReference       String?                 @map("payment_reference") @db.VarChar(255)
+  notes                  String?                 @db.Text
+  previousSettlementId   BigInt?                 @unique(map: "partner_settlements_previous_id_key") @map("previous_settlement_id")
+  createdByUserId        String?                 @map("created_by_user_id") @db.Uuid
+  confirmedByUserId      String?                 @map("confirmed_by_user_id") @db.Uuid
+  paidConfirmedByUserId  String?                 @map("paid_confirmed_by_user_id") @db.Uuid
+  lockedAt               DateTime?               @map("locked_at") @db.Timestamptz(3)
+  voidedAt               DateTime?               @map("voided_at") @db.Timestamptz(3)
+  createdAt              DateTime                @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt              DateTime                @updatedAt @map("updated_at") @db.Timestamptz(3)
+  partner                Partner                 @relation(fields: [partnerId], references: [id], onDelete: Restrict, map: "partner_settlements_partner_id_fkey")
+  previousSettlement     PartnerSettlement?      @relation("SettlementChain", fields: [previousSettlementId], references: [id], onDelete: Restrict, map: "partner_settlements_previous_id_fkey")
+  nextSettlement         PartnerSettlement?      @relation("SettlementChain")
+  createdBy              User?                   @relation("SettlementCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull, map: "partner_settlements_created_by_user_id_fkey")
+  confirmedBy            User?                   @relation("SettlementConfirmedBy", fields: [confirmedByUserId], references: [id], onDelete: SetNull, map: "partner_settlements_confirmed_by_user_id_fkey")
+  paidConfirmedBy        User?                   @relation("SettlementPaidConfirmedBy", fields: [paidConfirmedByUserId], references: [id], onDelete: SetNull, map: "partner_settlements_paid_confirmed_by_user_id_fkey")
+  settledOrders          Order[]                 @relation("OrderSettledIn")
+  settledAdjustments     FinancialAdjustment[]   @relation("AdjustmentSettledIn")
+
+  @@index([partnerId, periodStart], map: "partner_settlements_partner_period_idx")
+  @@index([status], map: "partner_settlements_status_idx")
+  @@map("partner_settlements")
+  @@schema("app")
+}

@@ -1,0 +1,339 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["app"]
+}
+
+enum OutboxStatus {
+  PENDING    @map("pending")
+  PROCESSING @map("processing")
+  PUBLISHED  @map("published")
+  FAILED     @map("failed")
+
+  @@map("outbox_status")
+  @@schema("app")
+}
+
+// Better Auth core models. Field names stay compatible with the adapter while
+// @map/@@map keep the physical Supabase schema lowercase and snake_case.
+model User {
+  id               String    @id @default(uuid()) @db.Uuid
+  name             String    @db.VarChar(255)
+  email            String    @unique(map: "users_email_key") @db.VarChar(320)
+  emailVerified    Boolean   @default(false) @map("email_verified")
+  image            String?   @db.Text
+  disabledAt       DateTime? @map("disabled_at") @db.Timestamptz(3)
+  disabledReason   String?   @map("disabled_reason") @db.VarChar(500)
+  disabledByUserId String?   @map("disabled_by_user_id") @db.Uuid
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  sessions          Session[]
+  accounts          Account[]
+  customerProfile   CustomerProfile?
+  adminProfile      AdminProfile?
+  addresses         Address[]
+  roleAssignments   UserRole[]              @relation("UserRoleUser")
+  rolesAssigned     UserRole[]              @relation("UserRoleAssignedBy")
+  auditLogs         AuditLog[]              @relation("AuditLogActor")
+  settingsUpdated   SiteSetting[]           @relation("SiteSettingUpdatedBy")
+  carts             Cart[]
+  orders            Order[]                 @relation("OrderCustomer")
+  inventoryMoves    InventoryMovement[]     @relation("InventoryMovementActor")
+  paymentConfigs    PaymentMethodConfig[]   @relation("PaymentMethodConfigUpdater")
+  proofsSubmitted   ManualPaymentProof[]    @relation("PaymentProofSubmitter")
+  proofsReviewed    ManualPaymentProof[]    @relation("PaymentProofReviewer")
+  inquiries         Inquiry[]               @relation("InquiryCustomer")
+  inquiriesAssigned Inquiry[]               @relation("InquiryAssignee")
+  whatsappIntents   WhatsAppContactIntent[]
+  notesAuthored     InternalNote[]          @relation("InternalNoteAuthor")
+  notesAbout        InternalNote[]          @relation("InternalNoteCustomer")
+  blogPosts         BlogPost[]              @relation("BlogPostAuthor")
+  pages             Page[]                  @relation("PageAuthor")
+  faqs              Faq[]                   @relation("FaqAuthor")
+  mediaCreated      Media[]                 @relation("MediaCreatedBy")
+  suppliersCreated  Supplier[]              @relation("SupplierCreatedBy")
+  procurementCreated ProcurementOrder[]     @relation("ProcurementOrderCreatedBy")
+  procurementUpdated ProcurementOrder[]     @relation("ProcurementOrderUpdatedBy")
+  costEntries       InventoryCostEntry[]    @relation("InventoryCostEntryActor")
+  afterSalesCreated AfterSalesEvent[]       @relation("AfterSalesCreatedBy")
+  afterSalesApproved AfterSalesEvent[]      @relation("AfterSalesApprovedBy")
+  adjustmentsCreated FinancialAdjustment[]  @relation("AdjustmentCreatedBy")
+  adjustmentsApproved FinancialAdjustment[] @relation("AdjustmentApprovedBy")
+  conversionBatchesCreated CryptoConversionBatch[] @relation("ConversionBatchCreatedBy")
+  conversionBatchesCompleted CryptoConversionBatch[] @relation("ConversionBatchCompletedBy")
+  partnersCreated   Partner[]               @relation("PartnerCreatedBy")
+  settlementsCreated PartnerSettlement[]    @relation("SettlementCreatedBy")
+  settlementsConfirmed PartnerSettlement[]  @relation("SettlementConfirmedBy")
+  settlementsPaidConfirmed PartnerSettlement[] @relation("SettlementPaidConfirmedBy")
+  disabledBy        User?                   @relation("UserDisabledBy", fields: [disabledByUserId], references: [id], onDelete: SetNull, map: "users_disabled_by_user_id_fkey")
+  usersDisabled     User[]                  @relation("UserDisabledBy")
+
+  @@index([disabledAt], map: "users_disabled_at_idx")
+  @@index([disabledByUserId], map: "users_disabled_by_user_id_idx")
+  @@map("users")
+  @@schema("app")
+}
+
+model Session {
+  id        String   @id @default(uuid()) @db.Uuid
+  expiresAt DateTime @map("expires_at") @db.Timestamptz(3)
+  token     String   @unique(map: "sessions_token_key") @db.Text
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+  ipAddress String?  @map("ip_address") @db.VarChar(45)
+  userAgent String?  @map("user_agent") @db.Text
+  userId    String   @map("user_id") @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, map: "sessions_user_id_fkey")
+
+  @@index([userId], map: "sessions_user_id_idx")
+  @@index([expiresAt], map: "sessions_expires_at_idx")
+  @@map("sessions")
+  @@schema("app")
+}
+
+model Account {
+  id                    String    @id @default(uuid()) @db.Uuid
+  accountId             String    @map("account_id") @db.VarChar(255)
+  providerId            String    @map("provider_id") @db.VarChar(100)
+  userId                String    @map("user_id") @db.Uuid
+  accessToken           String?   @map("access_token") @db.Text
+  refreshToken          String?   @map("refresh_token") @db.Text
+  idToken               String?   @map("id_token") @db.Text
+  accessTokenExpiresAt  DateTime? @map("access_token_expires_at") @db.Timestamptz(3)
+  refreshTokenExpiresAt DateTime? @map("refresh_token_expires_at") @db.Timestamptz(3)
+  scope                 String?   @db.Text
+  password              String?   @db.Text
+  createdAt             DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt             DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade, map: "accounts_user_id_fkey")
+
+  @@unique([providerId, accountId], map: "accounts_provider_account_key")
+  @@index([userId], map: "accounts_user_id_idx")
+  @@map("accounts")
+  @@schema("app")
+}
+
+model Verification {
+  id         String   @id @default(uuid()) @db.Uuid
+  identifier String   @db.VarChar(320)
+  value      String   @db.Text
+  expiresAt  DateTime @map("expires_at") @db.Timestamptz(3)
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt  DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@index([identifier], map: "verifications_identifier_idx")
+  @@index([expiresAt], map: "verifications_expires_at_idx")
+  @@map("verifications")
+  @@schema("app")
+}
+
+// Better Auth 1.6 database-backed rate limiting. The adapter addresses this
+// Prisma model as `rateLimit`; the physical table remains private/snake_case.
+model RateLimit {
+  id          String @id @default(uuid()) @db.Uuid
+  key         String @unique(map: "rate_limits_key_key") @db.Text
+  count       Int
+  lastRequest BigInt @map("last_request")
+
+  @@index([lastRequest], map: "rate_limits_last_request_idx")
+  @@map("rate_limits")
+  @@schema("app")
+}
+
+model CustomerProfile {
+  id                BigInt   @id @default(autoincrement())
+  userId            String   @unique(map: "customer_profiles_user_id_key") @map("user_id") @db.Uuid
+  firstName         String?  @map("first_name") @db.VarChar(100)
+  lastName          String?  @map("last_name") @db.VarChar(100)
+  phone             String?  @db.VarChar(32)
+  preferredCurrency String   @default("USD") @map("preferred_currency") @db.Char(3)
+  countryCode       String   @default("US") @map("country_code") @db.Char(2)
+  locale            String   @default("en-US") @db.VarChar(16)
+  marketingConsent  Boolean  @default(false) @map("marketing_consent")
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade, map: "customer_profiles_user_id_fkey")
+
+  @@map("customer_profiles")
+  @@schema("app")
+}
+
+model AdminProfile {
+  id        BigInt   @id @default(autoincrement())
+  userId    String   @unique(map: "admin_profiles_user_id_key") @map("user_id") @db.Uuid
+  jobTitle  String?  @map("job_title") @db.VarChar(120)
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, map: "admin_profiles_user_id_fkey")
+
+  @@map("admin_profiles")
+  @@schema("app")
+}
+
+model Address {
+  id                BigInt    @id @default(autoincrement())
+  userId            String    @map("user_id") @db.Uuid
+  createRequestId   String?   @map("create_request_id") @db.Uuid
+  label             String?   @db.VarChar(80)
+  recipientName     String    @map("recipient_name") @db.VarChar(255)
+  company           String?   @db.VarChar(255)
+  line1             String    @db.VarChar(255)
+  line2             String?   @db.VarChar(255)
+  city              String    @db.VarChar(120)
+  region            String    @db.VarChar(120)
+  postalCode        String    @map("postal_code") @db.VarChar(20)
+  countryCode       String    @default("US") @map("country_code") @db.Char(2)
+  phone             String?   @db.VarChar(32)
+  isDefaultShipping Boolean   @default(false) @map("is_default_shipping")
+  isDefaultBilling  Boolean   @default(false) @map("is_default_billing")
+  createdAt         DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt         DateTime? @map("deleted_at") @db.Timestamptz(3)
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade, map: "addresses_user_id_fkey")
+
+  @@unique([userId, createRequestId], map: "addresses_user_create_request_key")
+  @@index([userId], map: "addresses_user_id_idx")
+  @@index([userId, deletedAt], map: "addresses_user_id_deleted_at_idx")
+  @@map("addresses")
+  @@schema("app")
+}
+
+model Role {
+  id          BigInt   @id @default(autoincrement())
+  publicId    String   @unique(map: "roles_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  slug        String   @unique(map: "roles_slug_key") @db.VarChar(80)
+  name        String   @db.VarChar(120)
+  description String?  @db.Text
+  isSystem    Boolean  @default(true) @map("is_system")
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  userAssignments UserRole[]
+  permissions     RolePermission[]
+
+  @@map("roles")
+  @@schema("app")
+}
+
+model Permission {
+  id          BigInt   @id @default(autoincrement())
+  slug        String   @unique(map: "permissions_slug_key") @db.VarChar(120)
+  name        String   @db.VarChar(160)
+  description String?  @db.Text
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  roles RolePermission[]
+
+  @@map("permissions")
+  @@schema("app")
+}
+
+model UserRole {
+  userId           String   @map("user_id") @db.Uuid
+  roleId           BigInt   @map("role_id")
+  assignedByUserId String?  @map("assigned_by_user_id") @db.Uuid
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  user             User     @relation("UserRoleUser", fields: [userId], references: [id], onDelete: Cascade, map: "user_roles_user_id_fkey")
+  role             Role     @relation(fields: [roleId], references: [id], onDelete: Cascade, map: "user_roles_role_id_fkey")
+  assignedByUser   User?    @relation("UserRoleAssignedBy", fields: [assignedByUserId], references: [id], onDelete: SetNull, map: "user_roles_assigned_by_user_id_fkey")
+
+  @@id([userId, roleId], map: "user_roles_pkey")
+  @@index([roleId], map: "user_roles_role_id_idx")
+  @@index([assignedByUserId], map: "user_roles_assigned_by_user_id_idx")
+  @@map("user_roles")
+  @@schema("app")
+}
+
+model RolePermission {
+  roleId       BigInt     @map("role_id")
+  permissionId BigInt     @map("permission_id")
+  createdAt    DateTime   @default(now()) @map("created_at") @db.Timestamptz(3)
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade, map: "role_permissions_role_id_fkey")
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade, map: "role_permissions_permission_id_fkey")
+
+  @@id([roleId, permissionId], map: "role_permissions_pkey")
+  @@index([permissionId], map: "role_permissions_permission_id_idx")
+  @@map("role_permissions")
+  @@schema("app")
+}
+
+model AuditLog {
+  id           BigInt   @id @default(autoincrement())
+  actorUserId  String?  @map("actor_user_id") @db.Uuid
+  action       String   @db.VarChar(160)
+  resourceType String   @map("resource_type") @db.VarChar(120)
+  resourceId   String?  @map("resource_id") @db.VarChar(255)
+  requestId    String?  @map("request_id") @db.VarChar(100)
+  ipAddress    String?  @map("ip_address") @db.VarChar(45)
+  userAgent    String?  @map("user_agent") @db.Text
+  before       Json?
+  after        Json?
+  metadata     Json?
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  actor        User?    @relation("AuditLogActor", fields: [actorUserId], references: [id], onDelete: SetNull, map: "audit_logs_actor_user_id_fkey")
+
+  @@index([actorUserId, createdAt], map: "audit_logs_actor_created_at_idx")
+  @@index([resourceType, resourceId, createdAt], map: "audit_logs_resource_created_at_idx")
+  @@index([action, createdAt], map: "audit_logs_action_created_at_idx")
+  @@map("audit_logs")
+  @@schema("app")
+}
+
+model OutboxEvent {
+  id            BigInt       @id @default(autoincrement())
+  eventId       String       @unique(map: "outbox_events_event_id_key") @default(uuid()) @map("event_id") @db.Uuid
+  aggregateType String       @map("aggregate_type") @db.VarChar(120)
+  aggregateId   String       @map("aggregate_id") @db.VarChar(255)
+  eventType     String       @map("event_type") @db.VarChar(160)
+  payload       Json
+  status        OutboxStatus @default(PENDING)
+  attempts      Int          @default(0)
+  availableAt   DateTime     @default(now()) @map("available_at") @db.Timestamptz(3)
+  lockedAt      DateTime?    @map("locked_at") @db.Timestamptz(3)
+  lockedBy      String?      @map("locked_by") @db.VarChar(120)
+  publishedAt   DateTime?    @map("published_at") @db.Timestamptz(3)
+  lastError     String?      @map("last_error") @db.Text
+  createdAt     DateTime     @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt     DateTime     @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@index([status, availableAt, id], map: "outbox_events_delivery_idx")
+  @@index([aggregateType, aggregateId], map: "outbox_events_aggregate_idx")
+  @@map("outbox_events")
+  @@schema("app")
+}
+
+model SiteSetting {
+  key             String                @id @db.VarChar(160)
+  value           Json
+  description     String?               @db.Text
+  isPublic        Boolean               @default(false) @map("is_public")
+  updatedByUserId String?               @map("updated_by_user_id") @db.Uuid
+  createdAt       DateTime              @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime              @updatedAt @map("updated_at") @db.Timestamptz(3)
+  updatedBy       User?                 @relation("SiteSettingUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: SetNull, map: "site_settings_updated_by_user_id_fkey")
+  paymentMethods  PaymentMethodConfig[]
+
+  @@index([updatedByUserId], map: "site_settings_updated_by_user_id_idx")
+  @@map("site_settings")
+  @@schema("app")
+}
+
+// A deliberately tiny deployment sentinel. Readiness checks this exact
+// version together with a seeded setting so a healthy PostgreSQL connection
+// cannot hide an empty, stale, or inaccessible application schema.
+model ApplicationSchemaMetadata {
+  key       String   @id @db.VarChar(80)
+  version   String   @db.VarChar(80)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("application_schema_metadata")
+  @@schema("app")
+}

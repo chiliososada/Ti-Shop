@@ -1,0 +1,228 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    services:
+      postgres:
+        image: postgres:17-bookworm@sha256:5530681ea5d3e2ed4ce396f9b5cb443efbac6baf2a8a19c0c0635e40ae7eadce
+        env:
+          POSTGRES_DB: ti_shop_ci
+          POSTGRES_USER: ti_shop_ci
+          POSTGRES_PASSWORD: ci_database_only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ti_shop_ci -d ti_shop_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      CI: true
+      NEXT_TELEMETRY_DISABLED: 1
+      SITE_URL: https://shengan-peptide.com
+      DATABASE_URL: postgresql://ti_shop_ci:ci_database_only@localhost:5432/ti_shop_ci
+      DIRECT_URL: postgresql://ti_shop_ci:ci_database_only@localhost:5432/ti_shop_ci?schema=app
+      ADMIN_DB_INTEGRATION_URL: postgresql://ti_shop_ci:ci_database_only@localhost:5432/ti_shop_ci
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      - name: Generate an ephemeral CI authentication secret
+        shell: bash
+        run: |
+          auth_secret="$(openssl rand -base64 48)"
+          echo "::add-mask::$auth_secret"
+          echo "BETTER_AUTH_SECRET=$auth_secret" >> "$GITHUB_ENV"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24.18.0
+          cache: npm
+
+      - name: Pin npm
+        run: npm install --global npm@11.16.0
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate database schema
+        run: npm run db:validate
+
+      - name: Generate database client
+        run: npm run db:generate
+
+      - name: Deploy migrations
+        run: npm run db:deploy
+
+      - name: Seed database
+        run: npm run db:seed
+
+      - name: Verify idempotent seed
+        run: npm run db:seed
+
+      - name: Import catalog and content
+        run: npm run db:import:legacy
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Test, including PostgreSQL integration suites
+        env:
+          NODE_OPTIONS: --throw-deprecation
+        run: npm run test
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify production SEO and route boundaries
+        run: npm run test:seo
+
+  container-contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    env:
+      DATABASE_URL: postgresql://ci_user:ci_database_only@db.invalid:5432/ti_shop_ci
+      DIRECT_URL: postgresql://ci_user:ci_database_only@db.invalid:5432/ti_shop_ci?schema=app
+      SITE_URL: https://shop.invalid
+      NOWPAYMENTS_MODE: disabled
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
+
+      - name: Generate an ephemeral Compose authentication secret
+        shell: bash
+        run: |
+          auth_secret="$(openssl rand -base64 48)"
+          echo "::add-mask::$auth_secret"
+          echo "BETTER_AUTH_SECRET=$auth_secret" >> "$GITHUB_ENV"
+
+      - name: Check Dockerfile and required release targets
+        shell: bash
+        run: |
+          docker buildx build --check .
+
+          base_image="$(awk '$1 == "FROM" && $3 == "AS" && $4 == "base" { print $2 }' Dockerfile)"
+          if [[ ! "$base_image" =~ ^node:24\.18\.0-bookworm-slim@sha256:[0-9a-f]{64}$ ]]; then
+            echo "The Node 24.18.0 base image must be pinned by sha256 digest." >&2
+            exit 1
+          fi
+
+          targets="$(docker buildx build --call=targets .)"
+          for required_target in runner migrator operations; do
+            if ! awk 'NR > 1 { print $1 }' <<< "$targets" | grep --fixed-strings --line-regexp --quiet "$required_target"; then
+              echo "Required Dockerfile target is missing: $required_target" >&2
+              exit 1
+            fi
+          done
+
+      - name: Validate the complete Compose model and release-target mapping
+        shell: bash
+        run: |
+          docker compose --profile operations config --quiet
+          docker compose --profile operations config --format json \
+            | jq --exit-status '
+                .services.app.build.target == "runner"
+                and .services.migrate.build.target == "migrator"
+                and .services.operations.build.target == "operations"
+              ' > /dev/null
+
+      - name: Test nginx configuration with the Compose-pinned image
+        shell: bash
+        run: |
+          proxy_image="$(docker compose --profile operations config --format json | jq -er '.services.proxy.image')"
+          if [[ ! "$proxy_image" =~ ^nginxinc/nginx-unprivileged:[^@]+@sha256:[0-9a-f]{64}$ ]]; then
+            echo "The proxy must use the expected nginx-unprivileged repository and a sha256 digest." >&2
+            exit 1
+          fi
+
+          docker pull "$proxy_image"
+          docker run --rm \
+            --network none \
+            --user 101:101 \
+            --read-only \
+            --cap-drop ALL \
+            --security-opt no-new-privileges:true \
+            --tmpfs /tmp:rw,noexec,nosuid,size=32m,uid=101,gid=101,mode=1770 \
+            --volume "$PWD/deploy/nginx.conf:/etc/nginx/nginx.conf:ro" \
+            --entrypoint /usr/sbin/nginx \
+            "$proxy_image" \
+            -t -c /etc/nginx/nginx.conf
+
+  container-build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - runner
+          - migrator
+          - operations
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
+
+      - name: Build the ${{ matrix.target }} release target
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
+        with:
+          context: .
+          file: ./Dockerfile
+          target: ${{ matrix.target }}
+          tags: ti-shop-ci:${{ matrix.target }}-${{ github.sha }}
+          push: false
+          load: true
+          cache-from: type=gha,scope=ti-shop-${{ matrix.target }}
+          cache-to: type=gha,mode=max,ignore-error=true,scope=ti-shop-${{ matrix.target }}
+
+      - name: Verify the ${{ matrix.target }} image contract
+        shell: bash
+        run: |
+          image="ti-shop-ci:${{ matrix.target }}-${{ github.sha }}"
+          target="${{ matrix.target }}"
+
+          docker image inspect "$image" \
+            | jq --exit-status --arg target "$target" '
+                .[0].Config.User == "node"
+                and .[0].Config.WorkingDir == "/app"
+                and (
+                  if $target == "runner" then
+                    .[0].Config.Cmd == ["node", "server.js"]
+                    and .[0].Config.Healthcheck.Test[0] == "CMD"
+                    and (.[0].Config.Healthcheck.Test | join(" ") | contains("/api/ready"))
+                  elif $target == "migrator" then
+                    .[0].Config.Cmd == ["npm", "run", "db:deploy"]
+                  else
+                    .[0].Config.Cmd == ["npm", "run", "payments:reconcile:nowpayments"]
+                  end
+                )
+              ' > /dev/null

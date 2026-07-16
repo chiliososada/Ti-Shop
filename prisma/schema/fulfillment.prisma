@@ -1,0 +1,103 @@
+model Carrier {
+  id                  BigInt     @id @default(autoincrement())
+  publicId            String     @unique(map: "carriers_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  code                String     @unique(map: "carriers_code_key") @db.VarChar(80)
+  name                String     @db.VarChar(160)
+  trackingUrlTemplate String?    @map("tracking_url_template") @db.Text
+  isActive            Boolean    @default(true) @map("is_active")
+  createdAt           DateTime   @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt           DateTime   @updatedAt @map("updated_at") @db.Timestamptz(3)
+  shipments           Shipment[]
+
+  @@index([isActive], map: "carriers_is_active_idx")
+  @@map("carriers")
+  @@schema("app")
+}
+
+model Shipment {
+  id                  BigInt          @id @default(autoincrement())
+  publicId            String          @unique(map: "shipments_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  shipmentNumber      String          @unique(map: "shipments_shipment_number_key") @map("shipment_number") @db.VarChar(50)
+  orderId             BigInt          @map("order_id")
+  carrierId           BigInt?         @map("carrier_id")
+  status              ShipmentStatus  @default(DRAFT)
+  serviceLevel        String?         @map("service_level") @db.VarChar(120)
+  trackingNumber      String?         @map("tracking_number") @db.VarChar(180)
+  labelUrl            String?         @map("label_url") @db.Text
+  currency            String          @default("USD") @db.Char(3)
+  shippingCostMinor   BigInt?         @map("shipping_cost_minor")
+  packagingCostMinor  BigInt?         @map("packaging_cost_minor")
+  estimatedDeliveryAt DateTime?       @map("estimated_delivery_at") @db.Timestamptz(3)
+  shippedAt           DateTime?       @map("shipped_at") @db.Timestamptz(3)
+  deliveredAt         DateTime?       @map("delivered_at") @db.Timestamptz(3)
+  canceledAt          DateTime?       @map("canceled_at") @db.Timestamptz(3)
+  createdAt           DateTime        @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt           DateTime        @updatedAt @map("updated_at") @db.Timestamptz(3)
+  order               Order           @relation(fields: [orderId], references: [id], onDelete: Restrict, map: "shipments_order_id_fkey")
+  carrier             Carrier?        @relation(fields: [carrierId], references: [id], onDelete: SetNull, map: "shipments_carrier_id_fkey")
+  packages            Package[]
+  items               ShipmentItem[]
+  trackingEvents      TrackingEvent[]
+  internalNotes       InternalNote[]
+  financialAdjustments FinancialAdjustment[] @relation("AdjustmentShipment")
+
+  @@unique([carrierId, trackingNumber], map: "shipments_carrier_tracking_key")
+  @@index([orderId, createdAt], map: "shipments_order_created_at_idx")
+  @@index([status, updatedAt], map: "shipments_status_updated_at_idx")
+  @@index([carrierId], map: "shipments_carrier_id_idx")
+  @@index([createdAt(sort: Desc), id(sort: Desc)], map: "shipments_created_at_id_idx")
+  @@map("shipments")
+  @@schema("app")
+}
+
+model Package {
+  id                BigInt   @id @default(autoincrement())
+  publicId          String   @unique(map: "packages_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  shipmentId        BigInt   @map("shipment_id")
+  packageNumber     Int      @map("package_number")
+  weightGrams       Int?     @map("weight_grams")
+  lengthMillimeters Int?     @map("length_millimeters")
+  widthMillimeters  Int?     @map("width_millimeters")
+  heightMillimeters Int?     @map("height_millimeters")
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+  shipment          Shipment @relation(fields: [shipmentId], references: [id], onDelete: Cascade, map: "packages_shipment_id_fkey")
+
+  @@unique([shipmentId, packageNumber], map: "packages_shipment_number_key")
+  @@map("packages")
+  @@schema("app")
+}
+
+model ShipmentItem {
+  shipmentId  BigInt    @map("shipment_id")
+  orderItemId BigInt    @map("order_item_id")
+  quantity    Int
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  shipment    Shipment  @relation(fields: [shipmentId], references: [id], onDelete: Cascade, map: "shipment_items_shipment_id_fkey")
+  orderItem   OrderItem @relation(fields: [orderItemId], references: [id], onDelete: Restrict, map: "shipment_items_order_item_id_fkey")
+
+  @@id([shipmentId, orderItemId], map: "shipment_items_pkey")
+  @@index([orderItemId], map: "shipment_items_order_item_id_idx")
+  @@map("shipment_items")
+  @@schema("app")
+}
+
+model TrackingEvent {
+  id             BigInt              @id @default(autoincrement())
+  publicId       String              @unique(map: "tracking_events_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  shipmentId     BigInt              @map("shipment_id")
+  carrierEventId String?             @map("carrier_event_id") @db.VarChar(255)
+  status         TrackingEventStatus @default(INFO)
+  message        String?             @db.Text
+  location       String?             @db.VarChar(255)
+  rawPayload     Json?               @map("raw_payload")
+  occurredAt     DateTime            @map("occurred_at") @db.Timestamptz(3)
+  createdAt      DateTime            @default(now()) @map("created_at") @db.Timestamptz(3)
+  shipment       Shipment            @relation(fields: [shipmentId], references: [id], onDelete: Cascade, map: "tracking_events_shipment_id_fkey")
+
+  @@unique([shipmentId, carrierEventId], map: "tracking_events_carrier_event_key")
+  @@index([shipmentId, occurredAt], map: "tracking_events_shipment_time_idx")
+  @@index([status, occurredAt], map: "tracking_events_status_time_idx")
+  @@map("tracking_events")
+  @@schema("app")
+}

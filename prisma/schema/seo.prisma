@@ -1,0 +1,48 @@
+model SeoMetadata {
+  id               BigInt    @id @default(autoincrement())
+  publicId         String    @unique(map: "seo_metadata_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  productId        BigInt?   @unique(map: "seo_metadata_product_id_key") @map("product_id")
+  categoryId       BigInt?   @unique(map: "seo_metadata_category_id_key") @map("category_id")
+  blogPostId       BigInt?   @unique(map: "seo_metadata_blog_post_id_key") @map("blog_post_id")
+  pageId           BigInt?   @unique(map: "seo_metadata_page_id_key") @map("page_id")
+  faqId            BigInt?   @unique(map: "seo_metadata_faq_id_key") @map("faq_id")
+  openGraphMediaId BigInt?   @map("open_graph_media_id")
+  title            String?   @db.VarChar(255)
+  description      String?   @db.VarChar(500)
+  canonicalUrl     String?   @map("canonical_url") @db.Text
+  noIndex          Boolean   @default(false) @map("no_index")
+  noFollow         Boolean   @default(false) @map("no_follow")
+  structuredData   Json?     @map("structured_data")
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt        DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  product          Product?  @relation(fields: [productId], references: [id], onDelete: Cascade, map: "seo_metadata_product_id_fkey")
+  category         Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade, map: "seo_metadata_category_id_fkey")
+  blogPost         BlogPost? @relation(fields: [blogPostId], references: [id], onDelete: Cascade, map: "seo_metadata_blog_post_id_fkey")
+  page             Page?     @relation(fields: [pageId], references: [id], onDelete: Cascade, map: "seo_metadata_page_id_fkey")
+  faq              Faq?      @relation(fields: [faqId], references: [id], onDelete: Cascade, map: "seo_metadata_faq_id_fkey")
+  openGraphMedia   Media?    @relation("SeoOpenGraphMedia", fields: [openGraphMediaId], references: [id], onDelete: SetNull, map: "seo_metadata_open_graph_media_id_fkey")
+
+  @@index([openGraphMediaId], map: "seo_metadata_open_graph_media_id_idx")
+  @@map("seo_metadata")
+  @@schema("app")
+}
+
+model Redirect {
+  id              BigInt    @id @default(autoincrement())
+  publicId        String    @unique(map: "redirects_public_id_key") @default(uuid()) @map("public_id") @db.Uuid
+  sourcePath      String    @unique(map: "redirects_source_path_key") @map("source_path") @db.Text
+  destinationPath String    @map("destination_path") @db.Text
+  statusCode      Int       @default(301) @map("status_code") @db.SmallInt
+  preserveQuery   Boolean   @default(true) @map("preserve_query")
+  isActive        Boolean   @default(true) @map("is_active")
+  startsAt        DateTime? @map("starts_at") @db.Timestamptz(3)
+  endsAt          DateTime? @map("ends_at") @db.Timestamptz(3)
+  hitCount        BigInt    @default(0) @map("hit_count")
+  lastHitAt       DateTime? @map("last_hit_at") @db.Timestamptz(3)
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@index([isActive, startsAt, endsAt], map: "redirects_active_window_idx")
+  @@map("redirects")
+  @@schema("app")
+}

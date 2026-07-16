@@ -1,0 +1,11 @@
+.git
+.github
+.next
+node_modules
+coverage
+*.log
+.DS_Store
+.env*
+.npmrc
+Dockerfile*
+README.md
