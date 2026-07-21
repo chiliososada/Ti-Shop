@@ -174,7 +174,7 @@ function mediaAltText(source: LegacyCommerceSource, path: string): string {
   }
 
   const blog = source.blogs.find((candidate) => candidate.cover === path);
-  return blog?.title ?? "sheng.an research catalog image";
+  return blog?.title ?? "Veripep research catalog image";
 }
 
 async function syncMedia(
@@ -189,6 +189,8 @@ async function syncMedia(
     publicUrl: asset.path,
     altText: mediaAltText(source, asset.path),
     mimeType: asset.mimeType,
+    width: asset.width,
+    height: asset.height,
     sizeBytes: asset.sizeBytes,
     checksum: asset.checksum,
     isPrivate: false,
@@ -212,6 +214,8 @@ async function syncMedia(
     existing.publicUrl === desired.publicUrl &&
     existing.altText === desired.altText &&
     existing.mimeType === desired.mimeType &&
+    existing.width === desired.width &&
+    existing.height === desired.height &&
     existing.sizeBytes === desired.sizeBytes &&
     existing.checksum === desired.checksum &&
     existing.isPrivate === desired.isPrivate &&
@@ -332,7 +336,12 @@ async function resolveCategory(
     return tx.category.create({ data, select: { id: true } });
   }
 
-  if (existing.sourceHash === hash) {
+  if (
+    existing.sourceHash === hash &&
+    existing.status === data.status &&
+    existing.position === data.position &&
+    existing.deletedAt === null
+  ) {
     mutations.categories.unchanged += 1;
     return { id: existing.id };
   }
@@ -369,10 +378,10 @@ async function resolveProduct(
     sourceHash: hash,
     slug: product.id,
     title: product.name,
-    subtitle: null,
+    subtitle: product.presentation ?? null,
     shortDescription: product.shortDescription,
     description: product.description,
-    brand: "sheng.an",
+    brand: "Veripep",
     purity: product.purity,
     casNumber: product.cas ?? null,
     appearance: product.appearance,
@@ -394,7 +403,13 @@ async function resolveProduct(
     return tx.product.create({ data, select: { id: true } });
   }
 
-  if (existing.sourceHash === hash) {
+  if (
+    existing.sourceHash === hash &&
+    existing.status === data.status &&
+    existing.isFeatured === data.isFeatured &&
+    existing.position === data.position &&
+    existing.deletedAt === null
+  ) {
     mutations.products.unchanged += 1;
     return { id: existing.id };
   }
@@ -430,7 +445,12 @@ async function syncDefaultVariant(
     title: "Default",
     priceMode: product.price === null ? PriceMode.ON_REQUEST : PriceMode.FIXED,
     status: CatalogStatus.ACTIVE,
-    optionValues: { default: true, source: "legacy-catalog" },
+    optionValues: {
+      default: true,
+      source: "legacy-catalog",
+      ...(product.presentation ? { presentation: product.presentation } : {}),
+      ...(product.catalogNumber ? { catalogNumber: product.catalogNumber } : {}),
+    },
     requiresShipping: true,
     trackInventory: false,
     position: 0,
@@ -551,9 +571,18 @@ async function syncProductCategory(
   position: number,
   mutations: ImportMutations,
 ): Promise<void> {
-  const existing = await tx.productCategory.findUnique({
-    where: { productId_categoryId: { productId, categoryId } },
+  const existingLinks = await tx.productCategory.findMany({
+    where: { productId },
   });
+  const existing = existingLinks.find((link) => link.categoryId === categoryId);
+  const staleLinks = existingLinks.filter((link) => link.categoryId !== categoryId);
+
+  if (staleLinks.length > 0) {
+    await tx.productCategory.deleteMany({
+      where: { productId, categoryId: { not: categoryId } },
+    });
+    mutations.productCategories.updated += staleLinks.length;
+  }
 
   if (!existing) {
     mutations.productCategories.created += 1;
@@ -582,8 +611,12 @@ async function syncProductMedia(
   position: number,
   mutations: ImportMutations,
 ): Promise<void> {
+  const relationScope =
+    role === ProductMediaRole.PRIMARY
+      ? { productId, variantId, role }
+      : { productId, variantId, mediaId, role };
   const matches = await tx.productMedia.findMany({
-    where: { productId, mediaId, role },
+    where: relationScope,
     orderBy: { id: "asc" },
     take: 2,
   });
@@ -603,7 +636,11 @@ async function syncProductMedia(
     return;
   }
 
-  if (existing.variantId === variantId && existing.position === position) {
+  if (
+    existing.variantId === variantId &&
+    existing.mediaId === mediaId &&
+    existing.position === position
+  ) {
     mutations.productMedia.unchanged += 1;
     return;
   }
@@ -611,7 +648,7 @@ async function syncProductMedia(
   mutations.productMedia.updated += 1;
   await tx.productMedia.update({
     where: { id: existing.id },
-    data: { variantId, position },
+    data: { variantId, mediaId, position },
   });
 }
 
@@ -739,6 +776,18 @@ async function syncPlacement(
   });
 
   if (!existing) {
+    const occupyingPosition = await tx.merchandisingPlacement.findUnique({
+      where: { key_position: { key, position } },
+    });
+    if (occupyingPosition) {
+      mutations.placements.updated += 1;
+      await tx.merchandisingPlacement.update({
+        where: { id: occupyingPosition.id },
+        data: { productId, metadata, isActive: true },
+      });
+      return;
+    }
+
     mutations.placements.created += 1;
     await tx.merchandisingPlacement.create({
       data: { key, productId, position, metadata },
@@ -746,7 +795,11 @@ async function syncPlacement(
     return;
   }
 
-  if (existing.position === position && sameJson(existing.metadata, metadata)) {
+  if (
+    existing.position === position &&
+    existing.isActive &&
+    sameJson(existing.metadata, metadata)
+  ) {
     mutations.placements.unchanged += 1;
     return;
   }
@@ -754,8 +807,80 @@ async function syncPlacement(
   mutations.placements.updated += 1;
   await tx.merchandisingPlacement.update({
     where: { id: existing.id },
-    data: { position, metadata },
+    data: { position, metadata, isActive: true },
   });
+}
+
+const MANAGED_PLACEMENT_KEYS = [
+  "legacy-featured-products",
+  "legacy-home-bestsellers",
+  "legacy-category-signatures",
+] as const;
+
+async function stageManagedPlacements(tx: TransactionClient): Promise<void> {
+  // Move managed rows out of the public position range first so swaps and
+  // compaction cannot violate the unique (key, position) constraint.
+  // Inactive managed rows are fully reproducible and would otherwise retain
+  // old staged positions that can collide on a later import.
+  await tx.merchandisingPlacement.deleteMany({
+    where: { key: { in: [...MANAGED_PLACEMENT_KEYS] }, isActive: false },
+  });
+  await tx.merchandisingPlacement.updateMany({
+    where: { key: { in: [...MANAGED_PLACEMENT_KEYS] } },
+    data: { position: { increment: 10_000 } },
+  });
+}
+
+async function deactivatePlacementsMissingFromSource(
+  tx: TransactionClient,
+  desiredProductIdsByKey: ReadonlyMap<string, readonly bigint[]>,
+  mutations: ImportMutations,
+): Promise<void> {
+  for (const key of MANAGED_PLACEMENT_KEYS) {
+    const desiredProductIds = desiredProductIdsByKey.get(key) ?? [];
+    const result = await tx.merchandisingPlacement.updateMany({
+      where: {
+        key,
+        isActive: true,
+        productId: { notIn: [...desiredProductIds] },
+      },
+      data: { isActive: false },
+    });
+    mutations.placements.updated += result.count;
+  }
+}
+
+async function archiveProductsMissingFromSource(
+  tx: TransactionClient,
+  sourceProductIds: readonly string[],
+  mutations: ImportMutations,
+): Promise<void> {
+  const staleProducts = await tx.product.findMany({
+    where: {
+      legacySourceId: { not: null, notIn: [...sourceProductIds] },
+      status: { not: CatalogStatus.ARCHIVED },
+    },
+    select: { id: true },
+  });
+  if (staleProducts.length === 0) return;
+
+  const staleProductIds = staleProducts.map((product) => product.id);
+  await tx.merchandisingPlacement.updateMany({
+    where: { productId: { in: staleProductIds }, isActive: true },
+    data: { isActive: false },
+  });
+  await tx.productVariant.updateMany({
+    where: {
+      productId: { in: staleProductIds },
+      status: { not: CatalogStatus.ARCHIVED },
+    },
+    data: { status: CatalogStatus.ARCHIVED },
+  });
+  await tx.product.updateMany({
+    where: { id: { in: staleProductIds } },
+    data: { status: CatalogStatus.ARCHIVED, isFeatured: false },
+  });
+  mutations.pruned += staleProducts.length;
 }
 
 function reportAssets(audit: AssetAudit, mode: AssetMode) {
@@ -820,6 +945,8 @@ async function verifyImportedData(
         id: true,
         legacySourceId: true,
         slug: true,
+        status: true,
+        deletedAt: true,
         categories: { select: { category: { select: { legacySourceId: true } } } },
         media: {
           where: { role: ProductMediaRole.PRIMARY },
@@ -847,11 +974,13 @@ async function verifyImportedData(
       where: {
         product: { legacySourceId: { in: productIds } },
         position: 0,
+        status: CatalogStatus.ACTIVE,
         deletedAt: null,
       },
       select: {
         id: true,
         sku: true,
+        status: true,
         priceMode: true,
         product: { select: { legacySourceId: true } },
         prices: {
@@ -866,7 +995,9 @@ async function verifyImportedData(
         },
       },
     }),
-    tx.merchandisingPlacement.count({ where: { key: { in: placementKeys } } }),
+    tx.merchandisingPlacement.count({
+      where: { key: { in: placementKeys }, isActive: true },
+    }),
   ]);
 
   if (
@@ -878,6 +1009,16 @@ async function verifyImportedData(
     throw new Error("Imported legacy entity counts do not match the source contract.");
   }
 
+  const activeProductsMissingFromSource = await tx.product.count({
+    where: {
+      legacySourceId: { not: null, notIn: productIds },
+      status: CatalogStatus.ACTIVE,
+    },
+  });
+  if (activeProductsMissingFromSource !== 0) {
+    throw new Error("A legacy product missing from the purchase catalog is still active.");
+  }
+
   if (
     importedCategories.some((row) => row.legacySourceId !== row.slug) ||
     importedProducts.some((row) => row.legacySourceId !== row.slug) ||
@@ -886,22 +1027,34 @@ async function verifyImportedData(
     throw new Error("A legacy slug or legacySourceId changed during import.");
   }
 
+  const sourceProductById = new Map(
+    source.products.map((product) => [product.id, product]),
+  );
   if (
-    importedProducts.some(
-      (row) =>
-        row.categories.length < 1 ||
-        !row.media.some((media) => media.variantId === null) ||
-        !row.categories.some((link) => link.category.legacySourceId),
-    )
+    importedProducts.some((row) => {
+      const sourceProduct = row.legacySourceId
+        ? sourceProductById.get(row.legacySourceId)
+        : undefined;
+      return (
+        !sourceProduct ||
+        row.status !== CatalogStatus.ACTIVE ||
+        row.deletedAt !== null ||
+        row.categories.length !== 1 ||
+        row.categories[0]?.category.legacySourceId !== sourceProduct.category ||
+        !row.media.some((media) => media.variantId === null)
+      );
+    })
   ) {
-    throw new Error("Every imported product must retain a category and primary media.");
+    throw new Error(
+      "Every imported product must retain exactly its source category and primary media.",
+    );
   }
 
   if (defaultVariants.length !== source.products.length) {
     throw new Error("Every imported product must have exactly one active default variant.");
   }
 
-  const byProductId = new Map(source.products.map((product) => [product.id, product]));
+  const byProductId = sourceProductById;
   for (const variant of defaultVariants) {
     const legacyId = variant.product.legacySourceId;
     const sourceProduct = legacyId ? byProductId.get(legacyId) : undefined;
@@ -932,10 +1085,10 @@ async function verifyImportedData(
   if (
     selankVariants.length !== 2 ||
     selankAmounts.length !== 2 ||
-    selankAmounts[0] !== BigInt(4_600) ||
-    selankAmounts[1] !== BigInt(7_500)
+    selankAmounts[0] !== BigInt(4_000) ||
+    selankAmounts[1] !== BigInt(6_900)
   ) {
-    throw new Error("The two Selank records or their distinct prices were not preserved.");
+    throw new Error("The Selank 5mg and 10mg prices were not preserved.");
   }
 
   for (const post of importedBlogs) {
@@ -972,8 +1125,8 @@ async function verifyImportedData(
     source.placements.featuredProducts.length +
     source.placements.homeBestsellers.length +
     source.placements.categorySignatures.length;
-  if (placementCount < expectedPlacementCount) {
-    throw new Error("One or more merchandising placements were not imported.");
+  if (placementCount !== expectedPlacementCount) {
+    throw new Error("The active merchandising placements do not exactly match the source.");
   }
 
   return {
@@ -1186,13 +1339,16 @@ export async function importLegacyCommerce(
             : []),
           { "@type": "PropertyValue", name: "Appearance", value: product.appearance },
           { "@type": "PropertyValue", name: "Storage", value: product.storage },
+          ...(product.presentation
+            ? [{ "@type": "PropertyValue", name: "Supplier presentation", value: product.presentation }]
+            : []),
         ];
         await syncSeo(
           tx,
           { type: "product", id: productRecord.id },
           {
             openGraphMediaId: primaryMediaId,
-            title: `${product.name} | sheng.an`,
+            title: `${product.name} | Veripep`,
             description: product.shortDescription,
             canonicalUrl: productCanonicalUrl(product.id),
             structuredData: {
@@ -1201,7 +1357,7 @@ export async function importLegacyCommerce(
               name: product.name,
               description: product.shortDescription,
               image: product.image,
-              brand: { "@type": "Brand", name: "sheng.an" },
+              brand: { "@type": "Brand", name: "Veripep" },
               additionalProperty,
             },
           },
@@ -1266,6 +1422,8 @@ export async function importLegacyCommerce(
         await resolveFaq(tx, faq, position, mutations);
       }
 
+      await stageManagedPlacements(tx);
+
       for (const [position, productId] of source.placements.featuredProducts.entries()) {
         const dbProductId = productDbIds.get(productId);
         if (dbProductId === undefined) {
@@ -1317,6 +1475,51 @@ export async function importLegacyCommerce(
           mutations,
         );
       }
+
+      await deactivatePlacementsMissingFromSource(
+        tx,
+        new Map([
+          [
+            "legacy-featured-products",
+            source.placements.featuredProducts.map((productId) => {
+              const dbProductId = productDbIds.get(productId);
+              if (dbProductId === undefined) {
+                throw new Error(`Featured placement product ${productId} was not imported.`);
+              }
+              return dbProductId;
+            }),
+          ],
+          [
+            "legacy-home-bestsellers",
+            source.placements.homeBestsellers.map((productId) => {
+              const dbProductId = productDbIds.get(productId);
+              if (dbProductId === undefined) {
+                throw new Error(`Bestseller placement product ${productId} was not imported.`);
+              }
+              return dbProductId;
+            }),
+          ],
+          [
+            "legacy-category-signatures",
+            source.placements.categorySignatures.map((placement) => {
+              const dbProductId = productDbIds.get(placement.productId);
+              if (dbProductId === undefined) {
+                throw new Error(
+                  `Category signature product ${placement.productId} was not imported.`,
+                );
+              }
+              return dbProductId;
+            }),
+          ],
+        ]),
+        mutations,
+      );
+
+      await archiveProductsMissingFromSource(
+        tx,
+        source.products.map((product) => product.id),
+        mutations,
+      );
 
       return verifyImportedData(tx, source);
     },
@@ -1373,15 +1576,15 @@ export async function importLegacyCommerce(
     database,
     assertions: [
       "6 legacy categories preserved by slug and legacySourceId",
-      "75 legacy products preserved by slug and legacySourceId",
+      `${source.products.length} catalog products preserved by slug and legacySourceId`,
       "4 legacy blogs preserve body blocks, FAQ, related links, SEO, and UTC dates",
       "8 storefront FAQ entries preserve the reviewed source questions and answers",
-      "91 unique public URLs remain compatible",
-      "two distinct Selank records remain at USD 46.00 and USD 75.00",
-      "default variants have null SKU; ten products use ON_REQUEST without USD 0 prices",
-      "all 75 products expose product-level primary media to the public DAL",
+      `${publicUrls(source).length} public URLs remain unique`,
+      "Selank 5mg and 10mg remain at USD 40.00 and USD 69.00",
+      `default variants have null SKU; ${source.products.filter((product) => product.price === null).length} products use ON_REQUEST without USD 0 prices`,
+      `all ${source.products.length} products expose product-level primary media to the public DAL`,
       "three legacy merchandising placement sets remain distinct",
-      "no legacy entities were pruned",
+      `${mutations.pruned} legacy products missing from the purchase catalog were archived`,
     ],
   };
 }

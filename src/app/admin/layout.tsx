@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/BrandLogo";
 
 /**
  * Console chrome, deliberately separate from the storefront frame: no product
@@ -28,9 +29,12 @@ export default function AdminLayout({
         <div className="container-x flex flex-wrap items-center gap-x-6 gap-y-2 py-3">
           <Link
             href="/admin"
-            className="flex items-baseline gap-2 font-semibold text-strong"
+            aria-label="Veripep administration home"
+            className="flex items-center gap-3 font-semibold text-strong"
           >
-            sheng<span className="text-sage-600">.</span>an
+            <span className="rounded-lg bg-white px-2 py-1">
+              <BrandLogo eager className="h-10 w-auto" />
+            </span>
             <span className="font-mono text-eyebrow uppercase tracking-wider text-sage-600">
               Administration
             </span>

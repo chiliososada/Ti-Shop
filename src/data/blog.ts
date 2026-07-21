@@ -21,7 +21,7 @@ export type BlogPost = {
   related?: string[];
 };
 
-const AUTHOR = "sheng.an Editorial";
+const AUTHOR = "Veripep Editorial";
 
 export const posts: BlogPost[] = [
   {
@@ -382,7 +382,7 @@ export const posts: BlogPost[] = [
     slug: "glp-1-research-peptides-explained",
     title:
       "GLP-1 Research Peptides Explained: Tirzepatide, Semaglutide & Retatrutide",
-    metaTitle: "GLP-1 Research Peptides Explained | sheng.an",
+    metaTitle: "GLP-1 Research Peptides Explained | Veripep",
     metaDescription:
       "Research overview of tirzepatide, semaglutide, and retatrutide, including receptor targets, compound handling, and study context. Research use only.",
     category: "Peptide Science",

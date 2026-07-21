@@ -15,7 +15,7 @@ import type { PublicImageDto } from "@/domain/public";
 
 type PurchaseProduct = Pick<
   PublicProductDetailDto,
-  "publicId" | "slug" | "title" | "variants"
+  "publicId" | "slug" | "title" | "subtitle" | "variants"
 >;
 
 function variantOptionLabel(variant: PublicProductVariantDto) {
@@ -98,9 +98,13 @@ export function ProductPurchasePanel({
         <div className="flex items-end gap-4">
           <span className="text-h2 text-strong">
             {selectedVariant.price.display}
-            <span className="text-base font-normal text-muted"> / vial</span>
           </span>
         </div>
+        {product.subtitle ? (
+          <p className="mt-2 text-sm text-muted">
+            Price applies to the listed supplier presentation: {product.subtitle}.
+          </p>
+        ) : null}
         <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-3">
           <div className="rounded-lg bg-surface-alt px-3 py-2">
             <dt className="text-caption text-muted">SKU</dt>

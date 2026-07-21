@@ -11,6 +11,8 @@ export type Product = {
   storage: string;
   image: string;
   gallery: string[];
+  presentation?: string;
+  catalogNumber?: string | null;
   shortDescription: string;
   description: string;
   featured?: boolean;
@@ -30,9 +32,9 @@ export const productsByCategory = (slug: string) =>
 
 // A curated set of recognizable bestsellers for the homepage grid.
 const bestsellerIds = [
-  "bpc157-500mcg",
+  "bpc-157",
   "cjc-1295-without-dac-5mg-ipa-5mg",
-  "fst-344",
+  "follistatin-344-10mg",
   "ghrp-2",
 ];
 

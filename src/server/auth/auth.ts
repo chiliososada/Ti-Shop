@@ -13,7 +13,7 @@ function createAuth() {
   const db = getDb();
 
   return betterAuth({
-    appName: "sheng.an",
+    appName: "Veripep",
     baseURL: env.siteOrigin,
     basePath: "/api/auth",
     secret: env.secret,

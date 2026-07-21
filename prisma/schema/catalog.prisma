@@ -103,6 +103,15 @@ model ProductVariant {
   heightMillimeters Int?             @map("height_millimeters")
   requiresShipping  Boolean          @default(true) @map("requires_shipping")
   trackInventory    Boolean          @default(true) @map("track_inventory")
+  // Supplier-list reference cost used only when no received procurement
+  // valuation exists. Real receipts remain the authoritative inventory cost.
+  referenceCostCnyMinor      BigInt?   @map("reference_cost_cny_minor")
+  referenceCostUsdMinor      BigInt?   @map("reference_cost_usd_minor")
+  referenceCostFxRateCnyPerUsd Decimal? @map("reference_cost_fx_rate_cny_per_usd") @db.Decimal(18, 8)
+  referenceCostFxDate        DateTime? @map("reference_cost_fx_date") @db.Timestamptz(3)
+  referenceCostSource        String?   @map("reference_cost_source") @db.VarChar(500)
+  referenceCostMetadata      Json?     @map("reference_cost_metadata")
+  referenceCostUpdatedAt     DateTime? @map("reference_cost_updated_at") @db.Timestamptz(3)
   position          Int              @default(0)
   publishedAt       DateTime?        @map("published_at") @db.Timestamptz(3)
   createdAt         DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
@@ -244,6 +253,10 @@ model Price {
   currency     String         @default("USD") @db.Char(3)
   kind         PriceKind      @default(REGULAR)
   amountMinor  BigInt         @map("amount_minor")
+  // Partner-inclusive Cost 2 for this exact USD selling price:
+  // Cost 1 + (selling price - Cost 1) / 2, rounded commercially to cents.
+  // Maintained by database triggers whenever the price or reference Cost 1 changes.
+  cost2UsdMinor BigInt?       @map("cost2_usd_minor")
   countryCode  String?        @map("country_code") @db.Char(2)
   taxInclusive Boolean        @default(false) @map("tax_inclusive")
   isActive     Boolean        @default(true) @map("is_active")

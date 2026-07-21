@@ -31,6 +31,7 @@ const SETTLED_ORDER_STATUSES = ["CONFIRMED", "PROCESSING", "COMPLETED"] as const
 export const ESTIMATED_ORDER_WHERE: Prisma.OrderWhereInput = {
   OR: [
     { items: { some: { totalCogsUsdMinor: null, compensationEventId: null } } },
+    { items: { some: { costIsEstimated: true, compensationEventId: null } } },
     {
       shipments: {
         some: { status: { not: "CANCELED" }, shippingCostMinor: null },
@@ -177,6 +178,10 @@ export async function getFinanceDashboard(
   ]);
 
   const estimatedCount = breakdowns.filter((entry) => entry.profit.isEstimated).length;
+  const cost2MissingOrderCount = breakdowns.filter(
+    (entry) => entry.profit.cost2HasMissingSnapshots,
+  ).length;
+  const cost2Complete = cost2MissingOrderCount === 0;
 
   return {
     range: {
@@ -197,6 +202,15 @@ export async function getFinanceDashboard(
       shippingRevenueUsdMinor: sum((entry) => entry.profit.shippingRevenueUsdMinor).toString(),
       netRevenueUsdMinor: netRevenue.toString(),
       cogsUsdMinor: sum((entry) => entry.profit.cogsUsdMinor).toString(),
+      cost2UsdMinor: cost2Complete
+        ? sum((entry) => entry.profit.cost2UsdMinor).toString()
+        : null,
+      partnerMerchandiseShareUsdMinor: cost2Complete
+        ? sum((entry) => entry.profit.partnerMerchandiseShareUsdMinor).toString()
+        : null,
+      profitAfterCost2UsdMinor: cost2Complete
+        ? sum((entry) => entry.profit.profitAfterCost2UsdMinor).toString()
+        : null,
       shippingCostUsdMinor: sum(
         (entry) => entry.profit.shippingCostUsdMinor + entry.profit.packagingCostUsdMinor,
       ).toString(),
@@ -217,6 +231,10 @@ export async function getFinanceDashboard(
     },
     health: {
       estimatedOrderCount: estimatedCount,
+      cost2EstimatedOrderCount: breakdowns.filter(
+        (entry) => entry.profit.cost2IsEstimated,
+      ).length,
+      cost2MissingOrderCount,
       finalizedOrderCount: orders.length - estimatedCount,
       missingCostOrders,
       unsettledOrders,
@@ -282,6 +300,14 @@ export async function getFinanceOrderIndex(
       settled: order.profitSettledSettlementId !== null,
       netRevenueUsdMinor: profit.netOperatingRevenueUsdMinor.toString(),
       cogsUsdMinor: profit.cogsUsdMinor.toString(),
+      cost2UsdMinor: profit.cost2HasMissingSnapshots
+        ? null
+        : profit.cost2UsdMinor.toString(),
+      profitAfterCost2UsdMinor: profit.cost2HasMissingSnapshots
+        ? null
+        : profit.profitAfterCost2UsdMinor.toString(),
+      cost2HasMissingSnapshots: profit.cost2HasMissingSnapshots,
+      cost2IsEstimated: profit.cost2IsEstimated,
       profitUsdMinor: profit.finalProfitUsdMinor.toString(),
       marginBps: profit.marginBps,
       isEstimated: profit.isEstimated,
@@ -330,7 +356,10 @@ export async function getFinanceOrderDetail(publicId: string) {
       lineTotalMinor: true,
       unitCostUsdMinor: true,
       totalCogsUsdMinor: true,
+      unitCost2UsdMinor: true,
+      totalCost2UsdMinor: true,
       costMethod: true,
+      costIsEstimated: true,
       costSnapshotAt: true,
       compensationEventId: true,
       compensationEvent: { select: { publicId: true } },
@@ -357,6 +386,17 @@ export async function getFinanceOrderDetail(publicId: string) {
       shippingRefunds: profit.shippingRefundsUsdMinor.toString(),
       netRevenue: profit.netOperatingRevenueUsdMinor.toString(),
       cogs: profit.cogsUsdMinor.toString(),
+      cost2: profit.cost2HasMissingSnapshots
+        ? null
+        : profit.cost2UsdMinor.toString(),
+      partnerMerchandiseShare: profit.cost2HasMissingSnapshots
+        ? null
+        : profit.partnerMerchandiseShareUsdMinor.toString(),
+      profitAfterCost2: profit.cost2HasMissingSnapshots
+        ? null
+        : profit.profitAfterCost2UsdMinor.toString(),
+      cost2HasMissingSnapshots: profit.cost2HasMissingSnapshots,
+      cost2IsEstimated: profit.cost2IsEstimated,
       shippingCost: profit.shippingCostUsdMinor.toString(),
       packagingCost: profit.packagingCostUsdMinor.toString(),
       paymentFees: profit.paymentFeesUsdMinor.toString(),
@@ -381,7 +421,10 @@ export async function getFinanceOrderDetail(publicId: string) {
       lineTotalMinor: item.lineTotalMinor.toString(),
       unitCostUsdMinor: item.unitCostUsdMinor?.toString() ?? null,
       totalCogsUsdMinor: item.totalCogsUsdMinor?.toString() ?? null,
+      unitCost2UsdMinor: item.unitCost2UsdMinor?.toString() ?? null,
+      totalCost2UsdMinor: item.totalCost2UsdMinor?.toString() ?? null,
       costMethod: item.costMethod,
+      costIsEstimated: item.costIsEstimated,
       costSnapshotAt: item.costSnapshotAt?.toISOString() ?? null,
       isCompensation: item.compensationEventId !== null,
       compensationEventPublicId: item.compensationEvent?.publicId ?? null,
@@ -436,6 +479,8 @@ export async function getProductProfitReport(
       lineTotalMinor: true,
       taxMinor: true,
       totalCogsUsdMinor: true,
+      totalCost2UsdMinor: true,
+      costIsEstimated: true,
       compensationEventId: true,
       variantId: true,
       productName: true,
@@ -491,16 +536,25 @@ export async function getProductProfitReport(
     giftQuantity: number;
     revenueUsdMinor: bigint;
     cogsUsdMinor: bigint;
+    cost2UsdMinor: bigint;
     missingSnapshots: number;
+    missingCost2Snapshots: number;
+    estimatedSnapshots: number;
     variantPublicId: string | null;
   };
   const rows = new Map<string, Row>();
   const variantPublicIds = new Map<bigint, string>();
   const variants = await db.productVariant.findMany({
     where: { id: { in: [...new Set(items.map((i) => i.variantId).filter((v): v is bigint => v !== null))] } },
-    select: { id: true, publicId: true },
+    select: {
+      id: true,
+      publicId: true,
+      referenceCostCnyMinor: true,
+      referenceCostUsdMinor: true,
+    },
   });
   for (const variant of variants) variantPublicIds.set(variant.id, variant.publicId);
+  const variantById = new Map(variants.map((variant) => [variant.id, variant]));
 
   for (const item of items) {
     const key = item.sku ?? `${item.productName}·${item.variantName ?? ""}`;
@@ -514,7 +568,10 @@ export async function getProductProfitReport(
         giftQuantity: 0,
         revenueUsdMinor: BigInt(0),
         cogsUsdMinor: BigInt(0),
+        cost2UsdMinor: BigInt(0),
         missingSnapshots: 0,
+        missingCost2Snapshots: 0,
+        estimatedSnapshots: 0,
         variantPublicId: item.variantId ? (variantPublicIds.get(item.variantId) ?? null) : null,
       } satisfies Row);
     if (item.compensationEventId !== null) {
@@ -522,8 +579,15 @@ export async function getProductProfitReport(
     } else {
       row.soldQuantity += item.quantity;
       row.revenueUsdMinor += item.lineTotalMinor - item.taxMinor;
-      if (item.totalCogsUsdMinor !== null) row.cogsUsdMinor += item.totalCogsUsdMinor;
-      else row.missingSnapshots += 1;
+      if (item.totalCogsUsdMinor !== null) {
+        row.cogsUsdMinor += item.totalCogsUsdMinor;
+        if (item.totalCost2UsdMinor !== null) {
+          row.cost2UsdMinor += item.totalCost2UsdMinor;
+        } else {
+          row.missingCost2Snapshots += 1;
+        }
+        if (item.costIsEstimated) row.estimatedSnapshots += 1;
+      } else row.missingSnapshots += 1;
     }
     rows.set(key, row);
   }
@@ -551,10 +615,15 @@ export async function getProductProfitReport(
         ([, publicId]) => publicId === row.variantPublicId,
       )?.[0];
       const procurementEntry = variantId ? cnyByVariant.get(variantId) : undefined;
+      const variant = variantId ? variantById.get(variantId) : undefined;
       const afterSales = row.variantPublicId
         ? afterSalesByVariant.get(row.variantPublicId)
         : undefined;
       const grossProfit = row.revenueUsdMinor - row.cogsUsdMinor - (afterSales?.cost ?? BigInt(0));
+      const partnerMerchandiseShare = row.cost2UsdMinor - row.cogsUsdMinor;
+      const profitAfterCost2 = grossProfit - partnerMerchandiseShare;
+      const cost2Complete =
+        row.missingSnapshots === 0 && row.missingCost2Snapshots === 0;
       return {
         label: row.label,
         sku: row.sku,
@@ -568,20 +637,41 @@ export async function getProductProfitReport(
         averageCnyCostMinor:
           procurementEntry && procurementEntry.qty > 0
             ? divideRoundHalfUp(procurementEntry.cny, BigInt(procurementEntry.qty)).toString()
-            : null,
+            : variant?.referenceCostCnyMinor?.toString() ?? null,
         averageUsdCostMinor:
           procurementEntry && procurementEntry.qty > 0
             ? divideRoundHalfUp(procurementEntry.usd, BigInt(procurementEntry.qty)).toString()
+            : variant?.referenceCostUsdMinor?.toString() ?? null,
+        costBasis:
+          procurementEntry && procurementEntry.qty > 0
+            ? "received_procurement"
+            : variant?.referenceCostCnyMinor != null
+              ? "supplier_reference"
+              : "unavailable",
+        averageCost2UsdMinor:
+          row.soldQuantity > 0 && cost2Complete
+            ? divideRoundHalfUp(row.cost2UsdMinor, BigInt(row.soldQuantity)).toString()
             : null,
         revenueUsdMinor: row.revenueUsdMinor.toString(),
         cogsUsdMinor: row.cogsUsdMinor.toString(),
+        cost2UsdMinor: row.cost2UsdMinor.toString(),
+        partnerMerchandiseShareUsdMinor: cost2Complete
+          ? partnerMerchandiseShare.toString()
+          : null,
         afterSalesCostUsdMinor: (afterSales?.cost ?? BigInt(0)).toString(),
         grossProfitUsdMinor: grossProfit.toString(),
+        profitAfterCost2UsdMinor: cost2Complete
+          ? profitAfterCost2.toString()
+          : null,
         marginBps:
           row.revenueUsdMinor === BigInt(0)
             ? null
             : Number(divideRoundHalfUp(grossProfit * BigInt(10_000), row.revenueUsdMinor)),
-        isEstimated: row.missingSnapshots > 0,
+        isEstimated: row.missingSnapshots > 0 || row.estimatedSnapshots > 0,
+        cost2IsEstimated:
+          row.missingSnapshots > 0 ||
+          row.missingCost2Snapshots > 0 ||
+          row.estimatedSnapshots > 0,
       };
     })
     .sort((left, right) => (BigInt(right.revenueUsdMinor) < BigInt(left.revenueUsdMinor) ? -1 : 1));

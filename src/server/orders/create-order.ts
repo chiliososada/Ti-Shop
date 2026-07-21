@@ -600,8 +600,10 @@ async function createInsideTransaction(
   const subtotalMinor = addMinorAmounts(
     lines.map((line) => line.lineTotalMinor),
   );
+  // Total box count drives weight-tiered shipping.
+  const totalBoxes = lines.reduce((sum, line) => sum + line.quantity, 0);
   const { shippingMinor, taxMinor, totalMinor } =
-    calculateConfiguredCheckoutCharges(subtotalMinor, checkoutCharges);
+    calculateConfiguredCheckoutCharges(subtotalMinor, totalBoxes, checkoutCharges);
   const allocatedTaxes = allocateCheckoutTax(
     lines.map((line) => line.lineTotalMinor),
     taxMinor,
@@ -719,8 +721,11 @@ async function createInsideTransaction(
         checkoutRequestHash: requestFingerprint,
         checkoutCharges: {
           configured: true,
-          shippingFlatMinor: checkoutCharges.shippingFlatMinor,
+          shippingFirstBlockMinor: checkoutCharges.shippingFirstBlockMinor,
+          shippingBlockUnits: checkoutCharges.shippingBlockUnits,
+          shippingAdditionalBlockMinor: checkoutCharges.shippingAdditionalBlockMinor,
           taxRateBps: checkoutCharges.taxRateBps,
+          appliedBoxes: totalBoxes,
         },
         providerMode:
           input.paymentMethod === "NOWPAYMENTS"

@@ -37,6 +37,7 @@ import {
   voidSettlement,
 } from "@/server/admin/finance/settlements/mutations";
 import { getDb } from "@/server/db/client";
+import { PROFIT_CALC_VERSION } from "@/server/finance/math/profit";
 
 const databaseUrl = process.env.ADMIN_DB_INTEGRATION_URL;
 const integration = databaseUrl ? describe : describe.skip;
@@ -158,7 +159,7 @@ integration("partner settlements with carryover", () => {
     expect(row.ownerShareUsdMinor).toBe(b(50_000));
     expect(row.carryoverOutUsdMinor).toBe(b(0));
     expect(row.shareBpsSnapshot).toBe(5_000);
-    expect(row.calcVersion).toBe(1);
+    expect(row.calcVersion).toBe(PROFIT_CALC_VERSION);
 
     // The order is claimed — a parallel draft cannot double-settle it.
     const claimed = await getDb().order.findUniqueOrThrow({

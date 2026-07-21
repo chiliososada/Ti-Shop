@@ -38,10 +38,10 @@ export const homeSections = {
       "Choose a catalog item, confirm its current details, submit an order and use your customer account to follow the recorded payment and fulfillment status. A tracked WhatsApp handoff is shown only when an administrator has configured it.",
   },
   why: {
-    eyebrow: "Why sheng.an",
+    eyebrow: "Why Veripep",
     heading: "A Clearer Procurement Conversation",
     intro:
-      "sheng.an combines a research-use catalog, USD order records and administrator-managed contact options. Product, documentation, payment and shipping details are confirmed against the actual request instead of being presented as universal guarantees.",
+      "Veripep combines a research-use catalog, USD order records and administrator-managed contact options. Product, documentation, payment and shipping details are confirmed against the actual request instead of being presented as universal guarantees.",
   },
 };
 
@@ -87,7 +87,7 @@ export const about = {
   intro:
     "A research-use catalog and order service for supported United States procurement.",
   paragraphs: [
-    "sheng.an lists peptide-related research materials for laboratory procurement. The storefront is organized around clear catalog discovery, USD pricing where a current fixed price is available, and customer order records.",
+    "Veripep lists peptide-related research materials for laboratory procurement. The storefront is organized around clear catalog discovery, USD pricing where a current fixed price is available, and customer order records.",
     "Product names, CAS references and catalog descriptions help identify materials, but they do not prove the specification of a particular lot. Current availability, presentation, analytical documentation and handling information must be confirmed for the product and lot under discussion.",
     "Customers can discuss requirements through the contact options currently enabled on the storefront before or after placing an order. Shipping is limited to eligible United States addresses, and carrier, timing, handling and documentation are confirmed for each order. Products are for laboratory research only and are not for human or veterinary use.",
   ],
@@ -113,22 +113,22 @@ export const about = {
 
 export const categoryIntros: Record<string, string> = {
   "bac-water":
-    "Browse bacteriostatic-water catalog listings intended for laboratory workflows involving research materials. Confirm the exact presentation, composition, documentation and handling instructions for the item before ordering. Not for human or veterinary use.",
+    "Browse bacteriostatic water, sterile water, acetic-acid water and related laboratory solution listings. Confirm the exact presentation, composition, documentation and handling instructions for the item before ordering. Not for human or veterinary use.",
   "muscle-growth":
-    "Explore catalog listings commonly grouped with tissue and growth-pathway research, including BPC-157, TB-500, Follistatin, CJC-1295, Ipamorelin and GHRP compounds. Confirm current product and lot details before ordering. Research use only.",
+    "Explore catalog listings commonly grouped with tissue-repair and growth-factor research, including BPC-157, TB-500, Follistatin, IGF and MGF families. Confirm current product and lot details before ordering. Research use only.",
   antibacterial:
-    "Explore peptide listings commonly referenced in antimicrobial, inflammation and immune-pathway research, including LL-37, KPV and Thymosin α-1. Confirm current product and lot details before ordering. Research use only.",
+    "Explore listings commonly referenced in antimicrobial, immune, inflammation and cell-signaling research, including LL-37, KPV and Thymosin α-1. Confirm current product and lot details before ordering. Research use only.",
   "growth-energy":
-    "Browse Sermorelin, Tesamorelin, GHRP-2/6 and related catalog listings for laboratory research. Confirm the current presentation, specification and available documentation for the requested material. Not for human or veterinary use.",
+    "Browse CJC-1295, Sermorelin, Tesamorelin, GHRP-2/6 and related growth-axis, endocrine, neuropeptide and organ-function listings. Confirm the current presentation, specification and available documentation for the requested material. Not for human or veterinary use.",
   metabolic:
-    "Browse GLP-1-related research listings including Tirzepatide, Semaglutide and Retatrutide. Catalog grouping does not establish suitability for a particular experiment; confirm current product and lot details before ordering. Research use only.",
+    "Browse incretin, metabolic-signaling and mitochondrial research listings including Semaglutide, Tirzepatide, Retatrutide, MOTS-c and SS-31. Catalog grouping does not establish suitability for a particular experiment; confirm current product and lot details before ordering. Research use only.",
   "skin-aging":
-    "Explore catalog listings commonly referenced in dermatology and aging-pathway research, including GHK-Cu, Epithalon, FOXO4-DRI and Melanotan II. Confirm current product and lot details before ordering. Research use only.",
+    "Explore catalog listings commonly referenced in skin, pigmentation and longevity-pathway research, including GHK-Cu, Epitalon, FOXO4, Melanotan and GLOW families. Confirm current product and lot details before ordering. Research use only.",
 };
 
 export const faqs = [
   {
-    q: "Are sheng.an products intended for human use?",
+    q: "Are Veripep products intended for human use?",
     a: "No. Products are listed strictly for laboratory and research use. They are not offered as drugs, dietary supplements, foods, cosmetics or medical products and are not intended for human or veterinary consumption, diagnosis, treatment or self-administration.",
   },
   {

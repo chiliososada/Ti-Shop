@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/BrandLogo";
 import { CartButton } from "@/components/cart/CartButton";
 import { StorefrontNavigationLink } from "@/components/StorefrontNavigationLink";
 import type { StorefrontNavigationLink as NavigationLinkValue } from "@/lib/navigation-url";
@@ -30,9 +31,10 @@ function Wordmark() {
   return (
     <Link
       href="/"
-      className="text-h5 font-bold tracking-tight text-strong"
+      aria-label="Veripep home"
+      className="flex h-16 items-center rounded-xl bg-white px-2"
     >
-      sheng<span className="text-sage-500">.</span>an
+      <BrandLogo eager className="h-14 w-auto" />
     </Link>
   );
 }

@@ -115,18 +115,45 @@ export default async function AdminPaymentSettingsPage() {
                     className="mt-1"
                   />
                   <span>
-                    Checkout charges are fully configured. Both fields below are
+                    Checkout charges are fully configured. All fields below are
                     required when selected; explicit zero values are allowed.
                   </span>
                 </label>
-                <div className="grid gap-5 sm:grid-cols-2">
+                <p className="rounded-xl bg-surface-alt px-4 py-3 text-sm text-muted">
+                  Weight-tiered shipping by box count: the first block covers up
+                  to <b>Boxes per block</b> boxes for <b>First-block shipping</b>;
+                  each further block (or part of one) adds{" "}
+                  <b>Each additional block</b>. Example — 4 boxes / $90 / $15:
+                  4 boxes $90, 8 boxes $105, 12 boxes $120.
+                </p>
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                   <label className="text-sm font-semibold text-strong">
-                    Flat shipping (USD cents)
+                    First-block shipping (USD cents)
                     <input
-                      name="shippingFlatMinor"
+                      name="shippingFirstBlockMinor"
                       inputMode="numeric"
-                      defaultValue={charges?.shippingFlatMinor ?? ""}
-                      placeholder="0"
+                      defaultValue={charges?.shippingFirstBlockMinor ?? ""}
+                      placeholder="9000"
+                      className="mt-2 w-full rounded-xl border border-ink-900/15 bg-white px-4 py-3 font-normal"
+                    />
+                  </label>
+                  <label className="text-sm font-semibold text-strong">
+                    Boxes per block
+                    <input
+                      name="shippingBlockUnits"
+                      inputMode="numeric"
+                      defaultValue={charges?.shippingBlockUnits ?? ""}
+                      placeholder="4"
+                      className="mt-2 w-full rounded-xl border border-ink-900/15 bg-white px-4 py-3 font-normal"
+                    />
+                  </label>
+                  <label className="text-sm font-semibold text-strong">
+                    Each additional block (USD cents)
+                    <input
+                      name="shippingAdditionalBlockMinor"
+                      inputMode="numeric"
+                      defaultValue={charges?.shippingAdditionalBlockMinor ?? ""}
+                      placeholder="1500"
                       className="mt-2 w-full rounded-xl border border-ink-900/15 bg-white px-4 py-3 font-normal"
                     />
                   </label>

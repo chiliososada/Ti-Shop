@@ -89,7 +89,9 @@ export default async function FinanceOrdersPage({
                 <th className="px-5 py-4">Confirmed</th>
                 <th className="px-5 py-4">Net revenue</th>
                 <th className="px-5 py-4">COGS</th>
+                <th className="px-5 py-4">Cost 2</th>
                 <th className="px-5 py-4">Final profit</th>
+                <th className="px-5 py-4">Profit after Cost 2</th>
                 <th className="px-5 py-4">Margin</th>
                 <th className="px-5 py-4">State</th>
                 <th className="px-5 py-4">Settled</th>
@@ -98,7 +100,7 @@ export default async function FinanceOrdersPage({
             <tbody>
               {rows.length === 0 ? (
                 <tr>
-                  <td colSpan={9} className="px-5 py-10 text-center text-muted">
+                  <td colSpan={11} className="px-5 py-10 text-center text-muted">
                     No confirmed orders match the current filters.
                   </td>
                 </tr>
@@ -114,7 +116,16 @@ export default async function FinanceOrdersPage({
                     <td className="px-5 py-4">{row.confirmedAt?.slice(0, 10) ?? "—"}</td>
                     <td className="px-5 py-4">{signedUsd(row.netRevenueUsdMinor)}</td>
                     <td className="px-5 py-4">{signedUsd(row.cogsUsdMinor)}</td>
+                    <td className="px-5 py-4">
+                      {row.cost2UsdMinor === null ? "—" : signedUsd(row.cost2UsdMinor)}
+                      {row.cost2IsEstimated ? <span className="block text-[10px] text-amber-800">Estimated</span> : null}
+                    </td>
                     <td className="px-5 py-4">{signedUsd(row.profitUsdMinor)}</td>
+                    <td className="px-5 py-4">
+                      {row.profitAfterCost2UsdMinor === null
+                        ? "—"
+                        : signedUsd(row.profitAfterCost2UsdMinor)}
+                    </td>
                     <td className="px-5 py-4">{bpsPercent(row.marginBps)}</td>
                     <td className="px-5 py-4">{row.isEstimated ? "Estimated" : "Finalized"}</td>
                     <td className="px-5 py-4">{row.settled ? "Yes" : "No"}</td>

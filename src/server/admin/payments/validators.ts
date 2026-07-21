@@ -22,7 +22,9 @@ export const PAYMENT_METHOD_CONFIG_FORM_FIELDS = [
 export const ONLINE_PAYMENT_SWITCH_FORM_FIELDS = ["isEnabled"] as const;
 export const CHECKOUT_CHARGES_FORM_FIELDS = [
   "configured",
-  "shippingFlatMinor",
+  "shippingFirstBlockMinor",
+  "shippingBlockUnits",
+  "shippingAdditionalBlockMinor",
   "taxRateBps",
 ] as const;
 
@@ -102,6 +104,28 @@ const nullableTaxRateSchema = z
     return parsed;
   });
 
+// Boxes per shipping block: a small positive integer (empty → null).
+const nullableBlockUnitsSchema = z
+  .string()
+  .trim()
+  .max(6)
+  .transform((value, context) => {
+    if (value.length === 0) return null;
+    const parsed = Number(value);
+    if (
+      !/^[1-9]\d*$/u.test(value) ||
+      !Number.isSafeInteger(parsed) ||
+      parsed > 100_000
+    ) {
+      context.addIssue({
+        code: "custom",
+        message: "Boxes per block must be a whole number from 1 to 100000.",
+      });
+      return z.NEVER;
+    }
+    return parsed;
+  });
+
 export const paymentMethodConfigSchema = z
   .object({
     method: z.enum(ADMIN_PAYMENT_METHODS),
@@ -136,52 +160,58 @@ export const onlinePaymentSwitchSchema = z
   })
   .strict();
 
+const REQUIRED_CHARGE_FIELDS = [
+  "shippingFirstBlockMinor",
+  "shippingBlockUnits",
+  "shippingAdditionalBlockMinor",
+  "taxRateBps",
+] as const;
+
 export const checkoutChargesSchema = z
   .object({
     configured: checkboxSchema,
-    shippingFlatMinor: nullableMinorAmountSchema,
+    shippingFirstBlockMinor: nullableMinorAmountSchema,
+    shippingBlockUnits: nullableBlockUnitsSchema,
+    shippingAdditionalBlockMinor: nullableMinorAmountSchema,
     taxRateBps: nullableTaxRateSchema,
   })
   .strict()
   .superRefine((value, context) => {
     if (!value.configured) return;
-    if (value.shippingFlatMinor === null) {
-      context.addIssue({
-        code: "custom",
-        path: ["shippingFlatMinor"],
-        message: "Shipping is required when checkout charges are configured.",
-      });
-    }
-    if (value.taxRateBps === null) {
-      context.addIssue({
-        code: "custom",
-        path: ["taxRateBps"],
-        message: "Tax rate is required when checkout charges are configured.",
-      });
+    for (const field of REQUIRED_CHARGE_FIELDS) {
+      if (value[field] === null) {
+        context.addIssue({
+          code: "custom",
+          path: [field],
+          message: "This field is required when checkout charges are configured.",
+        });
+      }
     }
   });
+
+const minorStringOrNull = z
+  .string()
+  .refine(
+    (value) =>
+      /^(?:0|[1-9]\d*)$/u.test(value) && BigInt(value) <= MAX_POSTGRES_BIGINT,
+  )
+  .nullable();
 
 export const checkoutChargesValueSchema = z
   .object({
     configured: z.boolean(),
-    shippingFlatMinor: z
-      .string()
-      .refine(
-        (value) =>
-          /^(?:0|[1-9]\d*)$/u.test(value) &&
-          BigInt(value) <= MAX_POSTGRES_BIGINT,
-      )
-      .nullable(),
+    shippingFirstBlockMinor: minorStringOrNull,
+    shippingBlockUnits: z.number().int().min(1).max(100_000).nullable(),
+    shippingAdditionalBlockMinor: minorStringOrNull,
     taxRateBps: z.number().int().min(0).max(10_000).nullable(),
   })
   .strict()
   .superRefine((value, context) => {
     if (!value.configured) return;
-    if (value.shippingFlatMinor === null) {
-      context.addIssue({ code: "custom", path: ["shippingFlatMinor"] });
-    }
-    if (value.taxRateBps === null) {
-      context.addIssue({ code: "custom", path: ["taxRateBps"] });
+    for (const field of REQUIRED_CHARGE_FIELDS) {
+      if (value[field] === null) {
+        context.addIssue({ code: "custom", path: [field] });
+      }
     }
   });
 

@@ -21,7 +21,7 @@ import type { PublicPageSitemapEntryDto } from "@/domain/content";
 const catalogTimestamp = "2026-07-13T00:00:00.000Z";
 
 describe("public sitemap", () => {
-  it("preserves all 91 legacy URLs, adds six policy pages and uses DTO dates", () => {
+  it("includes every catalog URL, policy page and DTO date", () => {
     const catalogEntries: PublicCatalogSitemapEntryDto[] = [
       ...categories.map((category) => ({
         kind: "category" as const,
@@ -74,9 +74,8 @@ describe("public sitemap", () => {
       ...posts.map((post) => `/blog/${post.slug}`),
     ];
 
-    expect(expectedPaths).toHaveLength(97);
-    expect(entries).toHaveLength(97);
-    expect(new Set(entries.map((entry) => entry.url)).size).toBe(97);
+    expect(entries).toHaveLength(expectedPaths.length);
+    expect(new Set(entries.map((entry) => entry.url)).size).toBe(expectedPaths.length);
     expect(entries.map((entry) => new URL(entry.url).pathname).sort()).toEqual(
       [...expectedPaths].sort(),
     );

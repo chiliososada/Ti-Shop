@@ -16,31 +16,31 @@ describe("public page metadata", () => {
     });
 
     expect(metadata).toMatchObject({
-      title: { absolute: "Shipping Policy — United States Orders | sheng.an" },
+      title: { absolute: "Shipping Policy — United States Orders | Veripep" },
       description: "Shipping details for supported orders.",
       alternates: { canonical: "/shipping" },
       robots: { index: true, follow: true },
       openGraph: {
         type: "website",
-        siteName: "sheng.an",
-        title: "Shipping Policy — United States Orders | sheng.an",
+        siteName: "Veripep",
+        title: "Shipping Policy — United States Orders | Veripep",
         description: "Shipping details for supported orders.",
         url: "/shipping",
         images: [DEFAULT_OPEN_GRAPH_IMAGE],
       },
       twitter: {
-        title: "Shipping Policy — United States Orders | sheng.an",
+        title: "Shipping Policy — United States Orders | Veripep",
         description: "Shipping details for supported orders.",
       },
     });
   });
 
   it("does not duplicate an existing site-name prefix or suffix", () => {
-    expect(publicPageTitle("sheng.an | Research Materials")).toBe(
-      "sheng.an | Research Materials",
+    expect(publicPageTitle("Veripep | Research Materials")).toBe(
+      "Veripep | Research Materials",
     );
-    expect(publicPageTitle("Research Materials | sheng.an")).toBe(
-      "Research Materials | sheng.an",
+    expect(publicPageTitle("Research Materials | Veripep")).toBe(
+      "Research Materials | Veripep",
     );
   });
 });

@@ -7,7 +7,7 @@ export const DEFAULT_OPEN_GRAPH_IMAGE = {
   url: "/video/hero-poster.jpg",
   width: 1920,
   height: 1080,
-  alt: "sheng.an research material catalog",
+  alt: "Veripep research material catalog",
 } as const;
 
 export function publicPageTitle(title: string) {

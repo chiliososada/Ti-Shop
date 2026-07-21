@@ -176,7 +176,9 @@ export async function updateAdminCheckoutCharges(input: CheckoutChargesInput) {
 
       const value = {
         configured: input.configured,
-        shippingFlatMinor: input.shippingFlatMinor,
+        shippingFirstBlockMinor: input.shippingFirstBlockMinor,
+        shippingBlockUnits: input.shippingBlockUnits,
+        shippingAdditionalBlockMinor: input.shippingAdditionalBlockMinor,
         taxRateBps: input.taxRateBps,
       };
       const after = await tx.siteSetting.update({

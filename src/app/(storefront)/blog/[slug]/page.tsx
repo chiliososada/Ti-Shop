@@ -50,7 +50,7 @@ function truncateMetadataText(value: string, maxLength: number) {
 
 function metadataTitle(value: string) {
   const suffix = ` | ${company.name}`;
-  const unbranded = value.replace(/\s*\|\s*sheng\.an\s*$/i, "");
+  const unbranded = value.replace(/\s*\|\s*Veripep\s*$/i, "");
   const base = truncateMetadataText(
     unbranded,
     metadataTitleMaxLength - suffix.length,
@@ -333,7 +333,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <p className="mt-12 rounded-xl border border-clay-300/40 bg-clay-50 px-4 py-3 text-caption text-body">
             <strong className="text-strong">Research Use Only.</strong> This
             article is educational and describes research-use materials only.
-            sheng.an products are not drugs or supplements and are not for human
+            Veripep products are not drugs or supplements and are not for human
             or veterinary use.
           </p>
 

@@ -79,17 +79,21 @@ export default async function FinanceProductsPage({
                 <th className="px-5 py-4">Avg. price</th>
                 <th className="px-5 py-4">Avg. CNY cost</th>
                 <th className="px-5 py-4">Avg. USD cost</th>
+                <th className="px-5 py-4">Avg. Cost 2</th>
+                <th className="px-5 py-4">Cost basis</th>
                 <th className="px-5 py-4">Revenue</th>
                 <th className="px-5 py-4">COGS</th>
                 <th className="px-5 py-4">After-sales</th>
                 <th className="px-5 py-4">Gross profit</th>
+                <th className="px-5 py-4">Partner merchandise share</th>
+                <th className="px-5 py-4">Profit after Cost 2</th>
                 <th className="px-5 py-4">Margin</th>
               </tr>
             </thead>
             <tbody>
               {rows.length === 0 ? (
                 <tr>
-                  <td colSpan={12} className="px-5 py-10 text-center text-muted">
+                  <td colSpan={16} className="px-5 py-10 text-center text-muted">
                     No confirmed sales in this range.
                   </td>
                 </tr>
@@ -111,10 +115,31 @@ export default async function FinanceProductsPage({
                     <td className="px-5 py-4">{row.averageSellUsdMinor ? formatUsdMinor(row.averageSellUsdMinor) : "—"}</td>
                     <td className="px-5 py-4">{row.averageCnyCostMinor ? formatCnyMinor(row.averageCnyCostMinor) : "—"}</td>
                     <td className="px-5 py-4">{row.averageUsdCostMinor ? formatUsdMinor(row.averageUsdCostMinor) : "—"}</td>
+                    <td className="px-5 py-4">
+                      {row.averageCost2UsdMinor ? formatUsdMinor(row.averageCost2UsdMinor) : "—"}
+                      {row.cost2IsEstimated ? <span className="block text-[10px] text-amber-800">Estimated</span> : null}
+                    </td>
+                    <td className="px-5 py-4">
+                      {row.costBasis === "received_procurement"
+                        ? "Received PO"
+                        : row.costBasis === "supplier_reference"
+                          ? "Excel reference"
+                          : "—"}
+                    </td>
                     <td className="px-5 py-4">{signedUsd(row.revenueUsdMinor)}</td>
                     <td className="px-5 py-4">{signedUsd(row.cogsUsdMinor)}</td>
                     <td className="px-5 py-4">{signedUsd(row.afterSalesCostUsdMinor)}</td>
                     <td className="px-5 py-4">{signedUsd(row.grossProfitUsdMinor)}</td>
+                    <td className="px-5 py-4">
+                      {row.partnerMerchandiseShareUsdMinor === null
+                        ? "—"
+                        : signedUsd(row.partnerMerchandiseShareUsdMinor)}
+                    </td>
+                    <td className="px-5 py-4">
+                      {row.profitAfterCost2UsdMinor === null
+                        ? "—"
+                        : signedUsd(row.profitAfterCost2UsdMinor)}
+                    </td>
                     <td className="px-5 py-4">{bpsPercent(row.marginBps)}</td>
                   </tr>
                 ))

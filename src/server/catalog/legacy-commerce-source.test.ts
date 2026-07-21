@@ -6,6 +6,7 @@ import {
   auditLegacyAssets,
   findDuplicateCasGroups,
   LegacySourceError,
+  EXPECTED_CATALOG_PRODUCT_COUNT,
   loadLegacyCommerceSource,
   parseLegacyDate,
   publicUrls,
@@ -17,16 +18,16 @@ import {
 describe("legacy commerce source", () => {
   const source = loadLegacyCommerceSource();
 
-  it("preserves the complete legacy entity and URL contract", () => {
+  it("preserves the complete catalog entity and URL contract", () => {
     expect(() => validateLegacySource(source)).not.toThrow();
     expect(source.categories).toHaveLength(6);
-    expect(source.products).toHaveLength(75);
+    expect(source.products).toHaveLength(EXPECTED_CATALOG_PRODUCT_COUNT);
     expect(source.blogs).toHaveLength(4);
     expect(source.faqs).toHaveLength(8);
 
     const urls = publicUrls(source);
-    expect(urls).toHaveLength(91);
-    expect(new Set(urls).size).toBe(91);
+    expect(urls).toHaveLength(178);
+    expect(new Set(urls).size).toBe(178);
     expect(urls).toContain("/products/selank");
     expect(urls).toContain("/products/selank-1");
   });
@@ -47,26 +48,29 @@ describe("legacy commerce source", () => {
     expect(() => parseLegacyDate("2026-02-30")).toThrowError(LegacySourceError);
   });
 
-  it("reports all missing gallery references while accepting verified primary assets", () => {
-    const audit = auditLegacyAssets(source, resolve(process.cwd(), "public"));
+  it("reports all missing gallery references while accepting verified primary assets", async () => {
+    const audit = await auditLegacyAssets(source, resolve(process.cwd(), "public"));
 
-    expect(audit.productPrimary.referenced).toBe(75);
-    expect(audit.productPrimary.verified).toHaveLength(75);
+    expect(audit.productPrimary.referenced).toBe(EXPECTED_CATALOG_PRODUCT_COUNT);
+    expect(audit.productPrimary.verified).toHaveLength(EXPECTED_CATALOG_PRODUCT_COUNT);
+    expect(
+      audit.productPrimary.verified.every(
+        (asset) => asset.width > 0 && asset.height > 0,
+      ),
+    ).toBe(true);
     expect(audit.productPrimary.missing).toEqual([]);
     expect(audit.categoryHeroes.verified).toHaveLength(6);
     expect(audit.blogCovers.verified).toHaveLength(4);
-    expect(audit.gallery.referenced).toBe(306);
-    expect(audit.gallery.verified).toHaveLength(6);
-    expect(audit.gallery.missing).toHaveLength(300);
+    expect(audit.gallery.referenced).toBe(0);
+    expect(audit.gallery.verified).toHaveLength(0);
+    expect(audit.gallery.missing).toHaveLength(0);
     expect(() => assertAssetsForMode(audit, "primary-only")).not.toThrow();
   });
 
-  it("fails strict asset mode before missing gallery references can be ignored", () => {
-    const audit = auditLegacyAssets(source, resolve(process.cwd(), "public"));
+  it("accepts strict asset mode after obsolete gallery references are removed", async () => {
+    const audit = await auditLegacyAssets(source, resolve(process.cwd(), "public"));
 
-    expect(() => assertAssetsForMode(audit, "strict-assets")).toThrowError(
-      /rejected 300 missing gallery references/,
-    );
+    expect(() => assertAssetsForMode(audit, "strict-assets")).not.toThrow();
   });
 
   it("keeps repeated CAS numbers as non-unique attributes and preserves both Selank rows", () => {
@@ -79,11 +83,11 @@ describe("legacy commerce source", () => {
       ["selank", "selank-1"].includes(product.id),
     );
 
-    expect(duplicateGroups).toHaveLength(11);
-    expect(repeatedProducts).toBe(24);
+    expect(duplicateGroups).toHaveLength(9);
+    expect(repeatedProducts).toBe(19);
     expect(selank).toMatchObject([
-      { id: "selank", name: "Selank 5mg", cas: "129954-34-3", price: 46 },
-      { id: "selank-1", name: "Selank 5mg", cas: "129954-34-3", price: 75 },
+      { id: "selank", name: "Selank 5mg", cas: "129954-34-3", price: 40 },
+      { id: "selank-1", name: "Selank 10mg", cas: "129954-34-3", price: 69 },
     ]);
     expect(new Set(selank.map((product) => product.id)).size).toBe(2);
   });
@@ -126,7 +130,7 @@ describe("legacy commerce source", () => {
     expect(new Set(source.faqs.map((faq) => faq.slug)).size).toBe(8);
     expect(source.faqs[0]).toMatchObject({
       slug: "research-use-only",
-      question: "Are sheng.an products intended for human use?",
+      question: "Are Veripep products intended for human use?",
     });
     expect(source.faqs.every((faq) => faq.answer.trim().length > 0)).toBe(true);
   });

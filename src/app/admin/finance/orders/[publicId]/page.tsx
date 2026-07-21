@@ -32,7 +32,7 @@ function WaterfallRow({
   estimated,
 }: {
   label: string;
-  value: string;
+  value: string | null;
   sign?: "+" | "-";
   strong?: boolean;
   estimated?: boolean;
@@ -40,7 +40,9 @@ function WaterfallRow({
   return (
     <tr className={`border-b border-ink-900/[0.04] ${strong ? "bg-cream-50 font-semibold" : ""}`}>
       <td className="px-5 py-3">{label}{estimated ? <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-900">Estimated</span> : null}</td>
-      <td className="px-5 py-3 text-right">{sign ? `${sign} ` : ""}{signedUsd(value)}</td>
+      <td className="px-5 py-3 text-right">
+        {value === null ? "—" : <>{sign ? `${sign} ` : ""}{signedUsd(value)}</>}
+      </td>
     </tr>
   );
 }
@@ -97,7 +99,9 @@ export default async function FinanceOrderDetailPage({
                 <WaterfallRow label="Refunds" value={profit.refunds} sign="-" />
                 <WaterfallRow label="Shipping refunded" value={profit.shippingRefunds} sign="-" />
                 <WaterfallRow label="Net operating revenue" value={profit.netRevenue} strong />
-                <WaterfallRow label="Cost of goods (snapshots)" value={profit.cogs} sign="-" estimated={profit.estimationReasons.includes("missing_cost_snapshot")} />
+                <WaterfallRow label="Cost of goods (snapshots)" value={profit.cogs} sign="-" estimated={profit.estimationReasons.includes("missing_cost_snapshot") || profit.estimationReasons.includes("reference_cost_snapshot")} />
+                <WaterfallRow label="Cost 2 (partner-inclusive snapshot)" value={profit.cost2} estimated={profit.cost2IsEstimated} />
+                <WaterfallRow label="Partner merchandise share inside Cost 2" value={profit.partnerMerchandiseShare} sign="-" />
                 <WaterfallRow label="Actual logistics cost" value={profit.shippingCost} sign="-" estimated={profit.estimationReasons.includes("missing_shipping_cost")} />
                 <WaterfallRow label="Packaging" value={profit.packagingCost} sign="-" />
                 <WaterfallRow label="Payment fees" value={profit.paymentFees} sign="-" />
@@ -107,6 +111,7 @@ export default async function FinanceOrderDetailPage({
                 <WaterfallRow label="Cost corrections" value={profit.costCorrections} sign="+" />
                 <WaterfallRow label="Exchange gain/loss" value={profit.exchangeNet} sign="+" />
                 <WaterfallRow label={`Final profit (margin ${bpsPercent(profit.marginBps)})`} value={profit.finalProfit} strong />
+                <WaterfallRow label="Profit after Cost 2 (reference)" value={profit.profitAfterCost2} strong />
                 <WaterfallRow
                   label={`Partner share${profit.partnerName ? ` — ${profit.partnerName} @ ${bpsPercent(profit.partnerShareBps)}` : ""} (indicative)`}
                   value={profit.partnerShare}
@@ -116,8 +121,9 @@ export default async function FinanceOrderDetailPage({
             </table>
             <p className="px-5 py-4 text-xs text-muted">
               Tax collected {signedUsd(profit.taxCollected)} is tracked separately
-              and never counted as revenue or profit. The binding partner split
-              happens in settlements, where losses carry forward.
+              and never counted as revenue or profit. Cost 2 is an internal
+              merchandise-margin view. The binding partner split happens once
+              in settlements, where operating costs and losses carry forward.
             </p>
           </article>
 
@@ -131,8 +137,10 @@ export default async function FinanceOrderDetailPage({
                       <th className="py-2 pr-4">Line</th>
                       <th className="py-2 pr-4">Qty</th>
                       <th className="py-2 pr-4">Unit price</th>
-                      <th className="py-2 pr-4">Unit cost</th>
-                      <th className="py-2">COGS</th>
+                      <th className="py-2 pr-4">Unit Cost 1</th>
+                      <th className="py-2 pr-4">Unit Cost 2</th>
+                      <th className="py-2 pr-4">COGS 1</th>
+                      <th className="py-2">Cost 2 total</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -150,12 +158,14 @@ export default async function FinanceOrderDetailPage({
                         <td className="py-2 pr-4">{formatUsdMinor(item.unitPriceMinor)}</td>
                         <td className="py-2 pr-4">
                           {item.unitCostUsdMinor
-                            ? `${formatUsdMinor(item.unitCostUsdMinor)} (${item.costMethod === "MOVING_AVERAGE" ? "moving avg" : "manual"})`
+                            ? `${formatUsdMinor(item.unitCostUsdMinor)} (${item.costIsEstimated ? "Excel reference estimate" : item.costMethod === "MOVING_AVERAGE" ? "moving avg" : "manual"})`
                             : item.isCompensation
                               ? "—"
                               : "No cost yet (estimated)"}
                         </td>
-                        <td className="py-2">{item.totalCogsUsdMinor ? formatUsdMinor(item.totalCogsUsdMinor) : "—"}</td>
+                        <td className="py-2 pr-4">{item.unitCost2UsdMinor ? formatUsdMinor(item.unitCost2UsdMinor) : "—"}</td>
+                        <td className="py-2 pr-4">{item.totalCogsUsdMinor ? formatUsdMinor(item.totalCogsUsdMinor) : "—"}</td>
+                        <td className="py-2">{item.totalCost2UsdMinor ? formatUsdMinor(item.totalCost2UsdMinor) : "—"}</td>
                       </tr>
                     ))}
                   </tbody>

@@ -89,7 +89,9 @@ integration("customer checkout database totals", () => {
       data: {
         value: {
           configured: true,
-          shippingFlatMinor: "500",
+          shippingFirstBlockMinor: "500",
+          shippingBlockUnits: 4,
+          shippingAdditionalBlockMinor: "0",
           taxRateBps: 825,
         },
       },

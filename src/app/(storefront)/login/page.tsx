@@ -6,7 +6,7 @@ import { safeCallbackPath } from "@/server/auth/callback-url";
 
 export const metadata: Metadata = {
   title: "Sign in",
-  description: "Sign in to your sheng.an customer account.",
+  description: "Sign in to your Veripep customer account.",
   robots: { index: false, follow: false },
 };
 
@@ -24,7 +24,7 @@ export default async function LoginPage({
       eyebrow="Customer account"
       title="Welcome back"
       description="Sign in with the email address and password used for your account."
-      alternateText="New to sheng.an?"
+      alternateText="New to Veripep?"
       alternateHref={registerHref}
       alternateLabel="Create an account"
     >

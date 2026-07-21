@@ -44,6 +44,7 @@ function renderPanel(variants: PublicProductVariantDto[]) {
           publicId: "product-public-id",
           slug: "example-product",
           title: "Example Product",
+          subtitle: null,
           variants,
         },
         primaryImage: null,

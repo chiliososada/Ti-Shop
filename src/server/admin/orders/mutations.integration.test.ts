@@ -181,6 +181,8 @@ integration("manual payment review database lifecycle", () => {
       await db.inventoryLocation.delete({ where: { id: locationId } });
     }
     if (variantId) {
+      await db.inventoryCostEntry.deleteMany({ where: { variantId } });
+      await db.inventoryCostState.deleteMany({ where: { variantId } });
       await db.productVariant.delete({ where: { id: variantId } });
     }
     if (productId) await db.product.delete({ where: { id: productId } });

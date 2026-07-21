@@ -1,0 +1,2092 @@
+[
+  {
+    "catalogNumber": "SM2",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 34,
+    "sourceSpecification": "2 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "SM5",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 40,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "SM10",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 63,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "SM15",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 15mg",
+    "strength": "15mg",
+    "presentation": "15mg per vial, 10 vials/kit",
+    "price": 74,
+    "sourceSpecification": "15 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "SM20",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 97,
+    "sourceSpecification": "20 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "SM30",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 30mg",
+    "strength": "30mg",
+    "presentation": "30mg per vial, 10 vials/kit",
+    "price": 126,
+    "sourceSpecification": "30 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "SM40",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 40mg",
+    "strength": "40mg",
+    "presentation": "40mg per vial, 10 vials/kit",
+    "price": 217,
+    "sourceSpecification": "40 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "SM50",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 50mg",
+    "strength": "50mg",
+    "presentation": "50mg per vial, 10 vials/kit",
+    "price": 263,
+    "sourceSpecification": "50 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "SM60",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 60mg",
+    "strength": "60mg",
+    "presentation": "60mg per vial, 10 vials/kit",
+    "price": 314,
+    "sourceSpecification": "60 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "SM100",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 100mg",
+    "strength": "100mg",
+    "presentation": "100mg per vial, 10 vials/kit",
+    "price": 429,
+    "sourceSpecification": "100 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "SM120",
+    "sourceProductName": "Samaglutide",
+    "name": "Semaglutide 120mg",
+    "strength": "120mg",
+    "presentation": "120mg per vial, 10 vials/kit",
+    "price": 450,
+    "sourceSpecification": "120 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "TR5",
+    "sourceProductName": "Tirzepatide",
+    "name": "Tirzepatide 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 40,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "TR10",
+    "sourceProductName": "Tirzepatide",
+    "name": "Tirzepatide 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "TR15",
+    "sourceProductName": "Tirzepatide",
+    "name": "Tirzepatide 15mg",
+    "strength": "15mg",
+    "presentation": "15mg per vial, 10 vials/kit",
+    "price": 86,
+    "sourceSpecification": "15 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "TR20",
+    "sourceProductName": "Tirzepatide",
+    "name": "Tirzepatide 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 103,
+    "sourceSpecification": "20 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "TR30",
+    "sourceProductName": "Tirzepatide",
+    "name": "Tirzepatide 30mg",
+    "strength": "30mg",
+    "presentation": "30mg per vial, 10 vials/kit",
+    "price": 131,
+    "sourceSpecification": "30 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "TR40",
+    "sourceProductName": "Tirzepatide",
+    "name": "Tirzepatide 40mg",
+    "strength": "40mg",
+    "presentation": "40mg per vial, 10 vials/kit",
+    "price": 171,
+    "sourceSpecification": "40 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "TR50",
+    "sourceProductName": "Tirzepatide",
+    "name": "Tirzepatide 50mg",
+    "strength": "50mg",
+    "presentation": "50mg per vial, 10 vials/kit",
+    "price": 217,
+    "sourceSpecification": "50 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "TR60",
+    "sourceProductName": "Tirzepatide",
+    "name": "Tirzepatide 60mg",
+    "strength": "60mg",
+    "presentation": "60mg per vial, 10 vials/kit",
+    "price": 269,
+    "sourceSpecification": "60mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "TR100",
+    "sourceProductName": "Tirzepatide",
+    "name": "Tirzepatide 100mg",
+    "strength": "100mg",
+    "presentation": "100mg per vial, 10 vials/kit",
+    "price": 343,
+    "sourceSpecification": "100mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "TR120",
+    "sourceProductName": "Tirzepatide",
+    "name": "Tirzepatide 120mg",
+    "strength": "120mg",
+    "presentation": "120mg per vial, 10 vials/kit",
+    "price": 429,
+    "sourceSpecification": "120mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": null,
+    "sourceProductName": "Triparatide",
+    "name": "Teriparatide 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 388,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "RT5",
+    "sourceProductName": "Retatrutide",
+    "name": "Retatrutide 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 40,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "RT10",
+    "sourceProductName": "Retatrutide",
+    "name": "Retatrutide 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 74,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "RT15",
+    "sourceProductName": "Retatrutide",
+    "name": "Retatrutide 15mg",
+    "strength": "15mg",
+    "presentation": "15mg per vial, 10 vials/kit",
+    "price": 97,
+    "sourceSpecification": "15 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "RT20",
+    "sourceProductName": "Retatrutide",
+    "name": "Retatrutide 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 120,
+    "sourceSpecification": "20 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "RT30",
+    "sourceProductName": "Retatrutide",
+    "name": "Retatrutide 30mg",
+    "strength": "30mg",
+    "presentation": "30mg per vial, 10 vials/kit",
+    "price": 154,
+    "sourceSpecification": "30 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "RT40",
+    "sourceProductName": "Retatrutide",
+    "name": "Retatrutide 40mg",
+    "strength": "40mg",
+    "presentation": "40mg per vial, 10 vials/kit",
+    "price": 183,
+    "sourceSpecification": "40mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "RT50",
+    "sourceProductName": "Retatrutide",
+    "name": "Retatrutide 50mg",
+    "strength": "50mg",
+    "presentation": "50mg per vial, 10 vials/kit",
+    "price": 205,
+    "sourceSpecification": "50 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "RT60",
+    "sourceProductName": "Retatrutide",
+    "name": "Retatrutide 60mg",
+    "strength": "60mg",
+    "presentation": "60mg per vial, 10 vials/kit",
+    "price": 240,
+    "sourceSpecification": "60 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "RT100",
+    "sourceProductName": "Retatrutide",
+    "name": "Retatrutide 100mg",
+    "strength": "100mg",
+    "presentation": "100mg per vial, 10 vials/kit",
+    "price": 300,
+    "sourceSpecification": "100 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "RT120",
+    "sourceProductName": "Retatrutide",
+    "name": "Retatrutide 120mg",
+    "strength": "120mg",
+    "presentation": "120mg per vial, 10 vials/kit",
+    "price": 350,
+    "sourceSpecification": "120 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "AU100",
+    "sourceProductName": "AHK-CU",
+    "name": "AHK-CU 100mg",
+    "strength": "100mg",
+    "presentation": "100mg per vial, 10 vials/kit",
+    "price": 103,
+    "sourceSpecification": "100 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "AU50",
+    "sourceProductName": "AHK-CU",
+    "name": "AHK-CU 50mg",
+    "strength": "50mg",
+    "presentation": "50mg per vial, 10 vials/kit",
+    "price": 63,
+    "sourceSpecification": "50mg10vials,10via/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "AU20",
+    "sourceProductName": "AHK-CU",
+    "name": "AHK-CU 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 43,
+    "sourceSpecification": "20 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "B12",
+    "sourceProductName": "10ml*Large bottle.",
+    "name": "Large Bottle 10ml",
+    "strength": "10ml",
+    "presentation": "10ml per vial, 10 vials/kit",
+    "price": 34,
+    "sourceSpecification": "10ml/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "BC5",
+    "sourceProductName": "BPC-157",
+    "name": "BPC-157 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 46,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "BC10",
+    "sourceProductName": "BPC-157",
+    "name": "BPC-157 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 60,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 1
+  },
+  {
+    "catalogNumber": "BT2",
+    "sourceProductName": "TB-500(Thymosin B4 Acetate）",
+    "name": "TB-500 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "2mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "BT5",
+    "sourceProductName": "TB-500(Thymosin B4 Acetate）",
+    "name": "TB-500 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 97,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "BT10",
+    "sourceProductName": "TB-500(Thymosin B4 Acetate）",
+    "name": "TB-500 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 149,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "GLOW70",
+    "sourceProductName": "(BPC157 10mg+GHK-CU50mg+TB500 10mg)",
+    "name": "GLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg) 70mg",
+    "strength": "70mg",
+    "presentation": "70mg per vial, 10 vials/kit",
+    "price": 206,
+    "sourceSpecification": "70mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "KLOW80",
+    "sourceProductName": "CU50+TB10+BC10+KPV10",
+    "name": "KLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg + KPV 10mg) 80mg",
+    "strength": "80mg",
+    "presentation": "80mg per vial, 10 vials/kit",
+    "price": 240,
+    "sourceSpecification": "80mg*10vials",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "BB10",
+    "sourceProductName": "BPC 5mg + TB 5mg",
+    "name": "BPC-157 5mg + TB-500 5mg Blend",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 137,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "BB20",
+    "sourceProductName": "BPC10mg+TB10mg",
+    "name": "BPC-157 10mg + TB-500 10mg Blend",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 171,
+    "sourceSpecification": "20 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "BB30",
+    "sourceProductName": "BPC15mg+TB15mg",
+    "name": "BPC-157 15mg + TB-500 15mg Blend",
+    "strength": "30mg",
+    "presentation": "30mg per vial, 10 vials/kit",
+    "price": 240,
+    "sourceSpecification": "30 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "BR20",
+    "sourceProductName": "Bronchogen",
+    "name": "Bronchogen 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 171,
+    "sourceSpecification": "20mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CD2",
+    "sourceProductName": "CJC 1295 (with DAC)",
+    "name": "CJC-1295 with DAC 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "2 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CD10",
+    "sourceProductName": "CJC 1295 (with DAC)",
+    "name": "CJC-1295 with DAC 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 206,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CP10",
+    "sourceProductName": "CJC-1295 NO DAC 5mg+IPA5mg",
+    "name": "CJC-1295 5mg + Ipamorelin 5mg Blend",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 149,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CND5",
+    "sourceProductName": "CJC-1295 no dac",
+    "name": "CJC-1295 without DAC 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 80,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CND10",
+    "sourceProductName": "CJC-1296 no dac",
+    "name": "CJC-1295 without DAC 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 137,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CU50",
+    "sourceProductName": "GHK-CU",
+    "name": "GHK-Cu 50mg",
+    "strength": "50mg",
+    "presentation": "50mg per vial, 10 vials/kit",
+    "price": 40,
+    "sourceSpecification": "50 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CU100",
+    "sourceProductName": "GHK-CU",
+    "name": "GHK-Cu 100mg",
+    "strength": "100mg",
+    "presentation": "100mg per vial, 10 vials/kit",
+    "price": 57,
+    "sourceSpecification": "100 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CH20",
+    "sourceProductName": "Chonluten",
+    "name": "Chonluten 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 171,
+    "sourceSpecification": "20mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CRY20",
+    "sourceProductName": "Crystagen",
+    "name": "Crystagen 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "20mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CGL2",
+    "sourceProductName": "Cagrilintide",
+    "name": "Cagrilintide 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "2mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CGL5",
+    "sourceProductName": "Cagrilintide",
+    "name": "Cagrilintide 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 149,
+    "sourceSpecification": "5mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CGL10",
+    "sourceProductName": "Cagrilintide",
+    "name": "Cagrilintide 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 211,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CA20",
+    "sourceProductName": "Cardiogen",
+    "name": "Cardiogen 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "20mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "COR20",
+    "sourceProductName": "Cortagen",
+    "name": "Cortagen 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "20mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CBL60",
+    "sourceProductName": "Cerebrolysin",
+    "name": "Cerebrolysin 60mg",
+    "strength": "60mg",
+    "presentation": "60mg per vial, 10 vials/kit",
+    "price": 229,
+    "sourceSpecification": "60 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CS5",
+    "sourceProductName": "Cagrisema (2.5mg+2.5mg)",
+    "name": "CagriSema 2.5mg + 2.5mg Blend",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 149,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "CS10",
+    "sourceProductName": "cagrilintide 5mg+Samaglutide5mg",
+    "name": "CagriSema 5mg + 5mg Blend",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 171,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "DS2",
+    "sourceProductName": "DSIP",
+    "name": "DSIP 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "2mg*10vials",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "DS5",
+    "sourceProductName": "DSIP",
+    "name": "DSIP 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "DS10",
+    "sourceProductName": "DSIP",
+    "name": "DSIP 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 103,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "DS20",
+    "sourceProductName": "DSIP",
+    "name": "DSIP 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 149,
+    "sourceSpecification": "20 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "E3K",
+    "sourceProductName": "EPO",
+    "name": "EPO 3000iu",
+    "strength": "3000iu",
+    "presentation": "3000iu per vial, 5 vials/kit",
+    "price": 274,
+    "sourceSpecification": "3000 iu/vial,5vials/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "ET10",
+    "sourceProductName": "Epitalon",
+    "name": "Epitalon 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "ET50",
+    "sourceProductName": "Epitalon",
+    "name": "Epitalon 50mg",
+    "strength": "50mg",
+    "presentation": "50mg per vial, 10 vials/kit",
+    "price": 166,
+    "sourceSpecification": "50 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "F410",
+    "sourceProductName": "FOXO4-DRI",
+    "name": "FOXO4-DRI 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "FR1",
+    "sourceProductName": "HGH Fragment 176-191",
+    "name": "HGH Fragment 176-191 1mg",
+    "strength": "1mg",
+    "presentation": "1mg per vial, 10 vials/kit",
+    "price": 57,
+    "sourceSpecification": "1mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "FR2",
+    "sourceProductName": "HGH Fragment 176-191",
+    "name": "HGH Fragment 176-191 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 86,
+    "sourceSpecification": "2 mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "FR5",
+    "sourceProductName": "HGH Fragment 176-191",
+    "name": "HGH Fragment 176-191 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "5mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "FR10",
+    "sourceProductName": "HGH Fragment 176-191",
+    "name": "HGH Fragment 176-191 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 229,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "FR12",
+    "sourceProductName": "HGH Fragment 176-191",
+    "name": "HGH Fragment 176-191 12mg",
+    "strength": "12mg",
+    "presentation": "12mg per vial, 10 vials/kit",
+    "price": 286,
+    "sourceSpecification": "12mg/vial，10vial/kit",
+    "sourcePage": 2
+  },
+  {
+    "catalogNumber": "FR15",
+    "sourceProductName": "HGH Fragment 176-191",
+    "name": "HGH Fragment 176-191 15mg",
+    "strength": "15mg",
+    "presentation": "15mg per vial, 10 vials/kit",
+    "price": 343,
+    "sourceSpecification": "15 mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "FN1",
+    "sourceProductName": "Fst344",
+    "name": "Follistatin-344 1mg",
+    "strength": "1mg",
+    "presentation": "1mg per vial, 10 vials/kit",
+    "price": 109,
+    "sourceSpecification": "1mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "G1K",
+    "sourceProductName": "HCG",
+    "name": "HCG 1000iu",
+    "strength": "1000iu",
+    "presentation": "1000iu per vial, 10 vials/kit",
+    "price": 63,
+    "sourceSpecification": "1000iu*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "G2K",
+    "sourceProductName": "HCG",
+    "name": "HCG 2000iu",
+    "strength": "2000iu",
+    "presentation": "2000iu per vial, 10 vials/kit",
+    "price": 74,
+    "sourceSpecification": "2000iu，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "G5K",
+    "sourceProductName": "HCG",
+    "name": "HCG 5000iu",
+    "strength": "5000iu",
+    "presentation": "5000iu per vial, 10 vials/kit",
+    "price": 131,
+    "sourceSpecification": "5000iu*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "G10K",
+    "sourceProductName": "HCG",
+    "name": "HCG 10000iu",
+    "strength": "10000iu",
+    "presentation": "10000iu per vial, 10 vials/kit",
+    "price": 229,
+    "sourceSpecification": "10000iu，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "GTT",
+    "sourceProductName": "Glutathione",
+    "name": "Glutathione 1500mg",
+    "strength": "1500mg",
+    "presentation": "1500mg per vial, 10 vials/kit",
+    "price": 50,
+    "sourceSpecification": "1500mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "GTT",
+    "sourceProductName": "Glutathione",
+    "name": "Glutathione 600mg",
+    "strength": "600mg",
+    "presentation": "600mg per vial, 10 vials/kit",
+    "price": 34,
+    "sourceSpecification": "600mg10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "G25",
+    "sourceProductName": "GHRP-2 Acetate",
+    "name": "GHRP-2 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 40,
+    "sourceSpecification": "5mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "G210",
+    "sourceProductName": "GHRP-2 Acetate",
+    "name": "GHRP-2 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "G65",
+    "sourceProductName": "GHRP-6 Acetate",
+    "name": "GHRP-6 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 40,
+    "sourceSpecification": "5mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "G610",
+    "sourceProductName": "GHRP-6 Acetate",
+    "name": "GHRP-6 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "GND2",
+    "sourceProductName": "Gonadorelin Acetate",
+    "name": "Gonadorelin Acetate 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 34,
+    "sourceSpecification": "2mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "ADI5",
+    "sourceProductName": "Adamax",
+    "name": "Adamax 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 50,
+    "sourceSpecification": "5mg*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "ADI10",
+    "sourceProductName": "Adamax",
+    "name": "Adamax 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 86,
+    "sourceSpecification": "10mg*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "H6",
+    "sourceProductName": "HGH 191AA(Somatropin）",
+    "name": "HGH 6iu",
+    "strength": "6iu",
+    "presentation": "6iu per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "6iu*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "H8",
+    "sourceProductName": "HGH 191AA(Somatropin）",
+    "name": "HGH 8iu",
+    "strength": "8iu",
+    "presentation": "8iu per vial, 10 vials/kit",
+    "price": 63,
+    "sourceSpecification": "8iu10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "H10",
+    "sourceProductName": "HGH 191AA(Somatropin）",
+    "name": "HGH 10iu",
+    "strength": "10iu",
+    "presentation": "10iu per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "10iu*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "H12",
+    "sourceProductName": "HGH 191AA(Somatropin）",
+    "name": "HGH 12iu",
+    "strength": "12iu",
+    "presentation": "12iu per vial, 10 vials/kit",
+    "price": 86,
+    "sourceSpecification": "12iu*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "H15",
+    "sourceProductName": "HGH 191AA(Somatropin）",
+    "name": "HGH 15iu",
+    "strength": "15iu",
+    "presentation": "15iu per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "15iu*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "H24",
+    "sourceProductName": "HGH 191AA(Somatropin）",
+    "name": "HGH 24iu",
+    "strength": "24iu",
+    "presentation": "24iu per vial, 10 vials/kit",
+    "price": 160,
+    "sourceSpecification": "24iu*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "H36",
+    "sourceProductName": "HGH 191AA(Somatropin）",
+    "name": "HGH 36iu",
+    "strength": "36iu",
+    "presentation": "36iu per vial, 10 vials/kit",
+    "price": 206,
+    "sourceSpecification": "36iu*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "HX2",
+    "sourceProductName": "Hexarelin Acetate",
+    "name": "Hexarelin Acetate 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 57,
+    "sourceSpecification": "2mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "HX5",
+    "sourceProductName": "Hexarelin Acetate",
+    "name": "Hexarelin Acetate 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 103,
+    "sourceSpecification": "5mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "ISU",
+    "sourceProductName": "Insulin-1vial",
+    "name": "Insulin 3ml",
+    "strength": "3ml",
+    "presentation": "3ml, 1 vial",
+    "price": 51,
+    "sourceSpecification": "3ml/1vial",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "IP2",
+    "sourceProductName": "Ipamorelin",
+    "name": "Ipamorelin 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 29,
+    "sourceSpecification": "2 mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "IP5",
+    "sourceProductName": "Ipamorelin",
+    "name": "Ipamorelin 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 40,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "IP10",
+    "sourceProductName": "Ipamorelin",
+    "name": "Ipamorelin 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 57,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "IP20",
+    "sourceProductName": "Ipamorelin",
+    "name": "Ipamorelin 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 100,
+    "sourceSpecification": "20 mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "IG01",
+    "sourceProductName": "IGF-1LR3",
+    "name": "IGF-1 LR3 100mcg",
+    "strength": "100mcg",
+    "presentation": "100mcg per vial, 10 vials/kit",
+    "price": 46,
+    "sourceSpecification": "0.1mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "IG1",
+    "sourceProductName": "IGF-1LR3",
+    "name": "IGF-1 LR3 1mg",
+    "strength": "1mg",
+    "presentation": "1mg per vial, 10 vials/kit",
+    "price": 234,
+    "sourceSpecification": "1mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": null,
+    "sourceProductName": "GDF-8",
+    "name": "GDF-8 1mg",
+    "strength": "1mg",
+    "presentation": "1mg per vial, 10 vials/kit",
+    "price": 286,
+    "sourceSpecification": "1mg*10vials",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "KS5",
+    "sourceProductName": "KissPeptin-10",
+    "name": "Kisspeptin-10 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 57,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "KS10",
+    "sourceProductName": "KissPeptin-10",
+    "name": "Kisspeptin-10 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 91,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "KPV5",
+    "sourceProductName": "KPV",
+    "name": "KPV 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "KPV10",
+    "sourceProductName": "KPV",
+    "name": "KPV 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 74,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "LC120",
+    "sourceProductName": "LC120",
+    "name": "LC120 10ml",
+    "strength": "10ml",
+    "presentation": "10ml per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "10 ml/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "LC216",
+    "sourceProductName": "Lipo-C with vitamins B12",
+    "name": "MIC Lipo-C with B12 10ml",
+    "strength": "10ml",
+    "presentation": "10ml per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "10 ml/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "LI20",
+    "sourceProductName": "Livagen",
+    "name": "Livagen 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 240,
+    "sourceSpecification": "20mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": "LAX20",
+    "sourceProductName": "Cartalax",
+    "name": "Cartalax 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 240,
+    "sourceSpecification": "20mg/vial，10vial/kit",
+    "sourcePage": 3
+  },
+  {
+    "catalogNumber": null,
+    "sourceProductName": "LL37",
+    "name": "LL-37 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 171,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "LL5",
+    "sourceProductName": "Liraglutide",
+    "name": "Liraglutide 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 229,
+    "sourceSpecification": "5mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "LL10",
+    "sourceProductName": "Liraglutide",
+    "name": "Liraglutide 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 343,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "ML5",
+    "sourceProductName": "MT-2 (Melanotan 2 Acetate)",
+    "name": "Melanotan II 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 40,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "ML10",
+    "sourceProductName": "MT-2 (Melanotan 2 Acetate)",
+    "name": "Melanotan II 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 63,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "MT1",
+    "sourceProductName": "MT1",
+    "name": "Melanotan I 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 63,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "MS10",
+    "sourceProductName": "MOTs-c",
+    "name": "MOTS-c 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 80,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "MS15",
+    "sourceProductName": "MOTs-c",
+    "name": "MOTS-c 15mg",
+    "strength": "15mg",
+    "presentation": "15mg per vial, 10 vials/kit",
+    "price": 90,
+    "sourceSpecification": "15mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "MS20",
+    "sourceProductName": "MOTs-c",
+    "name": "MOTS-c 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "20 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "MS40",
+    "sourceProductName": "MOTs-c",
+    "name": "MOTS-c 40mg",
+    "strength": "40mg",
+    "presentation": "40mg per vial, 10 vials/kit",
+    "price": 160,
+    "sourceSpecification": "40mg*10vials10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "MDT10",
+    "sourceProductName": "Mazdutide",
+    "name": "Mazdutide 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 240,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "NJ100",
+    "sourceProductName": "NAD+",
+    "name": "NAD+ 100mg",
+    "strength": "100mg",
+    "presentation": "100mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "100 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "NJ500",
+    "sourceProductName": "NAD+",
+    "name": "NAD+ 500mg",
+    "strength": "500mg",
+    "presentation": "500mg per vial, 10 vials/kit",
+    "price": 91,
+    "sourceSpecification": "500mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "NJ1000",
+    "sourceProductName": "NAD+",
+    "name": "NAD+ 1000mg",
+    "strength": "1000mg",
+    "presentation": "1000mg per vial, 10 vials/kit",
+    "price": 126,
+    "sourceSpecification": "1000 mg/vial10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "NP810",
+    "sourceProductName": "Snap-8",
+    "name": "SNAP-8 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 40,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "NP8100",
+    "sourceProductName": "Snap-8",
+    "name": "SNAP-8 100mg",
+    "strength": "100mg",
+    "presentation": "100mg per vial, 10 vials/kit",
+    "price": 286,
+    "sourceSpecification": "100 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "OT1",
+    "sourceProductName": "Oxytocin",
+    "name": "Oxytocin 1mg",
+    "strength": "1mg",
+    "presentation": "1mg per vial, 10 vials/kit",
+    "price": 34,
+    "sourceSpecification": "1 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "OT2",
+    "sourceProductName": "Oxytocin",
+    "name": "Oxytocin 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "2 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "OT5",
+    "sourceProductName": "Oxytocin",
+    "name": "Oxytocin 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 57,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "OT10",
+    "sourceProductName": "Oxytocin",
+    "name": "Oxytocin 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 103,
+    "sourceSpecification": "10mg*10vials",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "P41",
+    "sourceProductName": "PT-141",
+    "name": "PT-141 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 46,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "P41",
+    "sourceProductName": "PT-141",
+    "name": "PT-141 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 86,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "P210",
+    "sourceProductName": "P21 (P021)",
+    "name": "P21 (P021) 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 143,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "PA20",
+    "sourceProductName": "Pancragen",
+    "name": "Pancragen 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 240,
+    "sourceSpecification": "20mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "PIN10",
+    "sourceProductName": "Pinealon",
+    "name": "Pinealon 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 86,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "PIN20",
+    "sourceProductName": "Pinealon",
+    "name": "Pinealon 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 160,
+    "sourceSpecification": "20mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "RA10",
+    "sourceProductName": "ARA290 (Cibinetide)",
+    "name": "ARA-290 (Cibinetide) 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 109,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "SK5",
+    "sourceProductName": "Selank",
+    "name": "Selank 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 40,
+    "sourceSpecification": "5mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "SK10",
+    "sourceProductName": "Selank",
+    "name": "Selank 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "SMO2",
+    "sourceProductName": "Sermorelin Acetate",
+    "name": "Sermorelin Acetate 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 57,
+    "sourceSpecification": "2mg*10vials",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "SMO5",
+    "sourceProductName": "Sermorelin Acetate",
+    "name": "Sermorelin Acetate 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 86,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "SMO10",
+    "sourceProductName": "Sermorelin Acetate",
+    "name": "Sermorelin Acetate 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 160,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "SUR10",
+    "sourceProductName": "Survodutide",
+    "name": "Survodutide 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 251,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "SL5",
+    "sourceProductName": "slupp-332",
+    "name": "SLU-PP-332 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 149,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "TSM2",
+    "sourceProductName": "Tesamorelin",
+    "name": "Tesamorelin 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "2 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "TSM5",
+    "sourceProductName": "Tesamorelin",
+    "name": "Tesamorelin 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 91,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "TSM10",
+    "sourceProductName": "Tesamorelin",
+    "name": "Tesamorelin 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 183,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "TSM20",
+    "sourceProductName": "Tesamorelin",
+    "name": "Tesamorelin 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 280,
+    "sourceSpecification": "20 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "TA5",
+    "sourceProductName": "Thymosin alpha 1",
+    "name": "Thymosin α-1 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "TA10",
+    "sourceProductName": "Thymosin alpha 1",
+    "name": "Thymosin α-1 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 166,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 4
+  },
+  {
+    "catalogNumber": "TY10",
+    "sourceProductName": "Thymalin",
+    "name": "Thymalin 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 86,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "TY20",
+    "sourceProductName": "Thymalin",
+    "name": "Thymalin 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 131,
+    "sourceSpecification": "20mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "VI20",
+    "sourceProductName": "Vilon",
+    "name": "Vilon 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 280,
+    "sourceSpecification": "20mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "VIP5",
+    "sourceProductName": "VIP",
+    "name": "VIP 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "VIP10",
+    "sourceProductName": "VIP",
+    "name": "VIP 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 148,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "WA3",
+    "sourceProductName": "WA water Sterile water",
+    "name": "Sterile Water 3ml",
+    "strength": "3ml",
+    "presentation": "3ml per vial, 10 vials/kit",
+    "price": 11,
+    "sourceSpecification": "3 ml/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "WA10",
+    "sourceProductName": "WA water Sterile water",
+    "name": "Sterile Water 10ml",
+    "strength": "10ml",
+    "presentation": "10ml per vial, 10 vials/kit",
+    "price": 17,
+    "sourceSpecification": "10 ml/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "AA10",
+    "sourceProductName": "Acetic Acid Water醋酸水",
+    "name": "Acetic Acid Water 10ml",
+    "strength": "10ml",
+    "presentation": "10ml per vial, 10 vials/kit",
+    "price": 17,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "BAC3",
+    "sourceProductName": "BAC Water Antibacterial water",
+    "name": "Bacteriostatic Water 3ml",
+    "strength": "3ml",
+    "presentation": "3ml per vial, 10 vials/kit",
+    "price": 11,
+    "sourceSpecification": "3ml*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "BAC10",
+    "sourceProductName": "BAC Water Antibacterial water",
+    "name": "Bacteriostatic Water 10ml",
+    "strength": "10ml",
+    "presentation": "10ml per vial, 10 vials/kit",
+    "price": 17,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "SX5",
+    "sourceProductName": "Semax",
+    "name": "Semax 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 46,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "SX10",
+    "sourceProductName": "Semax",
+    "name": "Semax 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 63,
+    "sourceSpecification": "10mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "XT100",
+    "sourceProductName": "Botulinum toxin",
+    "name": "Botulinum Toxin 100iu",
+    "strength": "100iu",
+    "presentation": "100iu per vial, 10 vials/kit",
+    "price": 257,
+    "sourceSpecification": "100 iu/vial,10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "AOD5",
+    "sourceProductName": "AOD9604",
+    "name": "AOD9604 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 109,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "AOD10",
+    "sourceProductName": "AOD9604",
+    "name": "AOD9604 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 183,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "5AM",
+    "sourceProductName": "5-amino-1mq",
+    "name": "5-Amino-1MQ 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 30,
+    "sourceSpecification": "5 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "10AM",
+    "sourceProductName": "5-amino-1mq",
+    "name": "5-Amino-1MQ 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 52,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "50AM",
+    "sourceProductName": "5-amino-1mq",
+    "name": "5-Amino-1MQ 50mg",
+    "strength": "50mg",
+    "presentation": "50mg per vial, 10 vials/kit",
+    "price": 120,
+    "sourceSpecification": "50 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "DR5",
+    "sourceProductName": "Dermorphin",
+    "name": "Dermorphin 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 74,
+    "sourceSpecification": "5mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "FM2",
+    "sourceProductName": "MGF",
+    "name": "MGF 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "2mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "FMP2",
+    "sourceProductName": "PEG MGF",
+    "name": "PEG-MGF 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "2mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": null,
+    "sourceProductName": "PE-22-28",
+    "name": "PE-22-28 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "5mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": null,
+    "sourceProductName": "PE-22-28",
+    "name": "PE-22-28 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial",
+    "price": 131,
+    "sourceSpecification": "10mg/vial",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "MG",
+    "sourceProductName": "HMG",
+    "name": "HMG 75iu",
+    "strength": "75iu",
+    "presentation": "75iu per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "75iu*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "LB",
+    "sourceProductName": "Lemon Bottle",
+    "name": "Lemon Bottle 10ml",
+    "strength": "10ml",
+    "presentation": "10ml per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "10ml*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "LC400",
+    "sourceProductName": "L-carnitine",
+    "name": "L-Carnitine 400mg",
+    "strength": "400mg",
+    "presentation": "400mg per vial, 10 vials/kit",
+    "price": 34,
+    "sourceSpecification": "400mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "LC600",
+    "sourceProductName": "L-carnitine",
+    "name": "L-Carnitine 600mg",
+    "strength": "600mg",
+    "presentation": "600mg per vial, 10 vials/kit",
+    "price": 57,
+    "sourceSpecification": "600mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "LC1200",
+    "sourceProductName": "L-carnitine",
+    "name": "L-Carnitine 1200mg",
+    "strength": "1200mg",
+    "presentation": "1200mg per vial, 10 vials/kit",
+    "price": 75,
+    "sourceSpecification": "1200mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "2S10",
+    "sourceProductName": "SS-31",
+    "name": "SS-31 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial",
+    "price": 126,
+    "sourceSpecification": "10 mg/vial",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "2S20",
+    "sourceProductName": "SS-31",
+    "name": "SS-31 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 150,
+    "sourceSpecification": "20mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "2S50",
+    "sourceProductName": "SS-31",
+    "name": "SS-31 50mg",
+    "strength": "50mg",
+    "presentation": "50mg per vial, 10 vials/kit",
+    "price": 200,
+    "sourceSpecification": "50mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "Aicar50",
+    "sourceProductName": "Aicar",
+    "name": "AICAR 50mg",
+    "strength": "50mg",
+    "presentation": "50mg per vial, 10 vials/kit",
+    "price": 51,
+    "sourceSpecification": "50mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "AIicar100",
+    "sourceProductName": "Aicar",
+    "name": "AICAR 100mg",
+    "strength": "100mg",
+    "presentation": "100mg per vial",
+    "price": 97,
+    "sourceSpecification": "100 mg/vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "ADP",
+    "sourceProductName": "FTPP Adipotide",
+    "name": "FTPP (Adipotide) 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 74,
+    "sourceSpecification": "2mg10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "ADP",
+    "sourceProductName": "FTPP Adipotide",
+    "name": "FTPP (Adipotide) 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 160,
+    "sourceSpecification": "5mg10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "APD",
+    "sourceProductName": "FTPP Adipotide",
+    "name": "FTPP (Adipotide) 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 217,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "MK75",
+    "sourceProductName": "MK677",
+    "name": "MK-677 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 29,
+    "sourceSpecification": "5mg10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "CS20",
+    "sourceProductName": "Cagriema(10ng- 10mg）",
+    "name": "CagriSema 10mg + 10mg Blend",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 314,
+    "sourceSpecification": "20mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": "T1",
+    "sourceProductName": "Tesa10+ip5",
+    "name": "Tesamorelin 10mg + Ipamorelin 5mg Blend",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 206,
+    "sourceSpecification": "10mg*10vials",
+    "sourcePage": 5
+  },
+  {
+    "catalogNumber": null,
+    "sourceProductName": "Humanin",
+    "name": "Humanin 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 149,
+    "sourceSpecification": "10mg*10vials",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": null,
+    "sourceProductName": "PNC-27",
+    "name": "PNC-27 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 46,
+    "sourceSpecification": "5mg*10vials",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": null,
+    "sourceProductName": "PNC-27",
+    "name": "PNC-27 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 69,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": null,
+    "sourceProductName": "Frag 17-23",
+    "name": "Fragment 17-23 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 137,
+    "sourceSpecification": "10 mg/vial，10vial/kit",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": "CBL-514",
+    "sourceProductName": "514",
+    "name": "CBL-514 5mg",
+    "strength": "5mg",
+    "presentation": "5mg per vial, 10 vials/kit",
+    "price": 183,
+    "sourceSpecification": "5mg10vials",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": "CBL-514",
+    "sourceProductName": "514",
+    "name": "CBL-514 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 286,
+    "sourceSpecification": "10mg10vials",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": "CBL-514",
+    "sourceProductName": "514",
+    "name": "CBL-514 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 486,
+    "sourceSpecification": "20mg10vials",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": "SSXK",
+    "sourceProductName": "Selank+Semax",
+    "name": "Selank + Semax Blend 20mg",
+    "strength": "20mg",
+    "presentation": "20mg per vial, 10 vials/kit",
+    "price": 114,
+    "sourceSpecification": "20mg*10vials",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": "IGF-DES",
+    "sourceProductName": "IGF-DES",
+    "name": "IGF-DES 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 91,
+    "sourceSpecification": "2mg10vials",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": "PNB-0408",
+    "sourceProductName": "Dihexa",
+    "name": "Dihexa 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial",
+    "price": 137,
+    "sourceSpecification": "10 mg/vial",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": "OS-01",
+    "sourceProductName": "OS-01",
+    "name": "OS-01 100mg",
+    "strength": "100mg",
+    "presentation": "100mg per vial, 10 vials/kit",
+    "price": 137,
+    "sourceSpecification": "100mg*10vials",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": "B72",
+    "sourceProductName": "B7-33",
+    "name": "B7-33 2mg",
+    "strength": "2mg",
+    "presentation": "2mg per vial, 10 vials/kit",
+    "price": 57,
+    "sourceSpecification": "2mg10vials",
+    "sourcePage": 6
+  },
+  {
+    "catalogNumber": "B710",
+    "sourceProductName": "B7-33",
+    "name": "B7-33 10mg",
+    "strength": "10mg",
+    "presentation": "10mg per vial, 10 vials/kit",
+    "price": 137,
+    "sourceSpecification": "10mg10vials",
+    "sourcePage": 6
+  }
+]

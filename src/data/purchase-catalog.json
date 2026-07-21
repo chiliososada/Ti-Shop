@@ -1,0 +1,2843 @@
+{
+  "schemaVersion": 1,
+  "sourceFiles": {
+    "procurement": "肽类产品目录表Df (2) (1).xlsx",
+    "salesPrices": "Price list-Iris(2).pdf"
+  },
+  "currency": {
+    "procurement": "RMB",
+    "sales": "USD"
+  },
+  "normalization": {
+    "physicalPurchaseRows": 177,
+    "publishedProducts": 162,
+    "duplicatePurchaseRowsMerged": 15,
+    "notes": [
+      "WA3 and WA10 are merged with the corresponding BAC3 and BAC10 bacteriostatic-water products.",
+      "B-12 is mapped to the existing Large Bottle 10ml sales listing.",
+      "The 50AM product follows its code and name as 50mg despite the supplier specification cell reading 5mg.",
+      "HGH Fragment 176-191 10iu remains distinct from the PDF's 10mg variant because the purchase sheet is authoritative."
+    ]
+  },
+  "pricing": {
+    "fx": {
+      "rate": 6.777525142107565,
+      "unit": "CNY per USD",
+      "referenceDate": "2026-07-17",
+      "method": "EUR/CNY 7.7501 divided by EUR/USD 1.1435",
+      "source": "European Central Bank reference rates"
+    },
+    "formula": "round((costRmb / cnyPerUsd) / (1 - averageGrossMargin))",
+    "benchmarks": [
+      {
+        "name": "Semaglutide 10mg",
+        "costRmb": 110,
+        "saleUsd": 63,
+        "costUsd": 16.230113159830196,
+        "grossMargin": 0.7423791561931715
+      },
+      {
+        "name": "Tirzepatide 10mg",
+        "costRmb": 120,
+        "saleUsd": 69,
+        "costUsd": 17.705577992542032,
+        "grossMargin": 0.7433974203979415
+      },
+      {
+        "name": "Retatrutide 10mg",
+        "costRmb": 130,
+        "saleUsd": 74,
+        "costUsd": 19.18104282525387,
+        "grossMargin": 0.7407967185776504
+      }
+    ],
+    "averageGrossMargin": 0.7421910983895877,
+    "calculatedProductCount": 10
+  },
+  "products": [
+    {
+      "key": "5-amino-1mq|mg:10",
+      "productId": "5-amino-1mq-10mg",
+      "name": "5-Amino-1MQ 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "10AM"
+      ],
+      "purchaseSourceRows": [
+        120
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 52,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "5-amino-1mq|mg:50",
+      "productId": "5-amino-1mq-50mcg",
+      "name": "5-Amino-1MQ 50mg",
+      "presentation": "50mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "50AM"
+      ],
+      "purchaseSourceRows": [
+        121
+      ],
+      "costRmbValues": [
+        140
+      ],
+      "priceUsd": 120,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "5-amino-1mq|mg:5",
+      "productId": "5-amino-1mq",
+      "name": "5-Amino-1MQ 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "5AM"
+      ],
+      "purchaseSourceRows": [
+        119
+      ],
+      "costRmbValues": [
+        50
+      ],
+      "priceUsd": 30,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "adamax|mg:10",
+      "productId": "adamax-10mg",
+      "name": "Adamax 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "AX"
+      ],
+      "purchaseSourceRows": [
+        182
+      ],
+      "costRmbValues": [
+        150
+      ],
+      "priceUsd": 86,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "aicar|mg:100",
+      "productId": "aicar-100mg",
+      "name": "AICAR 100mg",
+      "presentation": "100mg per vial",
+      "procurementCodes": [
+        "Aicar100",
+        "AR100"
+      ],
+      "purchaseSourceRows": [
+        56,
+        160
+      ],
+      "costRmbValues": [
+        160,
+        170
+      ],
+      "priceUsd": 97,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "aicar|mg:50",
+      "productId": "aicar",
+      "name": "AICAR 50mg",
+      "presentation": "50mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "Aicar50",
+        "AR50"
+      ],
+      "purchaseSourceRows": [
+        55,
+        159
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "aod9604|mg:10",
+      "productId": "aod9604-10mg",
+      "name": "AOD9604 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "AOD10(AD)",
+        "10AD"
+      ],
+      "purchaseSourceRows": [
+        49,
+        103
+      ],
+      "costRmbValues": [
+        320
+      ],
+      "priceUsd": 183,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "aod9604|mg:2",
+      "productId": "aod9604",
+      "name": "AOD9604 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "2AD"
+      ],
+      "purchaseSourceRows": [
+        101
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 57,
+      "priceSource": "calculated-average-margin"
+    },
+    {
+      "key": "aod9604|mg:5",
+      "productId": "aod9604-5mg",
+      "name": "AOD9604 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "AOD5(AD)",
+        "5AD"
+      ],
+      "purchaseSourceRows": [
+        48,
+        102
+      ],
+      "costRmbValues": [
+        200,
+        190
+      ],
+      "priceUsd": 109,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ara-290|mg:10",
+      "productId": "ara-290-cibinetide-10mg",
+      "name": "ARA-290 (Cibinetide) 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "RA10"
+      ],
+      "purchaseSourceRows": [
+        136
+      ],
+      "costRmbValues": [
+        190
+      ],
+      "priceUsd": 109,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "b7-33|mg:10",
+      "productId": "b7-33-10mg",
+      "name": "B7-33 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "B710"
+      ],
+      "purchaseSourceRows": [
+        176
+      ],
+      "costRmbValues": [
+        240
+      ],
+      "priceUsd": 137,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "b7-33|mg:2",
+      "productId": "b7-33-2mg",
+      "name": "B7-33 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "B72"
+      ],
+      "purchaseSourceRows": [
+        175
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 57,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "bacteriostatic-water|ml:10",
+      "productId": "bacteriostatic-water-10ml",
+      "name": "Bacteriostatic Water 10ml",
+      "presentation": "10ml per vial, 10 vials/kit",
+      "procurementCodes": [
+        "BAC10",
+        "WA10"
+      ],
+      "purchaseSourceRows": [
+        93,
+        111
+      ],
+      "costRmbValues": [
+        20
+      ],
+      "priceUsd": 17,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "bacteriostatic-water|ml:3",
+      "productId": "bac-water",
+      "name": "Bacteriostatic Water 3ml",
+      "presentation": "3ml per vial, 10 vials/kit",
+      "procurementCodes": [
+        "BAC3",
+        "WA3"
+      ],
+      "purchaseSourceRows": [
+        92,
+        109
+      ],
+      "costRmbValues": [
+        20
+      ],
+      "priceUsd": 11,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "bacteriostatic-water|ml:7",
+      "productId": "bacteriostatic-water-7ml",
+      "name": "Bacteriostatic Water 7ml",
+      "presentation": "7ml per vial, 10 vials/kit",
+      "procurementCodes": [
+        "WA7"
+      ],
+      "purchaseSourceRows": [
+        110
+      ],
+      "costRmbValues": [
+        20
+      ],
+      "priceUsd": 11,
+      "priceSource": "calculated-average-margin"
+    },
+    {
+      "key": "botulinum-toxin|iu:100",
+      "productId": "botulinum-toxin-100iu",
+      "name": "Botulinum Toxin 100iu",
+      "presentation": "100iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "XT100"
+      ],
+      "purchaseSourceRows": [
+        179
+      ],
+      "costRmbValues": [
+        450
+      ],
+      "priceUsd": 257,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "bpc-157|mg:10",
+      "productId": "bpc-157-10mg",
+      "name": "BPC-157 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "BC10"
+      ],
+      "purchaseSourceRows": [
+        100
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 60,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "bpc-tb-blend|mg:20",
+      "productId": "bpc-157-10mg-plus-tb-500-10mg-blend",
+      "name": "BPC-157 10mg + TB-500 10mg Blend",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "BB20"
+      ],
+      "purchaseSourceRows": [
+        73
+      ],
+      "costRmbValues": [
+        300
+      ],
+      "priceUsd": 171,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "bpc-tb-blend|mg:30",
+      "productId": "bpc-157-15mg-plus-tb-500-15mg-blend",
+      "name": "BPC-157 15mg + TB-500 15mg Blend",
+      "presentation": "30mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "BB30"
+      ],
+      "purchaseSourceRows": [
+        74
+      ],
+      "costRmbValues": [
+        420
+      ],
+      "priceUsd": 240,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "bpc-157|mg:2",
+      "productId": "bpc-157",
+      "name": "BPC-157 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "BC2"
+      ],
+      "purchaseSourceRows": [
+        98
+      ],
+      "costRmbValues": [
+        50
+      ],
+      "priceUsd": 29,
+      "priceSource": "calculated-average-margin"
+    },
+    {
+      "key": "bpc-157|mg:5",
+      "productId": "bpc-157-5mg",
+      "name": "BPC-157 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "BC5"
+      ],
+      "purchaseSourceRows": [
+        99
+      ],
+      "costRmbValues": [
+        80
+      ],
+      "priceUsd": 46,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "bpc-tb-blend|mg:10",
+      "productId": "bpc-5mg-tb5mg",
+      "name": "BPC-157 5mg + TB-500 5mg Blend",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "BB10"
+      ],
+      "purchaseSourceRows": [
+        72
+      ],
+      "costRmbValues": [
+        240
+      ],
+      "priceUsd": 137,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cagrilintide|mg:10",
+      "productId": "cagrilintide-10mg",
+      "name": "Cagrilintide 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CGL10"
+      ],
+      "purchaseSourceRows": [
+        96
+      ],
+      "costRmbValues": [
+        370
+      ],
+      "priceUsd": 211,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cagrilintide|mg:5",
+      "productId": "cagrilintide",
+      "name": "Cagrilintide 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CGL5"
+      ],
+      "purchaseSourceRows": [
+        95
+      ],
+      "costRmbValues": [
+        260
+      ],
+      "priceUsd": 149,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cagrisema|mg:10",
+      "productId": "cagrisema-5mg-plus-5mg-blend",
+      "name": "CagriSema 5mg + 5mg Blend",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CS10"
+      ],
+      "purchaseSourceRows": [
+        115
+      ],
+      "costRmbValues": [
+        300
+      ],
+      "priceUsd": 171,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cbl-514|mg:10",
+      "productId": "cbl-514-10mg",
+      "name": "CBL-514 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CBL-514"
+      ],
+      "purchaseSourceRows": [
+        140
+      ],
+      "costRmbValues": [
+        500
+      ],
+      "priceUsd": 286,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cbl-514|mg:20",
+      "productId": "cbl-514-20mg",
+      "name": "CBL-514 20mg",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CBL-514"
+      ],
+      "purchaseSourceRows": [
+        141
+      ],
+      "costRmbValues": [
+        850
+      ],
+      "priceUsd": 486,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cbl-514|mg:5",
+      "productId": "cbl-514-5mg",
+      "name": "CBL-514 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CBL-514"
+      ],
+      "purchaseSourceRows": [
+        139
+      ],
+      "costRmbValues": [
+        320
+      ],
+      "priceUsd": 183,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cjc-ipamorelin-blend|unique",
+      "productId": "cjc-1295-without-dac-5mg-ipa-5mg",
+      "name": "CJC-1295 5mg + Ipamorelin 5mg Blend",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CP10"
+      ],
+      "purchaseSourceRows": [
+        82
+      ],
+      "costRmbValues": [
+        260
+      ],
+      "priceUsd": 149,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cjc-with-dac|mg:10",
+      "productId": "cjc-1295-with-dac-10mg",
+      "name": "CJC-1295 with DAC 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CD5"
+      ],
+      "purchaseSourceRows": [
+        81
+      ],
+      "costRmbValues": [
+        360
+      ],
+      "priceUsd": 206,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cjc-with-dac|mg:2",
+      "productId": "cjc1295-with-dac",
+      "name": "CJC-1295 with DAC 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CD2"
+      ],
+      "purchaseSourceRows": [
+        80
+      ],
+      "costRmbValues": [
+        200
+      ],
+      "priceUsd": 114,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cjc-without-dac|mg:10",
+      "productId": "cjc-1295-without-dac-10mg",
+      "name": "CJC-1295 without DAC 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CND10"
+      ],
+      "purchaseSourceRows": [
+        79
+      ],
+      "costRmbValues": [
+        240
+      ],
+      "priceUsd": 137,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "cjc-without-dac|mg:2",
+      "productId": "cjc-1295-without-dac",
+      "name": "CJC-1295 without DAC 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CND2"
+      ],
+      "purchaseSourceRows": [
+        77
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 52,
+      "priceSource": "calculated-average-margin"
+    },
+    {
+      "key": "cjc-without-dac|mg:5",
+      "productId": "cjc-1295-without-dac-5mg",
+      "name": "CJC-1295 without DAC 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "CND5"
+      ],
+      "purchaseSourceRows": [
+        78
+      ],
+      "costRmbValues": [
+        140
+      ],
+      "priceUsd": 80,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "dermorphin|mg:5",
+      "productId": "dermorphin-5mg",
+      "name": "Dermorphin 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "DR5"
+      ],
+      "purchaseSourceRows": [
+        165
+      ],
+      "costRmbValues": [
+        130
+      ],
+      "priceUsd": 74,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "dihexa|mg:10",
+      "productId": "dihexa-10mg",
+      "name": "Dihexa 10mg",
+      "presentation": "10mg per vial",
+      "procurementCodes": [
+        "PNB-0408"
+      ],
+      "purchaseSourceRows": [
+        127
+      ],
+      "costRmbValues": [
+        240
+      ],
+      "priceUsd": 137,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "dsip|mg:10",
+      "productId": "dsip-10mg",
+      "name": "DSIP 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "DS10"
+      ],
+      "purchaseSourceRows": [
+        70,
+        146
+      ],
+      "costRmbValues": [
+        180
+      ],
+      "priceUsd": 103,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "dsip|mg:2",
+      "productId": "dsip",
+      "name": "DSIP 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "DS2"
+      ],
+      "purchaseSourceRows": [
+        144
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "dsip|mg:5",
+      "productId": "dsip-5mg",
+      "name": "DSIP 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "DS5"
+      ],
+      "purchaseSourceRows": [
+        69,
+        145
+      ],
+      "costRmbValues": [
+        100,
+        120
+      ],
+      "priceUsd": 69,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "epitalon|mg:10",
+      "productId": "epithalon",
+      "name": "Epitalon 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "EPi10(ET)",
+        "ET10"
+      ],
+      "purchaseSourceRows": [
+        53,
+        125
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "epitalon|mg:50",
+      "productId": "epitalon-50mg",
+      "name": "Epitalon 50mg",
+      "presentation": "50mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "EPi50(ET)",
+        "ET50"
+      ],
+      "purchaseSourceRows": [
+        54,
+        126
+      ],
+      "costRmbValues": [
+        290
+      ],
+      "priceUsd": 166,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "follistatin-344|mg:10",
+      "productId": "follistatin-344-10mg",
+      "name": "Follistatin-344 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "FST-344"
+      ],
+      "purchaseSourceRows": [
+        180
+      ],
+      "costRmbValues": [
+        190
+      ],
+      "priceUsd": 109,
+      "priceSource": "calculated-average-margin"
+    },
+    {
+      "key": "foxo4-dri|mg:10",
+      "productId": "foxo4-dri",
+      "name": "FOXO4-DRI 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "F410"
+      ],
+      "purchaseSourceRows": [
+        170
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ftpp-adipotide|mg:10",
+      "productId": "ftpp-adipotide-10mg",
+      "name": "FTPP (Adipotide) 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "AP10"
+      ],
+      "purchaseSourceRows": [
+        135
+      ],
+      "costRmbValues": [
+        380
+      ],
+      "priceUsd": 217,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ftpp-adipotide|mg:2",
+      "productId": "adipotidefttp",
+      "name": "FTPP (Adipotide) 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "AP2"
+      ],
+      "purchaseSourceRows": [
+        133
+      ],
+      "costRmbValues": [
+        130
+      ],
+      "priceUsd": 74,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ftpp-adipotide|mg:5",
+      "productId": "ftpp-adipotide",
+      "name": "FTPP (Adipotide) 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "AP5"
+      ],
+      "purchaseSourceRows": [
+        134
+      ],
+      "costRmbValues": [
+        280
+      ],
+      "priceUsd": 160,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ghk-cu|mg:100",
+      "productId": "ghk-cu-100mg",
+      "name": "GHK-Cu 100mg",
+      "presentation": "100mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "Cu100"
+      ],
+      "purchaseSourceRows": [
+        31
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 57,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ghk-cu|mg:50",
+      "productId": "ghk-cu",
+      "name": "GHK-Cu 50mg",
+      "presentation": "50mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "Cu50"
+      ],
+      "purchaseSourceRows": [
+        30
+      ],
+      "costRmbValues": [
+        70
+      ],
+      "priceUsd": 40,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ghrp-2|mg:10",
+      "productId": "ghrp-2-10mg",
+      "name": "GHRP-2 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "G210"
+      ],
+      "purchaseSourceRows": [
+        162
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ghrp-2|mg:5",
+      "productId": "ghrp-2",
+      "name": "GHRP-2 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "G25"
+      ],
+      "purchaseSourceRows": [
+        161
+      ],
+      "costRmbValues": [
+        70
+      ],
+      "priceUsd": 40,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ghrp-6|mg:10",
+      "productId": "ghrp-6-10mg",
+      "name": "GHRP-6 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "G610"
+      ],
+      "purchaseSourceRows": [
+        164
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ghrp-6|mg:5",
+      "productId": "ghrp-6",
+      "name": "GHRP-6 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "G65"
+      ],
+      "purchaseSourceRows": [
+        163
+      ],
+      "costRmbValues": [
+        70
+      ],
+      "priceUsd": 40,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "glow-blend|unique",
+      "productId": "glow-bpc-157-10mg-ghk-cu50mg-tb500-10mg",
+      "name": "GLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg) 70mg",
+      "presentation": "70mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "GLOW70(BB70)"
+      ],
+      "purchaseSourceRows": [
+        75
+      ],
+      "costRmbValues": [
+        360
+      ],
+      "priceUsd": 206,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "glutathione|mg:1500",
+      "productId": "glutathione-1500mg",
+      "name": "Glutathione 1500mg",
+      "presentation": "1500mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "GTT1500"
+      ],
+      "purchaseSourceRows": [
+        167
+      ],
+      "costRmbValues": [
+        80
+      ],
+      "priceUsd": 50,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "glutathione|mg:600",
+      "productId": "glutathione",
+      "name": "Glutathione 600mg",
+      "presentation": "600mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "GTT600"
+      ],
+      "purchaseSourceRows": [
+        166
+      ],
+      "costRmbValues": [
+        60
+      ],
+      "priceUsd": 34,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "gonadorelin|mg:2",
+      "productId": "gonadorelin-acetate",
+      "name": "Gonadorelin Acetate 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "GND2"
+      ],
+      "purchaseSourceRows": [
+        147,
+        158
+      ],
+      "costRmbValues": [
+        60
+      ],
+      "priceUsd": 34,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hcg|iu:10000",
+      "productId": "hcg-10000iu",
+      "name": "HCG 10000iu",
+      "presentation": "10000iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "HCG10000"
+      ],
+      "purchaseSourceRows": [
+        91
+      ],
+      "costRmbValues": [
+        260
+      ],
+      "priceUsd": 229,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hcg|iu:1000",
+      "productId": "hcg",
+      "name": "HCG 1000iu",
+      "presentation": "1000iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "HCG1000"
+      ],
+      "purchaseSourceRows": [
+        88
+      ],
+      "costRmbValues": [
+        60
+      ],
+      "priceUsd": 63,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hcg|iu:2000",
+      "productId": "hcg-2000iu",
+      "name": "HCG 2000iu",
+      "presentation": "2000iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "HCG2000"
+      ],
+      "purchaseSourceRows": [
+        89
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 74,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hcg|iu:5000",
+      "productId": "hcg-5000iu",
+      "name": "HCG 5000iu",
+      "presentation": "5000iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "HCG5000"
+      ],
+      "purchaseSourceRows": [
+        90
+      ],
+      "costRmbValues": [
+        170
+      ],
+      "priceUsd": 131,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hexarelin|mg:2",
+      "productId": "hexarelin-acetate",
+      "name": "Hexarelin Acetate 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "HX2"
+      ],
+      "purchaseSourceRows": [
+        148
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 57,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hexarelin|mg:5",
+      "productId": "hexarelin-acetate-5mg",
+      "name": "Hexarelin Acetate 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "HX5"
+      ],
+      "purchaseSourceRows": [
+        149
+      ],
+      "costRmbValues": [
+        180
+      ],
+      "priceUsd": 103,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hgh|iu:10",
+      "productId": "hgh",
+      "name": "HGH 10iu",
+      "presentation": "10iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "H10"
+      ],
+      "purchaseSourceRows": [
+        84,
+        104
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 69,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hgh|iu:12",
+      "productId": "hgh-12iu",
+      "name": "HGH 12iu",
+      "presentation": "12iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "H12"
+      ],
+      "purchaseSourceRows": [
+        85
+      ],
+      "costRmbValues": [
+        180
+      ],
+      "priceUsd": 86,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hgh|iu:15",
+      "productId": "hgh-15iu",
+      "name": "HGH 15iu",
+      "presentation": "15iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "H15"
+      ],
+      "purchaseSourceRows": [
+        105
+      ],
+      "costRmbValues": [
+        190
+      ],
+      "priceUsd": 114,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hgh|iu:24",
+      "productId": "hgh-24iu",
+      "name": "HGH 24iu",
+      "presentation": "24iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "H24"
+      ],
+      "purchaseSourceRows": [
+        86
+      ],
+      "costRmbValues": [
+        220
+      ],
+      "priceUsd": 160,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hgh|iu:36",
+      "productId": "hgh-36iu",
+      "name": "HGH 36iu",
+      "presentation": "36iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "H36"
+      ],
+      "purchaseSourceRows": [
+        87
+      ],
+      "costRmbValues": [
+        290
+      ],
+      "priceUsd": 206,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "hgh-fragment-176-191|iu:10",
+      "productId": "hgh-fragment-176-191-10iu",
+      "name": "HGH Fragment 176-191 10iu",
+      "presentation": "10iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "FRAG10"
+      ],
+      "purchaseSourceRows": [
+        181
+      ],
+      "costRmbValues": [
+        160
+      ],
+      "priceUsd": 92,
+      "priceSource": "calculated-average-margin"
+    },
+    {
+      "key": "hmg|iu:75",
+      "productId": "hmg",
+      "name": "HMG 75iu",
+      "presentation": "75iu per vial, 10 vials/kit",
+      "procurementCodes": [
+        "G75"
+      ],
+      "purchaseSourceRows": [
+        129
+      ],
+      "costRmbValues": [
+        130
+      ],
+      "priceUsd": 69,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "humanin|mg:10",
+      "productId": "humanin-10mg",
+      "name": "Humanin 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "HUM10"
+      ],
+      "purchaseSourceRows": [
+        174
+      ],
+      "costRmbValues": [
+        260
+      ],
+      "priceUsd": 149,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "igf-1-lr3|mg:0.1",
+      "productId": "igf-1-lr3-100mcg",
+      "name": "IGF-1 LR3 100mcg",
+      "presentation": "100mcg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "IG01"
+      ],
+      "purchaseSourceRows": [
+        117
+      ],
+      "costRmbValues": [
+        80
+      ],
+      "priceUsd": 46,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "igf-1-lr3|mg:1",
+      "productId": "igf-1-lr3-1mg",
+      "name": "IGF-1 LR3 1mg",
+      "presentation": "1mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "IG1"
+      ],
+      "purchaseSourceRows": [
+        118
+      ],
+      "costRmbValues": [
+        410
+      ],
+      "priceUsd": 234,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "igf-des|mg:2",
+      "productId": "igf-des-2mg",
+      "name": "IGF-DES 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "IGF-DES"
+      ],
+      "purchaseSourceRows": [
+        116
+      ],
+      "costRmbValues": [
+        160
+      ],
+      "priceUsd": 91,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ipamorelin|mg:10",
+      "productId": "ipamorelin-10mg",
+      "name": "Ipamorelin 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "IPA10(IP)"
+      ],
+      "purchaseSourceRows": [
+        47
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 57,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ipamorelin|mg:2",
+      "productId": "ipamorelin",
+      "name": "Ipamorelin 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "IPA2(IP)"
+      ],
+      "purchaseSourceRows": [
+        45
+      ],
+      "costRmbValues": [
+        50
+      ],
+      "priceUsd": 29,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ipamorelin|mg:5",
+      "productId": "ipamorelin-5mg",
+      "name": "Ipamorelin 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "IPA5(IP)"
+      ],
+      "purchaseSourceRows": [
+        46
+      ],
+      "costRmbValues": [
+        70
+      ],
+      "priceUsd": 40,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "kisspeptin-10|mg:10",
+      "productId": "kisspeptin-10-10mg",
+      "name": "Kisspeptin-10 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "KS10"
+      ],
+      "purchaseSourceRows": [
+        58
+      ],
+      "costRmbValues": [
+        160
+      ],
+      "priceUsd": 91,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "kisspeptin-10|mg:5",
+      "productId": "kisspetin-10",
+      "name": "Kisspeptin-10 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "KS5"
+      ],
+      "purchaseSourceRows": [
+        57
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 57,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "klow-blend|unique",
+      "productId": "klow-bpc-10mg-ghk-cu50mg-tb500-10mg-kpv-10mg",
+      "name": "KLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg + KPV 10mg) 80mg",
+      "presentation": "80mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "KLOW80"
+      ],
+      "purchaseSourceRows": [
+        76
+      ],
+      "costRmbValues": [
+        420
+      ],
+      "priceUsd": 240,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "kpv|mg:10",
+      "productId": "kpv-10mg",
+      "name": "KPV 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "KPV10"
+      ],
+      "purchaseSourceRows": [
+        36
+      ],
+      "costRmbValues": [
+        130
+      ],
+      "priceUsd": 74,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "kpv|mg:5",
+      "productId": "kpv",
+      "name": "KPV 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "KPV5"
+      ],
+      "purchaseSourceRows": [
+        35
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "l-carnitine|mg:1200",
+      "productId": "l-carnitine-1200mg",
+      "name": "L-Carnitine 1200mg",
+      "presentation": "1200mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "LC1200"
+      ],
+      "purchaseSourceRows": [
+        124
+      ],
+      "costRmbValues": [
+        120
+      ],
+      "priceUsd": 75,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "l-carnitine|mg:600",
+      "productId": "l-carnitine-600mg",
+      "name": "L-Carnitine 600mg",
+      "presentation": "600mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "LC600"
+      ],
+      "purchaseSourceRows": [
+        123
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 57,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "large-bottle|ml:10",
+      "productId": "large-bottle-10ml",
+      "name": "Large Bottle 10ml",
+      "presentation": "10ml per vial, 10 vials/kit",
+      "procurementCodes": [
+        "B-12"
+      ],
+      "purchaseSourceRows": [
+        94
+      ],
+      "costRmbValues": [
+        60
+      ],
+      "priceUsd": 34,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "lemon-bottle|ml:10",
+      "productId": "lemon-bottle",
+      "name": "Lemon Bottle 10ml",
+      "presentation": "10ml per vial, 10 vials/kit",
+      "procurementCodes": [
+        "LB"
+      ],
+      "purchaseSourceRows": [
+        122
+      ],
+      "costRmbValues": [
+        120
+      ],
+      "priceUsd": 69,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ll-37|mg:5",
+      "productId": "ll37",
+      "name": "LL-37 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "375"
+      ],
+      "purchaseSourceRows": [
+        168
+      ],
+      "costRmbValues": [
+        180
+      ],
+      "priceUsd": 171,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "mazdutide|mg:10",
+      "productId": "mazdutide-10mg",
+      "name": "Mazdutide 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "MDT10"
+      ],
+      "purchaseSourceRows": [
+        130
+      ],
+      "costRmbValues": [
+        420
+      ],
+      "priceUsd": 240,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "melanotan-i|mg:10",
+      "productId": "melanotani",
+      "name": "Melanotan I 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "MT1"
+      ],
+      "purchaseSourceRows": [
+        106
+      ],
+      "costRmbValues": [
+        110
+      ],
+      "priceUsd": 63,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "melanotan-ii|mg:10",
+      "productId": "melanotan-il",
+      "name": "Melanotan II 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "ML10"
+      ],
+      "purchaseSourceRows": [
+        71
+      ],
+      "costRmbValues": [
+        110
+      ],
+      "priceUsd": 63,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "melanotan-ii|mg:20",
+      "productId": "melanotan-ii-20mg",
+      "name": "Melanotan II 20mg",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "MT2"
+      ],
+      "purchaseSourceRows": [
+        107
+      ],
+      "costRmbValues": [
+        190
+      ],
+      "priceUsd": 109,
+      "priceSource": "calculated-average-margin"
+    },
+    {
+      "key": "mgf|mg:2",
+      "productId": "mgf",
+      "name": "MGF 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "FM2"
+      ],
+      "purchaseSourceRows": [
+        171
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "mic-lipo-c-b12|ml:10",
+      "productId": "mic-lipo-c-with-b12",
+      "name": "MIC Lipo-C with B12 10ml",
+      "presentation": "10ml per vial, 10 vials/kit",
+      "procurementCodes": [
+        "LC216"
+      ],
+      "purchaseSourceRows": [
+        97
+      ],
+      "costRmbValues": [
+        120
+      ],
+      "priceUsd": 114,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "mk-677|mg:5",
+      "productId": "mk-677-5mg",
+      "name": "MK-677 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "MK75"
+      ],
+      "purchaseSourceRows": [
+        173
+      ],
+      "costRmbValues": [
+        50
+      ],
+      "priceUsd": 29,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "mots-c|mg:10",
+      "productId": "mots-c-human",
+      "name": "MOTS-c 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "MS10"
+      ],
+      "purchaseSourceRows": [
+        59
+      ],
+      "costRmbValues": [
+        140
+      ],
+      "priceUsd": 80,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "mots-c|mg:20",
+      "productId": "mots-c-20mg",
+      "name": "MOTS-c 20mg",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "MS20"
+      ],
+      "purchaseSourceRows": [
+        60
+      ],
+      "costRmbValues": [
+        200
+      ],
+      "priceUsd": 114,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "mots-c|mg:40",
+      "productId": "mots-c-40mg",
+      "name": "MOTS-c 40mg",
+      "presentation": "40mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "MS40"
+      ],
+      "purchaseSourceRows": [
+        61
+      ],
+      "costRmbValues": [
+        280
+      ],
+      "priceUsd": 160,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "nad+|mg:1000",
+      "productId": "nad-plus-1000mg",
+      "name": "NAD+ 1000mg",
+      "presentation": "1000mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "NJ1000"
+      ],
+      "purchaseSourceRows": [
+        34
+      ],
+      "costRmbValues": [
+        220
+      ],
+      "priceUsd": 126,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "nad+|mg:100",
+      "productId": "nad",
+      "name": "NAD+ 100mg",
+      "presentation": "100mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "NJ100"
+      ],
+      "purchaseSourceRows": [
+        32
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "nad+|mg:500",
+      "productId": "nad-plus-500mg",
+      "name": "NAD+ 500mg",
+      "presentation": "500mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "NJ500"
+      ],
+      "purchaseSourceRows": [
+        33
+      ],
+      "costRmbValues": [
+        160
+      ],
+      "priceUsd": 91,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "os-01|mg:100",
+      "productId": "os-01-100mg",
+      "name": "OS-01 100mg",
+      "presentation": "100mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "OS-01"
+      ],
+      "purchaseSourceRows": [
+        150
+      ],
+      "costRmbValues": [
+        240
+      ],
+      "priceUsd": 137,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "oxytocin|mg:10",
+      "productId": "oxytocin-10mg",
+      "name": "Oxytocin 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "OT10"
+      ],
+      "purchaseSourceRows": [
+        153
+      ],
+      "costRmbValues": [
+        180
+      ],
+      "priceUsd": 103,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "oxytocin|mg:2",
+      "productId": "oxytocin-2mg",
+      "name": "Oxytocin 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "OT2"
+      ],
+      "purchaseSourceRows": [
+        151
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "oxytocin|mg:5",
+      "productId": "oxytocin-5mg",
+      "name": "Oxytocin 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "OT5"
+      ],
+      "purchaseSourceRows": [
+        152
+      ],
+      "costRmbValues": [
+        100
+      ],
+      "priceUsd": 57,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "p21|mg:10",
+      "productId": "p21-p021-10mg",
+      "name": "P21 (P021) 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "P21"
+      ],
+      "purchaseSourceRows": [
+        128
+      ],
+      "costRmbValues": [
+        260
+      ],
+      "priceUsd": 143,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "peg-mgf|mg:2",
+      "productId": "peg-mgf",
+      "name": "PEG-MGF 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "FMP2"
+      ],
+      "purchaseSourceRows": [
+        172
+      ],
+      "costRmbValues": [
+        200
+      ],
+      "priceUsd": 114,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "pinealon|mg:10",
+      "productId": "pinealon-10mg",
+      "name": "Pinealon 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "Pin"
+      ],
+      "purchaseSourceRows": [
+        138
+      ],
+      "costRmbValues": [
+        120
+      ],
+      "priceUsd": 86,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "pinealon|mg:5",
+      "productId": "pinealon-5mg",
+      "name": "Pinealon 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "Pin"
+      ],
+      "purchaseSourceRows": [
+        137
+      ],
+      "costRmbValues": [
+        70
+      ],
+      "priceUsd": 40,
+      "priceSource": "calculated-average-margin"
+    },
+    {
+      "key": "pt-141|mg:10",
+      "productId": "pt-141-10mg",
+      "name": "PT-141 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "P41"
+      ],
+      "purchaseSourceRows": [
+        44
+      ],
+      "costRmbValues": [
+        150
+      ],
+      "priceUsd": 86,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "retatrutide|mg:100",
+      "productId": "retatrutide-100mg",
+      "name": "Retatrutide 100mg",
+      "presentation": "100mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        10
+      ],
+      "costRmbValues": [
+        450
+      ],
+      "priceUsd": 300,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "retatrutide|mg:10",
+      "productId": "retatrutide-10mg",
+      "name": "Retatrutide 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        3
+      ],
+      "costRmbValues": [
+        130
+      ],
+      "priceUsd": 74,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "retatrutide|mg:15",
+      "productId": "retatrutide-15mg",
+      "name": "Retatrutide 15mg",
+      "presentation": "15mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        4
+      ],
+      "costRmbValues": [
+        170
+      ],
+      "priceUsd": 97,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "retatrutide|mg:20",
+      "productId": "retatrutide-20mg",
+      "name": "Retatrutide 20mg",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        5
+      ],
+      "costRmbValues": [
+        210
+      ],
+      "priceUsd": 120,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "retatrutide|mg:30",
+      "productId": "retatrutide-30mg",
+      "name": "Retatrutide 30mg",
+      "presentation": "30mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        6
+      ],
+      "costRmbValues": [
+        270
+      ],
+      "priceUsd": 154,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "retatrutide|mg:40",
+      "productId": "retatrutide-40mg",
+      "name": "Retatrutide 40mg",
+      "presentation": "40mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        7
+      ],
+      "costRmbValues": [
+        320
+      ],
+      "priceUsd": 183,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "retatrutide|mg:50",
+      "productId": "retatrutide-50mg",
+      "name": "Retatrutide 50mg",
+      "presentation": "50mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        8
+      ],
+      "costRmbValues": [
+        360
+      ],
+      "priceUsd": 205,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "retatrutide|mg:5",
+      "productId": "retatrutide",
+      "name": "Retatrutide 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "RT"
+      ],
+      "purchaseSourceRows": [
+        2
+      ],
+      "costRmbValues": [
+        70
+      ],
+      "priceUsd": 40,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "retatrutide|mg:60",
+      "productId": "retatrutide-60mg",
+      "name": "Retatrutide 60mg",
+      "presentation": "60mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        9
+      ],
+      "costRmbValues": [
+        400
+      ],
+      "priceUsd": 240,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "selank-semax-blend|unique",
+      "productId": "selank-plus-semax-blend-20mg",
+      "name": "Selank + Semax Blend 20mg",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "SSXK"
+      ],
+      "purchaseSourceRows": [
+        37
+      ],
+      "costRmbValues": [
+        200
+      ],
+      "priceUsd": 114,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "selank|mg:10",
+      "productId": "selank-1",
+      "name": "Selank 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "SK10"
+      ],
+      "purchaseSourceRows": [
+        39
+      ],
+      "costRmbValues": [
+        120
+      ],
+      "priceUsd": 69,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "selank|mg:5",
+      "productId": "selank",
+      "name": "Selank 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "SK5"
+      ],
+      "purchaseSourceRows": [
+        38
+      ],
+      "costRmbValues": [
+        70
+      ],
+      "priceUsd": 40,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semaglutide|mg:100",
+      "productId": "semaglutide-100mg",
+      "name": "Semaglutide 100mg",
+      "presentation": "100mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        29
+      ],
+      "costRmbValues": [
+        750
+      ],
+      "priceUsd": 429,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semaglutide|mg:10",
+      "productId": "semaglutide-10mg",
+      "name": "Semaglutide 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        22
+      ],
+      "costRmbValues": [
+        110
+      ],
+      "priceUsd": 63,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semaglutide|mg:15",
+      "productId": "semaglutide-15mg",
+      "name": "Semaglutide 15mg",
+      "presentation": "15mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        23
+      ],
+      "costRmbValues": [
+        130
+      ],
+      "priceUsd": 74,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semaglutide|mg:20",
+      "productId": "semaglutide-20mg",
+      "name": "Semaglutide 20mg",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        24
+      ],
+      "costRmbValues": [
+        170
+      ],
+      "priceUsd": 97,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semaglutide|mg:30",
+      "productId": "semaglutide-30mg",
+      "name": "Semaglutide 30mg",
+      "presentation": "30mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        25
+      ],
+      "costRmbValues": [
+        220
+      ],
+      "priceUsd": 126,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semaglutide|mg:40",
+      "productId": "semaglutide-40mg",
+      "name": "Semaglutide 40mg",
+      "presentation": "40mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        26
+      ],
+      "costRmbValues": [
+        380
+      ],
+      "priceUsd": 217,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semaglutide|mg:50",
+      "productId": "semaglutide-50mg",
+      "name": "Semaglutide 50mg",
+      "presentation": "50mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        27
+      ],
+      "costRmbValues": [
+        460
+      ],
+      "priceUsd": 263,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semaglutide|mg:5",
+      "productId": "semaglutide-5mg",
+      "name": "Semaglutide 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "SM"
+      ],
+      "purchaseSourceRows": [
+        21
+      ],
+      "costRmbValues": [
+        70
+      ],
+      "priceUsd": 40,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semaglutide|mg:60",
+      "productId": "semaglutide-60mg",
+      "name": "Semaglutide 60mg",
+      "presentation": "60mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        28
+      ],
+      "costRmbValues": [
+        550
+      ],
+      "priceUsd": 314,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semax|mg:10",
+      "productId": "semax-10mg",
+      "name": "Semax 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "SX10(XA)"
+      ],
+      "purchaseSourceRows": [
+        41
+      ],
+      "costRmbValues": [
+        110
+      ],
+      "priceUsd": 63,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "semax|mg:5",
+      "productId": "semax",
+      "name": "Semax 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "SX5(XA)"
+      ],
+      "purchaseSourceRows": [
+        40
+      ],
+      "costRmbValues": [
+        80
+      ],
+      "priceUsd": 46,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "sermorelin|mg:10",
+      "productId": "sermorelin-acetate-10mg",
+      "name": "Sermorelin Acetate 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "SM10"
+      ],
+      "purchaseSourceRows": [
+        113
+      ],
+      "costRmbValues": [
+        280
+      ],
+      "priceUsd": 160,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "sermorelin|mg:20",
+      "productId": "sermorelin-acetate-20mg",
+      "name": "Sermorelin Acetate 20mg",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "SM20"
+      ],
+      "purchaseSourceRows": [
+        114
+      ],
+      "costRmbValues": [
+        420
+      ],
+      "priceUsd": 240,
+      "priceSource": "calculated-average-margin"
+    },
+    {
+      "key": "sermorelin|mg:5",
+      "productId": "sermorelin-acetate-5mg",
+      "name": "Sermorelin Acetate 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "SMO5"
+      ],
+      "purchaseSourceRows": [
+        112
+      ],
+      "costRmbValues": [
+        150
+      ],
+      "priceUsd": 86,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "slu-pp-332|mg:10",
+      "productId": "slu-pp-332-10mg",
+      "name": "SLU-PP-332 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "PP5"
+      ],
+      "purchaseSourceRows": [
+        178
+      ],
+      "costRmbValues": [
+        320
+      ],
+      "priceUsd": 183,
+      "priceSource": "calculated-average-margin"
+    },
+    {
+      "key": "slu-pp-332|mg:5",
+      "productId": "slu-pp-322",
+      "name": "SLU-PP-332 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "332ELU-PP-332"
+      ],
+      "purchaseSourceRows": [
+        177
+      ],
+      "costRmbValues": [
+        280
+      ],
+      "priceUsd": 149,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "snap-8|mg:10",
+      "productId": "snap8",
+      "name": "SNAP-8 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "NP8 10",
+        "NP810"
+      ],
+      "purchaseSourceRows": [
+        52,
+        132
+      ],
+      "costRmbValues": [
+        70,
+        140
+      ],
+      "priceUsd": 40,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ss-31|mg:10",
+      "productId": "ss-31",
+      "name": "SS-31 10mg",
+      "presentation": "10mg per vial",
+      "procurementCodes": [
+        "2S10"
+      ],
+      "purchaseSourceRows": [
+        42
+      ],
+      "costRmbValues": [
+        220
+      ],
+      "priceUsd": 126,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "ss-31|mg:50",
+      "productId": "ss-31-50mg",
+      "name": "SS-31 50mg",
+      "presentation": "50mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "2S50"
+      ],
+      "purchaseSourceRows": [
+        43
+      ],
+      "costRmbValues": [
+        350
+      ],
+      "priceUsd": 200,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "survodutide|mg:10",
+      "productId": "survodutide",
+      "name": "Survodutide 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "SUR10"
+      ],
+      "purchaseSourceRows": [
+        131
+      ],
+      "costRmbValues": [
+        440
+      ],
+      "priceUsd": 251,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tb-500|mg:10",
+      "productId": "tb-500-10mg",
+      "name": "TB-500 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "TB10(BT)"
+      ],
+      "purchaseSourceRows": [
+        64
+      ],
+      "costRmbValues": [
+        260
+      ],
+      "priceUsd": 149,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tb-500|mg:2",
+      "productId": "tb500",
+      "name": "TB-500 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "TB2(BT)"
+      ],
+      "purchaseSourceRows": [
+        62
+      ],
+      "costRmbValues": [
+        90
+      ],
+      "priceUsd": 51,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tb-500|mg:5",
+      "productId": "tb-500-5mg",
+      "name": "TB-500 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "TB5(BT)"
+      ],
+      "purchaseSourceRows": [
+        63
+      ],
+      "costRmbValues": [
+        170
+      ],
+      "priceUsd": 97,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tesamorelin|mg:10",
+      "productId": "tesamorelin-10mg",
+      "name": "Tesamorelin 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "TSM10"
+      ],
+      "purchaseSourceRows": [
+        67
+      ],
+      "costRmbValues": [
+        320
+      ],
+      "priceUsd": 183,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tesamorelin|mg:20",
+      "productId": "tesamorelin-20mg",
+      "name": "Tesamorelin 20mg",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "TSM20"
+      ],
+      "purchaseSourceRows": [
+        68
+      ],
+      "costRmbValues": [
+        480
+      ],
+      "priceUsd": 280,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tesamorelin|mg:2",
+      "productId": "tesamorelin",
+      "name": "Tesamorelin 2mg",
+      "presentation": "2mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "TSM2"
+      ],
+      "purchaseSourceRows": [
+        65
+      ],
+      "costRmbValues": [
+        120
+      ],
+      "priceUsd": 69,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tesamorelin|mg:5",
+      "productId": "tesamorelin-5mg",
+      "name": "Tesamorelin 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "TSM5"
+      ],
+      "purchaseSourceRows": [
+        66
+      ],
+      "costRmbValues": [
+        160
+      ],
+      "priceUsd": 91,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "thymalin|mg:10",
+      "productId": "thymalin",
+      "name": "Thymalin 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "TY10"
+      ],
+      "purchaseSourceRows": [
+        156
+      ],
+      "costRmbValues": [
+        150
+      ],
+      "priceUsd": 86,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "thymalin|mg:20",
+      "productId": "thymalin-20mg",
+      "name": "Thymalin 20mg",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "TY20"
+      ],
+      "purchaseSourceRows": [
+        157
+      ],
+      "costRmbValues": [
+        230
+      ],
+      "priceUsd": 131,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "thymosin-alpha-1|mg:10",
+      "productId": "thymosin-alpha-1-10mg",
+      "name": "Thymosin α-1 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "THY-1《TA10》",
+        "TA10"
+      ],
+      "purchaseSourceRows": [
+        51,
+        155
+      ],
+      "costRmbValues": [
+        290
+      ],
+      "priceUsd": 166,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "thymosin-alpha-1|mg:5",
+      "productId": "thymosin-alpha-1",
+      "name": "Thymosin α-1 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "THY-1《TA5》",
+        "TA5"
+      ],
+      "purchaseSourceRows": [
+        50,
+        154
+      ],
+      "costRmbValues": [
+        200
+      ],
+      "priceUsd": 114,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tirzepatide|mg:100",
+      "productId": "tirzepatide-100mg",
+      "name": "Tirzepatide 100mg",
+      "presentation": "100mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        19
+      ],
+      "costRmbValues": [
+        360
+      ],
+      "priceUsd": 343,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tirzepatide|mg:10",
+      "productId": "tirzepatide-10mg",
+      "name": "Tirzepatide 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        12
+      ],
+      "costRmbValues": [
+        120
+      ],
+      "priceUsd": 69,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tirzepatide|mg:120",
+      "productId": "tirzepatide-120mg",
+      "name": "Tirzepatide 120mg",
+      "presentation": "120mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        20
+      ],
+      "costRmbValues": [
+        400
+      ],
+      "priceUsd": 429,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tirzepatide|mg:15",
+      "productId": "tirzepatide-15mg",
+      "name": "Tirzepatide 15mg",
+      "presentation": "15mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        13
+      ],
+      "costRmbValues": [
+        150
+      ],
+      "priceUsd": 86,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tirzepatide|mg:20",
+      "productId": "tirzepatide-20mg",
+      "name": "Tirzepatide 20mg",
+      "presentation": "20mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        14
+      ],
+      "costRmbValues": [
+        180
+      ],
+      "priceUsd": 103,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tirzepatide|mg:30",
+      "productId": "tirzepatide-30mg",
+      "name": "Tirzepatide 30mg",
+      "presentation": "30mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        15
+      ],
+      "costRmbValues": [
+        210
+      ],
+      "priceUsd": 131,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tirzepatide|mg:40",
+      "productId": "tirzepatide-40mg",
+      "name": "Tirzepatide 40mg",
+      "presentation": "40mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        16
+      ],
+      "costRmbValues": [
+        240
+      ],
+      "priceUsd": 171,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tirzepatide|mg:50",
+      "productId": "tirzepatide-50mg",
+      "name": "Tirzepatide 50mg",
+      "presentation": "50mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        17
+      ],
+      "costRmbValues": [
+        280
+      ],
+      "priceUsd": 217,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tirzepatide|mg:5",
+      "productId": "tirzepatide",
+      "name": "Tirzepatide 5mg",
+      "presentation": "5mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "TR"
+      ],
+      "purchaseSourceRows": [
+        11
+      ],
+      "costRmbValues": [
+        70
+      ],
+      "priceUsd": 40,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "tirzepatide|mg:60",
+      "productId": "tirzepatide-60mg",
+      "name": "Tirzepatide 60mg",
+      "presentation": "60mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        ""
+      ],
+      "purchaseSourceRows": [
+        18
+      ],
+      "costRmbValues": [
+        320
+      ],
+      "priceUsd": 269,
+      "priceSource": "sales-price-list"
+    },
+    {
+      "key": "vip|mg:10",
+      "productId": "vip-10mg",
+      "name": "VIP 10mg",
+      "presentation": "10mg per vial, 10 vials/kit",
+      "procurementCodes": [
+        "VP10"
+      ],
+      "purchaseSourceRows": [
+        169
+      ],
+      "costRmbValues": [
+        260
+      ],
+      "priceUsd": 148,
+      "priceSource": "sales-price-list"
+    }
+  ]
+}

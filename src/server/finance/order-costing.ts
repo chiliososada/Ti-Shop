@@ -2,6 +2,7 @@ import "server-only";
 
 import type { Prisma } from "@/generated/prisma/client";
 import { applyCostConsumption } from "@/server/finance/inventory-costing";
+import { divideRoundHalfUp } from "@/server/finance/math/rounding";
 
 /**
  * Locks the immutable USD unit-cost snapshot on every order item when a paid
@@ -15,10 +16,10 @@ import { applyCostConsumption } from "@/server/finance/inventory-costing";
  *
  * - Regular lines: consume the moving-average valuation and store
  *   unitCostUsdMinor/totalCogsUsdMinor on the order item, but only when the
- *   valued stock fully covers the line. A shortfall leaves the snapshot null
- *   (the order item has no estimation flag), so profit reports mark the order
- *   estimated via missing_cost_snapshot and the admin corrects it with a
- *   COST_CORRECTION adjustment.
+ *   valued stock fully covers the line. If stock valuation is unavailable but
+ *   a supplier-list reference cost exists, lock that value as an explicitly
+ *   estimated MANUAL snapshot. A line stays null only when neither source is
+ *   available.
  * - Compensation lines (compensationEventId set): the goods leave valuation
  *   as CUSTOMER_COMPENSATION; the cost lands on the after-sales item and a
  *   COMPENSATION_PRODUCT adjustment against the ORIGINAL order, never as
@@ -43,6 +44,9 @@ export async function captureOrderCostSnapshots(
           variantId: true,
           compensationEventId: true,
           unitCostUsdMinor: true,
+          variant: {
+            select: { referenceCostUsdMinor: true },
+          },
         },
       },
     },
@@ -71,6 +75,16 @@ export async function captureOrderCostSnapshots(
         where: { id: item.compensationEventId },
         select: { id: true, publicId: true, orderId: true },
       });
+      const compensationReferenceCost = item.variant?.referenceCostUsdMinor ?? null;
+      const estimatedUncoveredCost =
+        compensationReferenceCost === null
+          ? BigInt(0)
+          : compensationReferenceCost * BigInt(consumed.result.uncoveredQuantity);
+      const totalCostUsdMinor = consumed.result.cogsUsdMinor + estimatedUncoveredCost;
+      const unitCostUsdMinor = divideRoundHalfUp(
+        totalCostUsdMinor,
+        BigInt(item.quantity),
+      );
       await tx.afterSalesItem.updateMany({
         where: {
           eventId: event.id,
@@ -80,8 +94,8 @@ export async function captureOrderCostSnapshots(
           totalCostUsdMinor: null,
         },
         data: {
-          unitCostUsdMinor: consumed.result.unitCostUsdMinor,
-          totalCostUsdMinor: consumed.result.cogsUsdMinor,
+          unitCostUsdMinor,
+          totalCostUsdMinor,
           costSnapshotAt: occurredAt,
         },
       });
@@ -92,9 +106,9 @@ export async function captureOrderCostSnapshots(
           orderId: event.orderId,
           orderItemId: item.id,
           afterSalesEventId: event.id,
-          originalAmountMinor: consumed.result.cogsUsdMinor,
+          originalAmountMinor: totalCostUsdMinor,
           originalCurrency: "USD",
-          signedUsdMinor: -consumed.result.cogsUsdMinor,
+          signedUsdMinor: -totalCostUsdMinor,
           effectiveAt: occurredAt,
           reason: `Compensation goods cost for gift shipped with order ${order.publicId}.`,
           isEstimated: consumed.result.uncoveredQuantity > 0,
@@ -105,13 +119,30 @@ export async function captureOrderCostSnapshots(
       continue;
     }
 
-    // Snapshots are immutable, so only lock one in when the valuation fully
-    // covers the line; otherwise stay null and let profit reports flag it.
+    // Snapshots are immutable. Actual moving-average valuation wins; the
+    // supplier-list reference is a transparent fallback and never changes
+    // physical stock or the inventory cost ledger.
     const state = await tx.inventoryCostState.findUnique({
       where: { variantId: item.variantId },
       select: { quantity: true },
     });
-    if ((state?.quantity ?? 0) < item.quantity) continue;
+    if ((state?.quantity ?? 0) < item.quantity) {
+      const referenceCost = item.variant?.referenceCostUsdMinor;
+      if (referenceCost == null) continue;
+      await tx.orderItem.update({
+        where: { id: item.id },
+        data: {
+          unitCostUsdMinor: referenceCost,
+          totalCogsUsdMinor: referenceCost * BigInt(item.quantity),
+          costMethod: "MANUAL",
+          costIsEstimated: true,
+          costSnapshotAt: occurredAt,
+        },
+        select: { id: true },
+      });
+      snapshotted += 1;
+      continue;
+    }
 
     const consumed = await applyCostConsumption(tx, {
       variantId: item.variantId,
@@ -131,6 +162,7 @@ export async function captureOrderCostSnapshots(
         unitCostUsdMinor: consumed.result.unitCostUsdMinor,
         totalCogsUsdMinor: consumed.result.cogsUsdMinor,
         costMethod: "MOVING_AVERAGE",
+        costIsEstimated: false,
         costSnapshotAt: occurredAt,
       },
       select: { id: true },

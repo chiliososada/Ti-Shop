@@ -11,6 +11,10 @@ import type {
   CheckoutPaymentMethod,
   EnabledPaymentMethodDto,
 } from "@/domain/order";
+import {
+  calculateTieredShippingMinor,
+  type CheckoutChargesDto,
+} from "@/server/orders/charges";
 
 type CheckoutResponse = {
   nextAction?: { orderUrl?: string };
@@ -42,10 +46,7 @@ export function CheckoutForm({
 }: {
   customerEmail: string;
   paymentMethods: EnabledPaymentMethodDto[];
-  checkoutCharges: {
-    shippingFlatMinor: string;
-    taxRateBps: number;
-  } | null;
+  checkoutCharges: CheckoutChargesDto | null;
   defaultShippingAddress: {
     recipientName: string;
     company: string | null;
@@ -69,8 +70,9 @@ export function CheckoutForm({
       sum + BigInt(line.product.unitAmountMinor) * BigInt(line.qty),
     BigInt(0),
   );
+  const displayedBoxes = items.reduce((sum, line) => sum + line.qty, 0);
   const displayedShippingMinor = checkoutCharges
-    ? BigInt(checkoutCharges.shippingFlatMinor)
+    ? calculateTieredShippingMinor(displayedBoxes, checkoutCharges)
     : BigInt(0);
   const displayedTaxMinor = checkoutCharges
     ? (displayedSubtotalMinor * BigInt(checkoutCharges.taxRateBps) +

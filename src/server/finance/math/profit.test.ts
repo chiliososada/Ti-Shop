@@ -21,6 +21,7 @@ function baseOrder(): OrderProfitInput {
       {
         quantity: 2,
         totalCogsUsdMinor: b(6_000), // $60 COGS
+        totalCost2UsdMinor: b(13_000), // Cost 2: midpoint of $200 and $60
         isCompensation: false,
       },
     ],
@@ -42,6 +43,11 @@ describe("computeOrderProfit", () => {
     expect(result.operatingRevenueUsdMinor).toBe(b(21_500));
     // 21500 - 6000 (COGS) - 900 (shipping cost) - 100 (packaging) = 14500
     expect(result.finalProfitUsdMinor).toBe(b(14_500));
+    expect(result.cost2UsdMinor).toBe(b(13_000));
+    expect(result.partnerMerchandiseShareUsdMinor).toBe(b(7_000));
+    expect(result.profitAfterCost2UsdMinor).toBe(b(7_500));
+    expect(result.cost2HasMissingSnapshots).toBe(false);
+    expect(result.cost2IsEstimated).toBe(false);
     // Shipping spread: charged $15, paid $9.
     expect(result.shippingRevenueUsdMinor - result.shippingCostUsdMinor).toBe(b(600));
     expect(result.isEstimated).toBe(false);
@@ -102,6 +108,34 @@ describe("computeOrderProfit", () => {
     const result = computeOrderProfit(input);
     expect(result.estimationReasons).toEqual(["missing_cost_snapshot"]);
     expect(result.cogsUsdMinor).toBe(b(0));
+    expect(result.cost2HasMissingSnapshots).toBe(true);
+    expect(result.cost2IsEstimated).toBe(true);
+  });
+
+  it("keeps official profit finalized when only supplemental Cost 2 is missing", () => {
+    const input = baseOrder();
+    input.items[0].totalCost2UsdMinor = null;
+    const result = computeOrderProfit(input);
+    expect(result.isEstimated).toBe(false);
+    expect(result.cost2HasMissingSnapshots).toBe(true);
+    expect(result.cost2IsEstimated).toBe(true);
+    expect(result.finalProfitUsdMinor).toBe(b(14_500));
+  });
+
+  it("uses a supplier reference snapshot in COGS but keeps profit estimated", () => {
+    const input = baseOrder();
+    input.items = [
+      {
+        quantity: 2,
+        totalCogsUsdMinor: b(6_000),
+        costIsEstimated: true,
+        isCompensation: false,
+      },
+    ];
+    const result = computeOrderProfit(input);
+    expect(result.cogsUsdMinor).toBe(b(6_000));
+    expect(result.isEstimated).toBe(true);
+    expect(result.estimationReasons).toEqual(["reference_cost_snapshot"]);
   });
 
   it("full refund with resalable return reverses revenue and restores COGS", () => {

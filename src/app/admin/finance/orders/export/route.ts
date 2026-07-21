@@ -17,6 +17,8 @@ const COLUMNS = [
   "refundsUsd",
   "netRevenueUsd",
   "cogsUsd",
+  "cost2Usd",
+  "partnerMerchandiseShareUsd",
   "shippingCostUsd",
   "packagingUsd",
   "paymentFeesUsd",
@@ -26,6 +28,7 @@ const COLUMNS = [
   "costCorrectionsUsd",
   "exchangeNetUsd",
   "finalProfitUsd",
+  "profitAfterCost2Usd",
   "marginBps",
   "calcVersion",
   "state",
@@ -59,6 +62,10 @@ export async function GET() {
       refundsUsd: usd(profit.refundsUsdMinor + profit.shippingRefundsUsdMinor),
       netRevenueUsd: usd(profit.netOperatingRevenueUsdMinor),
       cogsUsd: usd(profit.cogsUsdMinor),
+      cost2Usd: profit.cost2HasMissingSnapshots ? "" : usd(profit.cost2UsdMinor),
+      partnerMerchandiseShareUsd: profit.cost2HasMissingSnapshots
+        ? ""
+        : usd(profit.partnerMerchandiseShareUsdMinor),
       shippingCostUsd: usd(profit.shippingCostUsdMinor),
       packagingUsd: usd(profit.packagingCostUsdMinor),
       paymentFeesUsd: usd(profit.paymentFeesUsdMinor),
@@ -68,6 +75,9 @@ export async function GET() {
       costCorrectionsUsd: usd(profit.costCorrectionsUsdMinor),
       exchangeNetUsd: usd(profit.exchangeNetUsdMinor),
       finalProfitUsd: usd(profit.finalProfitUsdMinor),
+      profitAfterCost2Usd: profit.cost2HasMissingSnapshots
+        ? ""
+        : usd(profit.profitAfterCost2UsdMinor),
       marginBps: profit.marginBps === null ? "" : String(profit.marginBps),
       calcVersion: String(profit.calcVersion),
       state: profit.isEstimated ? "Estimated" : "Finalized",

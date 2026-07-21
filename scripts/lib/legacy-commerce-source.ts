@@ -1,16 +1,19 @@
 import { createHash } from "node:crypto";
 import { readFileSync, statSync } from "node:fs";
 import { extname, resolve, sep } from "node:path";
+import sharp from "sharp";
 
 import { posts, type BlogBlock, type BlogPost } from "../../src/data/blog";
 import { categories, type Category } from "../../src/data/categories";
 import { company } from "../../src/data/company";
 import { categoryIntros, faqs as publicFaqs } from "../../src/data/content";
 import { featured as categorySignatures } from "../../src/data/featured";
+import { expectedCategoryForProductName } from "../../src/data/product-category-taxonomy";
 import rawProducts from "../../src/data/products.json";
 
 export const LEGACY_IMPORT_VERSION = 1;
 export const LEGACY_PUBLISHED_AT = new Date("2026-01-01T00:00:00.000Z");
+export const EXPECTED_CATALOG_PRODUCT_COUNT = 162;
 export const STATIC_PUBLIC_PATHS = [
   "/",
   "/products",
@@ -33,6 +36,8 @@ export type LegacyProduct = {
   storage: string;
   image: string;
   gallery?: string[];
+  presentation?: string;
+  catalogNumber?: string | null;
   shortDescription: string;
   description: string;
   featured?: boolean;
@@ -59,6 +64,8 @@ export type AssetRecord = {
   path: string;
   storageKey: string;
   mimeType: string;
+  width: number;
+  height: number;
   sizeBytes: bigint;
   checksum: string;
 };
@@ -259,9 +266,9 @@ export function findDuplicateCasGroups(
 
 function homeBestsellerIds(products: readonly LegacyProduct[]): string[] {
   const curated = [
-    "bpc157-500mcg",
+    "bpc-157",
     "cjc-1295-without-dac-5mg-ipa-5mg",
-    "fst-344",
+    "follistatin-344-10mg",
     "ghrp-2",
   ];
   const picked = products.filter((product) => curated.includes(product.id));
@@ -342,13 +349,13 @@ export function validateLegacySource(source: LegacyCommerceSource): void {
 
   if (
     source.categories.length !== 6 ||
-    source.products.length !== 75 ||
+    source.products.length !== EXPECTED_CATALOG_PRODUCT_COUNT ||
     source.blogs.length !== 4 ||
     source.faqs.length !== 8
   ) {
     throw new LegacySourceError(
       "SOURCE_COUNT_MISMATCH",
-      "Legacy source must contain exactly 6 categories, 75 products, 4 blogs, and 8 FAQs.",
+      `Catalog source must contain exactly 6 categories, ${EXPECTED_CATALOG_PRODUCT_COUNT} products, 4 blogs, and 8 FAQs.`,
       {
         categories: source.categories.length,
         products: source.products.length,
@@ -367,6 +374,20 @@ export function validateLegacySource(source: LegacyCommerceSource): void {
       throw new LegacySourceError(
         "UNKNOWN_PRODUCT_CATEGORY",
         `Product ${product.id} references unknown category ${product.category}.`,
+      );
+    }
+
+    const expectedCategory = expectedCategoryForProductName(product.name);
+    if (!expectedCategory) {
+      throw new LegacySourceError(
+        "UNCLASSIFIED_PRODUCT_FAMILY",
+        `Product ${product.id} has no category rule for ${product.name}.`,
+      );
+    }
+    if (product.category !== expectedCategory) {
+      throw new LegacySourceError(
+        "INCONSISTENT_PRODUCT_CATEGORY",
+        `Product ${product.id} must use category ${expectedCategory}, not ${product.category}.`,
       );
     }
     usdToMinor(product.price);
@@ -422,10 +443,10 @@ export function validateLegacySource(source: LegacyCommerceSource): void {
   }
 
   const urls = publicUrls(source);
-  if (urls.length !== 91 || new Set(urls).size !== 91) {
+  if (new Set(urls).size !== urls.length) {
     throw new LegacySourceError(
       "PUBLIC_URL_COMPATIBILITY_FAILED",
-      "Legacy source must retain exactly 91 unique public URLs.",
+      "Catalog source must expose unique public URLs.",
       { count: urls.length, unique: new Set(urls).size },
     );
   }
@@ -436,15 +457,15 @@ export function validateLegacySource(source: LegacyCommerceSource): void {
   if (
     selank.length !== 2 ||
     selank[0]?.name !== "Selank 5mg" ||
-    selank[1]?.name !== "Selank 5mg" ||
+    selank[1]?.name !== "Selank 10mg" ||
     selank[0]?.cas !== "129954-34-3" ||
     selank[1]?.cas !== "129954-34-3" ||
-    selank[0]?.price !== 46 ||
-    selank[1]?.price !== 75
+    selank[0]?.price !== 40 ||
+    selank[1]?.price !== 69
   ) {
     throw new LegacySourceError(
       "SELANK_COMPATIBILITY_FAILED",
-      "The two distinct Selank legacy records must be preserved by ID and price.",
+      "The Selank 5mg and 10mg catalog records must be preserved by ID and price.",
       selank,
     );
   }
@@ -464,10 +485,10 @@ function mimeTypeForPath(pathname: string): string {
   }
 }
 
-function inspectAsset(
+async function inspectAsset(
   publicDir: string,
   publicPath: string,
-): { asset?: AssetRecord; reason?: MissingAsset["reason"] } {
+): Promise<{ asset?: AssetRecord; reason?: MissingAsset["reason"] }> {
   if (!publicPath.startsWith("/") || publicPath.includes("\0")) {
     return { reason: "invalid_path" };
   }
@@ -484,11 +505,25 @@ function inspectAsset(
       return { reason: "not_a_file" };
     }
     const bytes = readFileSync(absolutePath);
+    const metadata = await sharp(bytes).metadata();
+    if (
+      !Number.isSafeInteger(metadata.width) ||
+      !Number.isSafeInteger(metadata.height) ||
+      metadata.width! <= 0 ||
+      metadata.height! <= 0
+    ) {
+      throw new LegacySourceError(
+        "INVALID_IMAGE_DIMENSIONS",
+        `Image dimensions could not be read: ${publicPath}`,
+      );
+    }
     return {
       asset: {
         path: publicPath,
         storageKey: publicPath.slice(1),
         mimeType: mimeTypeForPath(publicPath),
+        width: metadata.width!,
+        height: metadata.height!,
         sizeBytes: BigInt(stats.size),
         checksum: createHash("sha256").update(bytes).digest("hex"),
       },
@@ -502,10 +537,10 @@ function inspectAsset(
   }
 }
 
-export function auditLegacyAssets(
+export async function auditLegacyAssets(
   source: LegacyCommerceSource,
   publicDir: string,
-): AssetAudit {
+): Promise<AssetAudit> {
   const audit: AssetAudit = {
     productPrimary: { referenced: 0, verified: [], missing: [] },
     categoryHeroes: { referenced: 0, verified: [], missing: [] },
@@ -515,7 +550,7 @@ export function auditLegacyAssets(
 
   for (const product of source.products) {
     audit.productPrimary.referenced += 1;
-    const primary = inspectAsset(publicDir, product.image);
+    const primary = await inspectAsset(publicDir, product.image);
     if (primary.asset) {
       audit.productPrimary.verified.push(primary.asset);
     } else {
@@ -530,7 +565,7 @@ export function auditLegacyAssets(
 
     for (const galleryPath of product.gallery ?? []) {
       audit.gallery.referenced += 1;
-      const galleryAsset = inspectAsset(publicDir, galleryPath);
+      const galleryAsset = await inspectAsset(publicDir, galleryPath);
       if (galleryAsset.asset) {
         audit.gallery.verified.push({ ...galleryAsset.asset, productId: product.id });
       } else {
@@ -547,7 +582,7 @@ export function auditLegacyAssets(
 
   for (const category of source.categories) {
     audit.categoryHeroes.referenced += 1;
-    const hero = inspectAsset(publicDir, category.hero);
+    const hero = await inspectAsset(publicDir, category.hero);
     if (hero.asset) {
       audit.categoryHeroes.verified.push(hero.asset);
     } else {
@@ -563,7 +598,7 @@ export function auditLegacyAssets(
 
   for (const post of source.blogs) {
     audit.blogCovers.referenced += 1;
-    const cover = inspectAsset(publicDir, post.cover);
+    const cover = await inspectAsset(publicDir, post.cover);
     if (cover.asset) {
       audit.blogCovers.verified.push(cover.asset);
     } else {

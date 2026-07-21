@@ -205,6 +205,8 @@ integration("fulfillment order lifecycle database integration", () => {
       await db.inventoryLocation.delete({ where: { id: inventoryLocationId } });
     }
     if (variantId) {
+      await db.inventoryCostEntry.deleteMany({ where: { variantId } });
+      await db.inventoryCostState.deleteMany({ where: { variantId } });
       await db.productVariant.delete({ where: { id: variantId } });
     }
     if (productId) await db.product.delete({ where: { id: productId } });

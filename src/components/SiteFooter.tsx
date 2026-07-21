@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/BrandLogo";
 import { company } from "@/data/company";
 import { WhatsAppIntentButton } from "@/components/whatsapp/WhatsAppIntentButton";
 import { StorefrontNavigationLink } from "@/components/StorefrontNavigationLink";
@@ -37,9 +38,13 @@ export function SiteFooter({
       <div className="container-x py-18">
         <div className="grid gap-12 lg:grid-cols-[1.6fr_repeat(3,1fr)]">
           <div>
-            <span className="text-h4 font-bold tracking-tight text-cream-50">
-              sheng<span className="text-sage-400">.</span>an
-            </span>
+            <Link
+              href="/"
+              aria-label="Veripep home"
+              className="inline-flex rounded-2xl bg-white px-3 py-2"
+            >
+              <BrandLogo className="h-20 w-auto" />
+            </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-cream-200/70">
               {company.description}
             </p>

@@ -118,7 +118,7 @@ export function CartDrawer({ whatsappEnabled }: { whatsappEnabled: boolean }) {
                         </span>
                       ) : null}
                       <span className="mt-0.5 text-caption text-muted">
-                        {formatUsdMinor(product.unitAmountMinor)} / vial
+                        {formatUsdMinor(product.unitAmountMinor)}
                       </span>
                       <div className="mt-auto flex items-center gap-3 pt-2">
                         <div className="flex items-center rounded-full ring-1 ring-ink-900/15">

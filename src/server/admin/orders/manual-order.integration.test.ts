@@ -209,14 +209,18 @@ integration("admin WhatsApp manual-order database lifecycle", () => {
         key: "commerce.checkout_charges",
         value: {
           configured: true,
-          shippingFlatMinor: "99",
+          shippingFirstBlockMinor: "99",
+          shippingBlockUnits: 4,
+          shippingAdditionalBlockMinor: "0",
           taxRateBps: 500,
         },
       },
       update: {
         value: {
           configured: true,
-          shippingFlatMinor: "99",
+          shippingFirstBlockMinor: "99",
+          shippingBlockUnits: 4,
+          shippingAdditionalBlockMinor: "0",
           taxRateBps: 500,
         },
       },

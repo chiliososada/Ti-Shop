@@ -181,7 +181,9 @@ const settings = [
     key: "commerce.checkout_charges",
     value: {
       configured: false,
-      shippingFlatMinor: null,
+      shippingFirstBlockMinor: null,
+      shippingBlockUnits: null,
+      shippingAdditionalBlockMinor: null,
       taxRateBps: null,
     },
     description:

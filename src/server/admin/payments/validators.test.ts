@@ -69,78 +69,88 @@ describe("payment settings validators", () => {
     ).toBe(false);
   });
 
-  it("validates checkout charges without inventing defaults", () => {
+  it("validates tiered checkout charges without inventing defaults", () => {
     expect(
       checkoutChargesSchema.parse({
         configured: "on",
-        shippingFlatMinor: "1500",
+        shippingFirstBlockMinor: "9000",
+        shippingBlockUnits: "4",
+        shippingAdditionalBlockMinor: "1500",
         taxRateBps: "825",
       }),
     ).toEqual({
       configured: true,
-      shippingFlatMinor: "1500",
+      shippingFirstBlockMinor: "9000",
+      shippingBlockUnits: 4,
+      shippingAdditionalBlockMinor: "1500",
       taxRateBps: 825,
     });
     expect(
       checkoutChargesSchema.parse({
-        shippingFlatMinor: "",
+        shippingFirstBlockMinor: "",
+        shippingBlockUnits: "",
+        shippingAdditionalBlockMinor: "",
         taxRateBps: "",
       }),
     ).toEqual({
       configured: false,
-      shippingFlatMinor: null,
+      shippingFirstBlockMinor: null,
+      shippingBlockUnits: null,
+      shippingAdditionalBlockMinor: null,
       taxRateBps: null,
     });
   });
 
-  it("rejects unsafe checkout charge amounts and rates", () => {
+  it("rejects unsafe checkout charge amounts, block sizes, and rates", () => {
     for (const input of [
-      { shippingFlatMinor: "-1", taxRateBps: "0" },
-      { shippingFlatMinor: "1.50", taxRateBps: "0" },
-      { shippingFlatMinor: "9223372036854775808", taxRateBps: "0" },
-      { shippingFlatMinor: "0", taxRateBps: "10001" },
-      { shippingFlatMinor: "0", taxRateBps: "8.25" },
+      { shippingFirstBlockMinor: "-1", shippingBlockUnits: "4", shippingAdditionalBlockMinor: "0", taxRateBps: "0" },
+      { shippingFirstBlockMinor: "1.50", shippingBlockUnits: "4", shippingAdditionalBlockMinor: "0", taxRateBps: "0" },
+      { shippingFirstBlockMinor: "0", shippingBlockUnits: "0", shippingAdditionalBlockMinor: "0", taxRateBps: "0" },
+      { shippingFirstBlockMinor: "0", shippingBlockUnits: "-2", shippingAdditionalBlockMinor: "0", taxRateBps: "0" },
+      { shippingFirstBlockMinor: "0", shippingBlockUnits: "4", shippingAdditionalBlockMinor: "0", taxRateBps: "10001" },
+      { shippingFirstBlockMinor: "0", shippingBlockUnits: "4", shippingAdditionalBlockMinor: "0", taxRateBps: "8.25" },
     ]) {
       expect(checkoutChargesSchema.safeParse(input).success).toBe(false);
     }
   });
 
-  it("requires both explicit charge values when configured", () => {
-    expect(
-      checkoutChargesSchema.safeParse({
-        configured: "on",
-        shippingFlatMinor: "",
-        taxRateBps: "0",
-      }).success,
-    ).toBe(false);
-    expect(
-      checkoutChargesSchema.safeParse({
-        configured: "on",
-        shippingFlatMinor: "0",
-        taxRateBps: "",
-      }).success,
-    ).toBe(false);
-    expect(
-      checkoutChargesSchema.safeParse({
-        configured: "on",
-        shippingFlatMinor: "0",
-        taxRateBps: "0",
-      }).success,
-    ).toBe(true);
+  it("requires every charge field when configured", () => {
+    const full = {
+      configured: "on",
+      shippingFirstBlockMinor: "9000",
+      shippingBlockUnits: "4",
+      shippingAdditionalBlockMinor: "1500",
+      taxRateBps: "0",
+    };
+    expect(checkoutChargesSchema.safeParse(full).success).toBe(true);
+    for (const field of [
+      "shippingFirstBlockMinor",
+      "shippingBlockUnits",
+      "shippingAdditionalBlockMinor",
+      "taxRateBps",
+    ] as const) {
+      expect(
+        checkoutChargesSchema.safeParse({ ...full, [field]: "" }).success,
+      ).toBe(false);
+    }
   });
 
   it("fails closed on malformed stored JSON without throwing", () => {
     expect(
       checkoutChargesValueSchema.safeParse({
         configured: true,
-        shippingFlatMinor: "not-a-number",
+        shippingFirstBlockMinor: "not-a-number",
+        shippingBlockUnits: 4,
+        shippingAdditionalBlockMinor: "1500",
         taxRateBps: 0,
       }).success,
     ).toBe(false);
     expect(
       checkoutChargesValueSchema.safeParse({
         configured: true,
-        shippingFlatMinor: null,
+        shippingFirstBlockMinor: null,
+        shippingBlockUnits: 4,
+        shippingAdditionalBlockMinor: "1500",
         taxRateBps: 0,
       }).success,
     ).toBe(false);

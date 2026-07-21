@@ -6,7 +6,7 @@ import { sumSignedMinor } from "@/server/finance/math/rounding";
  * produced them. Recomputing history under a newer version is an explicit
  * administrative action, never an automatic side effect of deployment.
  */
-export const PROFIT_CALC_VERSION = 1;
+export const PROFIT_CALC_VERSION = 2;
 
 export type ProfitAdjustmentInput = {
   type:
@@ -39,6 +39,10 @@ export type OrderProfitInput = {
   items: {
     quantity: number;
     totalCogsUsdMinor: bigint | null;
+    /** Partner-inclusive Cost 2 snapshot; supplemental to official COGS. */
+    totalCost2UsdMinor?: bigint | null;
+    /** True when COGS came from a supplier-list reference instead of a receipt. */
+    costIsEstimated?: boolean;
     /** Zero-priced compensation lines: excluded from revenue and COGS here. */
     isCompensation: boolean;
   }[];
@@ -68,6 +72,9 @@ export type OrderProfitBreakdown = {
   netOperatingRevenueUsdMinor: bigint;
   /** Direct costs (positive figures) */
   cogsUsdMinor: bigint;
+  /** Cost 2 reporting (does not replace official COGS or settlement logic). */
+  cost2UsdMinor: bigint;
+  partnerMerchandiseShareUsdMinor: bigint;
   shippingCostUsdMinor: bigint;
   packagingCostUsdMinor: bigint;
   paymentFeesUsdMinor: bigint;
@@ -78,6 +85,10 @@ export type OrderProfitBreakdown = {
   costCorrectionsUsdMinor: bigint;
   /** Results (signed) */
   finalProfitUsdMinor: bigint;
+  profitAfterCost2UsdMinor: bigint;
+  /** True when one or more merchandise lines lack a complete Cost 2 snapshot. */
+  cost2HasMissingSnapshots: boolean;
+  cost2IsEstimated: boolean;
   /** Basis points; null when net revenue is zero. */
   marginBps: number | null;
   /** Estimation state */
@@ -135,12 +146,27 @@ export function computeOrderProfit(input: OrderProfitInput): OrderProfitBreakdow
   // unknown (never procured, or valuation shortfall), so the whole result is
   // estimated — cost knowledge, not the trackInventory flag, decides this.
   let cogsUsdMinor = BigInt(0);
+  let cost2UsdMinor = BigInt(0);
+  let cost2HasMissingSnapshots = false;
+  let cost2IsEstimated = false;
   for (const item of input.items) {
     if (item.isCompensation) continue;
     if (item.totalCogsUsdMinor !== null) {
       cogsUsdMinor += item.totalCogsUsdMinor;
+      if (item.totalCost2UsdMinor == null) {
+        cost2HasMissingSnapshots = true;
+        cost2IsEstimated = true;
+      } else {
+        cost2UsdMinor += item.totalCost2UsdMinor;
+      }
+      if (item.costIsEstimated) {
+        estimationReasons.push("reference_cost_snapshot");
+        cost2IsEstimated = true;
+      }
     } else {
       estimationReasons.push("missing_cost_snapshot");
+      cost2HasMissingSnapshots = true;
+      cost2IsEstimated = true;
     }
   }
 
@@ -228,6 +254,10 @@ export function computeOrderProfit(input: OrderProfitInput): OrderProfitBreakdow
     costCorrectionsUsdMinor +
     exchangeNetUsdMinor;
 
+  const partnerMerchandiseShareUsdMinor = cost2UsdMinor - cogsUsdMinor;
+  const profitAfterCost2UsdMinor =
+    finalProfitUsdMinor - partnerMerchandiseShareUsdMinor;
+
   // Margin in basis points against tax-exclusive net operating revenue.
   const marginBps =
     netOperatingRevenueUsdMinor === BigInt(0)
@@ -246,6 +276,8 @@ export function computeOrderProfit(input: OrderProfitInput): OrderProfitBreakdow
     shippingRefundsUsdMinor,
     netOperatingRevenueUsdMinor,
     cogsUsdMinor,
+    cost2UsdMinor,
+    partnerMerchandiseShareUsdMinor,
     shippingCostUsdMinor,
     packagingCostUsdMinor,
     paymentFeesUsdMinor,
@@ -255,6 +287,9 @@ export function computeOrderProfit(input: OrderProfitInput): OrderProfitBreakdow
     exchangeNetUsdMinor,
     costCorrectionsUsdMinor,
     finalProfitUsdMinor,
+    profitAfterCost2UsdMinor,
+    cost2HasMissingSnapshots,
+    cost2IsEstimated,
     marginBps,
     isEstimated: estimationReasons.length > 0,
     estimationReasons: [...new Set(estimationReasons)],

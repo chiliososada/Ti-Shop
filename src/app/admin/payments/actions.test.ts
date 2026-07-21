@@ -80,7 +80,9 @@ describe("payment settings action commit and refresh semantics", () => {
       form: () =>
         form({
           configured: "on",
-          shippingFlatMinor: "500",
+          shippingFirstBlockMinor: "500",
+          shippingBlockUnits: "4",
+          shippingAdditionalBlockMinor: "1500",
           taxRateBps: "825",
         }),
       result: { ok: true },

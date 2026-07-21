@@ -171,7 +171,7 @@ async function main(): Promise<void> {
     validateLegacySource(source);
 
     const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-    audit = auditLegacyAssets(source, resolve(projectRoot, "public"));
+    audit = await auditLegacyAssets(source, resolve(projectRoot, "public"));
     assertAssetsForMode(audit, mode);
 
     const rawDirectUrl = process.env.DIRECT_URL;

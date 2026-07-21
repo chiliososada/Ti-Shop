@@ -114,6 +114,7 @@ export default async function ProductDetail({ params }: ProductPageProps) {
     },
   ];
   const specs: [string, string | null][] = [
+    ["Supplier presentation", product.subtitle],
     ["CAS Number", product.casNumber],
     ["Catalog purity field", product.purity],
     ["Catalog appearance", product.appearance],
@@ -164,7 +165,7 @@ export default async function ProductDetail({ params }: ProductPageProps) {
             </div>
             <div className="mt-4 grid grid-cols-3 gap-3 text-center text-caption">
               {[
-                ["Specification", "Confirm current"],
+                ["Presentation", product.subtitle ?? "Confirm current"],
                 ["Documents", "Ask before order"],
                 ["Shipping", "Order-specific"],
               ].map(([label, value]) => (
@@ -199,6 +200,7 @@ export default async function ProductDetail({ params }: ProductPageProps) {
                   publicId: product.publicId,
                   slug: product.slug,
                   title: product.title,
+                  subtitle: product.subtitle,
                   variants: product.variants,
                 }}
                 primaryImage={primaryImage}

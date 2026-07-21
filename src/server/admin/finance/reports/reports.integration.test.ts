@@ -35,6 +35,7 @@ integration("finance order index estimated/finalized filter", () => {
 
   async function createOrder(options: {
     cogs: bigint | null;
+    estimatedCogs?: boolean;
     shipmentMissingCost?: boolean;
     estimatedAdjustment?: boolean;
   }) {
@@ -67,6 +68,7 @@ integration("finance order index estimated/finalized filter", () => {
                   unitCostUsdMinor: options.cogs,
                   totalCogsUsdMinor: options.cogs,
                   costMethod: "MOVING_AVERAGE",
+                  costIsEstimated: options.estimatedCogs ?? false,
                   costSnapshotAt: confirmedAt,
                 }),
           },
@@ -104,6 +106,7 @@ integration("finance order index estimated/finalized filter", () => {
   let finalizedId = "";
   let estimatedAdjustmentId = "";
   let missingShippingId = "";
+  let referenceCostId = "";
 
   beforeAll(async () => {
     process.env.DATABASE_URL = databaseUrl;
@@ -127,6 +130,7 @@ integration("finance order index estimated/finalized filter", () => {
     finalizedId = await createOrder({ cogs: b(1_000) });
     estimatedAdjustmentId = await createOrder({ cogs: b(1_000), estimatedAdjustment: true });
     missingShippingId = await createOrder({ cogs: b(1_000), shipmentMissingCost: true });
+    referenceCostId = await createOrder({ cogs: b(1_000), estimatedCogs: true });
   });
 
   afterAll(async () => {
@@ -143,10 +147,10 @@ integration("finance order index estimated/finalized filter", () => {
     const estimated = await getFinanceOrderIndex({ q: email, state: "estimated" });
     const estimatedIds = estimated.rows.map((row) => row.publicId).sort();
     expect(estimatedIds).toEqual(
-      [missingCogsId, estimatedAdjustmentId, missingShippingId].sort(),
+      [missingCogsId, estimatedAdjustmentId, missingShippingId, referenceCostId].sort(),
     );
     // The SQL filter, the pagination total, and the derived flag agree.
-    expect(estimated.pagination.total).toBe(3);
+    expect(estimated.pagination.total).toBe(4);
     expect(estimated.rows.every((row) => row.isEstimated)).toBe(true);
 
     const finalized = await getFinanceOrderIndex({ q: email, state: "finalized" });

@@ -31,7 +31,7 @@ function productFixture(
     title: "Example Peptide",
     subtitle: null,
     shortDescription: "A documented research peptide.",
-    brand: "sheng.an",
+    brand: "Veripep",
     purity: "≥99%",
     isFeatured: false,
     primaryImage: {
@@ -285,7 +285,7 @@ describe("JSON-LD", () => {
       slug: "research-guide",
       title: "Research guide",
       category: "Guides",
-      author: "sheng.an",
+      author: "Veripep",
       readingMinutes: 4,
       excerpt: "A guide.",
       heroImage: null,

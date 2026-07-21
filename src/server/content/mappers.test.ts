@@ -15,7 +15,7 @@ function blogRow(): PublicBlogDetailRow {
     slug: "peptide-quality-basics",
     title: "Peptide Quality Basics",
     category: "Quality & Testing",
-    authorDisplayName: "sheng.an Research Team",
+    authorDisplayName: "Veripep Research Team",
     readingMinutes: 7,
     excerpt: "How to evaluate research peptide quality.",
     publishedAt: new Date("2026-06-18T00:00:00.000Z"),

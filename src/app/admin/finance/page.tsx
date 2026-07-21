@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 };
 
 const MODULES = [
+  { href: "/admin/finance/cost2", title: "Cost 2", text: "Current Cost 1, Cost 2, and the per-SKU 50/50 margin split." },
   { href: "/admin/finance/orders", title: "Order profit", text: "Per-order waterfall, cost recording, and adjustments." },
   { href: "/admin/finance/products", title: "Product profit", text: "SKU-level revenue, COGS, and margins." },
   { href: "/admin/finance/procurement", title: "Procurement", text: "CNY purchase orders, FX rates, and receipts." },
@@ -122,6 +123,20 @@ export default async function FinanceDashboardPage({
           <StatCard label="Refunds" value={signedUsd(metrics.refundsUsdMinor)} />
           <StatCard label="Net revenue" value={signedUsd(metrics.netRevenueUsdMinor)} />
           <StatCard label="COGS" value={signedUsd(metrics.cogsUsdMinor)} />
+          <StatCard
+            label="Cost 2"
+            value={metrics.cost2UsdMinor === null ? "—" : signedUsd(metrics.cost2UsdMinor)}
+            hint={health.cost2MissingOrderCount > 0 ? `${health.cost2MissingOrderCount} orders need a complete Cost 2 snapshot` : "Cost 1 plus the partner's half of merchandise margin"}
+          />
+          <StatCard
+            label="Partner merchandise share (Cost 2)"
+            value={metrics.partnerMerchandiseShareUsdMinor === null ? "—" : signedUsd(metrics.partnerMerchandiseShareUsdMinor)}
+          />
+          <StatCard
+            label="Profit after Cost 2"
+            value={metrics.profitAfterCost2UsdMinor === null ? "—" : signedUsd(metrics.profitAfterCost2UsdMinor)}
+            hint="Reference view only; settlements already apply the binding split once"
+          />
           <StatCard label="Actual logistics + packaging" value={signedUsd(metrics.shippingCostUsdMinor)} />
           <StatCard label="After-sales cost" value={signedUsd(metrics.afterSalesUsdMinor)} />
           <StatCard label="Payment fees" value={signedUsd(metrics.paymentFeesUsdMinor)} />

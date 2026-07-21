@@ -46,15 +46,12 @@ export function ProductCard({
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-h6 text-strong">{product.title}</h3>
         <p className="mt-1.5 line-clamp-2 flex-1 text-sm leading-relaxed text-muted">
-          {product.shortDescription ?? product.subtitle}
+          {product.subtitle ?? product.shortDescription}
         </p>
         <div className="mt-4 flex items-center justify-between">
           <span className="text-sm font-semibold text-strong">
             {product.price ? (
-              <>
-                {product.price.display}
-                <span className="font-normal text-muted"> / vial</span>
-              </>
+              product.price.display
             ) : (
               <span className="text-sage-600">Request quote</span>
             )}

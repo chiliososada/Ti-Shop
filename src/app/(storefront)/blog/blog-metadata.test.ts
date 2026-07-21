@@ -10,7 +10,7 @@ vi.mock("@/server/content", () => ({
           title:
             "A deliberately long research article title that needs concise metadata",
           category: "Quality & Testing",
-          author: "sheng.an Research Team",
+          author: "Veripep Research Team",
           readingMinutes: 7,
           excerpt:
             "A deliberately long description for the public research article that demonstrates concise search metadata without exposing static source data or exceeding the expected search result length by accident.",
@@ -28,7 +28,7 @@ vi.mock("@/server/content", () => ({
           updatedAt: "2026-07-13T00:00:00.000Z",
           seo: {
             title:
-              "A deliberately long research article title that needs concise metadata | sheng.an",
+              "A deliberately long research article title that needs concise metadata | Veripep",
             description:
               "A deliberately long description for the public research article that demonstrates concise search metadata without exposing static source data or exceeding the expected search result length by accident.",
             canonicalUrl: "/blog/metadata-test",
@@ -55,7 +55,7 @@ describe("blog metadata", () => {
     const description = metadata.description as string;
 
     expect(title.absolute.length).toBeLessThanOrEqual(60);
-    expect(title.absolute.match(/sheng\.an/gi)).toHaveLength(1);
+    expect(title.absolute.match(/Veripep/gi)).toHaveLength(1);
     expect(description.length).toBeLessThanOrEqual(155);
     expect(metadata.alternates).toEqual({ canonical: "/blog/metadata-test" });
     expect(metadata.robots).toEqual({ index: true, follow: true });

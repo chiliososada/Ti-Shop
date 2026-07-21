@@ -28,7 +28,7 @@ export async function generateMetadata({
   return createPublicPageMetadata({
     title: "Research Peptide Insights & Lab Guides",
     description:
-      "Guides on peptide purity, Certificate of Analysis, reconstitution and peptide science from sheng.an. Research use only.",
+      "Guides on peptide purity, Certificate of Analysis, reconstitution and peptide science from Veripep. Research use only.",
     canonical: "/blog",
     robots: publicRobots(query),
   });

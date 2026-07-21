@@ -1,12 +1,12 @@
 export const company = {
-  name: "sheng.an",
+  name: "Veripep",
   tagline: "Research Materials for Laboratory Procurement",
   description:
-    "sheng.an lists research-use peptide materials for laboratory procurement, with USD pricing and service for supported United States addresses.",
-  email: "sheng.an.peptide@gmail.com",
-  supportEmail: "sheng.an.peptide@gmail.com",
-  domain: "shengan-peptide.com",
-  url: "https://shengan-peptide.com",
+    "Veripep lists research-use peptide materials for laboratory procurement, with USD pricing and service for supported United States addresses.",
+  email: "support@veripep.com",
+  supportEmail: "support@veripep.com",
+  domain: "veripep.com",
+  url: "https://veripep.com",
   defaultCurrency: "USD",
   displayCurrency: "USD",
   currencies: ["USD"],

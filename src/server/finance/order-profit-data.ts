@@ -36,6 +36,9 @@ export const ORDER_PROFIT_SELECT = {
       quantity: true,
       totalCogsUsdMinor: true,
       unitCostUsdMinor: true,
+      totalCost2UsdMinor: true,
+      unitCost2UsdMinor: true,
+      costIsEstimated: true,
       costSnapshotAt: true,
       compensationEventId: true,
     },
@@ -84,6 +87,8 @@ export function assembleOrderProfitInput(order: OrderProfitRow): OrderProfitInpu
     items: order.items.map((item) => ({
       quantity: item.quantity,
       totalCogsUsdMinor: item.totalCogsUsdMinor,
+      totalCost2UsdMinor: item.totalCost2UsdMinor,
+      costIsEstimated: item.costIsEstimated,
       isCompensation: item.compensationEventId !== null,
     })),
     shipments: order.shipments.map((shipment) => ({
