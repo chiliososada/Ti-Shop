@@ -102,7 +102,10 @@ export const MANAGED_PAGE_DEFINITIONS = [
     label: "Payment policy",
     eyebrow: "Order policies",
     fallbackTitle: "Payment policy",
-    fallbackSeoTitle: "Payment Policy — NOWPayments, Wire and Zelle",
+    // Method-neutral: which methods are live is runtime configuration, so the
+    // page title must not promise specific ones (e.g. crypto/Zelle while only
+    // wire transfer is enabled).
+    fallbackSeoTitle: "Payment Policy",
     fallbackDescription:
       "How enabled online and manual payment methods, status verification and payment instructions are handled for Veripep orders.",
     complianceNotice:

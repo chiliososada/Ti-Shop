@@ -118,7 +118,9 @@ export type CreatedCustomerOrder = {
 function createOrderNumber(now: Date) {
   const date = now.toISOString().slice(0, 10).replaceAll("-", "");
   const entropy = randomUUID().replaceAll("-", "").slice(0, 12).toUpperCase();
-  return `SA-${date}-${entropy}`;
+  // VP = Veripep. Existing SA-prefixed orders keep their numbers; the prefix
+  // only brands new orders.
+  return `VP-${date}-${entropy}`;
 }
 
 function paymentStatusFor(method: CheckoutPaymentMethod) {
