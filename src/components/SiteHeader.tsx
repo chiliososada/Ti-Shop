@@ -31,7 +31,7 @@ function Wordmark() {
   return (
     <Link
       href="/"
-      aria-label="Veripep home"
+      aria-label="Flintmarrow home"
       className="flex h-16 items-center rounded-xl bg-white px-2"
     >
       <BrandLogo eager className="h-14 w-auto" />

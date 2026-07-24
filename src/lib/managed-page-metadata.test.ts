@@ -9,7 +9,7 @@ if (!shipping) throw new Error("Shipping managed page definition is missing.");
 describe("managed page metadata", () => {
   it("uses fallback metadata and the fixed existing canonical without a published override", () => {
     expect(createManagedPageMetadata(shipping, null)).toMatchObject({
-      title: { absolute: "Shipping Policy — United States Orders | Veripep" },
+      title: { absolute: "Shipping Policy — United States Orders | Flintmarrow" },
       alternates: { canonical: "/shipping" },
       robots: { index: true, follow: true },
       openGraph: { url: "/shipping" },
@@ -47,7 +47,7 @@ describe("managed page metadata", () => {
     );
 
     expect(metadata).toMatchObject({
-      title: { absolute: "Reviewed shipping | Veripep" },
+      title: { absolute: "Reviewed shipping | Flintmarrow" },
       description: "Reviewed shipping metadata.",
       alternates: { canonical: "/shipping" },
       robots: { index: false, follow: true },

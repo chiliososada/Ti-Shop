@@ -20,8 +20,8 @@ const publicSiteOrigin = resolvePublicSiteOrigin();
 export const metadata: Metadata = {
   metadataBase: new URL(publicSiteOrigin),
   title: {
-    default: "Veripep | Research Materials for Laboratory Procurement",
-    template: "%s | Veripep",
+    default: "Flintmarrow | Research Materials for Laboratory Procurement",
+    template: "%s | Flintmarrow",
   },
   description:
     "Research-use peptide catalog with USD pricing where published and ordering for eligible US addresses. Confirm current specifications and documentation before purchase.",
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    siteName: "Veripep",
-    title: "Veripep | Research Materials for Laboratory Procurement",
+    siteName: "Flintmarrow",
+    title: "Flintmarrow | Research Materials for Laboratory Procurement",
     description:
       "Browse research-use materials with USD pricing where published. Current specifications, documentation and US shipping details are confirmed per order.",
     url: publicSiteOrigin,
@@ -44,13 +44,13 @@ export const metadata: Metadata = {
         url: "/video/hero-poster.jpg",
         width: 1920,
         height: 1080,
-        alt: "Veripep research material catalog",
+        alt: "Flintmarrow research material catalog",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Veripep | Research Materials for Laboratory Procurement",
+    title: "Flintmarrow | Research Materials for Laboratory Procurement",
     description:
       "Browse research-use materials with USD pricing where published and ordering for supported US addresses.",
     images: ["/video/hero-poster.jpg"],

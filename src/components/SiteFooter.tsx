@@ -40,7 +40,7 @@ export function SiteFooter({
           <div>
             <Link
               href="/"
-              aria-label="Veripep home"
+              aria-label="Flintmarrow home"
               className="inline-flex rounded-2xl bg-white px-3 py-2"
             >
               <BrandLogo className="h-20 w-auto" />

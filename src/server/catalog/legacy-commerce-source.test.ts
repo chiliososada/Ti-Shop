@@ -130,7 +130,7 @@ describe("legacy commerce source", () => {
     expect(new Set(source.faqs.map((faq) => faq.slug)).size).toBe(8);
     expect(source.faqs[0]).toMatchObject({
       slug: "research-use-only",
-      question: "Are Veripep products intended for human use?",
+      question: "Are Flintmarrow products intended for human use?",
     });
     expect(source.faqs.every((faq) => faq.answer.trim().length > 0)).toBe(true);
   });

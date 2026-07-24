@@ -49,7 +49,7 @@ type CartContext = {
 };
 
 const Ctx = createContext<CartContext | null>(null);
-const STORAGE_KEY = "veripep-cart-v2";
+const STORAGE_KEY = "flintmarrow-cart-v2";
 const PUBLIC_ID_PATTERN = /^[a-zA-Z0-9_-]{1,160}$/u;
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/u;
 const AMOUNT_PATTERN = /^\d{1,18}$/u;

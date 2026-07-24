@@ -30,11 +30,11 @@ export const MANAGED_PAGE_DEFINITIONS = [
     internalSlug: "managed-route-about",
     path: "/about",
     label: "About",
-    eyebrow: "About Veripep",
+    eyebrow: "About Flintmarrow",
     fallbackTitle: "Research-use catalog and ordering for the United States",
-    fallbackSeoTitle: "About Veripep — Research-Use Catalog and Ordering",
+    fallbackSeoTitle: "About Flintmarrow — Research-Use Catalog and Ordering",
     fallbackDescription:
-      "How Veripep presents research-use catalog information, confirms product and lot details, and supports eligible United States orders.",
+      "How Flintmarrow presents research-use catalog information, confirms product and lot details, and supports eligible United States orders.",
     complianceNotice:
       "Catalog information does not establish product, lot, document, shipping, or payment availability. Those details are confirmed for the actual request or order.",
   },
@@ -48,7 +48,7 @@ export const MANAGED_PAGE_DEFINITIONS = [
     fallbackTitle: "Shipping policy",
     fallbackSeoTitle: "Shipping Policy — United States Orders",
     fallbackDescription:
-      "How supported US destinations, address checks, dispatch updates, tracking and delivery issues are handled for Veripep research orders.",
+      "How supported US destinations, address checks, dispatch updates, tracking and delivery issues are handled for Flintmarrow research orders.",
     complianceNotice:
       "The storefront supports only eligible United States destinations. A displayed estimate or merchant-entered tracking update is not a carrier guarantee.",
   },
@@ -62,7 +62,7 @@ export const MANAGED_PAGE_DEFINITIONS = [
     fallbackTitle: "Returns and refunds",
     fallbackSeoTitle: "Returns and Refunds Policy",
     fallbackDescription:
-      "Return authorization, issue reporting, review and refund handling for Veripep research-product orders.",
+      "Return authorization, issue reporting, review and refund handling for Flintmarrow research-product orders.",
     complianceNotice:
       "Do not return an item without written authorization. Research-material integrity, traceability, applicable rights, and the recorded order facts are reviewed before any resolution is approved.",
   },
@@ -76,7 +76,7 @@ export const MANAGED_PAGE_DEFINITIONS = [
     fallbackTitle: "Privacy policy",
     fallbackSeoTitle: "Privacy Policy",
     fallbackDescription:
-      "What information Veripep uses for accounts, orders, payment records, fulfillment, security and customer support.",
+      "What information Flintmarrow uses for accounts, orders, payment records, fulfillment, security and customer support.",
     complianceNotice:
       "Never submit passwords, private keys, recovery phrases, full financial credentials, or unnecessary sensitive personal information through public content or WhatsApp.",
   },
@@ -90,7 +90,7 @@ export const MANAGED_PAGE_DEFINITIONS = [
     fallbackTitle: "Terms of use and sale",
     fallbackSeoTitle: "Terms of Use and Sale",
     fallbackDescription:
-      "Account, ordering, payment, research-use, fulfillment and acceptable-use terms for the Veripep United States storefront.",
+      "Account, ordering, payment, research-use, fulfillment and acceptable-use terms for the Flintmarrow United States storefront.",
     complianceNotice:
       "Products are supplied only for legitimate laboratory and research use, not for human or veterinary use, diagnosis, treatment, self-administration, food, cosmetics, or household use.",
   },
@@ -107,7 +107,7 @@ export const MANAGED_PAGE_DEFINITIONS = [
     // wire transfer is enabled).
     fallbackSeoTitle: "Payment Policy",
     fallbackDescription:
-      "How enabled online and manual payment methods, status verification and payment instructions are handled for Veripep orders.",
+      "How enabled online and manual payment methods, status verification and payment instructions are handled for Flintmarrow orders.",
     complianceNotice:
       "A redirect, screenshot, message, or browser return never proves payment. NOWPayments is live only when enabled server credentials and verification are configured; Wire and Zelle remain pending until an authorized administrator verifies the funds.",
   },
@@ -121,7 +121,7 @@ export const MANAGED_PAGE_DEFINITIONS = [
     fallbackTitle: "Research use notice",
     fallbackSeoTitle: "Research Use and Compliance Notice",
     fallbackDescription:
-      "Research-use restrictions, purchaser responsibilities and prohibited uses for products listed by Veripep.",
+      "Research-use restrictions, purchaser responsibilities and prohibited uses for products listed by Flintmarrow.",
     complianceNotice:
       "Products are for qualified laboratory and research use only. They are not medicines, supplements, foods, cosmetics, consumer products, or intended for use in humans or animals.",
   },

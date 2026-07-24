@@ -5,12 +5,12 @@ type BrandLogoProps = {
   eager?: boolean;
 };
 
-/** The user-supplied Veripep mark and wordmark, trimmed for site chrome. */
+/** The user-supplied Flintmarrow mark and wordmark, trimmed for site chrome. */
 export function BrandLogo({ className, eager = false }: BrandLogoProps) {
   return (
     <Image
       src="/brand/veripep-logo.png"
-      alt="Veripep"
+      alt="Flintmarrow"
       width={373}
       height={290}
       className={className}

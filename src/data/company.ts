@@ -1,12 +1,12 @@
 export const company = {
-  name: "Veripep",
+  name: "Flintmarrow",
   tagline: "Research Materials for Laboratory Procurement",
   description:
-    "Veripep lists research-use peptide materials for laboratory procurement, with USD pricing and service for supported United States addresses.",
-  email: "support@veripep.com",
-  supportEmail: "support@veripep.com",
-  domain: "veripep.com",
-  url: "https://veripep.com",
+    "Flintmarrow lists research-use peptide materials for laboratory procurement, with USD pricing and service for supported United States addresses.",
+  email: "support@flintmarrow.com",
+  supportEmail: "support@flintmarrow.com",
+  domain: "flintmarrow.com",
+  url: "https://flintmarrow.com",
   defaultCurrency: "USD",
   displayCurrency: "USD",
   currencies: ["USD"],

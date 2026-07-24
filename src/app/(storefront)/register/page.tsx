@@ -6,7 +6,7 @@ import { safeCallbackPath } from "@/server/auth/callback-url";
 
 export const metadata: Metadata = {
   title: "Create account",
-  description: "Create a Veripep customer account with email and password.",
+  description: "Create a Flintmarrow customer account with email and password.",
   robots: { index: false, follow: false },
 };
 

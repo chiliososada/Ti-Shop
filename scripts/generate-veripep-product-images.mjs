@@ -6,11 +6,11 @@ import sharp from "sharp";
 const root = resolve(import.meta.dirname, "..");
 const productsPath = join(root, "src/data/products.json");
 const templatePath = join(root, "public/brand/veripep-product-template.png");
-const contactSheetPath = join(root, "output/veripep-catalog-contact-sheet.jpg");
+const contactSheetPath = join(root, "output/flintmarrow-catalog-contact-sheet.jpg");
 const products = JSON.parse(await readFile(productsPath, "utf8"));
 
 // The source template was created with the built-in image generator and approved
-// for the Veripep catalog. Product names and strengths are rendered separately so
+// for the Flintmarrow catalog. Product names and strengths are rendered separately so
 // every label remains exact while the photographic bottle, logo and visual system
 // stay identical across the full catalog.
 const generationSpec = {
@@ -18,7 +18,7 @@ const generationSpec = {
   assetType: "storefront catalog product image",
   scene: "single centered research vial on a white-to-cool-gray studio background",
   style: "clean premium product photography",
-  brand: "Veripep logo and wordmark in navy",
+  brand: "Flintmarrow logo and wordmark in navy",
   palette: "white, cool gray, navy and cyan",
   invariant: "same bottle, cap, lighting, framing and label system for every product",
   footerText: "RESEARCH USE ONLY",

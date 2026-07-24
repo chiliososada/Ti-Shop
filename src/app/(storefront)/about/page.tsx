@@ -43,7 +43,7 @@ function AboutFallback() {
         ]}
       />
       <PageHero
-        eyebrow="About Veripep"
+        eyebrow="About Flintmarrow"
         title="Research-use catalog and ordering for the United States"
         intro={about.intro}
         breadcrumbs={[

@@ -71,7 +71,7 @@ function productRow(): PublicProductDetailRow {
     title: "Selank 5mg",
     subtitle: null,
     shortDescription: "Research peptide",
-    brand: "Veripep",
+    brand: "Flintmarrow",
     purity: "≥99%",
     isFeatured: true,
     description: "For laboratory research only.",

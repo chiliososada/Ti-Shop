@@ -13,7 +13,7 @@ function createAuth() {
   const db = getDb();
 
   return betterAuth({
-    appName: "Veripep",
+    appName: "Flintmarrow",
     baseURL: env.siteOrigin,
     basePath: "/api/auth",
     secret: env.secret,

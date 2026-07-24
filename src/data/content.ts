@@ -38,10 +38,10 @@ export const homeSections = {
       "Choose a catalog item, confirm its current details, submit an order and use your customer account to follow the recorded payment and fulfillment status. A tracked WhatsApp handoff is shown only when an administrator has configured it.",
   },
   why: {
-    eyebrow: "Why Veripep",
+    eyebrow: "Why Flintmarrow",
     heading: "A Clearer Procurement Conversation",
     intro:
-      "Veripep combines a research-use catalog, USD order records and administrator-managed contact options. Product, documentation, payment and shipping details are confirmed against the actual request instead of being presented as universal guarantees.",
+      "Flintmarrow combines a research-use catalog, USD order records and administrator-managed contact options. Product, documentation, payment and shipping details are confirmed against the actual request instead of being presented as universal guarantees.",
   },
 };
 
@@ -87,7 +87,7 @@ export const about = {
   intro:
     "A research-use catalog and order service for supported United States procurement.",
   paragraphs: [
-    "Veripep lists peptide-related research materials for laboratory procurement. The storefront is organized around clear catalog discovery, USD pricing where a current fixed price is available, and customer order records.",
+    "Flintmarrow lists peptide-related research materials for laboratory procurement. The storefront is organized around clear catalog discovery, USD pricing where a current fixed price is available, and customer order records.",
     "Product names, CAS references and catalog descriptions help identify materials, but they do not prove the specification of a particular lot. Current availability, presentation, analytical documentation and handling information must be confirmed for the product and lot under discussion.",
     "Customers can discuss requirements through the contact options currently enabled on the storefront before or after placing an order. Shipping is limited to eligible United States addresses, and carrier, timing, handling and documentation are confirmed for each order. Products are for laboratory research only and are not for human or veterinary use.",
   ],
@@ -128,7 +128,7 @@ export const categoryIntros: Record<string, string> = {
 
 export const faqs = [
   {
-    q: "Are Veripep products intended for human use?",
+    q: "Are Flintmarrow products intended for human use?",
     a: "No. Products are listed strictly for laboratory and research use. They are not offered as drugs, dietary supplements, foods, cosmetics or medical products and are not intended for human or veterinary consumption, diagnosis, treatment or self-administration.",
   },
   {

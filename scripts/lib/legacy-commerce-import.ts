@@ -174,7 +174,7 @@ function mediaAltText(source: LegacyCommerceSource, path: string): string {
   }
 
   const blog = source.blogs.find((candidate) => candidate.cover === path);
-  return blog?.title ?? "Veripep research catalog image";
+  return blog?.title ?? "Flintmarrow research catalog image";
 }
 
 async function syncMedia(
@@ -381,7 +381,7 @@ async function resolveProduct(
     subtitle: product.presentation ?? null,
     shortDescription: product.shortDescription,
     description: product.description,
-    brand: "Veripep",
+    brand: "Flintmarrow",
     purity: product.purity,
     casNumber: product.cas ?? null,
     appearance: product.appearance,
@@ -1348,7 +1348,7 @@ export async function importLegacyCommerce(
           { type: "product", id: productRecord.id },
           {
             openGraphMediaId: primaryMediaId,
-            title: `${product.name} | Veripep`,
+            title: `${product.name} | Flintmarrow`,
             description: product.shortDescription,
             canonicalUrl: productCanonicalUrl(product.id),
             structuredData: {
@@ -1357,7 +1357,7 @@ export async function importLegacyCommerce(
               name: product.name,
               description: product.shortDescription,
               image: product.image,
-              brand: { "@type": "Brand", name: "Veripep" },
+              brand: { "@type": "Brand", name: "Flintmarrow" },
               additionalProperty,
             },
           },

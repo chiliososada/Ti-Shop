@@ -1,11 +1,11 @@
-// Maps the 6 categories to a signature hero product (real Veripep branded vial)
+// Maps the 6 categories to a signature hero product (real Flintmarrow branded vial)
 // and a benefit line for the big numbered category showcase sections.
 
 export type Featured = {
   categorySlug: string;
   index: string;
   productId: string;
-  image: string; // real Veripep product photo
+  image: string; // real Flintmarrow product photo
   productName: string;
   benefit: string;
 };

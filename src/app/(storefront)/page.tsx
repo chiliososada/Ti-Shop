@@ -31,7 +31,7 @@ export async function generateMetadata({
   await connection();
   const query = await searchParams;
   return createPublicPageMetadata({
-    title: "Veripep | Research Materials for Laboratory Procurement",
+    title: "Flintmarrow | Research Materials for Laboratory Procurement",
     description:
       "Research-use peptide catalog with USD pricing where published and ordering for eligible US addresses. Confirm current specifications and documentation before purchase.",
     canonical: "/",
@@ -155,7 +155,7 @@ export default async function Home() {
       <section className="bg-surface-alt">
         <div className="container-x py-20 md:py-28">
           <SectionHeading
-            eyebrow="Why Veripep"
+            eyebrow="Why Flintmarrow"
             title="A clearer research procurement workflow"
             align="center"
           />

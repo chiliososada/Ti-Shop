@@ -1,5 +1,5 @@
 {
-  "name": "veripep-site",
+  "name": "flintmarrow-site",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -15,7 +15,7 @@
     "test": "prisma generate && vitest run",
     "test:seo": "node scripts/verify-production.mjs",
     "test:watch": "vitest",
-    "assets:products": "node scripts/generate-veripep-product-images.mjs",
+    "assets:products": "node scripts/generate-flintmarrow-product-images.mjs",
     "media:backfill-dimensions": "tsx scripts/backfill-local-media-dimensions.ts",
     "db:generate": "prisma generate",
     "db:validate": "prisma validate",

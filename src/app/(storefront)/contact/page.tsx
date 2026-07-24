@@ -9,9 +9,9 @@ import { getPublicCategories } from "@/server/catalog";
 import { getPublicWhatsAppPresentation } from "@/server/whatsapp/config";
 
 export const metadata: Metadata = createPublicPageMetadata({
-  title: "Contact Veripep — Research Product and Order Questions",
+  title: "Contact Flintmarrow — Research Product and Order Questions",
   description:
-    "Reach Veripep by email and, when configured, a tracked WhatsApp handoff to discuss catalog items, USD orders, documents and eligible US shipping.",
+    "Reach Flintmarrow by email and, when configured, a tracked WhatsApp handoff to discuss catalog items, USD orders, documents and eligible US shipping.",
   canonical: "/contact",
 });
 

@@ -1,4 +1,4 @@
-# Ti-Shop / Veripep
+# Ti-Shop / Flintmarrow
 
 Ti-Shop is a database-backed independent commerce site for a US/USD storefront. It combines a Next.js public catalog, customer accounts and checkout, order/payment/inventory/fulfillment workflows, and a permission-controlled administration area.
 
@@ -142,8 +142,8 @@ From `/admin/settings`, configure a valid E.164 WhatsApp number, public display 
 npm run lint
 npm run typecheck
 npm run test
-SITE_URL=https://veripep.com npm run build
-SITE_URL=https://veripep.com npm run test:seo
+SITE_URL=https://flintmarrow.com npm run build
+SITE_URL=https://flintmarrow.com npm run test:seo
 ```
 
 `test:seo` starts the built standalone server, checks public sitemap entries and metadata, verifies protected route boundaries and 404 behavior, and confirms the legacy checkout return page makes no unverified payment claim. Build and test with the same intended public canonical origin. It requires a migrated, seeded, legacy-imported database through `DATABASE_URL`; it sends requests only to the local standalone listener.

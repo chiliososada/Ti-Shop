@@ -29,7 +29,7 @@ export default function AdminLayout({
         <div className="container-x flex flex-wrap items-center gap-x-6 gap-y-2 py-3">
           <Link
             href="/admin"
-            aria-label="Veripep administration home"
+            aria-label="Flintmarrow administration home"
             className="flex items-center gap-3 font-semibold text-strong"
           >
             <span className="rounded-lg bg-white px-2 py-1">

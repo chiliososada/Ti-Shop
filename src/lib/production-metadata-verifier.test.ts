@@ -8,19 +8,19 @@ import {
 describe("production metadata verifier", () => {
   it("accepts equivalent page and Open Graph metadata and decodes entities", () => {
     const html = `
-      <title>Products &amp; Documents | Veripep</title>
+      <title>Products &amp; Documents | Flintmarrow</title>
       <meta content="Current products &amp; documents." name="description">
       <link href="https://example.test/products" rel="canonical">
-      <meta content="Products &amp; Documents | Veripep" property="og:title">
+      <meta content="Products &amp; Documents | Flintmarrow" property="og:title">
       <meta property="og:description" content="Current products &amp; documents.">
       <meta content="https://example.test/products" property="og:url">
     `;
 
     expect(inspectProductionMetadata(html)).toEqual({
-      title: "Products & Documents | Veripep",
+      title: "Products & Documents | Flintmarrow",
       description: "Current products & documents.",
       canonical: "https://example.test/products",
-      openGraphTitle: "Products & Documents | Veripep",
+      openGraphTitle: "Products & Documents | Flintmarrow",
       openGraphDescription: "Current products & documents.",
       openGraphUrl: "https://example.test/products",
     });
@@ -31,10 +31,10 @@ describe("production metadata verifier", () => {
 
   it("detects home-page Open Graph values inherited by another route", () => {
     const html = `
-      <title>Shipping Policy | Veripep</title>
+      <title>Shipping Policy | Flintmarrow</title>
       <meta name="description" content="Shipping details.">
       <link rel="canonical" href="https://example.test/shipping">
-      <meta property="og:title" content="Veripep | Home">
+      <meta property="og:title" content="Flintmarrow | Home">
       <meta property="og:description" content="Home description.">
       <meta property="og:url" content="https://example.test/">
     `;

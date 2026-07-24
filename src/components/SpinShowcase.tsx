@@ -25,7 +25,7 @@ export function SpinShowcase({
 }) {
   return (
     <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-      {/* Media — real Veripep product vial on a soft, rotating glow */}
+      {/* Media — real Flintmarrow product vial on a soft, rotating glow */}
       <Link
         href={`/products/${item.product.slug}`}
         className={`group relative flex aspect-square items-center justify-center overflow-hidden rounded-3xl bg-cream-50 ring-1 ring-ink-900/[0.06] ${
@@ -39,7 +39,7 @@ export function SpinShowcase({
         <div className="relative h-[82%] w-[82%] motion-safe:animate-[float_6s_ease-in-out_infinite]">
           <Image
             src={item.presentation.imageUrl}
-            alt={`${item.presentation.productName} — Veripep research peptide vial`}
+            alt={`${item.presentation.productName} — Flintmarrow research peptide vial`}
             fill
             sizes="(max-width: 1024px) 90vw, 45vw"
             className="object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-[1.04]"
