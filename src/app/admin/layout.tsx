@@ -16,6 +16,7 @@ const ADMIN_NAV = [
   { href: "/admin/finance", label: "Finance" },
   { href: "/admin/customers", label: "Customers" },
   { href: "/admin/settings", label: "Settings" },
+  { href: "/admin/manual", label: "Manual" },
 ] as const;
 
 export default function AdminLayout({
@@ -25,7 +26,7 @@ export default function AdminLayout({
 }>) {
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-ink-900/[0.08] bg-surface/95 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-ink-900/[0.08] bg-surface/95 backdrop-blur print:hidden">
         <div className="container-x flex flex-wrap items-center gap-x-6 gap-y-2 py-3">
           <Link
             href="/admin"
