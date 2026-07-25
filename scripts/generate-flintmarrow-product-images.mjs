@@ -133,31 +133,55 @@ function wrapText(text) {
   return lines.slice(0, 3);
 }
 
+function visualTextUnits(text) {
+  return [...text].reduce((total, character) => {
+    if (character === " ") return total + 0.32;
+    if (/[MW@%&]/u.test(character)) return total + 0.9;
+    if (/[mw]/u.test(character)) return total + 0.78;
+    if (/[ilI1|]/u.test(character)) return total + 0.3;
+    if (/[A-Z0-9]/u.test(character)) return total + 0.64;
+    if (/[-+().,/]/u.test(character)) return total + 0.4;
+    return total + 0.56;
+  }, 0);
+}
+
+function fittedFontSize(text, preferredSize, minimumSize, safeWidth) {
+  const measuredUnits = Math.max(visualTextUnits(text), 1);
+  return Math.max(minimumSize, Math.min(preferredSize, Math.floor(safeWidth / measuredUnits)));
+}
+
 function labelSvg(product) {
   const { title, dose } = splitLabel(product.name, product.presentation);
   const lines = wrapText(title);
   const longest = Math.max(...lines.map((line) => line.length));
-  const titleSize =
+  const preferredTitleSize =
     lines.length === 1
       ? longest <= 11
-        ? 62
+        ? 46
         : longest <= 17
-          ? 48
-          : 38
+          ? 40
+          : 34
       : lines.length === 2
         ? longest <= 17
-          ? 37
-          : 31
-        : 27;
+          ? 32
+          : 28
+        : 24;
+  const titleSize = Math.min(
+    ...lines.map((line) =>
+      fittedFontSize(line, preferredTitleSize, lines.length === 3 ? 20 : 22, 286),
+    ),
+  );
   const titleGap = titleSize * 1.05;
   const titleBlockHeight = (lines.length - 1) * titleGap;
-  const titleCenterY = lines.length === 1 ? 653 : lines.length === 2 ? 649 : 646;
+  const titleCenterY = lines.length === 1 ? 659 : lines.length === 2 ? 655 : 651;
   const firstY = titleCenterY - titleBlockHeight / 2;
-  const doseSize = dose.length > 22 ? 25 : dose.length > 15 ? 30 : dose.length > 9 ? 36 : 45;
+  const preferredDoseSize =
+    dose.length > 22 ? 22 : dose.length > 15 ? 26 : dose.length > 9 ? 31 : 37;
+  const doseSize = fittedFontSize(dose, preferredDoseSize, 20, 260);
   const doseLines =
     dose.length <= 8
-      ? `<line x1="360" y1="735" x2="411" y2="735" stroke="#289eb4" stroke-width="2"/>` +
-        `<line x1="613" y1="735" x2="664" y2="735" stroke="#15355d" stroke-width="2"/>`
+      ? `<line x1="382" y1="738" x2="430" y2="738" stroke="#289eb4" stroke-width="2"/>` +
+        `<line x1="594" y1="738" x2="642" y2="738" stroke="#15355d" stroke-width="2"/>`
       : "";
   const titleElements = lines
     .map(
@@ -170,19 +194,15 @@ function labelSvg(product) {
 
   return Buffer.from(`
     <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="paper" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#f7f7f7"/>
-          <stop offset="0.52" stop-color="#f4f4f4"/>
-          <stop offset="1" stop-color="#ededee"/>
-        </linearGradient>
-      </defs>
-      <rect x="336" y="601" width="352" height="171" fill="url(#paper)"/>
+      <text x="512" y="578" text-anchor="middle"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="39" font-weight="600" fill="#15355d">Flintmarrow</text>
+      <line x1="410" y1="605" x2="614" y2="605" stroke="#289eb4" stroke-width="2"/>
       ${titleElements}
       ${
         dose
           ? doseLines +
-            `<text x="512" y="748" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" ` +
+            `<text x="512" y="749" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" ` +
             `font-size="${doseSize}" font-weight="700" fill="#2b9db4">${escapeXml(dose)}</text>` +
             ""
           : ""
