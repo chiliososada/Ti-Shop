@@ -34,7 +34,7 @@ jobs:
     env:
       CI: true
       NEXT_TELEMETRY_DISABLED: 1
-      SITE_URL: https://shengan-peptide.com
+      SITE_URL: https://flintmarrow.com
       DATABASE_URL: postgresql://ti_shop_ci:ci_database_only@localhost:5432/ti_shop_ci
       DIRECT_URL: postgresql://ti_shop_ci:ci_database_only@localhost:5432/ti_shop_ci?schema=app
       ADMIN_DB_INTEGRATION_URL: postgresql://ti_shop_ci:ci_database_only@localhost:5432/ti_shop_ci

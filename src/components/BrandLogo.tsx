@@ -9,7 +9,7 @@ type BrandLogoProps = {
 export function BrandLogo({ className, eager = false }: BrandLogoProps) {
   return (
     <Image
-      src="/brand/veripep-logo.png"
+      src="/brand/flintmarrow-logo-20260725.png"
       alt="Flintmarrow"
       width={373}
       height={290}

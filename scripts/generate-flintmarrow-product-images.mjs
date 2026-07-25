@@ -1,13 +1,55 @@
+import { existsSync } from "node:fs";
 import { mkdir, readFile } from "node:fs/promises";
 import { dirname, extname, join, resolve } from "node:path";
 
+import pg from "pg";
 import sharp from "sharp";
 
 const root = resolve(import.meta.dirname, "..");
 const productsPath = join(root, "src/data/products.json");
-const templatePath = join(root, "public/brand/veripep-product-template.png");
+const templatePath = join(root, "public/brand/flintmarrow-product-template.png");
 const contactSheetPath = join(root, "output/flintmarrow-catalog-contact-sheet.jpg");
-const products = JSON.parse(await readFile(productsPath, "utf8"));
+const catalogProducts = JSON.parse(await readFile(productsPath, "utf8"));
+
+async function loadDatabaseProducts() {
+  const envPath = join(root, ".env");
+  if (!process.env.DATABASE_URL && existsSync(envPath)) {
+    process.loadEnvFile(envPath);
+  }
+  if (!process.env.DATABASE_URL) return [];
+
+  const client = new pg.Client({ connectionString: process.env.DATABASE_URL });
+  await client.connect();
+  try {
+    const result = await client.query(`
+      SELECT DISTINCT ON (m.public_url)
+        p.title AS name,
+        p.subtitle AS presentation,
+        m.public_url AS image
+      FROM app.products p
+      JOIN app.product_media pm
+        ON pm.product_id = p.id
+       AND pm.variant_id IS NULL
+      JOIN app.media m ON m.id = pm.media_id
+      WHERE p.deleted_at IS NULL
+        AND m.deleted_at IS NULL
+        AND m.public_url LIKE '/products/%'
+      ORDER BY
+        m.public_url,
+        CASE WHEN p.status = 'active' THEN 0 ELSE 1 END,
+        p.id
+    `);
+    return result.rows;
+  } finally {
+    await client.end();
+  }
+}
+
+const productMap = new Map(catalogProducts.map((product) => [product.image, product]));
+for (const product of await loadDatabaseProducts()) {
+  if (!productMap.has(product.image)) productMap.set(product.image, product);
+}
+const products = [...productMap.values()];
 
 // The source template was created with the built-in image generator and approved
 // for the Flintmarrow catalog. Product names and strengths are rendered separately so
