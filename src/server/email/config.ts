@@ -40,8 +40,13 @@ export type EmailConfigState =
 const REQUIRED_KEYS = ["SMTP_HOST", "SMTP_USER", "SMTP_PASSWORD"] as const;
 
 export function resolveEmailConfigState(
-  source: Record<string, string | undefined> = process.env,
+  rawSource: Record<string, string | undefined> = process.env,
 ): EmailConfigState {
+  // Compose expands unset optional variables to empty strings; treat those
+  // exactly like absent values so they fall back to schema defaults.
+  const source = Object.fromEntries(
+    Object.entries(rawSource).filter(([, value]) => value !== "" && value !== undefined),
+  ) as Record<string, string>;
   const present = REQUIRED_KEYS.filter((key) => source[key]);
   if (present.length === 0) {
     return {

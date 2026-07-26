@@ -40,6 +40,21 @@ describe("resolveEmailConfigState", () => {
     }
   });
 
+  it("treats compose-style empty strings as absent optional values", () => {
+    const state = resolveEmailConfigState({
+      ...FULL_ENV,
+      SMTP_SECURE: "",
+      MAIL_FROM_ADDRESS: "",
+      MAIL_REPLY_TO: "",
+    });
+    expect(state.configured).toBe(true);
+    if (state.configured) {
+      expect(state.env.secure).toBe(true);
+      expect(state.env.fromAddress).toBe("support@flintmarrow.com");
+      expect(state.env.replyTo).toBeNull();
+    }
+  });
+
   it("routes replies to the service inbox when MAIL_REPLY_TO is set", () => {
     const state = resolveEmailConfigState({
       ...FULL_ENV,
