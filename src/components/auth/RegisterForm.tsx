@@ -17,7 +17,7 @@ function registrationErrorMessage(error: ClientAuthError) {
     case "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL":
       return "An account already exists for this email address. Sign in instead.";
     case "PASSWORD_TOO_SHORT":
-      return "Your password must contain at least 12 characters.";
+      return "Your password must contain at least 6 characters.";
     case "PASSWORD_TOO_LONG":
       return "Your password must contain no more than 128 characters.";
     case "INVALID_EMAIL":

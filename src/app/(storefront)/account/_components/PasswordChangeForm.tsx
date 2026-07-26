@@ -12,7 +12,7 @@ function passwordChangeError(error: AuthError) {
     case "INVALID_PASSWORD":
       return "The current password was not accepted.";
     case "PASSWORD_TOO_SHORT":
-      return "The new password must contain at least 12 characters.";
+      return "The new password must contain at least 6 characters.";
     case "PASSWORD_TOO_LONG":
       return "The new password must contain no more than 128 characters.";
     case "TOO_MANY_REQUESTS":
@@ -95,7 +95,7 @@ export function PasswordChangeForm() {
             name="newPassword"
             autoComplete="new-password"
             required
-            minLength={12}
+            minLength={6}
             maxLength={128}
           />
         </label>
@@ -107,13 +107,13 @@ export function PasswordChangeForm() {
             name="confirmPassword"
             autoComplete="new-password"
             required
-            minLength={12}
+            minLength={6}
             maxLength={128}
           />
         </label>
       </div>
       <p className="text-caption leading-relaxed text-muted">
-        Use 12–128 characters and a password manager. Changing the password
+        Use 6–128 characters and a password manager. Changing the password
         signs this account out on other devices.
       </p>
       {message ? (

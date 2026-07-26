@@ -25,12 +25,12 @@ export function PasswordField({ newPassword = false }: { newPassword?: boolean }
         name="password"
         autoComplete={newPassword ? "new-password" : "current-password"}
         required
-        minLength={12}
+        minLength={6}
         maxLength={128}
       />
       {newPassword ? (
         <span className="mt-2 block text-caption font-normal text-muted">
-          Use 12–128 characters. A password manager is recommended.
+          Use 6–128 characters. A password manager is recommended.
         </span>
       ) : null}
     </label>
