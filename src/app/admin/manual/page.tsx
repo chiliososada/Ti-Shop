@@ -174,7 +174,7 @@ export default async function AdminManualPage() {
           <dl className="mt-4 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-[auto_1fr]">
             <dt className="font-semibold text-strong">公司 WhatsApp</dt>
             <dd>
-              +81 80 4051 5888(客户付款页上的按钮直接跳到这个号码)
+              +1 626 888 0425(客户付款页上的按钮直接跳到这个号码)
             </dd>
             <dt className="font-semibold text-strong">客服邮箱</dt>
             <dd>
