@@ -146,7 +146,7 @@ export default async function AdminManualPage() {
               </p>
               <h1 className="mt-3 text-h2 text-strong">订单处理操作手册</h1>
               <p className="mt-2 text-sm text-muted">
-                适用对象:后台运营人员 · 更新日期 2026-07-25 ·
+                适用对象:后台运营人员 · 更新日期 2026-07-26 ·
                 如流程有变更以负责人通知为准
               </p>
             </div>
@@ -175,6 +175,17 @@ export default async function AdminManualPage() {
             <dt className="font-semibold text-strong">公司 WhatsApp</dt>
             <dd>
               +81 80 4051 5888(客户付款页上的按钮直接跳到这个号码)
+            </dd>
+            <dt className="font-semibold text-strong">客服邮箱</dt>
+            <dd>
+              support@flintmarrow.com——系统自动邮件的发件地址,客户的回信会进这个邮箱,
+              <strong>每天至少查看一次</strong>(网页邮箱登录,账号密码找负责人)。
+            </dd>
+            <dt className="font-semibold text-strong">自动邮件</dt>
+            <dd>
+              系统会在三个节点自动给客户发英文邮件:①下单成功(订单确认+WhatsApp
+              付款指引)②你批准付款后(付款确认)③发货单改为运输中后(发货通知+跟踪号)。
+              发送在 2 分钟内完成,<strong>不需要再手动通知客户这三件事</strong>。
             </dd>
             <dt className="font-semibold text-strong">订单号格式</dt>
             <dd>
@@ -250,7 +261,7 @@ export default async function AdminManualPage() {
             <li>
               批准后订单自动变为{" "}
               <StatusPill tone="green">CONFIRMED / PAID</StatusPill>
-              ,可以安排发货了。
+              ,可以安排发货了。系统会自动给客户发"付款已确认"邮件,无需手动通知。
             </li>
           </ol>
           <Callout tone="danger" label="红线:截图不等于到账">
@@ -289,6 +300,12 @@ export default async function AdminManualPage() {
               <StatusPill tone="blue">IN_TRANSIT</StatusPill>(已交给快递)。
             </li>
           </ol>
+          <Callout tone="warn" label="先填单号,再改状态为运输中">
+            发货单<strong>第一次</strong>改成
+            IN_TRANSIT(运输中)时,系统会自动给客户发"已发货"邮件,邮件里带的就是当时填的物流单号。所以务必
+            <strong>先把单号填好、保存,再改状态</strong>
+            ——顺序反了客户收到的邮件里就没有跟踪号。
+          </Callout>
           <Callout tone="tip" label="一单可以拆多个包裹">
             盒数多需要分箱时,可以在同一个发货单里添加多个包裹(Package),也可以创建多个发货单,各自有自己的单号。
           </Callout>
