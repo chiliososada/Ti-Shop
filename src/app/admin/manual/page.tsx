@@ -261,7 +261,7 @@ export default async function AdminManualPage() {
             <li>
               批准后订单自动变为{" "}
               <StatusPill tone="green">CONFIRMED / PAID</StatusPill>
-              ,可以安排发货了。系统会自动给客户发"付款已确认"邮件,无需手动通知。
+              ,可以安排发货了。系统会自动给客户发「付款已确认」邮件,无需手动通知。
             </li>
           </ol>
           <Callout tone="danger" label="红线:截图不等于到账">
@@ -302,7 +302,7 @@ export default async function AdminManualPage() {
           </ol>
           <Callout tone="warn" label="先填单号,再改状态为运输中">
             发货单<strong>第一次</strong>改成
-            IN_TRANSIT(运输中)时,系统会自动给客户发"已发货"邮件,邮件里带的就是当时填的物流单号。所以务必
+            IN_TRANSIT(运输中)时,系统会自动给客户发「已发货」邮件,邮件里带的就是当时填的物流单号。所以务必
             <strong>先把单号填好、保存,再改状态</strong>
             ——顺序反了客户收到的邮件里就没有跟踪号。
           </Callout>
