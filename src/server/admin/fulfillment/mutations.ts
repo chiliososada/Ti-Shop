@@ -15,6 +15,10 @@ import {
   shipmentStatusForTrackingEvent,
   shipmentTimestampPatch,
 } from "@/server/admin/fulfillment/lifecycle";
+import {
+  enqueueOrderShippedEmail,
+  shouldSendShipmentDispatchEmail,
+} from "@/server/email/enqueue";
 import type {
   CreateCarrierInput,
   CreatePackageInput,
@@ -981,6 +985,12 @@ export async function updateAdminShipmentStatus(
         canceledAllocationsReleased: input.status === "CANCELED",
       },
     });
+    if (shouldSendShipmentDispatchEmail(existing.status, after.status)) {
+      await enqueueOrderShippedEmail(tx, {
+        orderPublicId: existing.order.publicId,
+        shipmentPublicId: existing.publicId,
+      });
+    }
     await tx.outboxEvent.create({
       data: {
         aggregateType: "shipment",
@@ -1084,6 +1094,13 @@ export async function addAdminTrackingEvent(input: TrackingEventInput) {
           updatedAt: shipment.updatedAt,
         };
     const fulfillment = await recalculateOrderFulfillment(tx, shipment.orderId);
+
+    if (shouldSendShipmentDispatchEmail(shipment.status, afterShipment.status)) {
+      await enqueueOrderShippedEmail(tx, {
+        orderPublicId: shipment.order.publicId,
+        shipmentPublicId: shipment.publicId,
+      });
+    }
 
     await writeAdminAuditLog(tx, {
       actorUserId: authorization.session.user.id,

@@ -21,6 +21,7 @@ import type { CheckoutPaymentMethod } from "@/domain/order";
 import { writeAdminAuditLog } from "@/server/admin/audit/log";
 import type { AdminManualOrderInput } from "@/server/admin/orders/manual-order-input";
 import { getDb } from "@/server/db/client";
+import { enqueueOrderConfirmationEmail } from "@/server/email/enqueue";
 import {
   buildCurrentUsdPriceWhere,
   buildPublishedProductWhere,
@@ -798,6 +799,10 @@ async function createInsideTransaction(
       },
       select: { id: true },
     });
+  }
+
+  if (context.source === "CUSTOMER_CHECKOUT") {
+    await enqueueOrderConfirmationEmail(tx, { orderPublicId: order.publicId });
   }
 
   return mapCreatedOrder({ ...payment, order }, true);

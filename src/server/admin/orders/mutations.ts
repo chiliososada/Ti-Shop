@@ -20,6 +20,7 @@ import type {
 import { isShipmentPhysicallyDispatched } from "@/server/admin/fulfillment/lifecycle";
 import { requirePermission } from "@/server/auth/rbac";
 import { getDb } from "@/server/db/client";
+import { enqueuePaymentConfirmedEmail } from "@/server/email/enqueue";
 import {
   consumeOrderInventoryReservations,
   releaseOrderInventoryReservations,
@@ -228,6 +229,13 @@ export async function reviewAdminManualPayment(
         before: { payment: existing, order: existing.order },
         after: { payment: afterPayment, order: afterOrder },
       });
+
+      if (shouldConfirmOrder) {
+        await enqueuePaymentConfirmedEmail(tx, {
+          orderPublicId: existing.order.publicId,
+          paymentPublicId: existing.publicId,
+        });
+      }
 
       await tx.outboxEvent.create({
         data: {
