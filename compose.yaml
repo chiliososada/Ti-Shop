@@ -172,6 +172,7 @@ services:
       SMTP_PASSWORD: "${SMTP_PASSWORD:-}"
       MAIL_FROM_NAME: "${MAIL_FROM_NAME:-Flintmarrow}"
       MAIL_FROM_ADDRESS: "${MAIL_FROM_ADDRESS:-}"
+      MAIL_REPLY_TO: "${MAIL_REPLY_TO:-}"
     networks:
       - egress
     tmpfs:

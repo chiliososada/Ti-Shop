@@ -36,6 +36,18 @@ describe("resolveEmailConfigState", () => {
       expect(state.env.secure).toBe(true);
       expect(state.env.fromAddress).toBe("support@flintmarrow.com");
       expect(state.env.fromName).toBe("Flintmarrow");
+      expect(state.env.replyTo).toBeNull();
+    }
+  });
+
+  it("routes replies to the service inbox when MAIL_REPLY_TO is set", () => {
+    const state = resolveEmailConfigState({
+      ...FULL_ENV,
+      MAIL_REPLY_TO: "sales01@flintmarrow.com",
+    });
+    expect(state.configured).toBe(true);
+    if (state.configured) {
+      expect(state.env.replyTo).toBe("sales01@flintmarrow.com");
     }
   });
 

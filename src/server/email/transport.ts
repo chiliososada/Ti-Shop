@@ -41,6 +41,7 @@ function getTransporter(env: EmailRuntimeEnv): Transporter {
 export const sendViaSmtp: EmailSender = async (env, email) => {
   const info = await getTransporter(env).sendMail({
     from: { name: env.fromName, address: env.fromAddress },
+    ...(env.replyTo ? { replyTo: env.replyTo } : {}),
     to: email.to,
     subject: email.subject,
     html: email.html,

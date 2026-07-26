@@ -19,6 +19,7 @@ const emailEnvSchema = z.object({
   SMTP_PASSWORD: z.string().min(1),
   MAIL_FROM_NAME: z.string().min(1).default("Flintmarrow"),
   MAIL_FROM_ADDRESS: z.string().email().optional(),
+  MAIL_REPLY_TO: z.string().email().optional(),
 });
 
 export type EmailRuntimeEnv = {
@@ -29,6 +30,7 @@ export type EmailRuntimeEnv = {
   password: string;
   fromName: string;
   fromAddress: string;
+  replyTo: string | null;
 };
 
 export type EmailConfigState =
@@ -72,6 +74,7 @@ export function resolveEmailConfigState(
       password: env.SMTP_PASSWORD,
       fromName: env.MAIL_FROM_NAME,
       fromAddress: env.MAIL_FROM_ADDRESS ?? env.SMTP_USER,
+      replyTo: env.MAIL_REPLY_TO ?? null,
     },
   };
 }

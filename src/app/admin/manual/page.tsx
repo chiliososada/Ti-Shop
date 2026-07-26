@@ -178,8 +178,11 @@ export default async function AdminManualPage() {
             </dd>
             <dt className="font-semibold text-strong">客服邮箱</dt>
             <dd>
-              support@flintmarrow.com——系统自动邮件的发件地址,客户的回信会进这个邮箱,
-              <strong>每天至少查看一次</strong>(网页邮箱登录,账号密码找负责人)。
+              <strong>sales01@flintmarrow.com</strong>
+              ——人工客服收发都用这个,客户回复订单邮件也会进到这里,
+              <strong>每天至少查看一次</strong>
+              (网页邮箱登录,账号密码找负责人)。support@flintmarrow.com
+              是系统自动发件专用地址,不要用它人工回信。
             </dd>
             <dt className="font-semibold text-strong">自动邮件</dt>
             <dd>
