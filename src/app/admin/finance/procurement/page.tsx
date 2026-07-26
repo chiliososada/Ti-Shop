@@ -11,6 +11,7 @@ import { formatUsdMinor } from "@/domain/money";
 import { buildQueryHref, type SearchParameter } from "@/lib/pagination";
 import type { ProcurementIndexFilters } from "@/server/admin/finance/procurement/queries";
 import { getAdminProcurementIndex } from "@/server/admin/finance/procurement/queries";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Procurement administration",
@@ -32,7 +33,7 @@ function formatDate(value: string | null) {
   if (!value) return "—";
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value));
 }
 

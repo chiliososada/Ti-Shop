@@ -8,6 +8,7 @@ import {
 } from "@/lib/managed-page-content";
 import type { ManagedPageDefinition } from "@/lib/managed-page-routes";
 import type { PublicManagedPage } from "@/server/content/public-managed-pages";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 function ContentBlock({ block }: { block: ManagedPageContentBlock }) {
   if (block.type === "heading") {
@@ -67,7 +68,7 @@ export function ManagedPageContent({
           <p className="font-mono text-caption uppercase tracking-wider text-muted">
             Last updated {new Intl.DateTimeFormat("en-US", {
               dateStyle: "long",
-              timeZone: "UTC",
+              timeZone: DISPLAY_TIME_ZONE,
             }).format(new Date(page.updatedAt))}
           </p>
           <div className="mt-8 space-y-6 rounded-2xl border border-ink-900/[0.08] bg-surface p-6 md:p-8">

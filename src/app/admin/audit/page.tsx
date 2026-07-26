@@ -4,6 +4,7 @@ import { connection } from "next/server";
 
 import { getAdminAuditIndex } from "@/server/admin/access/queries";
 import type { AuditFilters } from "@/server/admin/access/validators";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Administration audit log",
@@ -16,7 +17,7 @@ function formatTimestamp(value: string) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value));
 }
 
@@ -52,9 +53,10 @@ export default async function AdminAuditPage({
           </p>
           <h1 className="mt-3 text-h2 text-strong">Administration audit log</h1>
           <p className="mt-3 max-w-3xl text-body">
-            Review administrative mutations by actor, action, resource, and UTC
-            date. This index deliberately omits stored before/after payloads to
-            avoid broad disclosure of customer or operational data.
+            Review administrative mutations by actor, action, resource, and
+            date. Timestamps display in US Central Time; the date filters below
+            use UTC days. This index deliberately omits stored before/after
+            payloads to avoid broad disclosure of customer or operational data.
           </p>
         </header>
 

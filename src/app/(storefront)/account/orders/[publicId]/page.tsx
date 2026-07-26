@@ -13,6 +13,7 @@ import { getCurrentUserOrder } from "@/server/orders/queries";
 import { getPublicWhatsAppPresentation } from "@/server/whatsapp/config";
 
 import { NowPaymentsCheckoutButton } from "./NowPaymentsCheckoutButton";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Order details",
@@ -24,7 +25,7 @@ function formatDate(value: string | null) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value));
 }
 

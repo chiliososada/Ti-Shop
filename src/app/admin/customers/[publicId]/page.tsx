@@ -13,6 +13,7 @@ import {
   restoreCustomerAccountAction,
   updateCustomerProfileAction,
 } from "../actions";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Customer account administration",
@@ -24,7 +25,7 @@ function formatDate(value: string | null) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value));
 }
 
@@ -60,7 +61,7 @@ export default async function AdminCustomerPage({
             {customer.email} · {customer.emailVerified ? "Email verified" : "Email not verified"} · {customer.accountControls.isDisabled ? "Account disabled" : "Account active"}
           </p>
           <p className="mt-2 text-caption text-muted">
-            Joined {formatDate(customer.createdAt)} UTC · Updated {formatDate(customer.updatedAt)} UTC
+            Joined {formatDate(customer.createdAt)} CT · Updated {formatDate(customer.updatedAt)} CT
           </p>
         </header>
 

@@ -10,6 +10,7 @@ import {
   type SearchParameter,
 } from "@/lib/pagination";
 import { listCurrentUserOrders } from "@/server/orders/queries";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "My orders",
@@ -20,7 +21,7 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value));
 }
 

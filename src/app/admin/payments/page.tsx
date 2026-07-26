@@ -11,6 +11,7 @@ import {
   updateOnlinePaymentSwitchAction,
   updatePaymentMethodConfigAction,
 } from "./actions";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Payment settings administration",
@@ -21,7 +22,7 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value));
 }
 

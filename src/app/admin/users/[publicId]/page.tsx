@@ -16,6 +16,7 @@ import {
   removeSystemRoleAction,
   setAdminProfileActiveAction,
 } from "../actions";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "User access administration",
@@ -26,7 +27,7 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value));
 }
 
@@ -83,7 +84,7 @@ export default async function AdminUserPage({
             {user.email} · {user.emailVerified ? "Email verified" : "Email not verified"}
           </p>
           <p className="mt-2 text-caption text-muted">
-            Created {formatDate(user.createdAt)} UTC · Updated {formatDate(user.updatedAt)} UTC
+            Created {formatDate(user.createdAt)} CT · Updated {formatDate(user.updatedAt)} CT
           </p>
           {!user.emailVerified ? (
             <p className="mt-4 rounded-xl bg-clay-50 p-4 text-sm text-clay-700">

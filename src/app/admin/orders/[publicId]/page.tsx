@@ -17,6 +17,7 @@ import {
   recordManualPaymentRefundAction,
   reviewManualPaymentAction,
 } from "../actions";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Order review",
@@ -28,8 +29,8 @@ function formatDate(value: string | null) {
   return `${new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
-  }).format(new Date(value))} UTC`;
+    timeZone: DISPLAY_TIME_ZONE,
+  }).format(new Date(value))} CT`;
 }
 
 function displayMoney(value: string, currency: string) {

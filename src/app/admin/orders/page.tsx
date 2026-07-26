@@ -10,6 +10,7 @@ import {
 import { buildQueryHref, type SearchParameter } from "@/lib/pagination";
 import type { AdminOrderIndexFilters } from "@/server/admin/orders/queries";
 import { getAdminOrderIndex } from "@/server/admin/orders/queries";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Order administration",
@@ -20,7 +21,7 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value));
 }
 
@@ -186,7 +187,7 @@ export default async function AdminOrdersPage({
                         {order.orderNumber}
                       </p>
                       <p className="mt-1 text-xs text-muted">
-                        {formatDate(order.createdAt)} UTC
+                        {formatDate(order.createdAt)} CT
                       </p>
                     </td>
                     <td className="py-4 pr-4">

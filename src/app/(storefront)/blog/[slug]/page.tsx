@@ -25,6 +25,7 @@ import {
   getPublicBlogPostBySlug,
   getPublicBlogPosts,
 } from "@/server/content";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -112,7 +113,7 @@ function formatDate(iso: string) {
     year: "numeric",
     month: "long",
     day: "numeric",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   });
 }
 

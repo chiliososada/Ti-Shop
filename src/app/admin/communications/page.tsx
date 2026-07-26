@@ -10,6 +10,7 @@ import type { AdminCommunicationsFilters } from "@/server/admin/communications/f
 import { getAdminCommunicationsIndex } from "@/server/admin/communications/queries";
 
 import { createWhatsAppFollowUpAction } from "./actions";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Customer communications administration",
@@ -21,7 +22,7 @@ function formatDate(value: string | null) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value));
 }
 

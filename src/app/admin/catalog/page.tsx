@@ -11,6 +11,7 @@ import { PaginationNav } from "@/components/PaginationNav";
 import { buildQueryHref, type SearchParameter } from "@/lib/pagination";
 import type { AdminCatalogFilters } from "@/server/admin/catalog/filters";
 import { getAdminCatalogIndex } from "@/server/admin/catalog/queries";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Catalog administration",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 function dateLabel(value: string | null) {
-  return value ? new Date(value).toLocaleString("en-US", { timeZone: "UTC" }) : "Not published";
+  return value ? new Date(value).toLocaleString("en-US", { timeZone: DISPLAY_TIME_ZONE }) : "Not published";
 }
 
 const inputClass =

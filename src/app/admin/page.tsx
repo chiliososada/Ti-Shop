@@ -4,6 +4,7 @@ import { connection } from "next/server";
 
 import { SignOutButton } from "@/components/auth/SignOutButton";
 import { getAdminOverview } from "@/server/admin/overview";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Administration",
@@ -123,7 +124,7 @@ function formatTimestamp(value: Date) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(value);
 }
 

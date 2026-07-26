@@ -6,6 +6,7 @@ import { PaginationNav } from "@/components/PaginationNav";
 import { buildQueryHref, type SearchParameter } from "@/lib/pagination";
 import type { AdminCustomerFilters } from "@/server/admin/customers/filters";
 import { getAdminCustomerIndex } from "@/server/admin/customers/queries";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Customer administration",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 function formatDate(value: string) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value));
 }
 

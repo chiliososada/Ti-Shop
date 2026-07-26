@@ -9,6 +9,7 @@ import type { AdminFulfillmentIndexFilters } from "@/server/admin/fulfillment/qu
 import { getAdminFulfillmentIndex } from "@/server/admin/fulfillment/queries";
 
 import { createCarrierAction, updateCarrierAction } from "./actions";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "Fulfillment administration",
@@ -24,7 +25,7 @@ function formatDate(value: string | null) {
   return `${new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(new Date(value))} UTC`;
 }
 

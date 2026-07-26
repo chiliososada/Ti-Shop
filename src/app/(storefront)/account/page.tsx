@@ -8,6 +8,7 @@ import { getAccountOverview } from "@/server/account/account";
 import { ProfileActionForm } from "./_components/ProfileActionForm";
 import { PasswordChangeForm } from "./_components/PasswordChangeForm";
 import { updateCustomerProfileAction } from "./actions";
+import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
   title: "My account",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 function formatDate(value: Date) {
   return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
-    timeZone: "UTC",
+    timeZone: DISPLAY_TIME_ZONE,
   }).format(value);
 }
 
