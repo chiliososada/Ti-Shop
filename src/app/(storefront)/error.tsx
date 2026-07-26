@@ -19,7 +19,7 @@ export default function PublicError({
         <div className="mx-auto max-w-xl rounded-2xl bg-surface-alt p-8 text-center ring-1 ring-ink-900/[0.08]">
           <h1 className="text-h4 text-strong">Storefront temporarily unavailable</h1>
           <p className="mt-3 text-body">
-            We could not load the current published catalogue. No cached or
+            We could not load the current published catalog. No cached or
             unverified product data has been substituted.
           </p>
           <button

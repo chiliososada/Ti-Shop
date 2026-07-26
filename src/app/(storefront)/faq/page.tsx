@@ -8,9 +8,9 @@ import { createPublicPageMetadata } from "@/lib/public-page-metadata";
 import { getPublicFaqs } from "@/server/content";
 
 export const metadata: Metadata = createPublicPageMetadata({
-  title: "Research Peptide FAQ — US Shipping & Payment",
+  title: "Research Peptide FAQ — United States Shipping & Payment",
   description:
-    "Answers on product specifications, lot documents, US shipping, enabled payment methods and research-use restrictions.",
+    "Answers on product specifications, lot documents, United States shipping, enabled payment methods and research-use restrictions.",
   canonical: "/faq",
 });
 

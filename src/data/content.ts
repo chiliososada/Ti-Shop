@@ -20,7 +20,7 @@ export const homeSections = {
       "Catalog details help identify a material, but they do not replace the documents for the product and lot you may receive. Ask us to confirm the current specification and the availability of a COA, SDS or other requested document before ordering.",
   },
   catalogue: {
-    eyebrow: "Research Catalogue",
+    eyebrow: "Research Catalog",
     heading: `${products.length} Catalog Listings Across ${categories.length} Categories`,
     intro:
       `Explore ${products.length} research-use listings across ${categories.length} categories. Each listing is grouped by research area to support catalog discovery; suitability for a particular experiment remains the purchaser's responsibility.`,
@@ -141,7 +141,7 @@ export const faqs = [
   },
   {
     q: "Which countries do you ship to, and how?",
-    a: "The storefront currently accepts eligible United States addresses only. Carrier, service level, charge, handling requirements and estimated timing are confirmed for each order. An estimate is not a delivery guarantee.",
+    a: "The storefront currently accepts eligible United States addresses only. Carrier, service level, charges, handling requirements and estimated timing are confirmed for each order. An estimate is not a delivery guarantee.",
   },
   {
     q: "How should research materials be stored?",

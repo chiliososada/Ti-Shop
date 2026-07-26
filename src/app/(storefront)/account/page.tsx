@@ -74,7 +74,7 @@ export default async function AccountPage({
               {account.profile?.preferredCurrency ?? "USD"} · {account.profile?.countryCode ?? "US"}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-muted">
-              US storefront defaults are active for this account.
+              United States storefront defaults are active for this account.
             </p>
           </article>
           <article className="rounded-2xl border border-ink-900/[0.08] bg-surface p-6">

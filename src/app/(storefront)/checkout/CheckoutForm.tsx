@@ -384,7 +384,7 @@ export function CheckoutForm({
         {checkoutCharges ? (
           <div className="mt-4 space-y-2 border-t border-ink-900/10 pt-4 text-sm">
             <div className="flex justify-between gap-4 text-body">
-              <span>Configured US shipping</span>
+              <span>Configured United States shipping</span>
               <span>{formatUsdMinor(displayedShippingMinor.toString())}</span>
             </div>
             <div className="flex justify-between gap-4 text-body">
@@ -405,8 +405,8 @@ export function CheckoutForm({
           </div>
         ) : (
           <p className="mt-4 rounded-xl bg-clay-50 p-4 text-sm leading-relaxed text-clay-600">
-            Checkout is paused until an administrator explicitly configures US
-            shipping and tax charges. No zero charge is assumed.
+            Checkout is paused until an administrator explicitly configures
+            United States shipping and tax charges. No zero charge is assumed.
           </p>
         )}
 

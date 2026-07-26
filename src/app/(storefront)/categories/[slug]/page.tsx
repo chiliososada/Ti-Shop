@@ -115,7 +115,9 @@ export default async function CategoryPage({
         <div className="container-x">
           <div className="mb-8 flex items-center justify-between">
             <p className="text-caption text-muted">
-              {productPage.pagination.total} catalog listings in this category
+              {productPage.pagination.total} catalog{" "}
+              {productPage.pagination.total === 1 ? "listing" : "listings"} in
+              this category
             </p>
             <Button href="/products" variant="outline">
               All products →

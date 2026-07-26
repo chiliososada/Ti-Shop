@@ -128,7 +128,7 @@ export default async function CustomerAddressesPage() {
               <div className="mt-5 rounded-2xl border border-dashed border-ink-900/15 bg-surface p-8 text-center">
                 <h3 className="text-h5 text-strong">No saved addresses yet</h3>
                 <p className="mt-2 text-sm text-muted">
-                  Add your first US address using the form.
+                  Add your first United States address using the form.
                 </p>
               </div>
             )}

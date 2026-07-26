@@ -103,7 +103,7 @@ export default async function Home() {
             </div>
             <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 font-mono text-caption uppercase tracking-wider text-cream-100/70">
               <span>◦ USD storefront</span>
-              <span>◦ US order support</span>
+              <span>◦ United States order support</span>
               <span>◦ Research use only</span>
             </div>
           </div>
@@ -127,12 +127,13 @@ export default async function Home() {
         <div className="container-x">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <SectionHeading
-              eyebrow="Research Catalogue"
+              eyebrow="Research Catalog"
               title={`${categories.length} research catalog categories`}
               intro="Browse by research area, then confirm the current presentation, specification, available documents and order eligibility for the material you need."
             />
             <Button href="/products" variant="outline">
-              Browse all {products.length} products
+              Browse all {products.length}{" "}
+              {products.length === 1 ? "product" : "products"}
             </Button>
           </div>
 
@@ -230,7 +231,7 @@ export default async function Home() {
         <div className="container-x">
           <div className="relative overflow-hidden rounded-3xl bg-sage-600 px-8 py-16 text-center md:px-16 md:py-24">
             <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-6">
-              <Pill tone="cream">Administrator-managed contact options</Pill>
+              <Pill tone="cream">Get in touch</Pill>
               <h2 className="text-h2 text-cream-50">
                 Confirm the details your procurement process requires
               </h2>

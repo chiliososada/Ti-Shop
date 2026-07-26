@@ -48,7 +48,7 @@ export const MANAGED_PAGE_DEFINITIONS = [
     fallbackTitle: "Shipping policy",
     fallbackSeoTitle: "Shipping Policy — United States Orders",
     fallbackDescription:
-      "How supported US destinations, address checks, dispatch updates, tracking and delivery issues are handled for Flintmarrow research orders.",
+      "How supported United States destinations, address checks, dispatch updates, tracking and delivery issues are handled for Flintmarrow research orders.",
     complianceNotice:
       "The storefront supports only eligible United States destinations. A displayed estimate or merchant-entered tracking update is not a carrier guarantee.",
   },

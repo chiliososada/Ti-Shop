@@ -46,7 +46,7 @@ export function SpinShowcase({
           />
         </div>
         <span className="absolute left-6 top-6 font-mono text-caption uppercase tracking-widest text-ink-400">
-          {count} catalog listings
+          {count} catalog {count === 1 ? "listing" : "listings"}
         </span>
         <span className="absolute bottom-6 left-6 rounded-full bg-cream-50/90 px-3 py-1 text-caption font-semibold text-strong ring-1 ring-ink-900/10 backdrop-blur-sm">
           {item.presentation.productName}

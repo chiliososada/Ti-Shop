@@ -48,7 +48,7 @@ export async function generateMetadata({
 
   return createPublicPageMetadata({
     title: `Research-Use Catalog — ${productCount} Products`,
-    description: `Browse ${productCount} research-use catalog listings across ${categoryCount} categories. Confirm current specifications, documents and availability before ordering.`,
+    description: `Browse ${productCount} research-use catalog ${productCount === 1 ? "listing" : "listings"} across ${categoryCount} ${categoryCount === 1 ? "category" : "categories"}. Confirm current specifications, documents and availability before ordering.`,
     canonical: "/products",
     robots: publicRobots(query),
   });
@@ -82,7 +82,7 @@ export default async function ProductsPage({
         ]}
       />
       <PageHero
-        eyebrow="Research Catalogue"
+        eyebrow="Research Catalog"
         title={`${productPage.pagination.total} Research-Use Catalog Listings`}
         intro="Catalog information supports product identification and discovery. Confirm the current specification, lot-document availability and order eligibility for the material you need. Research use only."
         breadcrumbs={[

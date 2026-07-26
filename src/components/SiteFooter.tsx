@@ -62,7 +62,7 @@ export function SiteFooter({
 
           <div>
             <div className="font-mono text-eyebrow uppercase text-sage-400">
-              Catalogue
+              Catalog
             </div>
             <ul className="mt-4 space-y-2.5">
               {categories.map((c) => (

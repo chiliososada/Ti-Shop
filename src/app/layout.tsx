@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   keywords: [
     "research-use peptide catalog",
     "laboratory research materials",
-    "US research material procurement",
+    "United States research material procurement",
     "peptide catalog documentation",
     "research material specifications",
   ],

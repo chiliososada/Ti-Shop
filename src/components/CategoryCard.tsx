@@ -25,7 +25,7 @@ export function CategoryCard({
       </div>
       <div className="flex flex-1 flex-col p-6">
         <span className="font-mono text-caption uppercase tracking-widest text-sage-600">
-          {count} catalog listings
+          {count} catalog {count === 1 ? "listing" : "listings"}
         </span>
         <h3 className="mt-2 text-h5 text-strong">{category.name}</h3>
         <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-muted">

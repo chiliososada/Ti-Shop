@@ -34,7 +34,7 @@ export const categories: Category[] = [
     name: "Immune, Inflammation & Cell-Signaling Research",
     short: "Immune & Cell Signaling",
     description:
-      "LL-37, KPV, Thymosin α-1 and related listings commonly referenced in immune, antimicrobial, inflammation and cell-signaling research.",
+      "LL-37, KPV, Thymosin α-1 and related listings commonly referenced in antimicrobial, immune, inflammation and cell-signaling research.",
     hero: "/categories/antibacterial.jpg",
     accent: ["#23b0c2", "#0f5871"],
     iconPath: "M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z",

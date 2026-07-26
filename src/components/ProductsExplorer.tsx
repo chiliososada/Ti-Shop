@@ -92,7 +92,8 @@ export function ProductsExplorer({
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
         <p className="text-caption text-muted" aria-live="polite">
-          Showing {products.length} of {total} catalog listings
+          Showing {products.length} of {total} catalog{" "}
+          {total === 1 ? "listing" : "listings"}
         </p>
         <nav
           aria-label="Sort products"
