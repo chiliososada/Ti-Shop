@@ -3,8 +3,8 @@ export const company = {
   tagline: "Research Materials for Laboratory Procurement",
   description:
     "Flintmarrow lists research-use peptide materials for laboratory procurement, with USD pricing and service for supported United States addresses.",
-  email: "support@flintmarrow.com",
-  supportEmail: "support@flintmarrow.com",
+  email: "sales01@flintmarrow.com",
+  supportEmail: "sales01@flintmarrow.com",
   domain: "flintmarrow.com",
   url: "https://flintmarrow.com",
   defaultCurrency: "USD",
