@@ -444,7 +444,7 @@ export function CheckoutForm({
           }
           className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-ink-900 px-6 py-3.5 text-sm font-semibold text-cream-50 transition hover:bg-sage-600 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {pending ? "Creating order…" : "Create pending order"}
+          {pending ? "Creating order…" : "Create order"}
         </button>
         <p className="mt-3 text-center text-caption text-muted">
           This button does not mark any payment as paid.
