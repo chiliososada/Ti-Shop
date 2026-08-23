@@ -70,6 +70,28 @@ describe("parseStorageRuntimeEnv", () => {
     ).toThrow(/https/u);
   });
 
+  it("allows a plain-http S3 endpoint on a private Docker network in production", () => {
+    expect(
+      parseStorageRuntimeEnv(
+        { ...VALID, STORAGE_S3_ENDPOINT: "http://minio:9000" },
+        "production",
+      ).s3Endpoint,
+    ).toBe("http://minio:9000");
+    expect(
+      parseStorageRuntimeEnv(
+        { ...VALID, STORAGE_S3_ENDPOINT: "http://172.31.250.20:9000" },
+        "production",
+      ).s3Endpoint,
+    ).toBe("http://172.31.250.20:9000");
+    // The browser-facing public base URL never gets the private exemption.
+    expect(() =>
+      parseStorageRuntimeEnv(
+        { ...VALID, STORAGE_PUBLIC_BASE_URL: "http://minio:9000/media" },
+        "production",
+      ),
+    ).toThrow(/https/u);
+  });
+
   it("rejects URLs with credentials, query, or fragment", () => {
     for (const bad of [
       "https://user:pass@example.com/s3",

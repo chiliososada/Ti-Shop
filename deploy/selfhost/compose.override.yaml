@@ -1,0 +1,74 @@
+# Self-hosted data services for a single-box deployment (PostgreSQL + MinIO
+# on the same Docker host as the app). Copy this file to the project root as
+# `compose.override.yaml` on the server; Compose merges it with compose.yaml.
+#
+# Required .env keys (generate with `openssl rand -hex 24`):
+#   POSTGRES_SUPERUSER_PASSWORD, TI_SHOP_MIGRATOR_PASSWORD, TI_SHOP_APP_PASSWORD,
+#   MINIO_ROOT_USER, MINIO_ROOT_PASSWORD
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "${POSTGRES_SUPERUSER_PASSWORD:?POSTGRES_SUPERUSER_PASSWORD must be set}"
+      POSTGRES_DB: ti_shop
+      TI_SHOP_MIGRATOR_PASSWORD: "${TI_SHOP_MIGRATOR_PASSWORD:?TI_SHOP_MIGRATOR_PASSWORD must be set}"
+      TI_SHOP_APP_PASSWORD: "${TI_SHOP_APP_PASSWORD:?TI_SHOP_APP_PASSWORD must be set}"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./deploy/selfhost/db-init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - data
+    shm_size: 256m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ti_shop"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  minio:
+    image: minio/minio:RELEASE.2025-04-22T22-12-26Z
+    restart: unless-stopped
+    command: server /data
+    environment:
+      MINIO_ROOT_USER: "${MINIO_ROOT_USER:?MINIO_ROOT_USER must be set}"
+      MINIO_ROOT_PASSWORD: "${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD must be set}"
+    volumes:
+      - miniodata:/data
+    # Only the S3 API, only on loopback: the edge proxy (Kong) publishes the
+    # public read path for the media bucket; the console is never exposed.
+    ports:
+      - "127.0.0.1:9000:9000"
+    networks:
+      - data
+      - edge
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 15s
+      timeout: 5s
+      retries: 8
+
+  app:
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - data
+
+  operations:
+    networks:
+      - data
+
+  migrate:
+    networks:
+      - data
+
+networks:
+  data:
+    driver: bridge
+    internal: true
+
+volumes:
+  pgdata:
+  miniodata:

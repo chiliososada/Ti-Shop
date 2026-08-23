@@ -59,6 +59,18 @@ const CONFIG_KEYS = [
   "STORAGE_PUBLIC_BASE_URL",
 ] as const;
 
+/**
+ * Hostnames reachable only on a private network: Docker service names (no
+ * dot) and RFC 1918 addresses. Mirrors the PostgreSQL URL policy, where a
+ * private host may skip TLS because traffic never leaves the host/network.
+ */
+function isPrivateNetworkHost(hostname: string): boolean {
+  const normalized = hostname.toLowerCase();
+  if (isLoopbackHost(normalized)) return false;
+  if (!normalized.includes(".")) return true;
+  return /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/u.test(normalized);
+}
+
 function isLoopbackHost(hostname: string): boolean {
   return (
     hostname === "localhost" ||
@@ -73,6 +85,7 @@ function normalizeHttpUrl(
   value: string,
   label: string,
   nodeEnv: string | undefined,
+  options: { allowPrivateHttp?: boolean } = {},
 ): string {
   let url: URL;
   try {
@@ -83,11 +96,16 @@ function normalizeHttpUrl(
   if (url.protocol !== "https:" && url.protocol !== "http:") {
     throw new Error(`${label} must use http:// or https://.`);
   }
-  if (
-    url.protocol === "http:" &&
-    (nodeEnv === "production" || !isLoopbackHost(url.hostname))
-  ) {
-    throw new Error(`${label} must use https:// outside loopback development.`);
+  if (url.protocol === "http:") {
+    const loopbackDevelopment =
+      nodeEnv !== "production" && isLoopbackHost(url.hostname);
+    const privateNetwork =
+      options.allowPrivateHttp === true && isPrivateNetworkHost(url.hostname);
+    if (!loopbackDevelopment && !privateNetwork) {
+      throw new Error(
+        `${label} must use https:// outside loopback development or a private-network host.`,
+      );
+    }
   }
   if (url.username || url.password || url.search || url.hash) {
     throw new Error(`${label} must not contain credentials, query, or fragment.`);
@@ -127,7 +145,15 @@ export function parseStorageRuntimeEnv(
   return {
     provider: parsed.STORAGE_PROVIDER,
     productImagesBucket: parsed.STORAGE_BUCKET_PRODUCT_IMAGES,
-    s3Endpoint: normalizeHttpUrl(parsed.STORAGE_S3_ENDPOINT, "STORAGE_S3_ENDPOINT", nodeEnv),
+    // The S3 API endpoint may sit on a private Docker network (e.g. a
+    // self-hosted MinIO service) where plain HTTP never leaves the host.
+    // The public base URL is browser-facing and keeps the strict rule.
+    s3Endpoint: normalizeHttpUrl(
+      parsed.STORAGE_S3_ENDPOINT,
+      "STORAGE_S3_ENDPOINT",
+      nodeEnv,
+      { allowPrivateHttp: true },
+    ),
     s3Region: parsed.STORAGE_S3_REGION,
     s3AccessKeyId: parsed.STORAGE_S3_ACCESS_KEY_ID,
     s3SecretAccessKey: parsed.STORAGE_S3_SECRET_ACCESS_KEY,
