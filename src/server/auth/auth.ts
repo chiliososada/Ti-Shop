@@ -7,6 +7,9 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { accountNameSchema } from "@/server/auth/account-name";
 import { getAuthRuntimeEnv } from "@/server/config/runtime-env";
 import { getDb } from "@/server/db/client";
+import { renderPasswordResetEmail } from "@/server/email/account-emails";
+import { getEmailConfigState } from "@/server/email/config";
+import { sendViaSmtp } from "@/server/email/transport";
 
 function createAuth() {
   const env = getAuthRuntimeEnv();
@@ -28,6 +31,25 @@ function createAuth() {
       minPasswordLength: 6,
       maxPasswordLength: 128,
       requireEmailVerification: false,
+      resetPasswordTokenExpiresIn: 60 * 60,
+      async sendResetPassword({ user, url }) {
+        const emailConfig = getEmailConfigState();
+        if (!emailConfig.configured) {
+          // Failing loudly beats telling the customer an email is on the way
+          // when no mail can leave the box.
+          throw new Error(emailConfig.reason);
+        }
+        const rendered = renderPasswordResetEmail({
+          resetUrl: url,
+          expiresMinutes: 60,
+        });
+        await sendViaSmtp(emailConfig.env, {
+          to: user.email,
+          subject: rendered.subject,
+          html: rendered.html,
+          text: rendered.text,
+        });
+      },
     },
     user: {
       additionalFields: {

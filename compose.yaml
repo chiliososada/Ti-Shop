@@ -41,6 +41,16 @@ services:
       STORAGE_REQUEST_TIMEOUT_MS: "${STORAGE_REQUEST_TIMEOUT_MS:-15000}"
       PRODUCT_IMAGE_MAX_BYTES: "${PRODUCT_IMAGE_MAX_BYTES:-10485760}"
       PRODUCT_IMAGE_ALLOWED_TYPES: "${PRODUCT_IMAGE_ALLOWED_TYPES:-image/jpeg,image/png,image/webp,image/avif}"
+      # Password-reset email is sent inline from the auth endpoint, so the
+      # app needs the same SMTP scope as the notification worker.
+      SMTP_HOST: "${SMTP_HOST:-}"
+      SMTP_PORT: "${SMTP_PORT:-465}"
+      SMTP_SECURE: "${SMTP_SECURE:-}"
+      SMTP_USER: "${SMTP_USER:-}"
+      SMTP_PASSWORD: "${SMTP_PASSWORD:-}"
+      MAIL_FROM_NAME: "${MAIL_FROM_NAME:-Flintmarrow}"
+      MAIL_FROM_ADDRESS: "${MAIL_FROM_ADDRESS:-}"
+      MAIL_REPLY_TO: "${MAIL_REPLY_TO:-}"
     expose:
       - "3000"
     networks:

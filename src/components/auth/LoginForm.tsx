@@ -2,6 +2,7 @@
 
 import type { FormEvent } from "react";
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { EmailField, PasswordField } from "@/components/auth/AuthFormFields";
@@ -63,6 +64,14 @@ export function LoginForm({ callbackUrl }: { callbackUrl: string }) {
     <form className="space-y-5" onSubmit={handleSubmit}>
       <EmailField />
       <PasswordField />
+      <p className="text-right text-sm">
+        <Link
+          href="/forgot-password"
+          className="font-semibold text-sage-700 hover:text-sage-600"
+        >
+          Forgot password?
+        </Link>
+      </p>
 
       {errorMessage ? (
         <p
