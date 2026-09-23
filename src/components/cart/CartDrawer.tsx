@@ -170,17 +170,9 @@ export function CartDrawer({ whatsappEnabled }: { whatsappEnabled: boolean }) {
                 prices when an order is created.
               </p>
               <p className="mt-3 rounded-lg bg-surface-alt px-3 py-2 text-caption text-body">
-                Checkout requires an email/password account. Creating an order
-                does not mark a payment as paid; payment status is confirmed
-                separately.
+                Orders are confirmed on WhatsApp. Send this cart and we will
+                confirm availability, shipping and payment details in the chat.
               </p>
-              <Link
-                href="/checkout"
-                onClick={close}
-                className="mt-4 flex w-full items-center justify-center rounded-full bg-ink-900 px-6 py-3.5 text-sm font-semibold text-cream-50 transition-colors hover:bg-sage-600"
-              >
-                Continue to checkout
-              </Link>
               {whatsappEnabled ? (
                 <WhatsAppIntentButton
                   intent={{
@@ -191,10 +183,10 @@ export function CartDrawer({ whatsappEnabled }: { whatsappEnabled: boolean }) {
                       quantity: line.qty,
                     })),
                   }}
-                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-full border border-ink-900/15 px-6 py-3.5 text-sm font-semibold text-strong transition-colors hover:bg-surface-alt disabled:cursor-wait disabled:opacity-70"
+                  className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-ink-900 px-6 py-3.5 text-sm font-semibold text-cream-50 transition-colors hover:bg-sage-600 disabled:cursor-wait disabled:opacity-70"
                   fallbackClassName="mt-2 block text-center text-caption font-semibold text-strong underline"
                 >
-                  Ask about this cart on WhatsApp
+                  Order this cart on WhatsApp
                 </WhatsAppIntentButton>
               ) : (
                 <p className="mt-3 text-center text-caption text-muted">

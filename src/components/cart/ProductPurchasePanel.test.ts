@@ -90,9 +90,7 @@ describe("ProductPurchasePanel", () => {
     expect(html).toMatch(
       /<button(?=[^>]*disabled="")[^>]*>Add to cart<\/button>/u,
     );
-    expect(html).toMatch(
-      /<button(?=[^>]*disabled="")[^>]*>Buy now<\/button>/u,
-    );
-    expect(html).toContain("Ask about this product on WhatsApp");
+    expect(html).not.toContain("Buy now");
+    expect(html).toContain("Order on WhatsApp");
   });
 });

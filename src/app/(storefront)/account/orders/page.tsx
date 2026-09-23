@@ -50,10 +50,10 @@ export default async function CustomerOrdersPage({
             </p>
           </div>
           <Link
-            href="/checkout"
+            href="/products"
             className="inline-flex rounded-full bg-ink-900 px-6 py-3 text-sm font-semibold text-cream-50 hover:bg-sage-600"
           >
-            Go to checkout
+            Browse products
           </Link>
         </div>
 

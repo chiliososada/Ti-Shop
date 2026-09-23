@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import type { CartProductSnapshot } from "./CartProvider";
 import { useCart } from "./CartProvider";
 import { WhatsAppIntentButton } from "@/components/whatsapp/WhatsAppIntentButton";
@@ -18,8 +17,7 @@ export function ProductBuyActions({
   productSlug: string;
   whatsappEnabled: boolean;
 }) {
-  const router = useRouter();
-  const { add, buyNow, close } = useCart();
+  const { add } = useCart();
   const [qty, setQty] = useState(product?.minimumOrderQuantity ?? 1);
 
   if (!product) {
@@ -91,33 +89,28 @@ export function ProductBuyActions({
         >
           Add to cart
         </button>
-        <button
-          onClick={() => {
-            if (!directPurchaseAvailable) return;
-            buyNow(product, qty);
-            close();
-            router.push("/checkout");
-          }}
-          disabled={!directPurchaseAvailable}
-          className="inline-flex flex-1 items-center justify-center rounded-full bg-ink-900 px-8 py-4 text-[0.95rem] font-semibold text-cream-50 transition-colors hover:bg-sage-600 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          Buy now
-        </button>
+        {whatsappEnabled ? (
+          <WhatsAppIntentButton
+            intent={{
+              templateKey: "cart",
+              lines: [
+                {
+                  productSlug: product.slug,
+                  variantPublicId: product.variantPublicId,
+                  quantity: qty,
+                },
+              ],
+            }}
+            className="inline-flex flex-1 items-center justify-center rounded-full bg-ink-900 px-8 py-4 text-[0.95rem] font-semibold text-cream-50 transition-colors hover:bg-sage-600 disabled:cursor-wait disabled:opacity-70"
+          >
+            Order on WhatsApp
+          </WhatsAppIntentButton>
+        ) : null}
       </div>
       {product.minimumOrderQuantity > 1 ? (
         <p className="mt-3 text-sm text-muted">
-          Minimum direct-purchase quantity: {product.minimumOrderQuantity}.
+          Minimum order quantity: {product.minimumOrderQuantity}.
         </p>
-      ) : null}
-      {whatsappEnabled ? (
-        <div className="mt-3 flex flex-col items-start gap-2">
-          <WhatsAppIntentButton
-            intent={{ templateKey: "product", productSlug }}
-            className="text-sm font-semibold text-sage-700 underline underline-offset-4 disabled:cursor-wait disabled:opacity-70"
-          >
-            Ask about this product on WhatsApp
-          </WhatsAppIntentButton>
-        </div>
       ) : null}
     </div>
   );
