@@ -31,7 +31,10 @@
     "storage:process-outbox": "NODE_OPTIONS=--conditions=react-server tsx scripts/process-storage-outbox.ts",
     "email:process-outbox": "NODE_OPTIONS=--conditions=react-server tsx scripts/process-email-outbox.ts",
     "storage:scan-orphans": "NODE_OPTIONS=--conditions=react-server tsx scripts/scan-storage-orphans.ts",
-    "security:cleanup-rate-limits": "NODE_OPTIONS=--conditions=react-server tsx scripts/cleanup-rate-limits.ts"
+    "security:cleanup-rate-limits": "NODE_OPTIONS=--conditions=react-server tsx scripts/cleanup-rate-limits.ts",
+    "catalog:extract": "python3 scripts/extract-price-list.py",
+    "catalog:build": "tsx scripts/build-supplier-catalog.ts",
+    "catalog:sync": "tsx scripts/sync-supplier-catalog.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.1086.0",

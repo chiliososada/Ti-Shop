@@ -45,7 +45,22 @@ async function loadDatabaseProducts() {
   }
 }
 
-const productMap = new Map(catalogProducts.map((product) => [product.image, product]));
+// The supplier price-list catalog is the source of truth for current titles and
+// presentations; legacy products.json and the database only add images that the
+// current catalog no longer references (archived listings keep their files).
+const supplierCatalogPath = join(root, "src/data/supplier-catalog.json");
+const supplierProducts = existsSync(supplierCatalogPath)
+  ? JSON.parse(await readFile(supplierCatalogPath, "utf8")).products.map((product) => ({
+      name: product.title,
+      presentation: product.presentation,
+      image: product.image,
+    }))
+  : [];
+
+const productMap = new Map(supplierProducts.map((product) => [product.image, product]));
+for (const product of catalogProducts) {
+  if (!productMap.has(product.image)) productMap.set(product.image, product);
+}
 for (const product of await loadDatabaseProducts()) {
   if (!productMap.has(product.image)) productMap.set(product.image, product);
 }

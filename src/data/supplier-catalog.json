@@ -1,0 +1,4199 @@
+{
+  "source": "Price_List.xlsx",
+  "sheet": "Sheet1",
+  "priceColumn": "H",
+  "priceTier": "<200 Boxes (Total Order)",
+  "currency": "USD",
+  "priceUnit": "box",
+  "generatedFrom": "scripts/build-supplier-catalog.ts",
+  "products": [
+    {
+      "slug": "tirzepatide",
+      "previousSlug": null,
+      "title": "Tirzepatide 5mg",
+      "family": "Tirzepatide",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR5"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "priceUsd": 30,
+      "available": true,
+      "image": "/products/tirzepatide-1.webp",
+      "shortDescription": "Tirzepatide 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: TR5.",
+      "description": "Tirzepatide 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tirzepatide",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tirzepatide-10mg",
+      "previousSlug": null,
+      "title": "Tirzepatide 10mg",
+      "family": "Tirzepatide",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR10"
+      ],
+      "sourceRows": [
+        3
+      ],
+      "priceUsd": 51,
+      "available": true,
+      "image": "/products/tirzepatide-10mg.jpg",
+      "shortDescription": "Tirzepatide 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: TR10.",
+      "description": "Tirzepatide 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tirzepatide-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tirzepatide-15mg",
+      "previousSlug": null,
+      "title": "Tirzepatide 15mg",
+      "family": "Tirzepatide",
+      "strength": "15mg",
+      "packCount": 10,
+      "presentation": "15mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR15"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "priceUsd": 67,
+      "available": true,
+      "image": "/products/tirzepatide-15mg.jpg",
+      "shortDescription": "Tirzepatide 15mg catalog listing. Supplier presentation: 15mg per vial, 10 vials/box. Product code: TR15.",
+      "description": "Tirzepatide 15mg catalog listing for laboratory procurement. Supplier presentation: 15mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR15 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tirzepatide-15mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tirzepatide-20mg",
+      "previousSlug": null,
+      "title": "Tirzepatide 20mg",
+      "family": "Tirzepatide",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR20"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "priceUsd": 89,
+      "available": true,
+      "image": "/products/tirzepatide-20mg.jpg",
+      "shortDescription": "Tirzepatide 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: TR20.",
+      "description": "Tirzepatide 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tirzepatide-20mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tirzepatide-30mg",
+      "previousSlug": null,
+      "title": "Tirzepatide 30mg",
+      "family": "Tirzepatide",
+      "strength": "30mg",
+      "packCount": 10,
+      "presentation": "30mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR30"
+      ],
+      "sourceRows": [
+        6
+      ],
+      "priceUsd": 117,
+      "available": true,
+      "image": "/products/tirzepatide-30mg.jpg",
+      "shortDescription": "Tirzepatide 30mg catalog listing. Supplier presentation: 30mg per vial, 10 vials/box. Product code: TR30.",
+      "description": "Tirzepatide 30mg catalog listing for laboratory procurement. Supplier presentation: 30mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR30 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tirzepatide-30mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tirzepatide-40mg",
+      "previousSlug": null,
+      "title": "Tirzepatide 40mg",
+      "family": "Tirzepatide",
+      "strength": "40mg",
+      "packCount": 10,
+      "presentation": "40mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR40"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "priceUsd": 144,
+      "available": true,
+      "image": "/products/tirzepatide-40mg.jpg",
+      "shortDescription": "Tirzepatide 40mg catalog listing. Supplier presentation: 40mg per vial, 10 vials/box. Product code: TR40.",
+      "description": "Tirzepatide 40mg catalog listing for laboratory procurement. Supplier presentation: 40mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR40 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tirzepatide-40mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tirzepatide-50mg",
+      "previousSlug": null,
+      "title": "Tirzepatide 50mg",
+      "family": "Tirzepatide",
+      "strength": "50mg",
+      "packCount": 10,
+      "presentation": "50mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR50"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "priceUsd": 172,
+      "available": true,
+      "image": "/products/tirzepatide-50mg.jpg",
+      "shortDescription": "Tirzepatide 50mg catalog listing. Supplier presentation: 50mg per vial, 10 vials/box. Product code: TR50.",
+      "description": "Tirzepatide 50mg catalog listing for laboratory procurement. Supplier presentation: 50mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR50 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tirzepatide-50mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tirzepatide-60mg",
+      "previousSlug": null,
+      "title": "Tirzepatide 60mg",
+      "family": "Tirzepatide",
+      "strength": "60mg",
+      "packCount": 10,
+      "presentation": "60mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR60"
+      ],
+      "sourceRows": [
+        9
+      ],
+      "priceUsd": 196,
+      "available": true,
+      "image": "/products/tirzepatide-60mg.jpg",
+      "shortDescription": "Tirzepatide 60mg catalog listing. Supplier presentation: 60mg per vial, 10 vials/box. Product code: TR60.",
+      "description": "Tirzepatide 60mg catalog listing for laboratory procurement. Supplier presentation: 60mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR60 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tirzepatide-60mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tirzepatide-80mg",
+      "previousSlug": null,
+      "title": "Tirzepatide 80mg",
+      "family": "Tirzepatide",
+      "strength": "80mg",
+      "packCount": 10,
+      "presentation": "80mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR80"
+      ],
+      "sourceRows": [
+        10
+      ],
+      "priceUsd": 247,
+      "available": true,
+      "image": "/products/tirzepatide-80mg.jpg",
+      "shortDescription": "Tirzepatide 80mg catalog listing. Supplier presentation: 80mg per vial, 10 vials/box. Product code: TR80.",
+      "description": "Tirzepatide 80mg catalog listing for laboratory procurement. Supplier presentation: 80mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR80 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "tirzepatide-100mg",
+      "previousSlug": null,
+      "title": "Tirzepatide 100mg",
+      "family": "Tirzepatide",
+      "strength": "100mg",
+      "packCount": 10,
+      "presentation": "100mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR100"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "priceUsd": 274,
+      "available": true,
+      "image": "/products/tirzepatide-100mg.jpg",
+      "shortDescription": "Tirzepatide 100mg catalog listing. Supplier presentation: 100mg per vial, 10 vials/box. Product code: TR100.",
+      "description": "Tirzepatide 100mg catalog listing for laboratory procurement. Supplier presentation: 100mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR100 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tirzepatide-100mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tirzepatide-120mg",
+      "previousSlug": null,
+      "title": "Tirzepatide 120mg",
+      "family": "Tirzepatide",
+      "strength": "120mg",
+      "packCount": 10,
+      "presentation": "120mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "TR120"
+      ],
+      "sourceRows": [
+        12
+      ],
+      "priceUsd": 329,
+      "available": true,
+      "image": "/products/tirzepatide-120mg.jpg",
+      "shortDescription": "Tirzepatide 120mg catalog listing. Supplier presentation: 120mg per vial, 10 vials/box. Product code: TR120.",
+      "description": "Tirzepatide 120mg catalog listing for laboratory procurement. Supplier presentation: 120mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TR120 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tirzepatide-120mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "retatrutide",
+      "previousSlug": null,
+      "title": "Retatrutide 5mg",
+      "family": "Retatrutide",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "RT5"
+      ],
+      "sourceRows": [
+        13
+      ],
+      "priceUsd": 36,
+      "available": true,
+      "image": "/products/retatrutide-1.jpg",
+      "shortDescription": "Retatrutide 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: RT5.",
+      "description": "Retatrutide 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RT5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "retatrutide",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "retatrutide-10mg",
+      "previousSlug": null,
+      "title": "Retatrutide 10mg",
+      "family": "Retatrutide",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "RT10"
+      ],
+      "sourceRows": [
+        14
+      ],
+      "priceUsd": 61,
+      "available": true,
+      "image": "/products/retatrutide-10mg.jpg",
+      "shortDescription": "Retatrutide 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: RT10.",
+      "description": "Retatrutide 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RT10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "retatrutide-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "retatrutide-15mg",
+      "previousSlug": null,
+      "title": "Retatrutide 15mg",
+      "family": "Retatrutide",
+      "strength": "15mg",
+      "packCount": 10,
+      "presentation": "15mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "RT15"
+      ],
+      "sourceRows": [
+        15
+      ],
+      "priceUsd": 84,
+      "available": true,
+      "image": "/products/retatrutide-15mg.jpg",
+      "shortDescription": "Retatrutide 15mg catalog listing. Supplier presentation: 15mg per vial, 10 vials/box. Product code: RT15.",
+      "description": "Retatrutide 15mg catalog listing for laboratory procurement. Supplier presentation: 15mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RT15 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "retatrutide-15mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "retatrutide-20mg",
+      "previousSlug": null,
+      "title": "Retatrutide 20mg",
+      "family": "Retatrutide",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "RT20"
+      ],
+      "sourceRows": [
+        16
+      ],
+      "priceUsd": 105,
+      "available": true,
+      "image": "/products/retatrutide-20mg.jpg",
+      "shortDescription": "Retatrutide 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: RT20.",
+      "description": "Retatrutide 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RT20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "retatrutide-20mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "retatrutide-30mg",
+      "previousSlug": null,
+      "title": "Retatrutide 30mg",
+      "family": "Retatrutide",
+      "strength": "30mg",
+      "packCount": 10,
+      "presentation": "30mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "RT30"
+      ],
+      "sourceRows": [
+        17
+      ],
+      "priceUsd": 148,
+      "available": true,
+      "image": "/products/retatrutide-30mg.jpg",
+      "shortDescription": "Retatrutide 30mg catalog listing. Supplier presentation: 30mg per vial, 10 vials/box. Product code: RT30.",
+      "description": "Retatrutide 30mg catalog listing for laboratory procurement. Supplier presentation: 30mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RT30 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "retatrutide-30mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "retatrutide-40mg",
+      "previousSlug": null,
+      "title": "Retatrutide 40mg",
+      "family": "Retatrutide",
+      "strength": "40mg",
+      "packCount": 10,
+      "presentation": "40mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "RT40"
+      ],
+      "sourceRows": [
+        18
+      ],
+      "priceUsd": 189,
+      "available": true,
+      "image": "/products/retatrutide-40mg.jpg",
+      "shortDescription": "Retatrutide 40mg catalog listing. Supplier presentation: 40mg per vial, 10 vials/box. Product code: RT40.",
+      "description": "Retatrutide 40mg catalog listing for laboratory procurement. Supplier presentation: 40mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RT40 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "retatrutide-40mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "retatrutide-50mg",
+      "previousSlug": null,
+      "title": "Retatrutide 50mg",
+      "family": "Retatrutide",
+      "strength": "50mg",
+      "packCount": 10,
+      "presentation": "50mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "RT50"
+      ],
+      "sourceRows": [
+        19
+      ],
+      "priceUsd": 227,
+      "available": true,
+      "image": "/products/retatrutide-50mg.jpg",
+      "shortDescription": "Retatrutide 50mg catalog listing. Supplier presentation: 50mg per vial, 10 vials/box. Product code: RT50.",
+      "description": "Retatrutide 50mg catalog listing for laboratory procurement. Supplier presentation: 50mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RT50 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "retatrutide-50mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "retatrutide-60mg",
+      "previousSlug": null,
+      "title": "Retatrutide 60mg",
+      "family": "Retatrutide",
+      "strength": "60mg",
+      "packCount": 10,
+      "presentation": "60mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "RT60"
+      ],
+      "sourceRows": [
+        20
+      ],
+      "priceUsd": 260,
+      "available": true,
+      "image": "/products/retatrutide-60mg.jpg",
+      "shortDescription": "Retatrutide 60mg catalog listing. Supplier presentation: 60mg per vial, 10 vials/box. Product code: RT60.",
+      "description": "Retatrutide 60mg catalog listing for laboratory procurement. Supplier presentation: 60mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RT60 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "retatrutide-60mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "retatrutide-80mg",
+      "previousSlug": null,
+      "title": "Retatrutide 80mg",
+      "family": "Retatrutide",
+      "strength": "80mg",
+      "packCount": 10,
+      "presentation": "80mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "RT80"
+      ],
+      "sourceRows": [
+        21
+      ],
+      "priceUsd": 302,
+      "available": true,
+      "image": "/products/retatrutide-80mg.jpg",
+      "shortDescription": "Retatrutide 80mg catalog listing. Supplier presentation: 80mg per vial, 10 vials/box. Product code: RT80.",
+      "description": "Retatrutide 80mg catalog listing for laboratory procurement. Supplier presentation: 80mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RT80 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "retatrutide-100mg",
+      "previousSlug": null,
+      "title": "Retatrutide 100mg",
+      "family": "Retatrutide",
+      "strength": "100mg",
+      "packCount": 10,
+      "presentation": "100mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "RT100"
+      ],
+      "sourceRows": [
+        22
+      ],
+      "priceUsd": 350,
+      "available": true,
+      "image": "/products/retatrutide-100mg.jpg",
+      "shortDescription": "Retatrutide 100mg catalog listing. Supplier presentation: 100mg per vial, 10 vials/box. Product code: RT100.",
+      "description": "Retatrutide 100mg catalog listing for laboratory procurement. Supplier presentation: 100mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RT100 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "retatrutide-100mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "slu-pp-322",
+      "previousSlug": null,
+      "title": "SLU-PP-332 5mg",
+      "family": "SLU-PP-332",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "322"
+      ],
+      "sourceRows": [
+        23
+      ],
+      "priceUsd": 33,
+      "available": true,
+      "image": "/products/slu-pp-322-1.jpg",
+      "shortDescription": "SLU-PP-332 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: 322.",
+      "description": "SLU-PP-332 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 322 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "slu-pp-322",
+      "matchedBy": "decision"
+    },
+    {
+      "slug": "slu-pp-332-10mg",
+      "previousSlug": null,
+      "title": "SLU-PP-332 10mg",
+      "family": "SLU-PP-332",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "322"
+      ],
+      "sourceRows": [
+        24
+      ],
+      "priceUsd": 65,
+      "available": true,
+      "image": "/products/slu-pp-332-10mg.jpg",
+      "shortDescription": "SLU-PP-332 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: 322.",
+      "description": "SLU-PP-332 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 322 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "slu-pp-332-10mg",
+      "matchedBy": "decision"
+    },
+    {
+      "slug": "ll37",
+      "previousSlug": null,
+      "title": "LL-37 5mg",
+      "family": "LL-37",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "antibacterial",
+      "codes": [
+        "375"
+      ],
+      "sourceRows": [
+        25
+      ],
+      "priceUsd": 89,
+      "available": true,
+      "image": "/products/ll37-1.jpg",
+      "shortDescription": "LL-37 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: 375.",
+      "description": "LL-37 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 375 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ll37",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "aod9604-10mg",
+      "previousSlug": null,
+      "title": "AOD9604 10mg",
+      "family": "AOD9604",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "10AD"
+      ],
+      "sourceRows": [
+        26
+      ],
+      "priceUsd": 158,
+      "available": true,
+      "image": "/products/aod9604-10mg.jpg",
+      "shortDescription": "AOD9604 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: 10AD.",
+      "description": "AOD9604 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 10AD when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "aod9604-10mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "aod9604",
+      "previousSlug": null,
+      "title": "AOD9604 2mg",
+      "family": "AOD9604",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "2AD"
+      ],
+      "sourceRows": [
+        27
+      ],
+      "priceUsd": 37,
+      "available": true,
+      "image": "/products/aod9604-1.jpg",
+      "shortDescription": "AOD9604 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: 2AD.",
+      "description": "AOD9604 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 2AD when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "aod9604",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ss-31",
+      "previousSlug": null,
+      "title": "SS-31 10mg",
+      "family": "SS-31",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "2S10"
+      ],
+      "sourceRows": [
+        28
+      ],
+      "priceUsd": 72,
+      "available": true,
+      "image": "/products/ss-31-1.webp",
+      "shortDescription": "SS-31 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: 2S10.",
+      "description": "SS-31 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 2S10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ss-31",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ss-31-50mg",
+      "previousSlug": null,
+      "title": "SS-31 50mg",
+      "family": "SS-31",
+      "strength": "50mg",
+      "packCount": 10,
+      "presentation": "50mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "2S50"
+      ],
+      "sourceRows": [
+        29
+      ],
+      "priceUsd": 291,
+      "available": true,
+      "image": "/products/ss-31-50mg.jpg",
+      "shortDescription": "SS-31 50mg catalog listing. Supplier presentation: 50mg per vial, 10 vials/box. Product code: 2S50.",
+      "description": "SS-31 50mg catalog listing for laboratory procurement. Supplier presentation: 50mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 2S50 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ss-31-50mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "aod9604-5mg",
+      "previousSlug": null,
+      "title": "AOD9604 5mg",
+      "family": "AOD9604",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "5AD"
+      ],
+      "sourceRows": [
+        30
+      ],
+      "priceUsd": 84,
+      "available": true,
+      "image": "/products/aod9604-5mg.jpg",
+      "shortDescription": "AOD9604 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: 5AD.",
+      "description": "AOD9604 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 5AD when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "aod9604-5mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "5-amino-1mq",
+      "previousSlug": null,
+      "title": "5-Amino-1MQ 5mg",
+      "family": "5-Amino-1MQ",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "5AM"
+      ],
+      "sourceRows": [
+        31
+      ],
+      "priceUsd": 13,
+      "available": true,
+      "image": "/products/5-amino-1mq-1.jpg",
+      "shortDescription": "5-Amino-1MQ 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: 5AM.",
+      "description": "5-Amino-1MQ 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 5AM when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "5-amino-1mq",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "5-amino-1mq-10mg",
+      "previousSlug": null,
+      "title": "5-Amino-1MQ 10mg",
+      "family": "5-Amino-1MQ",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "10AM"
+      ],
+      "sourceRows": [
+        32
+      ],
+      "priceUsd": 34,
+      "available": true,
+      "image": "/products/5-amino-1mq-10mg.jpg",
+      "shortDescription": "5-Amino-1MQ 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: 10AM.",
+      "description": "5-Amino-1MQ 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 10AM when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "5-amino-1mq-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "5-amino-1mq-50mcg",
+      "previousSlug": null,
+      "title": "5-Amino-1MQ 50mg",
+      "family": "5-Amino-1MQ",
+      "strength": "50mg",
+      "packCount": 10,
+      "presentation": "50mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "50AM"
+      ],
+      "sourceRows": [
+        33
+      ],
+      "priceUsd": 130,
+      "available": true,
+      "image": "/products/5-amino-1mq-50mcg-1.jpg",
+      "shortDescription": "5-Amino-1MQ 50mg catalog listing. Supplier presentation: 50mg per vial, 10 vials/box. Product code: 50AM.",
+      "description": "5-Amino-1MQ 50mg catalog listing for laboratory procurement. Supplier presentation: 50mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code 50AM when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "5-amino-1mq-50mcg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ace-031-1mg",
+      "previousSlug": null,
+      "title": "ACE-031 1mg",
+      "family": "ACE-031",
+      "strength": "1mg",
+      "packCount": 10,
+      "presentation": "1mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "AC1"
+      ],
+      "sourceRows": [
+        34
+      ],
+      "priceUsd": 50,
+      "available": true,
+      "image": "/products/ace-031-1mg.jpg",
+      "shortDescription": "ACE-031 1mg catalog listing. Supplier presentation: 1mg per vial, 10 vials/box. Product code: AC1.",
+      "description": "ACE-031 1mg catalog listing for laboratory procurement. Supplier presentation: 1mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code AC1 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "acth-1-39-5mg",
+      "previousSlug": null,
+      "title": "ACTH 1-39 5mg",
+      "family": "ACTH 1-39",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "AC5"
+      ],
+      "sourceRows": [
+        35
+      ],
+      "priceUsd": 75,
+      "available": true,
+      "image": "/products/acth-1-39-5mg.jpg",
+      "shortDescription": "ACTH 1-39 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: AC5.",
+      "description": "ACTH 1-39 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code AC5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "adamax-10mg",
+      "previousSlug": null,
+      "title": "Adamax 10mg",
+      "family": "Adamax",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "Adamax10"
+      ],
+      "sourceRows": [
+        36
+      ],
+      "priceUsd": 55,
+      "available": true,
+      "image": "/products/adamax-10mg.jpg",
+      "shortDescription": "Adamax 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: Adamax10.",
+      "description": "Adamax 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code Adamax10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "adamax-10mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "adamax-5mg",
+      "previousSlug": null,
+      "title": "Adamax 5mg",
+      "family": "Adamax",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "Adamax5"
+      ],
+      "sourceRows": [
+        37
+      ],
+      "priceUsd": 27,
+      "available": true,
+      "image": "/products/adamax-5mg.jpg",
+      "shortDescription": "Adamax 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: Adamax5.",
+      "description": "Adamax 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code Adamax5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "adipotidefttp",
+      "previousSlug": null,
+      "title": "Adipotide 2mg",
+      "family": "Adipotide",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "AP2"
+      ],
+      "sourceRows": [
+        38
+      ],
+      "priceUsd": 55,
+      "available": true,
+      "image": "/products/adipotidefttp-1.jpg",
+      "shortDescription": "Adipotide 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: AP2.",
+      "description": "Adipotide 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code AP2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "adipotidefttp",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "ftpp-adipotide",
+      "previousSlug": null,
+      "title": "Adipotide 5mg",
+      "family": "Adipotide",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "AP5"
+      ],
+      "sourceRows": [
+        39
+      ],
+      "priceUsd": 120,
+      "available": true,
+      "image": "/products/ftpp-adipotide-1.jpg",
+      "shortDescription": "Adipotide 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: AP5.",
+      "description": "Adipotide 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code AP5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ftpp-adipotide",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "aicar-100mg",
+      "previousSlug": null,
+      "title": "AICAR 100mg",
+      "family": "AICAR",
+      "strength": "100mg",
+      "packCount": 10,
+      "presentation": "100mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "AR100"
+      ],
+      "sourceRows": [
+        40
+      ],
+      "priceUsd": 90,
+      "available": true,
+      "image": "/products/aicar-100mg.jpg",
+      "shortDescription": "AICAR 100mg catalog listing. Supplier presentation: 100mg per vial, 10 vials/box. Product code: AR100.",
+      "description": "AICAR 100mg catalog listing for laboratory procurement. Supplier presentation: 100mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code AR100 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "aicar-100mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "aicar",
+      "previousSlug": null,
+      "title": "AICAR 50mg",
+      "family": "AICAR",
+      "strength": "50mg",
+      "packCount": 10,
+      "presentation": "50mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "AR50"
+      ],
+      "sourceRows": [
+        41
+      ],
+      "priceUsd": 34,
+      "available": true,
+      "image": "/products/aicar-1.jpg",
+      "shortDescription": "AICAR 50mg catalog listing. Supplier presentation: 50mg per vial, 10 vials/box. Product code: AR50.",
+      "description": "AICAR 50mg catalog listing for laboratory procurement. Supplier presentation: 50mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code AR50 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "aicar",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "b-12-10mg",
+      "previousSlug": null,
+      "title": "B-12 10mg",
+      "family": "B-12",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "B12"
+      ],
+      "sourceRows": [
+        42
+      ],
+      "priceUsd": 13,
+      "available": true,
+      "image": "/products/b-12-10mg.jpg",
+      "shortDescription": "B-12 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: B12.",
+      "description": "B-12 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code B12 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "b7-33-10mg",
+      "previousSlug": null,
+      "title": "B7-33 10mg",
+      "family": "B7-33",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "B7-33"
+      ],
+      "sourceRows": [
+        43
+      ],
+      "priceUsd": 227,
+      "available": true,
+      "image": "/products/b7-33-10mg.jpg",
+      "shortDescription": "B7-33 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: B7-33.",
+      "description": "B7-33 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code B7-33 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "b7-33-10mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "b7-33-2mg",
+      "previousSlug": null,
+      "title": "B7-33 2mg",
+      "family": "B7-33",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "B7-33"
+      ],
+      "sourceRows": [
+        44
+      ],
+      "priceUsd": 60,
+      "available": true,
+      "image": "/products/b7-33-2mg.jpg",
+      "shortDescription": "B7-33 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: B7-33.",
+      "description": "B7-33 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code B7-33 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "b7-33-2mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "bpc-5mg-tb5mg",
+      "previousSlug": null,
+      "title": "BPC-157 5mg + TB-500 5mg Blend",
+      "family": "BPC-157 5mg + TB-500 5mg Blend",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "BB10"
+      ],
+      "sourceRows": [
+        45
+      ],
+      "priceUsd": 75,
+      "available": true,
+      "image": "/products/bpc-5mg-tb5mg-1.jpg",
+      "shortDescription": "BPC-157 5mg + TB-500 5mg Blend catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: BB10.",
+      "description": "BPC-157 5mg + TB-500 5mg Blend catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code BB10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "bpc-5mg-tb5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "bpc-157-10mg-plus-tb-500-10mg-blend",
+      "previousSlug": null,
+      "title": "BPC-157 10mg + TB-500 10mg Blend",
+      "family": "BPC-157 10mg + TB-500 10mg Blend",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "BB20"
+      ],
+      "sourceRows": [
+        46
+      ],
+      "priceUsd": 179,
+      "available": true,
+      "image": "/products/bpc-157-10mg-plus-tb-500-10mg-blend.jpg",
+      "shortDescription": "BPC-157 10mg + TB-500 10mg Blend catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: BB20.",
+      "description": "BPC-157 10mg + TB-500 10mg Blend catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code BB20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "bpc-157-10mg-plus-tb-500-10mg-blend",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "glow-blend-bbg70",
+      "previousSlug": null,
+      "title": "GLOW Blend (TB-500 10mg + BPC-157 10mg + GHK-Cu 50mg) 70mg",
+      "family": "GLOW Blend (TB-500 10mg + BPC-157 10mg + GHK-Cu 50mg)",
+      "strength": "70mg",
+      "packCount": 10,
+      "presentation": "70mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "BBG70"
+      ],
+      "sourceRows": [
+        47
+      ],
+      "priceUsd": 194,
+      "available": true,
+      "image": "/products/glow-blend-bbg70.jpg",
+      "shortDescription": "GLOW Blend (TB-500 10mg + BPC-157 10mg + GHK-Cu 50mg) 70mg catalog listing. Supplier presentation: 70mg per vial, 10 vials/box. Product code: BBG70.",
+      "description": "GLOW Blend (TB-500 10mg + BPC-157 10mg + GHK-Cu 50mg) 70mg catalog listing for laboratory procurement. Supplier presentation: 70mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code BBG70 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "bpc-157-10mg",
+      "previousSlug": null,
+      "title": "BPC-157 10mg",
+      "family": "BPC-157",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "BC10"
+      ],
+      "sourceRows": [
+        48
+      ],
+      "priceUsd": 41,
+      "available": true,
+      "image": "/products/bpc-157-10mg.jpg",
+      "shortDescription": "BPC-157 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: BC10.",
+      "description": "BPC-157 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code BC10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "bpc-157-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "bpc-157",
+      "previousSlug": null,
+      "title": "BPC-157 2mg",
+      "family": "BPC-157",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "BC2"
+      ],
+      "sourceRows": [
+        49
+      ],
+      "priceUsd": 17,
+      "available": true,
+      "image": "/products/bpc-157-1.webp",
+      "shortDescription": "BPC-157 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: BC2.",
+      "description": "BPC-157 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code BC2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "bpc-157",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "bpc-157-5mg",
+      "previousSlug": null,
+      "title": "BPC-157 5mg",
+      "family": "BPC-157",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "BC5"
+      ],
+      "sourceRows": [
+        50
+      ],
+      "priceUsd": 27,
+      "available": true,
+      "image": "/products/bpc-157-5mg.jpg",
+      "shortDescription": "BPC-157 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: BC5.",
+      "description": "BPC-157 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code BC5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "bpc-157-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "bronchogen-20mg",
+      "previousSlug": null,
+      "title": "Bronchogen 20mg",
+      "family": "Bronchogen",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "BR20"
+      ],
+      "sourceRows": [
+        51
+      ],
+      "priceUsd": 82,
+      "available": true,
+      "image": "/products/bronchogen-20mg.jpg",
+      "shortDescription": "Bronchogen 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: BR20.",
+      "description": "Bronchogen 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code BR20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "tb-500-10mg",
+      "previousSlug": null,
+      "title": "TB-500 (Thymosin B4 Acetate) 10mg",
+      "family": "TB-500 (Thymosin B4 Acetate)",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "BT10"
+      ],
+      "sourceRows": [
+        52
+      ],
+      "priceUsd": 141,
+      "available": true,
+      "image": "/products/tb-500-10mg.jpg",
+      "shortDescription": "TB-500 (Thymosin B4 Acetate) 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: BT10.",
+      "description": "TB-500 (Thymosin B4 Acetate) 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code BT10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tb-500-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tb500",
+      "previousSlug": null,
+      "title": "TB-500 (Thymosin B4 Acetate) 2mg",
+      "family": "TB-500 (Thymosin B4 Acetate)",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "BT2"
+      ],
+      "sourceRows": [
+        53
+      ],
+      "priceUsd": 37,
+      "available": true,
+      "image": "/products/tb500-1.jpg",
+      "shortDescription": "TB-500 (Thymosin B4 Acetate) 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: BT2.",
+      "description": "TB-500 (Thymosin B4 Acetate) 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code BT2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tb500",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tb-500-5mg",
+      "previousSlug": null,
+      "title": "TB-500 (Thymosin B4 Acetate) 5mg",
+      "family": "TB-500 (Thymosin B4 Acetate)",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "BT5"
+      ],
+      "sourceRows": [
+        54
+      ],
+      "priceUsd": 75,
+      "available": true,
+      "image": "/products/tb-500-5mg.jpg",
+      "shortDescription": "TB-500 (Thymosin B4 Acetate) 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: BT5.",
+      "description": "TB-500 (Thymosin B4 Acetate) 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code BT5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tb-500-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "cardiogen-20mg",
+      "previousSlug": null,
+      "title": "Cardiogen 20mg",
+      "family": "Cardiogen",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "CA20"
+      ],
+      "sourceRows": [
+        55
+      ],
+      "priceUsd": 106,
+      "available": true,
+      "image": "/products/cardiogen-20mg.jpg",
+      "shortDescription": "Cardiogen 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: CA20.",
+      "description": "Cardiogen 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CA20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "cartalax-20mg",
+      "previousSlug": null,
+      "title": "Cartalax 20mg",
+      "family": "Cartalax",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "CART20"
+      ],
+      "sourceRows": [
+        56
+      ],
+      "priceUsd": 82,
+      "available": true,
+      "image": "/products/cartalax-20mg.jpg",
+      "shortDescription": "Cartalax 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: CART20.",
+      "description": "Cartalax 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CART20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "cerebrolysin-60mg",
+      "previousSlug": null,
+      "title": "Cerebrolysin 60mg",
+      "family": "Cerebrolysin",
+      "strength": "60mg",
+      "packCount": 10,
+      "presentation": "60mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "CBL60"
+      ],
+      "sourceRows": [
+        57
+      ],
+      "priceUsd": 41,
+      "available": true,
+      "image": "/products/cerebrolysin-60mg.jpg",
+      "shortDescription": "Cerebrolysin 60mg catalog listing. Supplier presentation: 60mg per vial, 10 vials/box. Product code: CBL60.",
+      "description": "Cerebrolysin 60mg catalog listing for laboratory procurement. Supplier presentation: 60mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CBL60 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "cjc1295-with-dac",
+      "previousSlug": null,
+      "title": "CJC-1295 with DAC 2mg",
+      "family": "CJC-1295 with DAC",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "CD2"
+      ],
+      "sourceRows": [
+        58
+      ],
+      "priceUsd": 92,
+      "available": true,
+      "image": "/products/cjc1295-with-dac-1.jpg",
+      "shortDescription": "CJC-1295 with DAC 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: CD2.",
+      "description": "CJC-1295 with DAC 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CD2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "cjc1295-with-dac",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "cjc-1295-with-dac-5mg",
+      "previousSlug": null,
+      "title": "CJC-1295 with DAC 5mg",
+      "family": "CJC-1295 with DAC",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "CD5"
+      ],
+      "sourceRows": [
+        59
+      ],
+      "priceUsd": 179,
+      "available": true,
+      "image": "/products/cjc-1295-with-dac-5mg.jpg",
+      "shortDescription": "CJC-1295 with DAC 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: CD5.",
+      "description": "CJC-1295 with DAC 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CD5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "cjc-1295-without-dac-10mg",
+      "previousSlug": null,
+      "title": "CJC-1295 without DAC 10mg",
+      "family": "CJC-1295 without DAC",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "CND10"
+      ],
+      "sourceRows": [
+        60
+      ],
+      "priceUsd": 110,
+      "available": true,
+      "image": "/products/cjc-1295-without-dac-10mg.jpg",
+      "shortDescription": "CJC-1295 without DAC 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: CND10.",
+      "description": "CJC-1295 without DAC 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CND10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "cjc-1295-without-dac-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "cjc-1295-without-dac",
+      "previousSlug": null,
+      "title": "CJC-1295 without DAC 2mg",
+      "family": "CJC-1295 without DAC",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "CND2"
+      ],
+      "sourceRows": [
+        61
+      ],
+      "priceUsd": 30,
+      "available": true,
+      "image": "/products/cjc-1295-without-dac--1.jpg",
+      "shortDescription": "CJC-1295 without DAC 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: CND2.",
+      "description": "CJC-1295 without DAC 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CND2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "cjc-1295-without-dac",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "cjc-1295-without-dac-5mg",
+      "previousSlug": null,
+      "title": "CJC-1295 without DAC 5mg",
+      "family": "CJC-1295 without DAC",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "CND5"
+      ],
+      "sourceRows": [
+        62
+      ],
+      "priceUsd": 55,
+      "available": true,
+      "image": "/products/cjc-1295-without-dac-5mg.jpg",
+      "shortDescription": "CJC-1295 without DAC 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: CND5.",
+      "description": "CJC-1295 without DAC 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CND5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "cjc-1295-without-dac-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "cjc-1295-without-dac-5mg-ipa-5mg",
+      "previousSlug": null,
+      "title": "CJC-1295 No-DAC 5mg + Ipamorelin 5mg Blend",
+      "family": "CJC-1295 No-DAC 5mg + Ipamorelin 5mg Blend",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "CP10"
+      ],
+      "sourceRows": [
+        63
+      ],
+      "priceUsd": 82,
+      "available": true,
+      "image": "/products/cjc-1295-without-dac-5mg-ipa-5mg-1.jpg",
+      "shortDescription": "CJC-1295 No-DAC 5mg + Ipamorelin 5mg Blend catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: CP10.",
+      "description": "CJC-1295 No-DAC 5mg + Ipamorelin 5mg Blend catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CP10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "cjc-1295-without-dac-5mg-ipa-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "cagrilintide-10mg",
+      "previousSlug": null,
+      "title": "Cagrilintide 10mg",
+      "family": "Cagrilintide",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "CGL10"
+      ],
+      "sourceRows": [
+        64
+      ],
+      "priceUsd": 210,
+      "available": true,
+      "image": "/products/cagrilintide-10mg.jpg",
+      "shortDescription": "Cagrilintide 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: CGL10.",
+      "description": "Cagrilintide 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CGL10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "cagrilintide-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "cagrilintide",
+      "previousSlug": null,
+      "title": "Cagrilintide 5mg",
+      "family": "Cagrilintide",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "CGL5"
+      ],
+      "sourceRows": [
+        65
+      ],
+      "priceUsd": 113,
+      "available": true,
+      "image": "/products/cagrilintide-1.jpg",
+      "shortDescription": "Cagrilintide 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: CGL5.",
+      "description": "Cagrilintide 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CGL5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "cagrilintide",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "cortagen-20mg",
+      "previousSlug": null,
+      "title": "Cortagen 20mg",
+      "family": "Cortagen",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "COR20"
+      ],
+      "sourceRows": [
+        66
+      ],
+      "priceUsd": 67,
+      "available": true,
+      "image": "/products/cortagen-20mg.jpg",
+      "shortDescription": "Cortagen 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: COR20.",
+      "description": "Cortagen 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code COR20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "crystagen-20mg",
+      "previousSlug": null,
+      "title": "Crystagen 20mg",
+      "family": "Crystagen",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "CRY20"
+      ],
+      "sourceRows": [
+        67
+      ],
+      "priceUsd": 67,
+      "available": true,
+      "image": "/products/crystagen-20mg.jpg",
+      "shortDescription": "Crystagen 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: CRY20.",
+      "description": "Crystagen 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CRY20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "cagrisema-5mg-plus-5mg-blend",
+      "previousSlug": null,
+      "title": "CagriSema 5mg + 5mg Blend",
+      "family": "CagriSema 5mg + 5mg Blend",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "CS10"
+      ],
+      "sourceRows": [
+        68
+      ],
+      "priceUsd": 144,
+      "available": true,
+      "image": "/products/cagrisema-5mg-plus-5mg-blend.jpg",
+      "shortDescription": "CagriSema 5mg + 5mg Blend catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: CS10.",
+      "description": "CagriSema 5mg + 5mg Blend catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CS10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "cagrisema-5mg-plus-5mg-blend",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "cagrisema-10mg-plus-10mg-blend",
+      "previousSlug": null,
+      "title": "CagriSema 10mg + 10mg Blend",
+      "family": "CagriSema 10mg + 10mg Blend",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "CS20"
+      ],
+      "sourceRows": [
+        69
+      ],
+      "priceUsd": 240,
+      "available": true,
+      "image": "/products/cagrisema-10mg-plus-10mg-blend.jpg",
+      "shortDescription": "CagriSema 10mg + 10mg Blend catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: CS20.",
+      "description": "CagriSema 10mg + 10mg Blend catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CS20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "cagrisema-2-5mg-plus-2-5mg-blend",
+      "previousSlug": null,
+      "title": "CagriSema 2.5mg + 2.5mg Blend",
+      "family": "CagriSema 2.5mg + 2.5mg Blend",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "CS5"
+      ],
+      "sourceRows": [
+        70
+      ],
+      "priceUsd": 79,
+      "available": true,
+      "image": "/products/cagrisema-2-5mg-plus-2-5mg-blend.jpg",
+      "shortDescription": "CagriSema 2.5mg + 2.5mg Blend catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: CS5.",
+      "description": "CagriSema 2.5mg + 2.5mg Blend catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CS5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "ghk-cu-100mg",
+      "previousSlug": null,
+      "title": "GHK-Cu 100mg",
+      "family": "GHK-Cu",
+      "strength": "100mg",
+      "packCount": 10,
+      "presentation": "100mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "CU100"
+      ],
+      "sourceRows": [
+        71
+      ],
+      "priceUsd": 34,
+      "available": true,
+      "image": "/products/ghk-cu-100mg.jpg",
+      "shortDescription": "GHK-Cu 100mg catalog listing. Supplier presentation: 100mg per vial, 10 vials/box. Product code: CU100.",
+      "description": "GHK-Cu 100mg catalog listing for laboratory procurement. Supplier presentation: 100mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CU100 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ghk-cu-100mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ghk-cu",
+      "previousSlug": null,
+      "title": "GHK-Cu 50mg",
+      "family": "GHK-Cu",
+      "strength": "50mg",
+      "packCount": 10,
+      "presentation": "50mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "CU50"
+      ],
+      "sourceRows": [
+        72
+      ],
+      "priceUsd": 20,
+      "available": true,
+      "image": "/products/ghk-cu-1.webp",
+      "shortDescription": "GHK-Cu 50mg catalog listing. Supplier presentation: 50mg per vial, 10 vials/box. Product code: CU50.",
+      "description": "GHK-Cu 50mg catalog listing for laboratory procurement. Supplier presentation: 50mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code CU50 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ghk-cu",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "dihexa-10mg",
+      "previousSlug": null,
+      "title": "Dihexa 10mg",
+      "family": "Dihexa",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "Dihexa10"
+      ],
+      "sourceRows": [
+        73
+      ],
+      "priceUsd": 61,
+      "available": false,
+      "image": "/products/dihexa-10mg.jpg",
+      "shortDescription": "Dihexa 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: Dihexa10.",
+      "description": "Dihexa 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code Dihexa10 when ordering on WhatsApp. Marked temporarily out of stock on the current supplier list. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "dihexa-10mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "dihexa-5mg",
+      "previousSlug": null,
+      "title": "Dihexa 5mg",
+      "family": "Dihexa",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "Dihexa5"
+      ],
+      "sourceRows": [
+        74
+      ],
+      "priceUsd": 33,
+      "available": false,
+      "image": "/products/dihexa-5mg.jpg",
+      "shortDescription": "Dihexa 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: Dihexa5.",
+      "description": "Dihexa 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code Dihexa5 when ordering on WhatsApp. Marked temporarily out of stock on the current supplier list. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "dermorphin-5mg",
+      "previousSlug": null,
+      "title": "Dermorphin 5mg",
+      "family": "Dermorphin",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "DR5"
+      ],
+      "sourceRows": [
+        75
+      ],
+      "priceUsd": 51,
+      "available": true,
+      "image": "/products/dermorphin-5mg.jpg",
+      "shortDescription": "Dermorphin 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: DR5.",
+      "description": "Dermorphin 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code DR5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "dermorphin-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "dsip-10mg",
+      "previousSlug": null,
+      "title": "DSIP 10mg",
+      "family": "DSIP",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "DS10"
+      ],
+      "sourceRows": [
+        76
+      ],
+      "priceUsd": 68,
+      "available": true,
+      "image": "/products/dsip-10mg.jpg",
+      "shortDescription": "DSIP 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: DS10.",
+      "description": "DSIP 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code DS10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "dsip-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "dsip-5mg",
+      "previousSlug": null,
+      "title": "DSIP 5mg",
+      "family": "DSIP",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "DS5"
+      ],
+      "sourceRows": [
+        77
+      ],
+      "priceUsd": 41,
+      "available": true,
+      "image": "/products/dsip-5mg.jpg",
+      "shortDescription": "DSIP 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: DS5.",
+      "description": "DSIP 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code DS5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "dsip-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "dulaglutide-10mg",
+      "previousSlug": null,
+      "title": "Dulaglutide 10mg",
+      "family": "Dulaglutide",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "Dulaglutide10"
+      ],
+      "sourceRows": [
+        78
+      ],
+      "priceUsd": 316,
+      "available": true,
+      "image": "/products/dulaglutide-10mg.jpg",
+      "shortDescription": "Dulaglutide 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: Dulaglutide10.",
+      "description": "Dulaglutide 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code Dulaglutide10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "dulaglutide-5mg",
+      "previousSlug": null,
+      "title": "Dulaglutide 5mg",
+      "family": "Dulaglutide",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "Dulaglutide5"
+      ],
+      "sourceRows": [
+        79
+      ],
+      "priceUsd": 165,
+      "available": true,
+      "image": "/products/dulaglutide-5mg.jpg",
+      "shortDescription": "Dulaglutide 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: Dulaglutide5.",
+      "description": "Dulaglutide 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code Dulaglutide5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "epo-3000iu",
+      "previousSlug": null,
+      "title": "EPO 3000iu",
+      "family": "EPO",
+      "strength": "3000iu",
+      "packCount": 10,
+      "presentation": "3000iu per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "E3K"
+      ],
+      "sourceRows": [
+        80
+      ],
+      "priceUsd": 41,
+      "available": true,
+      "image": "/products/epo-3000iu.jpg",
+      "shortDescription": "EPO 3000iu catalog listing. Supplier presentation: 3000iu per vial, 10 vials/box. Product code: E3K.",
+      "description": "EPO 3000iu catalog listing for laboratory procurement. Supplier presentation: 3000iu per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code E3K when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "epithalon",
+      "previousSlug": null,
+      "title": "Epitalon 10mg",
+      "family": "Epitalon",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "ET10"
+      ],
+      "sourceRows": [
+        81
+      ],
+      "priceUsd": 34,
+      "available": true,
+      "image": "/products/epithalon-1.webp",
+      "shortDescription": "Epitalon 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: ET10.",
+      "description": "Epitalon 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code ET10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "epithalon",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "epitalon-50mg",
+      "previousSlug": null,
+      "title": "Epitalon 50mg",
+      "family": "Epitalon",
+      "strength": "50mg",
+      "packCount": 10,
+      "presentation": "50mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "ET50"
+      ],
+      "sourceRows": [
+        82
+      ],
+      "priceUsd": 137,
+      "available": true,
+      "image": "/products/epitalon-50mg.jpg",
+      "shortDescription": "Epitalon 50mg catalog listing. Supplier presentation: 50mg per vial, 10 vials/box. Product code: ET50.",
+      "description": "Epitalon 50mg catalog listing for laboratory procurement. Supplier presentation: 50mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code ET50 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "epitalon-50mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "foxo4-dri-2mg",
+      "previousSlug": null,
+      "title": "FOXO4-DRI 2mg",
+      "family": "FOXO4-DRI",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "F402"
+      ],
+      "sourceRows": [
+        83
+      ],
+      "priceUsd": 96,
+      "available": true,
+      "image": "/products/foxo4-dri-2mg.jpg",
+      "shortDescription": "FOXO4-DRI 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: F402.",
+      "description": "FOXO4-DRI 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code F402 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "foxo4-dri",
+      "previousSlug": null,
+      "title": "FOXO4-DRI 10mg",
+      "family": "FOXO4-DRI",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "F410"
+      ],
+      "sourceRows": [
+        84
+      ],
+      "priceUsd": 343,
+      "available": true,
+      "image": "/products/foxo4-dri-1.webp",
+      "shortDescription": "FOXO4-DRI 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: F410.",
+      "description": "FOXO4-DRI 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code F410 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "foxo4-dri",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "mgf",
+      "previousSlug": null,
+      "title": "MGF 2mg",
+      "family": "MGF",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "FM2"
+      ],
+      "sourceRows": [
+        85
+      ],
+      "priceUsd": 34,
+      "available": true,
+      "image": "/products/mgf-1.jpg",
+      "shortDescription": "MGF 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: FM2.",
+      "description": "MGF 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code FM2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "mgf",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "peg-mgf",
+      "previousSlug": null,
+      "title": "PEG-MGF 2mg",
+      "family": "PEG-MGF",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "FMP2"
+      ],
+      "sourceRows": [
+        86
+      ],
+      "priceUsd": 82,
+      "available": true,
+      "image": "/products/peg-mgf-1.jpg",
+      "shortDescription": "PEG-MGF 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: FMP2.",
+      "description": "PEG-MGF 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code FMP2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "peg-mgf",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "follistatin-344-1mg",
+      "previousSlug": null,
+      "title": "Follistatin-344 1mg",
+      "family": "Follistatin-344",
+      "strength": "1mg",
+      "packCount": 10,
+      "presentation": "1mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "FN1/344"
+      ],
+      "sourceRows": [
+        87
+      ],
+      "priceUsd": 82,
+      "available": true,
+      "image": "/products/follistatin-344-1mg.jpg",
+      "shortDescription": "Follistatin-344 1mg catalog listing. Supplier presentation: 1mg per vial, 10 vials/box. Product code: FN1/344.",
+      "description": "Follistatin-344 1mg catalog listing for laboratory procurement. Supplier presentation: 1mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code FN1/344 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "hgh-fragment-176-191-10mg",
+      "previousSlug": null,
+      "title": "HGH Fragment 176-191 10mg",
+      "family": "HGH Fragment 176-191",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "FR10/Frag10"
+      ],
+      "sourceRows": [
+        88
+      ],
+      "priceUsd": 98,
+      "available": true,
+      "image": "/products/hgh-fragment-176-191-10mg.jpg",
+      "shortDescription": "HGH Fragment 176-191 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: FR10/Frag10.",
+      "description": "HGH Fragment 176-191 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code FR10/Frag10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "hgh-fragment-176-191-12mg",
+      "previousSlug": null,
+      "title": "HGH Fragment 176-191 12mg",
+      "family": "HGH Fragment 176-191",
+      "strength": "12mg",
+      "packCount": 10,
+      "presentation": "12mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "FR12/Frag12"
+      ],
+      "sourceRows": [
+        89
+      ],
+      "priceUsd": 110,
+      "available": true,
+      "image": "/products/hgh-fragment-176-191-12mg.jpg",
+      "shortDescription": "HGH Fragment 176-191 12mg catalog listing. Supplier presentation: 12mg per vial, 10 vials/box. Product code: FR12/Frag12.",
+      "description": "HGH Fragment 176-191 12mg catalog listing for laboratory procurement. Supplier presentation: 12mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code FR12/Frag12 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "hgh-fragment-176-191-15mg",
+      "previousSlug": null,
+      "title": "HGH Fragment 176-191 15mg",
+      "family": "HGH Fragment 176-191",
+      "strength": "15mg",
+      "packCount": 10,
+      "presentation": "15mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "FR15/Frag15"
+      ],
+      "sourceRows": [
+        90
+      ],
+      "priceUsd": 165,
+      "available": true,
+      "image": "/products/hgh-fragment-176-191-15mg.jpg",
+      "shortDescription": "HGH Fragment 176-191 15mg catalog listing. Supplier presentation: 15mg per vial, 10 vials/box. Product code: FR15/Frag15.",
+      "description": "HGH Fragment 176-191 15mg catalog listing for laboratory procurement. Supplier presentation: 15mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code FR15/Frag15 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "hgh-fragment-176-191-2mg",
+      "previousSlug": null,
+      "title": "HGH Fragment 176-191 2mg",
+      "family": "HGH Fragment 176-191",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "FR2/Frag2"
+      ],
+      "sourceRows": [
+        91
+      ],
+      "priceUsd": 30,
+      "available": true,
+      "image": "/products/hgh-fragment-176-191-2mg.jpg",
+      "shortDescription": "HGH Fragment 176-191 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: FR2/Frag2.",
+      "description": "HGH Fragment 176-191 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code FR2/Frag2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "hgh-fragment-176-191-5mg",
+      "previousSlug": null,
+      "title": "HGH Fragment 176-191 5mg",
+      "family": "HGH Fragment 176-191",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "FR5/Frag5"
+      ],
+      "sourceRows": [
+        92
+      ],
+      "priceUsd": 58,
+      "available": true,
+      "image": "/products/hgh-fragment-176-191-5mg.jpg",
+      "shortDescription": "HGH Fragment 176-191 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: FR5/Frag5.",
+      "description": "HGH Fragment 176-191 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code FR5/Frag5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "hcg-10000iu",
+      "previousSlug": null,
+      "title": "HCG 10000iu",
+      "family": "HCG",
+      "strength": "10000iu",
+      "packCount": 10,
+      "presentation": "10000iu per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "G10K"
+      ],
+      "sourceRows": [
+        93
+      ],
+      "priceUsd": 110,
+      "available": true,
+      "image": "/products/hcg-10000iu.jpg",
+      "shortDescription": "HCG 10000iu catalog listing. Supplier presentation: 10000iu per vial, 10 vials/box. Product code: G10K.",
+      "description": "HCG 10000iu catalog listing for laboratory procurement. Supplier presentation: 10000iu per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code G10K when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "hcg-10000iu",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "hcg-5000iu",
+      "previousSlug": null,
+      "title": "HCG 5000iu",
+      "family": "HCG",
+      "strength": "5000iu",
+      "packCount": 10,
+      "presentation": "5000iu per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "G5K"
+      ],
+      "sourceRows": [
+        94
+      ],
+      "priceUsd": 68,
+      "available": true,
+      "image": "/products/hcg-5000iu.jpg",
+      "shortDescription": "HCG 5000iu catalog listing. Supplier presentation: 5000iu per vial, 10 vials/box. Product code: G5K.",
+      "description": "HCG 5000iu catalog listing for laboratory procurement. Supplier presentation: 5000iu per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code G5K when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "hcg-5000iu",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ghrp-2-10mg",
+      "previousSlug": null,
+      "title": "GHRP-2 Acetate 10mg",
+      "family": "GHRP-2 Acetate",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "G210"
+      ],
+      "sourceRows": [
+        95
+      ],
+      "priceUsd": 34,
+      "available": true,
+      "image": "/products/ghrp-2-10mg.jpg",
+      "shortDescription": "GHRP-2 Acetate 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: G210.",
+      "description": "GHRP-2 Acetate 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code G210 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ghrp-2-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ghrp-2",
+      "previousSlug": null,
+      "title": "GHRP-2 Acetate 5mg",
+      "family": "GHRP-2 Acetate",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "G25"
+      ],
+      "sourceRows": [
+        96
+      ],
+      "priceUsd": 26,
+      "available": true,
+      "image": "/products/ghrp-2-1.jpg",
+      "shortDescription": "GHRP-2 Acetate 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: G25.",
+      "description": "GHRP-2 Acetate 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code G25 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ghrp-2",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ghrp-6-10mg",
+      "previousSlug": null,
+      "title": "GHRP-6 Acetate 10mg",
+      "family": "GHRP-6 Acetate",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "G610"
+      ],
+      "sourceRows": [
+        97
+      ],
+      "priceUsd": 37,
+      "available": true,
+      "image": "/products/ghrp-6-10mg.jpg",
+      "shortDescription": "GHRP-6 Acetate 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: G610.",
+      "description": "GHRP-6 Acetate 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code G610 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ghrp-6-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ghrp-6",
+      "previousSlug": null,
+      "title": "GHRP-6 Acetate 5mg",
+      "family": "GHRP-6 Acetate",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "G65"
+      ],
+      "sourceRows": [
+        98
+      ],
+      "priceUsd": 23,
+      "available": true,
+      "image": "/products/ghrp-6-1.jpg",
+      "shortDescription": "GHRP-6 Acetate 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: G65.",
+      "description": "GHRP-6 Acetate 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code G65 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ghrp-6",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "hmg",
+      "previousSlug": null,
+      "title": "HMG 75iu",
+      "family": "HMG",
+      "strength": "75iu",
+      "packCount": 10,
+      "presentation": "75iu per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "G75"
+      ],
+      "sourceRows": [
+        99
+      ],
+      "priceUsd": 51,
+      "available": true,
+      "image": "/products/hmg-1.jpg",
+      "shortDescription": "HMG 75iu catalog listing. Supplier presentation: 75iu per vial, 10 vials/box. Product code: G75.",
+      "description": "HMG 75iu catalog listing for laboratory procurement. Supplier presentation: 75iu per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code G75 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "hmg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "glow-bpc-157-10mg-ghk-cu50mg-tb500-10mg",
+      "previousSlug": null,
+      "title": "GLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg) 70mg",
+      "family": "GLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg)",
+      "strength": "70mg",
+      "packCount": 10,
+      "presentation": "70mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "GLOW70"
+      ],
+      "sourceRows": [
+        100
+      ],
+      "priceUsd": 196,
+      "available": true,
+      "image": "/products/glow-bpc-157-10mg-ghk-cu50mg-tb500-10mg--1.webp",
+      "shortDescription": "GLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg) 70mg catalog listing. Supplier presentation: 70mg per vial, 10 vials/box. Product code: GLOW70.",
+      "description": "GLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg) 70mg catalog listing for laboratory procurement. Supplier presentation: 70mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code GLOW70 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "glow-bpc-157-10mg-ghk-cu50mg-tb500-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "gonadorelin-acetate",
+      "previousSlug": null,
+      "title": "Gonadorelin Acetate 2mg",
+      "family": "Gonadorelin Acetate",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "GND2"
+      ],
+      "sourceRows": [
+        101
+      ],
+      "priceUsd": 20,
+      "available": true,
+      "image": "/products/gonadorelin-acetate-1.jpg",
+      "shortDescription": "Gonadorelin Acetate 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: GND2.",
+      "description": "Gonadorelin Acetate 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code GND2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "gonadorelin-acetate",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "gonadorelin-acetate-5mg",
+      "previousSlug": null,
+      "title": "Gonadorelin Acetate 5mg",
+      "family": "Gonadorelin Acetate",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "GND5"
+      ],
+      "sourceRows": [
+        102
+      ],
+      "priceUsd": 30,
+      "available": true,
+      "image": "/products/gonadorelin-acetate-5mg.jpg",
+      "shortDescription": "Gonadorelin Acetate 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: GND5.",
+      "description": "Gonadorelin Acetate 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code GND5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "glutathione-1500mg",
+      "previousSlug": null,
+      "title": "Glutathione 1500mg",
+      "family": "Glutathione",
+      "strength": "1500mg",
+      "packCount": 10,
+      "presentation": "1500mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "GTT1500"
+      ],
+      "sourceRows": [
+        103
+      ],
+      "priceUsd": 55,
+      "available": true,
+      "image": "/products/glutathione-1500mg.jpg",
+      "shortDescription": "Glutathione 1500mg catalog listing. Supplier presentation: 1500mg per vial, 10 vials/box. Product code: GTT1500.",
+      "description": "Glutathione 1500mg catalog listing for laboratory procurement. Supplier presentation: 1500mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code GTT1500 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "glutathione-1500mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "glutathione",
+      "previousSlug": null,
+      "title": "Glutathione 600mg",
+      "family": "Glutathione",
+      "strength": "600mg",
+      "packCount": 10,
+      "presentation": "600mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "GTT600"
+      ],
+      "sourceRows": [
+        104
+      ],
+      "priceUsd": 34,
+      "available": true,
+      "image": "/products/glutathione-1.jpg",
+      "shortDescription": "Glutathione 600mg catalog listing. Supplier presentation: 600mg per vial, 10 vials/box. Product code: GTT600.",
+      "description": "Glutathione 600mg catalog listing for laboratory procurement. Supplier presentation: 600mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code GTT600 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "glutathione",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "hgh",
+      "previousSlug": null,
+      "title": "HGH 191AA (Somatropin) 10iu",
+      "family": "HGH 191AA (Somatropin)",
+      "strength": "10iu",
+      "packCount": 10,
+      "presentation": "10iu per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "H10"
+      ],
+      "sourceRows": [
+        105
+      ],
+      "priceUsd": 41,
+      "available": true,
+      "image": "/products/hgh-2.jpg",
+      "shortDescription": "HGH 191AA (Somatropin) 10iu catalog listing. Supplier presentation: 10iu per vial, 10 vials/box. Product code: H10.",
+      "description": "HGH 191AA (Somatropin) 10iu catalog listing for laboratory procurement. Supplier presentation: 10iu per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code H10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "hgh",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "hgh-12iu",
+      "previousSlug": null,
+      "title": "HGH 191AA (Somatropin) 12iu",
+      "family": "HGH 191AA (Somatropin)",
+      "strength": "12iu",
+      "packCount": 10,
+      "presentation": "12iu per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "H12"
+      ],
+      "sourceRows": [
+        106
+      ],
+      "priceUsd": 55,
+      "available": true,
+      "image": "/products/hgh-12iu.jpg",
+      "shortDescription": "HGH 191AA (Somatropin) 12iu catalog listing. Supplier presentation: 12iu per vial, 10 vials/box. Product code: H12.",
+      "description": "HGH 191AA (Somatropin) 12iu catalog listing for laboratory procurement. Supplier presentation: 12iu per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code H12 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "hgh-12iu",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "hgh-15iu",
+      "previousSlug": null,
+      "title": "HGH 191AA (Somatropin) 15iu",
+      "family": "HGH 191AA (Somatropin)",
+      "strength": "15iu",
+      "packCount": 10,
+      "presentation": "15iu per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "H15"
+      ],
+      "sourceRows": [
+        107
+      ],
+      "priceUsd": 72,
+      "available": true,
+      "image": "/products/hgh-15iu.jpg",
+      "shortDescription": "HGH 191AA (Somatropin) 15iu catalog listing. Supplier presentation: 15iu per vial, 10 vials/box. Product code: H15.",
+      "description": "HGH 191AA (Somatropin) 15iu catalog listing for laboratory procurement. Supplier presentation: 15iu per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code H15 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "hgh-15iu",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "hgh-24iu",
+      "previousSlug": null,
+      "title": "HGH 191AA (Somatropin) 24iu",
+      "family": "HGH 191AA (Somatropin)",
+      "strength": "24iu",
+      "packCount": 10,
+      "presentation": "24iu per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "H24"
+      ],
+      "sourceRows": [
+        108
+      ],
+      "priceUsd": 99,
+      "available": true,
+      "image": "/products/hgh-24iu.jpg",
+      "shortDescription": "HGH 191AA (Somatropin) 24iu catalog listing. Supplier presentation: 24iu per vial, 10 vials/box. Product code: H24.",
+      "description": "HGH 191AA (Somatropin) 24iu catalog listing for laboratory procurement. Supplier presentation: 24iu per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code H24 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "hgh-24iu",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "hgh-36iu",
+      "previousSlug": null,
+      "title": "HGH 191AA (Somatropin) 36iu",
+      "family": "HGH 191AA (Somatropin)",
+      "strength": "36iu",
+      "packCount": 10,
+      "presentation": "36iu per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "H36"
+      ],
+      "sourceRows": [
+        109
+      ],
+      "priceUsd": 137,
+      "available": true,
+      "image": "/products/hgh-36iu.jpg",
+      "shortDescription": "HGH 191AA (Somatropin) 36iu catalog listing. Supplier presentation: 36iu per vial, 10 vials/box. Product code: H36.",
+      "description": "HGH 191AA (Somatropin) 36iu catalog listing for laboratory procurement. Supplier presentation: 36iu per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code H36 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "hgh-36iu",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "humanin-10mg",
+      "previousSlug": null,
+      "title": "Humanin 10mg",
+      "family": "Humanin",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "HU10"
+      ],
+      "sourceRows": [
+        110
+      ],
+      "priceUsd": 295,
+      "available": true,
+      "image": "/products/humanin-10mg.jpg",
+      "shortDescription": "Humanin 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: HU10.",
+      "description": "Humanin 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code HU10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "humanin-10mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "hexarelin-acetate",
+      "previousSlug": null,
+      "title": "Hexarelin Acetate 2mg",
+      "family": "Hexarelin Acetate",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "HX2"
+      ],
+      "sourceRows": [
+        111
+      ],
+      "priceUsd": 40,
+      "available": true,
+      "image": "/products/hexarelin-acetate-1.jpg",
+      "shortDescription": "Hexarelin Acetate 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: HX2.",
+      "description": "Hexarelin Acetate 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code HX2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "hexarelin-acetate",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "hexarelin-acetate-5mg",
+      "previousSlug": null,
+      "title": "Hexarelin Acetate 5mg",
+      "family": "Hexarelin Acetate",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "HX5"
+      ],
+      "sourceRows": [
+        112
+      ],
+      "priceUsd": 72,
+      "available": true,
+      "image": "/products/hexarelin-acetate-5mg.jpg",
+      "shortDescription": "Hexarelin Acetate 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: HX5.",
+      "description": "Hexarelin Acetate 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code HX5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "hexarelin-acetate-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "igf-1-lr3-100mcg",
+      "previousSlug": null,
+      "title": "IGF-1 LR3 0.1mg",
+      "family": "IGF-1 LR3",
+      "strength": "0.1mg",
+      "packCount": 10,
+      "presentation": "0.1mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "IG01"
+      ],
+      "sourceRows": [
+        113
+      ],
+      "priceUsd": 29,
+      "available": true,
+      "image": "/products/igf-1-lr3-100mcg-1.jpg",
+      "shortDescription": "IGF-1 LR3 0.1mg catalog listing. Supplier presentation: 0.1mg per vial, 10 vials/box. Product code: IG01.",
+      "description": "IGF-1 LR3 0.1mg catalog listing for laboratory procurement. Supplier presentation: 0.1mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code IG01 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "igf-1-lr3-100mcg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "igf-1-lr3-1mg",
+      "previousSlug": null,
+      "title": "IGF-1 LR3 1mg",
+      "family": "IGF-1 LR3",
+      "strength": "1mg",
+      "packCount": 10,
+      "presentation": "1mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "IG1"
+      ],
+      "sourceRows": [
+        114
+      ],
+      "priceUsd": 206,
+      "available": true,
+      "image": "/products/igf-1-lr3-1mg-1.jpg",
+      "shortDescription": "IGF-1 LR3 1mg catalog listing. Supplier presentation: 1mg per vial, 10 vials/box. Product code: IG1.",
+      "description": "IGF-1 LR3 1mg catalog listing for laboratory procurement. Supplier presentation: 1mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code IG1 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "igf-1-lr3-1mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "igf-des-2mg",
+      "previousSlug": null,
+      "title": "IGF-DES 2mg",
+      "family": "IGF-DES",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "IGD"
+      ],
+      "sourceRows": [
+        115
+      ],
+      "priceUsd": 36,
+      "available": true,
+      "image": "/products/igf-des-2mg.jpg",
+      "shortDescription": "IGF-DES 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: IGD.",
+      "description": "IGF-DES 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code IGD when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "igf-des-2mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "ipamorelin-10mg",
+      "previousSlug": null,
+      "title": "Ipamorelin 10mg",
+      "family": "Ipamorelin",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "IP10"
+      ],
+      "sourceRows": [
+        116
+      ],
+      "priceUsd": 46,
+      "available": true,
+      "image": "/products/ipamorelin-10mg.jpg",
+      "shortDescription": "Ipamorelin 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: IP10.",
+      "description": "Ipamorelin 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code IP10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ipamorelin-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ipamorelin",
+      "previousSlug": null,
+      "title": "Ipamorelin 2mg",
+      "family": "Ipamorelin",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "IP2"
+      ],
+      "sourceRows": [
+        117
+      ],
+      "priceUsd": 17,
+      "available": true,
+      "image": "/products/ipamorelin-1.jpg",
+      "shortDescription": "Ipamorelin 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: IP2.",
+      "description": "Ipamorelin 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code IP2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ipamorelin",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ipamorelin-5mg",
+      "previousSlug": null,
+      "title": "Ipamorelin 5mg",
+      "family": "Ipamorelin",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "IP5"
+      ],
+      "sourceRows": [
+        118
+      ],
+      "priceUsd": 29,
+      "available": true,
+      "image": "/products/ipamorelin-5mg.jpg",
+      "shortDescription": "Ipamorelin 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: IP5.",
+      "description": "Ipamorelin 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code IP5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ipamorelin-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "klow-bpc-10mg-ghk-cu50mg-tb500-10mg-kpv-10mg",
+      "previousSlug": null,
+      "title": "KLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg + KPV 10mg) 80mg",
+      "family": "KLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg + KPV 10mg)",
+      "strength": "80mg",
+      "packCount": 10,
+      "presentation": "80mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "KLOW80"
+      ],
+      "sourceRows": [
+        119
+      ],
+      "priceUsd": 193,
+      "available": true,
+      "image": "/products/klow-bpc-10mg-ghk-cu50mg-tb500-10mg-kpv-10mg--1.jpg",
+      "shortDescription": "KLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg + KPV 10mg) 80mg catalog listing. Supplier presentation: 80mg per vial, 10 vials/box. Product code: KLOW80.",
+      "description": "KLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg + KPV 10mg) 80mg catalog listing for laboratory procurement. Supplier presentation: 80mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code KLOW80 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "klow-bpc-10mg-ghk-cu50mg-tb500-10mg-kpv-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "kpv-10mg",
+      "previousSlug": null,
+      "title": "KPV 10mg",
+      "family": "KPV",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "antibacterial",
+      "codes": [
+        "KPV10"
+      ],
+      "sourceRows": [
+        120
+      ],
+      "priceUsd": 41,
+      "available": true,
+      "image": "/products/kpv-10mg.jpg",
+      "shortDescription": "KPV 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: KPV10.",
+      "description": "KPV 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code KPV10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "kpv-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "kpv",
+      "previousSlug": null,
+      "title": "KPV 5mg",
+      "family": "KPV",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "antibacterial",
+      "codes": [
+        "KPV5"
+      ],
+      "sourceRows": [
+        121
+      ],
+      "priceUsd": 26,
+      "available": true,
+      "image": "/products/kpv-1.jpg",
+      "shortDescription": "KPV 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: KPV5.",
+      "description": "KPV 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code KPV5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "kpv",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "kisspeptin-10-10mg",
+      "previousSlug": null,
+      "title": "Kisspeptin-10 10mg",
+      "family": "Kisspeptin-10",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "KS10"
+      ],
+      "sourceRows": [
+        122
+      ],
+      "priceUsd": 61,
+      "available": true,
+      "image": "/products/kisspeptin-10-10mg.jpg",
+      "shortDescription": "Kisspeptin-10 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: KS10.",
+      "description": "Kisspeptin-10 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code KS10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "kisspeptin-10-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "kisspetin-10",
+      "previousSlug": null,
+      "title": "Kisspeptin-10 5mg",
+      "family": "Kisspeptin-10",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "KS5"
+      ],
+      "sourceRows": [
+        123
+      ],
+      "priceUsd": 37,
+      "available": true,
+      "image": "/products/kisspetin-10-1.jpg",
+      "shortDescription": "Kisspeptin-10 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: KS5.",
+      "description": "Kisspeptin-10 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code KS5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "kisspetin-10",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "lemon-bottle",
+      "previousSlug": null,
+      "title": "Lemon Bottle 10ml",
+      "family": "Lemon Bottle",
+      "strength": "10ml",
+      "packCount": 10,
+      "presentation": "10ml per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "LB"
+      ],
+      "sourceRows": [
+        124
+      ],
+      "priceUsd": 48,
+      "available": true,
+      "image": "/products/lemon-bottle-1.webp",
+      "shortDescription": "Lemon Bottle 10ml catalog listing. Supplier presentation: 10ml per vial, 10 vials/box. Product code: LB.",
+      "description": "Lemon Bottle 10ml catalog listing for laboratory procurement. Supplier presentation: 10ml per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code LB when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "lemon-bottle",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "lc120-10ml",
+      "previousSlug": null,
+      "title": "LC120 10ml",
+      "family": "LC120",
+      "strength": "10ml",
+      "packCount": 10,
+      "presentation": "10ml per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "LC120/Lipo-c"
+      ],
+      "sourceRows": [
+        125
+      ],
+      "priceUsd": 66,
+      "available": true,
+      "image": "/products/lc120-10ml.jpg",
+      "shortDescription": "LC120 10ml catalog listing. Supplier presentation: 10ml per vial, 10 vials/box. Product code: LC120/Lipo-c.",
+      "description": "LC120 10ml catalog listing for laboratory procurement. Supplier presentation: 10ml per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code LC120/Lipo-c when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "l-carnitine-1200mg",
+      "previousSlug": null,
+      "title": "L-Carnitine 1200 10ml",
+      "family": "L-Carnitine 1200",
+      "strength": "10ml",
+      "packCount": 10,
+      "presentation": "10ml per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "LC1200"
+      ],
+      "sourceRows": [
+        126
+      ],
+      "priceUsd": 79,
+      "available": true,
+      "image": "/products/l-carnitine-1200mg.jpg",
+      "shortDescription": "L-Carnitine 1200 10ml catalog listing. Supplier presentation: 10ml per vial, 10 vials/box. Product code: LC1200.",
+      "description": "L-Carnitine 1200 10ml catalog listing for laboratory procurement. Supplier presentation: 10ml per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code LC1200 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "l-carnitine-1200mg",
+      "matchedBy": "decision"
+    },
+    {
+      "slug": "mic-lipo-c-with-b12",
+      "previousSlug": null,
+      "title": "Lipo-C 10ml",
+      "family": "Lipo-C",
+      "strength": "10ml",
+      "packCount": 10,
+      "presentation": "10ml per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "LC216"
+      ],
+      "sourceRows": [
+        127
+      ],
+      "priceUsd": 48,
+      "available": true,
+      "image": "/products/mic-lipo-c-with-b12--1.jpg",
+      "shortDescription": "Lipo-C 10ml catalog listing. Supplier presentation: 10ml per vial, 10 vials/box. Product code: LC216.",
+      "description": "Lipo-C 10ml catalog listing for laboratory procurement. Supplier presentation: 10ml per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code LC216 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "mic-lipo-c-with-b12",
+      "matchedBy": "decision"
+    },
+    {
+      "slug": "l-carnitine-600mg",
+      "previousSlug": null,
+      "title": "L-Carnitine 600 10ml",
+      "family": "L-Carnitine 600",
+      "strength": "10ml",
+      "packCount": 10,
+      "presentation": "10ml per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "LC600"
+      ],
+      "sourceRows": [
+        128
+      ],
+      "priceUsd": 43,
+      "available": true,
+      "image": "/products/l-carnitine-600mg.jpg",
+      "shortDescription": "L-Carnitine 600 10ml catalog listing. Supplier presentation: 10ml per vial, 10 vials/box. Product code: LC600.",
+      "description": "L-Carnitine 600 10ml catalog listing for laboratory procurement. Supplier presentation: 10ml per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code LC600 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "l-carnitine-600mg",
+      "matchedBy": "decision"
+    },
+    {
+      "slug": "liraglutide-10mg",
+      "previousSlug": null,
+      "title": "Liraglutide 10mg",
+      "family": "Liraglutide",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "LL10"
+      ],
+      "sourceRows": [
+        129
+      ],
+      "priceUsd": 96,
+      "available": true,
+      "image": "/products/liraglutide-10mg.jpg",
+      "shortDescription": "Liraglutide 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: LL10.",
+      "description": "Liraglutide 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code LL10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "liraglutide-30mg",
+      "previousSlug": null,
+      "title": "Liraglutide 30mg",
+      "family": "Liraglutide",
+      "strength": "30mg",
+      "packCount": 10,
+      "presentation": "30mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "LL30"
+      ],
+      "sourceRows": [
+        130
+      ],
+      "priceUsd": 267,
+      "available": true,
+      "image": "/products/liraglutide-30mg.jpg",
+      "shortDescription": "Liraglutide 30mg catalog listing. Supplier presentation: 30mg per vial, 10 vials/box. Product code: LL30.",
+      "description": "Liraglutide 30mg catalog listing for laboratory procurement. Supplier presentation: 30mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code LL30 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "liraglutide-5mg",
+      "previousSlug": null,
+      "title": "Liraglutide 5mg",
+      "family": "Liraglutide",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "LL5"
+      ],
+      "sourceRows": [
+        131
+      ],
+      "priceUsd": 55,
+      "available": true,
+      "image": "/products/liraglutide-5mg.jpg",
+      "shortDescription": "Liraglutide 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: LL5.",
+      "description": "Liraglutide 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code LL5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "mazdutide-10mg",
+      "previousSlug": null,
+      "title": "Mazdutide 10mg",
+      "family": "Mazdutide",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "MDT10"
+      ],
+      "sourceRows": [
+        132
+      ],
+      "priceUsd": 199,
+      "available": true,
+      "image": "/products/mazdutide-10mg.jpg",
+      "shortDescription": "Mazdutide 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: MDT10.",
+      "description": "Mazdutide 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code MDT10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "mazdutide-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "mk-677-5mg",
+      "previousSlug": null,
+      "title": "MK-677 5mg",
+      "family": "MK-677",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "MK75"
+      ],
+      "sourceRows": [
+        133
+      ],
+      "priceUsd": 7,
+      "available": true,
+      "image": "/products/mk-677-5mg.jpg",
+      "shortDescription": "MK-677 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: MK75.",
+      "description": "MK-677 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code MK75 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "mk-677-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "melanotan-il",
+      "previousSlug": null,
+      "title": "Melanotan II 10mg",
+      "family": "Melanotan II",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "ML10"
+      ],
+      "sourceRows": [
+        134
+      ],
+      "priceUsd": 44,
+      "available": true,
+      "image": "/products/melanotan-il-2.webp",
+      "shortDescription": "Melanotan II 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: ML10.",
+      "description": "Melanotan II 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code ML10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "melanotan-il",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "mots-c-human",
+      "previousSlug": null,
+      "title": "MOTS-c 10mg",
+      "family": "MOTS-c",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "MS10"
+      ],
+      "sourceRows": [
+        135
+      ],
+      "priceUsd": 60,
+      "available": true,
+      "image": "/products/mots-c-human--1.jpg",
+      "shortDescription": "MOTS-c 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: MS10.",
+      "description": "MOTS-c 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code MS10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "mots-c-human",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "mots-c-20mg",
+      "previousSlug": null,
+      "title": "MOTS-c 20mg",
+      "family": "MOTS-c",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "MS20"
+      ],
+      "sourceRows": [
+        136
+      ],
+      "priceUsd": 124,
+      "available": true,
+      "image": "/products/mots-c-20mg.jpg",
+      "shortDescription": "MOTS-c 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: MS20.",
+      "description": "MOTS-c 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code MS20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "mots-c-20mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "mots-c-40mg",
+      "previousSlug": null,
+      "title": "MOTS-c 40mg",
+      "family": "MOTS-c",
+      "strength": "40mg",
+      "packCount": 10,
+      "presentation": "40mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "MS40"
+      ],
+      "sourceRows": [
+        137
+      ],
+      "priceUsd": 213,
+      "available": true,
+      "image": "/products/mots-c-40mg.jpg",
+      "shortDescription": "MOTS-c 40mg catalog listing. Supplier presentation: 40mg per vial, 10 vials/box. Product code: MS40.",
+      "description": "MOTS-c 40mg catalog listing for laboratory procurement. Supplier presentation: 40mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code MS40 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "mots-c-40mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "melanotani",
+      "previousSlug": null,
+      "title": "Melanotan I 10mg",
+      "family": "Melanotan I",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "MT1"
+      ],
+      "sourceRows": [
+        138
+      ],
+      "priceUsd": 44,
+      "available": true,
+      "image": "/products/melanotani-1.webp",
+      "shortDescription": "Melanotan I 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: MT1.",
+      "description": "Melanotan I 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code MT1 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "melanotani",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "melatonin-10mg",
+      "previousSlug": null,
+      "title": "Melatonin 10mg",
+      "family": "Melatonin",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "MT10"
+      ],
+      "sourceRows": [
+        139
+      ],
+      "priceUsd": 38,
+      "available": true,
+      "image": "/products/melatonin-10mg.jpg",
+      "shortDescription": "Melatonin 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: MT10.",
+      "description": "Melatonin 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code MT10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "matrixyl-10mg",
+      "previousSlug": null,
+      "title": "Matrixyl 10mg",
+      "family": "Matrixyl",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "MX10"
+      ],
+      "sourceRows": [
+        140
+      ],
+      "priceUsd": 25,
+      "available": true,
+      "image": "/products/matrixyl-10mg.jpg",
+      "shortDescription": "Matrixyl 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: MX10.",
+      "description": "Matrixyl 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code MX10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "nad",
+      "previousSlug": null,
+      "title": "NAD+ 100mg",
+      "family": "NAD+",
+      "strength": "100mg",
+      "packCount": 10,
+      "presentation": "100mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "NJ100"
+      ],
+      "sourceRows": [
+        141
+      ],
+      "priceUsd": 17,
+      "available": true,
+      "image": "/products/nad--1.jpg",
+      "shortDescription": "NAD+ 100mg catalog listing. Supplier presentation: 100mg per vial, 10 vials/box. Product code: NJ100.",
+      "description": "NAD+ 100mg catalog listing for laboratory procurement. Supplier presentation: 100mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code NJ100 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "nad",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "nad-plus-1000mg",
+      "previousSlug": null,
+      "title": "NAD+ 1000mg",
+      "family": "NAD+",
+      "strength": "1000mg",
+      "packCount": 10,
+      "presentation": "1000mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "NJ1000"
+      ],
+      "sourceRows": [
+        142
+      ],
+      "priceUsd": 34,
+      "available": true,
+      "image": "/products/nad-plus-1000mg.jpg",
+      "shortDescription": "NAD+ 1000mg catalog listing. Supplier presentation: 1000mg per vial, 10 vials/box. Product code: NJ1000.",
+      "description": "NAD+ 1000mg catalog listing for laboratory procurement. Supplier presentation: 1000mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code NJ1000 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "nad-plus-1000mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "nad-plus-500mg",
+      "previousSlug": null,
+      "title": "NAD+ 500mg",
+      "family": "NAD+",
+      "strength": "500mg",
+      "packCount": 10,
+      "presentation": "500mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "NJ500"
+      ],
+      "sourceRows": [
+        143
+      ],
+      "priceUsd": 27,
+      "available": true,
+      "image": "/products/nad-plus-500mg.jpg",
+      "shortDescription": "NAD+ 500mg catalog listing. Supplier presentation: 500mg per vial, 10 vials/box. Product code: NJ500.",
+      "description": "NAD+ 500mg catalog listing for laboratory procurement. Supplier presentation: 500mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code NJ500 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "nad-plus-500mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "snap8",
+      "previousSlug": null,
+      "title": "SNAP-8 10mg",
+      "family": "SNAP-8",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "skin-aging",
+      "codes": [
+        "NP810"
+      ],
+      "sourceRows": [
+        144
+      ],
+      "priceUsd": 27,
+      "available": true,
+      "image": "/products/snap8-1.webp",
+      "shortDescription": "SNAP-8 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: NP810.",
+      "description": "SNAP-8 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code NP810 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "snap8",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "oxytocin-2mg",
+      "previousSlug": null,
+      "title": "Oxytocin Acetate 2mg",
+      "family": "Oxytocin Acetate",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "OT2"
+      ],
+      "sourceRows": [
+        145
+      ],
+      "priceUsd": 17,
+      "available": true,
+      "image": "/products/oxytocin-2mg.jpg",
+      "shortDescription": "Oxytocin Acetate 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: OT2.",
+      "description": "Oxytocin Acetate 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code OT2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "oxytocin-2mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "oxytocin-5mg",
+      "previousSlug": null,
+      "title": "Oxytocin Acetate 5mg",
+      "family": "Oxytocin Acetate",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "OT5"
+      ],
+      "sourceRows": [
+        146
+      ],
+      "priceUsd": 34,
+      "available": true,
+      "image": "/products/oxytocin-5mg.jpg",
+      "shortDescription": "Oxytocin Acetate 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: OT5.",
+      "description": "Oxytocin Acetate 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code OT5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "oxytocin-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "p21-5mg",
+      "previousSlug": null,
+      "title": "P21 5mg",
+      "family": "P21",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "P210"
+      ],
+      "sourceRows": [
+        147
+      ],
+      "priceUsd": 193,
+      "available": true,
+      "image": "/products/p21-5mg.jpg",
+      "shortDescription": "P21 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: P210.",
+      "description": "P21 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code P210 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "pt-141-10mg",
+      "previousSlug": null,
+      "title": "PT-141 10mg",
+      "family": "PT-141",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "P41"
+      ],
+      "sourceRows": [
+        148
+      ],
+      "priceUsd": 58,
+      "available": true,
+      "image": "/products/pt-141-10mg.jpg",
+      "shortDescription": "PT-141 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: P41.",
+      "description": "PT-141 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code P41 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "pt-141-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "pe-22-28-10mg",
+      "previousSlug": null,
+      "title": "PE-22-28 10mg",
+      "family": "PE-22-28",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "PE10"
+      ],
+      "sourceRows": [
+        149
+      ],
+      "priceUsd": 48,
+      "available": true,
+      "image": "/products/pe-22-28-10mg.jpg",
+      "shortDescription": "PE-22-28 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: PE10.",
+      "description": "PE-22-28 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code PE10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "pe-22-28-5mg",
+      "previousSlug": null,
+      "title": "PE-22-28 5mg",
+      "family": "PE-22-28",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "PE5"
+      ],
+      "sourceRows": [
+        150
+      ],
+      "priceUsd": 29,
+      "available": true,
+      "image": "/products/pe-22-28-5mg.jpg",
+      "shortDescription": "PE-22-28 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: PE5.",
+      "description": "PE-22-28 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code PE5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "pinealon-5mg",
+      "previousSlug": null,
+      "title": "Pinealon 5mg",
+      "family": "Pinealon",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "PN/PI5"
+      ],
+      "sourceRows": [
+        151
+      ],
+      "priceUsd": 37,
+      "available": true,
+      "image": "/products/pinealon-5mg.jpg",
+      "shortDescription": "Pinealon 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: PN/PI5.",
+      "description": "Pinealon 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code PN/PI5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "pinealon-5mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "pinealon-10mg",
+      "previousSlug": null,
+      "title": "Pinealon 10mg",
+      "family": "Pinealon",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "PIN10"
+      ],
+      "sourceRows": [
+        152
+      ],
+      "priceUsd": 61,
+      "available": true,
+      "image": "/products/pinealon-10mg.jpg",
+      "shortDescription": "Pinealon 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: PIN10.",
+      "description": "Pinealon 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code PIN10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "pinealon-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "ara-290-cibinetide-10mg",
+      "previousSlug": null,
+      "title": "ARA-290 10mg",
+      "family": "ARA-290",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "antibacterial",
+      "codes": [
+        "RA10"
+      ],
+      "sourceRows": [
+        153
+      ],
+      "priceUsd": 66,
+      "available": true,
+      "image": "/products/ara-290-cibinetide-10mg.jpg",
+      "shortDescription": "ARA-290 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: RA10.",
+      "description": "ARA-290 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code RA10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "ara-290-cibinetide-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "selank-1",
+      "previousSlug": null,
+      "title": "Selank 10mg",
+      "family": "Selank",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "SK10"
+      ],
+      "sourceRows": [
+        154
+      ],
+      "priceUsd": 46,
+      "available": true,
+      "image": "/products/selank-10mg.jpg",
+      "shortDescription": "Selank 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: SK10.",
+      "description": "Selank 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SK10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "selank-1",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "selank",
+      "previousSlug": null,
+      "title": "Selank 5mg",
+      "family": "Selank",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "SK5"
+      ],
+      "sourceRows": [
+        155
+      ],
+      "priceUsd": 29,
+      "available": true,
+      "image": "/products/selank-1.jpg",
+      "shortDescription": "Selank 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: SK5.",
+      "description": "Selank 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SK5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "selank",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "semaglutide-10mg",
+      "previousSlug": null,
+      "title": "Semaglutide 10mg",
+      "family": "Semaglutide",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "SM10"
+      ],
+      "sourceRows": [
+        156
+      ],
+      "priceUsd": 33,
+      "available": true,
+      "image": "/products/semaglutide-10mg.jpg",
+      "shortDescription": "Semaglutide 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: SM10.",
+      "description": "Semaglutide 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SM10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "semaglutide-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "semaglutide-15mg",
+      "previousSlug": null,
+      "title": "Semaglutide 15mg",
+      "family": "Semaglutide",
+      "strength": "15mg",
+      "packCount": 10,
+      "presentation": "15mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "SM15"
+      ],
+      "sourceRows": [
+        157
+      ],
+      "priceUsd": 41,
+      "available": true,
+      "image": "/products/semaglutide-15mg.jpg",
+      "shortDescription": "Semaglutide 15mg catalog listing. Supplier presentation: 15mg per vial, 10 vials/box. Product code: SM15.",
+      "description": "Semaglutide 15mg catalog listing for laboratory procurement. Supplier presentation: 15mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SM15 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "semaglutide-15mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "semaglutide-20mg",
+      "previousSlug": null,
+      "title": "Semaglutide 20mg",
+      "family": "Semaglutide",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "SM20"
+      ],
+      "sourceRows": [
+        158
+      ],
+      "priceUsd": 49,
+      "available": true,
+      "image": "/products/semaglutide-20mg.jpg",
+      "shortDescription": "Semaglutide 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: SM20.",
+      "description": "Semaglutide 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SM20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "semaglutide-20mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "semaglutide-30mg",
+      "previousSlug": null,
+      "title": "Semaglutide 30mg",
+      "family": "Semaglutide",
+      "strength": "30mg",
+      "packCount": 10,
+      "presentation": "30mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "SM30"
+      ],
+      "sourceRows": [
+        159
+      ],
+      "priceUsd": 72,
+      "available": true,
+      "image": "/products/semaglutide-30mg.jpg",
+      "shortDescription": "Semaglutide 30mg catalog listing. Supplier presentation: 30mg per vial, 10 vials/box. Product code: SM30.",
+      "description": "Semaglutide 30mg catalog listing for laboratory procurement. Supplier presentation: 30mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SM30 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "semaglutide-30mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "semaglutide-5mg",
+      "previousSlug": null,
+      "title": "Semaglutide 5mg",
+      "family": "Semaglutide",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "SM5"
+      ],
+      "sourceRows": [
+        160
+      ],
+      "priceUsd": 22,
+      "available": true,
+      "image": "/products/semaglutide-5mg.jpg",
+      "shortDescription": "Semaglutide 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: SM5.",
+      "description": "Semaglutide 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SM5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "semaglutide-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "semaglutide-50mg",
+      "previousSlug": null,
+      "title": "Semaglutide 50mg",
+      "family": "Semaglutide",
+      "strength": "50mg",
+      "packCount": 10,
+      "presentation": "50mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "SM50"
+      ],
+      "sourceRows": [
+        161
+      ],
+      "priceUsd": 117,
+      "available": true,
+      "image": "/products/semaglutide-50mg.jpg",
+      "shortDescription": "Semaglutide 50mg catalog listing. Supplier presentation: 50mg per vial, 10 vials/box. Product code: SM50.",
+      "description": "Semaglutide 50mg catalog listing for laboratory procurement. Supplier presentation: 50mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SM50 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "semaglutide-50mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "sermorelin-10mg",
+      "previousSlug": "sermorelin-acetate-10mg",
+      "title": "Sermorelin 10mg",
+      "family": "Sermorelin",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "SMO10"
+      ],
+      "sourceRows": [
+        162
+      ],
+      "priceUsd": 137,
+      "available": true,
+      "image": "/products/sermorelin-10mg.jpg",
+      "shortDescription": "Sermorelin 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: SMO10.",
+      "description": "Sermorelin 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SMO10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "sermorelin-acetate-10mg",
+      "matchedBy": "decision"
+    },
+    {
+      "slug": "sermorelin-5mg",
+      "previousSlug": "sermorelin-acetate-5mg",
+      "title": "Sermorelin 5mg",
+      "family": "Sermorelin",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "SMO5"
+      ],
+      "sourceRows": [
+        163
+      ],
+      "priceUsd": 61,
+      "available": true,
+      "image": "/products/sermorelin-5mg.jpg",
+      "shortDescription": "Sermorelin 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: SMO5.",
+      "description": "Sermorelin 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SMO5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "sermorelin-acetate-5mg",
+      "matchedBy": "decision"
+    },
+    {
+      "slug": "sermorelin-acetate-5mg",
+      "previousSlug": null,
+      "title": "Sermorelin Acetate 5mg",
+      "family": "Sermorelin Acetate",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "SML5"
+      ],
+      "sourceRows": [
+        164
+      ],
+      "priceUsd": 82,
+      "available": true,
+      "image": "/products/sermorelin-acetate-5mg.jpg",
+      "shortDescription": "Sermorelin Acetate 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: SML5.",
+      "description": "Sermorelin Acetate 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SML5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "sermorelin-acetate-10mg",
+      "previousSlug": null,
+      "title": "Sermorelin Acetate 10mg",
+      "family": "Sermorelin Acetate",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "SML10"
+      ],
+      "sourceRows": [
+        165
+      ],
+      "priceUsd": 158,
+      "available": true,
+      "image": "/products/sermorelin-acetate-10mg.jpg",
+      "shortDescription": "Sermorelin Acetate 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: SML10.",
+      "description": "Sermorelin Acetate 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SML10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "survodutide",
+      "previousSlug": null,
+      "title": "Survodutide 10mg",
+      "family": "Survodutide",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "metabolic",
+      "codes": [
+        "SUR10"
+      ],
+      "sourceRows": [
+        166
+      ],
+      "priceUsd": 267,
+      "available": true,
+      "image": "/products/survodutide-1.webp",
+      "shortDescription": "Survodutide 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: SUR10.",
+      "description": "Survodutide 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code SUR10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "survodutide",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "thymosin-alpha-1-10mg",
+      "previousSlug": null,
+      "title": "Thymosin Alpha-1 10mg",
+      "family": "Thymosin Alpha-1",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "antibacterial",
+      "codes": [
+        "TA10"
+      ],
+      "sourceRows": [
+        167
+      ],
+      "priceUsd": 148,
+      "available": true,
+      "image": "/products/thymosin-alpha-1-10mg.jpg",
+      "shortDescription": "Thymosin Alpha-1 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: TA10.",
+      "description": "Thymosin Alpha-1 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TA10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "thymosin-alpha-1-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "thymosin-alpha-1",
+      "previousSlug": null,
+      "title": "Thymosin Alpha-1 5mg",
+      "family": "Thymosin Alpha-1",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "antibacterial",
+      "codes": [
+        "TA5"
+      ],
+      "sourceRows": [
+        168
+      ],
+      "priceUsd": 89,
+      "available": true,
+      "image": "/products/thymosin-alpha-1-1.jpg",
+      "shortDescription": "Thymosin Alpha-1 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: TA5.",
+      "description": "Thymosin Alpha-1 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TA5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "thymosin-alpha-1",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tb-fragment-10mg",
+      "previousSlug": null,
+      "title": "TB Fragment 10mg",
+      "family": "TB Fragment",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "TBF10"
+      ],
+      "sourceRows": [
+        169
+      ],
+      "priceUsd": 103,
+      "available": true,
+      "image": "/products/tb-fragment-10mg.jpg",
+      "shortDescription": "TB Fragment 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: TBF10.",
+      "description": "TB Fragment 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TBF10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "tb-fragment-2mg",
+      "previousSlug": null,
+      "title": "TB Fragment 2mg",
+      "family": "TB Fragment",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "TBF2"
+      ],
+      "sourceRows": [
+        170
+      ],
+      "priceUsd": 33,
+      "available": true,
+      "image": "/products/tb-fragment-2mg.jpg",
+      "shortDescription": "TB Fragment 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: TBF2.",
+      "description": "TB Fragment 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TBF2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "tb-fragment-5mg",
+      "previousSlug": null,
+      "title": "TB Fragment 5mg",
+      "family": "TB Fragment",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "muscle-growth",
+      "codes": [
+        "TBF5"
+      ],
+      "sourceRows": [
+        171
+      ],
+      "priceUsd": 61,
+      "available": true,
+      "image": "/products/tb-fragment-5mg.jpg",
+      "shortDescription": "TB Fragment 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: TBF5.",
+      "description": "TB Fragment 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TBF5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "tesamorelin-10mg-plus-ipamorelin-5mg-blend",
+      "previousSlug": null,
+      "title": "Tesamorelin 10mg + Ipamorelin 5mg Blend",
+      "family": "Tesamorelin 10mg + Ipamorelin 5mg Blend",
+      "strength": "15mg",
+      "packCount": 10,
+      "presentation": "15mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "TI15",
+        "TI"
+      ],
+      "sourceRows": [
+        172,
+        177
+      ],
+      "priceUsd": 201,
+      "available": true,
+      "image": "/products/tesamorelin-10mg-plus-ipamorelin-5mg-blend.jpg",
+      "shortDescription": "Tesamorelin 10mg + Ipamorelin 5mg Blend catalog listing. Supplier presentation: 15mg per vial, 10 vials/box. Product code: TI15 / TI.",
+      "description": "Tesamorelin 10mg + Ipamorelin 5mg Blend catalog listing for laboratory procurement. Supplier presentation: 15mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TI15 / TI when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": null,
+      "matchedBy": null
+    },
+    {
+      "slug": "tesamorelin-20mg",
+      "previousSlug": null,
+      "title": "Tesamorelin 20mg",
+      "family": "Tesamorelin",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "TSM20"
+      ],
+      "sourceRows": [
+        173
+      ],
+      "priceUsd": 291,
+      "available": true,
+      "image": "/products/tesamorelin-20mg.jpg",
+      "shortDescription": "Tesamorelin 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: TSM20.",
+      "description": "Tesamorelin 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TSM20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tesamorelin-20mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tesamorelin-10mg",
+      "previousSlug": null,
+      "title": "Tesamorelin 10mg",
+      "family": "Tesamorelin",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "TSM10"
+      ],
+      "sourceRows": [
+        174
+      ],
+      "priceUsd": 172,
+      "available": true,
+      "image": "/products/tesamorelin-10mg.jpg",
+      "shortDescription": "Tesamorelin 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: TSM10.",
+      "description": "Tesamorelin 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TSM10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tesamorelin-10mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tesamorelin",
+      "previousSlug": null,
+      "title": "Tesamorelin 2mg",
+      "family": "Tesamorelin",
+      "strength": "2mg",
+      "packCount": 10,
+      "presentation": "2mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "TSM2"
+      ],
+      "sourceRows": [
+        175
+      ],
+      "priceUsd": 48,
+      "available": true,
+      "image": "/products/tesamorelin-1.jpg",
+      "shortDescription": "Tesamorelin 2mg catalog listing. Supplier presentation: 2mg per vial, 10 vials/box. Product code: TSM2.",
+      "description": "Tesamorelin 2mg catalog listing for laboratory procurement. Supplier presentation: 2mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TSM2 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tesamorelin",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "tesamorelin-5mg",
+      "previousSlug": null,
+      "title": "Tesamorelin 5mg",
+      "family": "Tesamorelin",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "TSM5"
+      ],
+      "sourceRows": [
+        176
+      ],
+      "priceUsd": 96,
+      "available": true,
+      "image": "/products/tesamorelin-5mg.jpg",
+      "shortDescription": "Tesamorelin 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: TSM5.",
+      "description": "Tesamorelin 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TSM5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "tesamorelin-5mg",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "thymalin",
+      "previousSlug": null,
+      "title": "Thymalin 10mg",
+      "family": "Thymalin",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "antibacterial",
+      "codes": [
+        "TY10"
+      ],
+      "sourceRows": [
+        178
+      ],
+      "priceUsd": 58,
+      "available": true,
+      "image": "/products/thymalin-1.jpg",
+      "shortDescription": "Thymalin 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: TY10.",
+      "description": "Thymalin 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code TY10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "thymalin",
+      "matchedBy": "code"
+    },
+    {
+      "slug": "vip-10mg",
+      "previousSlug": null,
+      "title": "VIP 10mg",
+      "family": "VIP",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "antibacterial",
+      "codes": [
+        "VP10"
+      ],
+      "sourceRows": [
+        179
+      ],
+      "priceUsd": 127,
+      "available": true,
+      "image": "/products/vip-10mg.jpg",
+      "shortDescription": "VIP 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: VP10.",
+      "description": "VIP 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code VP10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "vip-10mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "bacteriostatic-water-10ml",
+      "previousSlug": null,
+      "title": "Bacteriostatic Water 10ml",
+      "family": "Bacteriostatic Water",
+      "strength": "10ml",
+      "packCount": 10,
+      "presentation": "10ml per vial, 10 vials/box",
+      "category": "bac-water",
+      "codes": [
+        "WA10"
+      ],
+      "sourceRows": [
+        180
+      ],
+      "priceUsd": 9,
+      "available": true,
+      "image": "/products/bacteriostatic-water-10ml.jpg",
+      "shortDescription": "Bacteriostatic Water 10ml catalog listing. Supplier presentation: 10ml per vial, 10 vials/box. Product code: WA10.",
+      "description": "Bacteriostatic Water 10ml catalog listing for laboratory procurement. Supplier presentation: 10ml per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code WA10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "bacteriostatic-water-10ml",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "bac-water",
+      "previousSlug": null,
+      "title": "Bacteriostatic Water 3ml",
+      "family": "Bacteriostatic Water",
+      "strength": "3ml",
+      "packCount": 10,
+      "presentation": "3ml per vial, 10 vials/box",
+      "category": "bac-water",
+      "codes": [
+        "WA3"
+      ],
+      "sourceRows": [
+        181
+      ],
+      "priceUsd": 5,
+      "available": true,
+      "image": "/products/bac-water-1.jpg",
+      "shortDescription": "Bacteriostatic Water 3ml catalog listing. Supplier presentation: 3ml per vial, 10 vials/box. Product code: WA3.",
+      "description": "Bacteriostatic Water 3ml catalog listing for laboratory procurement. Supplier presentation: 3ml per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code WA3 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "bac-water",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "semax-10mg",
+      "previousSlug": null,
+      "title": "Semax 10mg",
+      "family": "Semax",
+      "strength": "10mg",
+      "packCount": 10,
+      "presentation": "10mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "XA10"
+      ],
+      "sourceRows": [
+        182
+      ],
+      "priceUsd": 46,
+      "available": true,
+      "image": "/products/semax-10mg.jpg",
+      "shortDescription": "Semax 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: XA10.",
+      "description": "Semax 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code XA10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "semax-10mg",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "semax",
+      "previousSlug": null,
+      "title": "Semax 5mg",
+      "family": "Semax",
+      "strength": "5mg",
+      "packCount": 10,
+      "presentation": "5mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "XA5"
+      ],
+      "sourceRows": [
+        183
+      ],
+      "priceUsd": 29,
+      "available": true,
+      "image": "/products/semax-1.jpg",
+      "shortDescription": "Semax 5mg catalog listing. Supplier presentation: 5mg per vial, 10 vials/box. Product code: XA5.",
+      "description": "Semax 5mg catalog listing for laboratory procurement. Supplier presentation: 5mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code XA5 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "semax",
+      "matchedBy": "name"
+    },
+    {
+      "slug": "selank-plus-semax-blend-20mg",
+      "previousSlug": null,
+      "title": "Selank + Semax Blend 20mg",
+      "family": "Selank + Semax Blend",
+      "strength": "20mg",
+      "packCount": 10,
+      "presentation": "20mg per vial, 10 vials/box",
+      "category": "growth-energy",
+      "codes": [
+        "XS20"
+      ],
+      "sourceRows": [
+        184
+      ],
+      "priceUsd": 92,
+      "available": true,
+      "image": "/products/selank-plus-semax-blend-20mg.jpg",
+      "shortDescription": "Selank + Semax Blend 20mg catalog listing. Supplier presentation: 20mg per vial, 10 vials/box. Product code: XS20.",
+      "description": "Selank + Semax Blend 20mg catalog listing for laboratory procurement. Supplier presentation: 20mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code XS20 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
+      "legacySlug": "selank-plus-semax-blend-20mg",
+      "matchedBy": "name"
+    }
+  ]
+}

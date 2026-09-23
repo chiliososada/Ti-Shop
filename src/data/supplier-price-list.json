@@ -1,0 +1,1310 @@
+{
+  "source": "Price_List.xlsx",
+  "sheet": "Sheet1",
+  "columns": "A:C + H (+ I notes)",
+  "priceColumn": "H",
+  "priceTier": "<200 Boxes (Total Order)",
+  "currency": "USD",
+  "priceUnit": "box",
+  "notes": [
+    {
+      "row": 2,
+      "text": "Lyophilized-powder cartridges: minimum order quantity of 1,000 cartridges per product. Add USD 10 per box to the corresponding vial-product price."
+    },
+    {
+      "row": 3,
+      "text": "Payment condition: All prices are valid only when payment is made in cryptocurrency."
+    },
+    {
+      "row": 73,
+      "text": "Temporarily out of stock"
+    },
+    {
+      "row": 74,
+      "text": "Temporarily out of stock"
+    }
+  ],
+  "products": [
+    {
+      "row": 2,
+      "code": "TR5",
+      "name": "Tirzepatide",
+      "specification": "5mg*10vials",
+      "priceUsd": 30
+    },
+    {
+      "row": 3,
+      "code": "TR10",
+      "name": "Tirzepatide",
+      "specification": "10mg*10vials",
+      "priceUsd": 51
+    },
+    {
+      "row": 4,
+      "code": "TR15",
+      "name": "Tirzepatide",
+      "specification": "15mg*10vials",
+      "priceUsd": 67
+    },
+    {
+      "row": 5,
+      "code": "TR20",
+      "name": "Tirzepatide",
+      "specification": "20mg*10vials",
+      "priceUsd": 89
+    },
+    {
+      "row": 6,
+      "code": "TR30",
+      "name": "Tirzepatide",
+      "specification": "30mg*10vials",
+      "priceUsd": 117
+    },
+    {
+      "row": 7,
+      "code": "TR40",
+      "name": "Tirzepatide",
+      "specification": "40mg*10vials",
+      "priceUsd": 144
+    },
+    {
+      "row": 8,
+      "code": "TR50",
+      "name": "Tirzepatide",
+      "specification": "50mg*10vials",
+      "priceUsd": 172
+    },
+    {
+      "row": 9,
+      "code": "TR60",
+      "name": "Tirzepatide",
+      "specification": "60mg*10vials",
+      "priceUsd": 196
+    },
+    {
+      "row": 10,
+      "code": "TR80",
+      "name": "Tirzepatide",
+      "specification": "80mg*10vials",
+      "priceUsd": 247
+    },
+    {
+      "row": 11,
+      "code": "TR100",
+      "name": "Tirzepatide",
+      "specification": "100mg*10vials",
+      "priceUsd": 274
+    },
+    {
+      "row": 12,
+      "code": "TR120",
+      "name": "Tirzepatide",
+      "specification": "120mg*10vials",
+      "priceUsd": 329
+    },
+    {
+      "row": 13,
+      "code": "RT5",
+      "name": "Retatrutide",
+      "specification": "5mg*10vials",
+      "priceUsd": 36
+    },
+    {
+      "row": 14,
+      "code": "RT10",
+      "name": "Retatrutide",
+      "specification": "10mg*10vials",
+      "priceUsd": 61
+    },
+    {
+      "row": 15,
+      "code": "RT15",
+      "name": "Retatrutide",
+      "specification": "15mg*10vials",
+      "priceUsd": 84
+    },
+    {
+      "row": 16,
+      "code": "RT20",
+      "name": "Retatrutide",
+      "specification": "20mg*10vials",
+      "priceUsd": 105
+    },
+    {
+      "row": 17,
+      "code": "RT30",
+      "name": "Retatrutide",
+      "specification": "30mg*10vials",
+      "priceUsd": 148
+    },
+    {
+      "row": 18,
+      "code": "RT40",
+      "name": "Retatrutide",
+      "specification": "40mg*10vials",
+      "priceUsd": 189
+    },
+    {
+      "row": 19,
+      "code": "RT50",
+      "name": "Retatrutide",
+      "specification": "50mg*10vials",
+      "priceUsd": 227
+    },
+    {
+      "row": 20,
+      "code": "RT60",
+      "name": "Retatrutide",
+      "specification": "60mg*10vials",
+      "priceUsd": 260
+    },
+    {
+      "row": 21,
+      "code": "RT80",
+      "name": "Retatrutide",
+      "specification": "80mg*10vials",
+      "priceUsd": 302
+    },
+    {
+      "row": 22,
+      "code": "RT100",
+      "name": "Retatrutide",
+      "specification": "100mg*10vials",
+      "priceUsd": 350
+    },
+    {
+      "row": 23,
+      "code": "322",
+      "name": "SLU-PP-322",
+      "specification": "5mg*10vials",
+      "priceUsd": 33
+    },
+    {
+      "row": 24,
+      "code": "322",
+      "name": "SLU-PP-322",
+      "specification": "10mg*10vials",
+      "priceUsd": 65
+    },
+    {
+      "row": 25,
+      "code": "375",
+      "name": "LL37",
+      "specification": "5mg*10vials",
+      "priceUsd": 89
+    },
+    {
+      "row": 26,
+      "code": "10AD",
+      "name": "AOD9604",
+      "specification": "10mg*10vials",
+      "priceUsd": 158
+    },
+    {
+      "row": 27,
+      "code": "2AD",
+      "name": "AOD9604",
+      "specification": "2mg*10vials",
+      "priceUsd": 37
+    },
+    {
+      "row": 28,
+      "code": "2S10",
+      "name": "SS-31",
+      "specification": "10mg*10vials",
+      "priceUsd": 72
+    },
+    {
+      "row": 29,
+      "code": "2S50",
+      "name": "SS-31",
+      "specification": "50mg*10vials",
+      "priceUsd": 291
+    },
+    {
+      "row": 30,
+      "code": "5AD",
+      "name": "AOD9604",
+      "specification": "5mg*10vials",
+      "priceUsd": 84
+    },
+    {
+      "row": 31,
+      "code": "5AM",
+      "name": "5-amino-5mg",
+      "specification": "5mg*10vials",
+      "priceUsd": 13
+    },
+    {
+      "row": 32,
+      "code": "10AM",
+      "name": "10-amino-1mg",
+      "specification": "10mg*10vials",
+      "priceUsd": 34
+    },
+    {
+      "row": 33,
+      "code": "50AM",
+      "name": "50-amino-50mg",
+      "specification": "50mg*10vials",
+      "priceUsd": 130
+    },
+    {
+      "row": 34,
+      "code": "AC1",
+      "name": "ACE 031",
+      "specification": "1mg*10vials",
+      "priceUsd": 50
+    },
+    {
+      "row": 35,
+      "code": "AC5",
+      "name": "ACTH 1-39",
+      "specification": "5mg*10vials",
+      "priceUsd": 75
+    },
+    {
+      "row": 36,
+      "code": "Adamax10",
+      "name": "Adamax",
+      "specification": "10mg*10vials",
+      "priceUsd": 55
+    },
+    {
+      "row": 37,
+      "code": "Adamax5",
+      "name": "Adamax",
+      "specification": "5mg*10vials",
+      "priceUsd": 27
+    },
+    {
+      "row": 38,
+      "code": "AP2",
+      "name": "Adipotide",
+      "specification": "2mg*10vials",
+      "priceUsd": 55
+    },
+    {
+      "row": 39,
+      "code": "AP5",
+      "name": "Adipotide",
+      "specification": "5mg*10vials",
+      "priceUsd": 120
+    },
+    {
+      "row": 40,
+      "code": "AR100",
+      "name": "AICAR",
+      "specification": "100mg*10vials",
+      "priceUsd": 90
+    },
+    {
+      "row": 41,
+      "code": "AR50",
+      "name": "AICAR",
+      "specification": "50mg*10vials",
+      "priceUsd": 34
+    },
+    {
+      "row": 42,
+      "code": "B12",
+      "name": "B-12",
+      "specification": "10mg*10vials",
+      "priceUsd": 13
+    },
+    {
+      "row": 43,
+      "code": "B7-33",
+      "name": "B7-33",
+      "specification": "10mg*10vials",
+      "priceUsd": 227
+    },
+    {
+      "row": 44,
+      "code": "B7-33",
+      "name": "B7-33",
+      "specification": "2mg*10vials",
+      "priceUsd": 60
+    },
+    {
+      "row": 45,
+      "code": "BB10",
+      "name": "BPC 5mg + TB 5mg",
+      "specification": "10mg*10vials",
+      "priceUsd": 75
+    },
+    {
+      "row": 46,
+      "code": "BB20",
+      "name": "BPC 10mg + TB 10mg",
+      "specification": "20mg*10vials",
+      "priceUsd": 179
+    },
+    {
+      "row": 47,
+      "code": "BBG70",
+      "name": "Glow(TB10mg+BPC-15710mg+GHK50mg)",
+      "specification": "70mg*10vials",
+      "priceUsd": 194
+    },
+    {
+      "row": 48,
+      "code": "BC10",
+      "name": "BPC 157",
+      "specification": "10mg*10vials",
+      "priceUsd": 41
+    },
+    {
+      "row": 49,
+      "code": "BC2",
+      "name": "BPC 157",
+      "specification": "2mg*10vials",
+      "priceUsd": 17
+    },
+    {
+      "row": 50,
+      "code": "BC5",
+      "name": "BPC 157",
+      "specification": "5mg*10vials",
+      "priceUsd": 27
+    },
+    {
+      "row": 51,
+      "code": "BR20",
+      "name": "bronchogen",
+      "specification": "20mg*10vials",
+      "priceUsd": 82
+    },
+    {
+      "row": 52,
+      "code": "BT10",
+      "name": "TB500(Thymosin B4 Acetate)",
+      "specification": "10mg*10vials",
+      "priceUsd": 141
+    },
+    {
+      "row": 53,
+      "code": "BT2",
+      "name": "TB500(Thymosin B4 Acetate)",
+      "specification": "2mg*10vials",
+      "priceUsd": 37
+    },
+    {
+      "row": 54,
+      "code": "BT5",
+      "name": "TB500(Thymosin B4 Acetate)",
+      "specification": "5mg*10vials",
+      "priceUsd": 75
+    },
+    {
+      "row": 55,
+      "code": "CA20",
+      "name": "Cardiogen",
+      "specification": "20mg*10vials",
+      "priceUsd": 106
+    },
+    {
+      "row": 56,
+      "code": "CART20",
+      "name": "Cartalax",
+      "specification": "20mg*10vials",
+      "priceUsd": 82
+    },
+    {
+      "row": 57,
+      "code": "CBL60",
+      "name": "cerebrolysin",
+      "specification": "60mg*10vials",
+      "priceUsd": 41
+    },
+    {
+      "row": 58,
+      "code": "CD2",
+      "name": "CJC 1295 with DAC",
+      "specification": "2mg*10vials",
+      "priceUsd": 92
+    },
+    {
+      "row": 59,
+      "code": "CD5",
+      "name": "CJC 1295 with DAC",
+      "specification": "5mg*10vials",
+      "priceUsd": 179
+    },
+    {
+      "row": 60,
+      "code": "CND10",
+      "name": "CJC 1295 without DAC",
+      "specification": "10mg*10vials",
+      "priceUsd": 110
+    },
+    {
+      "row": 61,
+      "code": "CND2",
+      "name": "CJC 1295 without DAC",
+      "specification": "2mg*10vials",
+      "priceUsd": 30
+    },
+    {
+      "row": 62,
+      "code": "CND5",
+      "name": "CJC 1295 without DAC",
+      "specification": "5mg*10vials",
+      "priceUsd": 55
+    },
+    {
+      "row": 63,
+      "code": "CP10",
+      "name": "CJC1295(without DAC)5mg+IPA5mg",
+      "specification": "10mg*10vials",
+      "priceUsd": 82
+    },
+    {
+      "row": 64,
+      "code": "CGL10",
+      "name": "Cagrilintide",
+      "specification": "10mg*10vials",
+      "priceUsd": 210
+    },
+    {
+      "row": 65,
+      "code": "CGL5",
+      "name": "Cagrilintide",
+      "specification": "5mg*10vials",
+      "priceUsd": 113
+    },
+    {
+      "row": 66,
+      "code": "COR20",
+      "name": "Cortagen",
+      "specification": "20mg*10vials",
+      "priceUsd": 67
+    },
+    {
+      "row": 67,
+      "code": "CRY20",
+      "name": "Crystagen",
+      "specification": "20mg*10vials",
+      "priceUsd": 67
+    },
+    {
+      "row": 68,
+      "code": "CS10",
+      "name": "cagrilintide 5mg+ Semaglutide5mg",
+      "specification": "10mg*10vials",
+      "priceUsd": 144
+    },
+    {
+      "row": 69,
+      "code": "CS20",
+      "name": "cagrilintide 5mg+ Semaglutide5mg",
+      "specification": "20mg*10vials",
+      "priceUsd": 240
+    },
+    {
+      "row": 70,
+      "code": "CS5",
+      "name": "cagrilintide 5mg+ Semaglutide5mg",
+      "specification": "5mg*10vials",
+      "priceUsd": 79
+    },
+    {
+      "row": 71,
+      "code": "CU100",
+      "name": "GHK-CU",
+      "specification": "100mg*10vials",
+      "priceUsd": 34
+    },
+    {
+      "row": 72,
+      "code": "CU50",
+      "name": "GHK-CU",
+      "specification": "50mg*10vials",
+      "priceUsd": 20
+    },
+    {
+      "row": 73,
+      "code": "Dihexa10",
+      "name": "Dihexa",
+      "specification": "10mg*10vials",
+      "priceUsd": 61
+    },
+    {
+      "row": 74,
+      "code": "Dihexa5",
+      "name": "Dihexa",
+      "specification": "5mg*10vials",
+      "priceUsd": 33
+    },
+    {
+      "row": 75,
+      "code": "DR5",
+      "name": "Dermorphin",
+      "specification": "5mg*10vials",
+      "priceUsd": 51
+    },
+    {
+      "row": 76,
+      "code": "DS10",
+      "name": "DSIP",
+      "specification": "10mg*10vials",
+      "priceUsd": 68
+    },
+    {
+      "row": 77,
+      "code": "DS5",
+      "name": "DSIP",
+      "specification": "5mg*10vials",
+      "priceUsd": 41
+    },
+    {
+      "row": 78,
+      "code": "Dulaglutide10",
+      "name": "Dulaglutide",
+      "specification": "10mg*10vials",
+      "priceUsd": 316
+    },
+    {
+      "row": 79,
+      "code": "Dulaglutide5",
+      "name": "Dulaglutide",
+      "specification": "5mg*10vials",
+      "priceUsd": 165
+    },
+    {
+      "row": 80,
+      "code": "E3K",
+      "name": "EPO",
+      "specification": "3000iu *10vials",
+      "priceUsd": 41
+    },
+    {
+      "row": 81,
+      "code": "ET10",
+      "name": "Epitalon",
+      "specification": "10mg*10vials",
+      "priceUsd": 34
+    },
+    {
+      "row": 82,
+      "code": "ET50",
+      "name": "Epitalon",
+      "specification": "50mg*10vials",
+      "priceUsd": 137
+    },
+    {
+      "row": 83,
+      "code": "F402",
+      "name": "FOXO4-DRI",
+      "specification": "2mg*10vials",
+      "priceUsd": 96
+    },
+    {
+      "row": 84,
+      "code": "F410",
+      "name": "FOXO4-DRI",
+      "specification": "10mg*10vials",
+      "priceUsd": 343
+    },
+    {
+      "row": 85,
+      "code": "FM2",
+      "name": "MGF",
+      "specification": "2mg*10vials",
+      "priceUsd": 34
+    },
+    {
+      "row": 86,
+      "code": "FMP2",
+      "name": "PEG MGF",
+      "specification": "2mg*10vials",
+      "priceUsd": 82
+    },
+    {
+      "row": 87,
+      "code": "FN1/344",
+      "name": "FST 344",
+      "specification": "1mg*10vials",
+      "priceUsd": 82
+    },
+    {
+      "row": 88,
+      "code": "FR10/Frag10",
+      "name": "",
+      "specification": "10mg*10vials",
+      "priceUsd": 98
+    },
+    {
+      "row": 89,
+      "code": "FR12/Frag12",
+      "name": "",
+      "specification": "12mg*10vials",
+      "priceUsd": 110
+    },
+    {
+      "row": 90,
+      "code": "FR15/Frag15",
+      "name": "",
+      "specification": "15mg*10vials",
+      "priceUsd": 165
+    },
+    {
+      "row": 91,
+      "code": "FR2/Frag2",
+      "name": "",
+      "specification": "2mg *10 vials",
+      "priceUsd": 30
+    },
+    {
+      "row": 92,
+      "code": "FR5/Frag5",
+      "name": "",
+      "specification": "5mg *10 vials",
+      "priceUsd": 58
+    },
+    {
+      "row": 93,
+      "code": "G10K",
+      "name": "HCG",
+      "specification": "10000iu*10vials",
+      "priceUsd": 110
+    },
+    {
+      "row": 94,
+      "code": "G5K",
+      "name": "HCG",
+      "specification": "5000iu*10vials",
+      "priceUsd": 68
+    },
+    {
+      "row": 95,
+      "code": "G210",
+      "name": "GHRP-2 Acetate",
+      "specification": "10mg*10vials",
+      "priceUsd": 34
+    },
+    {
+      "row": 96,
+      "code": "G25",
+      "name": "GHRP-2 Acetate",
+      "specification": "5mg*10vials",
+      "priceUsd": 26
+    },
+    {
+      "row": 97,
+      "code": "G610",
+      "name": "GHRP-6 Acetate",
+      "specification": "10mg*10vials",
+      "priceUsd": 37
+    },
+    {
+      "row": 98,
+      "code": "G65",
+      "name": "GHRP-6 Acetate",
+      "specification": "5mg*10vials",
+      "priceUsd": 23
+    },
+    {
+      "row": 99,
+      "code": "G75",
+      "name": "HMG",
+      "specification": "75iu*10vials",
+      "priceUsd": 51
+    },
+    {
+      "row": 100,
+      "code": "GLOW70",
+      "name": "Glow70(BPC157 10mg+GHK-CU50mg+TB500 10mg)",
+      "specification": "70mg*10vials",
+      "priceUsd": 196
+    },
+    {
+      "row": 101,
+      "code": "GND2",
+      "name": "Gonadorelin Acetate",
+      "specification": "2mg*10vials",
+      "priceUsd": 20
+    },
+    {
+      "row": 102,
+      "code": "GND5",
+      "name": "Gonadorelin Acetate",
+      "specification": "5mg *10 vials",
+      "priceUsd": 30
+    },
+    {
+      "row": 103,
+      "code": "GTT1500",
+      "name": "Glutathione",
+      "specification": "1500mg*10vials",
+      "priceUsd": 55
+    },
+    {
+      "row": 104,
+      "code": "GTT600",
+      "name": "Glutathione",
+      "specification": "600mg*10vials",
+      "priceUsd": 34
+    },
+    {
+      "row": 105,
+      "code": "H10",
+      "name": "HGH 191AA(Somatropin)",
+      "specification": "10iu*10vials",
+      "priceUsd": 41
+    },
+    {
+      "row": 106,
+      "code": "H12",
+      "name": "HGH 191AA(Somatropin)",
+      "specification": "12iu*10vials",
+      "priceUsd": 55
+    },
+    {
+      "row": 107,
+      "code": "H15",
+      "name": "HGH 191AA(Somatropin)",
+      "specification": "15iu*10vials",
+      "priceUsd": 72
+    },
+    {
+      "row": 108,
+      "code": "H24",
+      "name": "HGH 191AA(Somatropin)",
+      "specification": "24mg*10vials",
+      "priceUsd": 99
+    },
+    {
+      "row": 109,
+      "code": "H36",
+      "name": "HGH 191AA(Somatropin)",
+      "specification": "36iu*10vials",
+      "priceUsd": 137
+    },
+    {
+      "row": 110,
+      "code": "HU10",
+      "name": "Humanin",
+      "specification": "10mg*10vials",
+      "priceUsd": 295
+    },
+    {
+      "row": 111,
+      "code": "HX2",
+      "name": "Hexarelin Acetate",
+      "specification": "2mg*10vials",
+      "priceUsd": 40
+    },
+    {
+      "row": 112,
+      "code": "HX5",
+      "name": "Hexarelin Acetate",
+      "specification": "5mg*10vials",
+      "priceUsd": 72
+    },
+    {
+      "row": 113,
+      "code": "IG01",
+      "name": "IGF-1LR3",
+      "specification": "0.1mg*10vials",
+      "priceUsd": 29
+    },
+    {
+      "row": 114,
+      "code": "IG1",
+      "name": "IGF-1LR3",
+      "specification": "1mg*10vials",
+      "priceUsd": 206
+    },
+    {
+      "row": 115,
+      "code": "IGD",
+      "name": "IGF-DES",
+      "specification": "2 mg*10vials",
+      "priceUsd": 36
+    },
+    {
+      "row": 116,
+      "code": "IP10",
+      "name": "Ipamorelin",
+      "specification": "10mg*10vials",
+      "priceUsd": 46
+    },
+    {
+      "row": 117,
+      "code": "IP2",
+      "name": "Ipamorelin",
+      "specification": "2mg*10vials",
+      "priceUsd": 17
+    },
+    {
+      "row": 118,
+      "code": "IP5",
+      "name": "Ipamorelin",
+      "specification": "5mg*10vials",
+      "priceUsd": 29
+    },
+    {
+      "row": 119,
+      "code": "KLOW80",
+      "name": "(BPC157 10mg+GHK-CU50mg+TB500 10mg+kpv10mg)",
+      "specification": "80mg*10vials",
+      "priceUsd": 193
+    },
+    {
+      "row": 120,
+      "code": "KPV10",
+      "name": "KPV",
+      "specification": "10mg*10vials",
+      "priceUsd": 41
+    },
+    {
+      "row": 121,
+      "code": "KPV5",
+      "name": "KPV",
+      "specification": "5mg*10vials",
+      "priceUsd": 26
+    },
+    {
+      "row": 122,
+      "code": "KS10",
+      "name": "Kisspeptin-10",
+      "specification": "10mg*10vials",
+      "priceUsd": 61
+    },
+    {
+      "row": 123,
+      "code": "KS5",
+      "name": "Kisspeptin-10",
+      "specification": "5mg*10vials",
+      "priceUsd": 37
+    },
+    {
+      "row": 124,
+      "code": "LB",
+      "name": "Lemon Bottle",
+      "specification": "10ml*10vials",
+      "priceUsd": 48
+    },
+    {
+      "row": 125,
+      "code": "LC120/Lipo-c",
+      "name": "LC120",
+      "specification": "10ml*10vials",
+      "priceUsd": 66
+    },
+    {
+      "row": 126,
+      "code": "LC1200",
+      "name": "L-carnitine 1200",
+      "specification": "10ml*10vials",
+      "priceUsd": 79
+    },
+    {
+      "row": 127,
+      "code": "LC216",
+      "name": "Lipo-c",
+      "specification": "10ml*10vials",
+      "priceUsd": 48
+    },
+    {
+      "row": 128,
+      "code": "LC600",
+      "name": "L-carnitine 600",
+      "specification": "10ml*10vials",
+      "priceUsd": 43
+    },
+    {
+      "row": 129,
+      "code": "LL10",
+      "name": "Liraglutide",
+      "specification": "10mg*10vials",
+      "priceUsd": 96
+    },
+    {
+      "row": 130,
+      "code": "LL30",
+      "name": "Liraglutide",
+      "specification": "30mg*10vials",
+      "priceUsd": 267
+    },
+    {
+      "row": 131,
+      "code": "LL5",
+      "name": "Liraglutide",
+      "specification": "5mg*10vials",
+      "priceUsd": 55
+    },
+    {
+      "row": 132,
+      "code": "MDT10",
+      "name": "Mazdutide",
+      "specification": "10mg*10vials",
+      "priceUsd": 199
+    },
+    {
+      "row": 133,
+      "code": "MK75",
+      "name": "MK677",
+      "specification": "5mg*10vials",
+      "priceUsd": 7
+    },
+    {
+      "row": 134,
+      "code": "ML10",
+      "name": "Melanotan II",
+      "specification": "10mg*10vials",
+      "priceUsd": 44
+    },
+    {
+      "row": 135,
+      "code": "MS10",
+      "name": "GHK-CU",
+      "specification": "10mg*10vials",
+      "priceUsd": 60
+    },
+    {
+      "row": 136,
+      "code": "MS20",
+      "name": "GHK-CU",
+      "specification": "20mg*10vials",
+      "priceUsd": 124
+    },
+    {
+      "row": 137,
+      "code": "MS40",
+      "name": "GHK-CU",
+      "specification": "40mg*10vials",
+      "priceUsd": 213
+    },
+    {
+      "row": 138,
+      "code": "MT1",
+      "name": "Melanotan I",
+      "specification": "10mg*10vials",
+      "priceUsd": 44
+    },
+    {
+      "row": 139,
+      "code": "MT10",
+      "name": "Melatonin",
+      "specification": "10mg*10vials",
+      "priceUsd": 38
+    },
+    {
+      "row": 140,
+      "code": "MX10",
+      "name": "Matrixyl",
+      "specification": "10mg*10vials",
+      "priceUsd": 25
+    },
+    {
+      "row": 141,
+      "code": "NJ100",
+      "name": "NAD+",
+      "specification": "100mg*10vials",
+      "priceUsd": 17
+    },
+    {
+      "row": 142,
+      "code": "NJ1000",
+      "name": "NAD+",
+      "specification": "1000mg*10vials",
+      "priceUsd": 34
+    },
+    {
+      "row": 143,
+      "code": "NJ500",
+      "name": "NAD+",
+      "specification": "500mg*10vials",
+      "priceUsd": 27
+    },
+    {
+      "row": 144,
+      "code": "NP810",
+      "name": "Snap-8",
+      "specification": "10mg*10vials",
+      "priceUsd": 27
+    },
+    {
+      "row": 145,
+      "code": "OT2",
+      "name": "Oxytocin Acetate",
+      "specification": "2mg*10vials",
+      "priceUsd": 17
+    },
+    {
+      "row": 146,
+      "code": "OT5",
+      "name": "Oxytocin Acetate",
+      "specification": "5mg*10vials",
+      "priceUsd": 34
+    },
+    {
+      "row": 147,
+      "code": "P210",
+      "name": "P21",
+      "specification": "5mg*10vials",
+      "priceUsd": 193
+    },
+    {
+      "row": 148,
+      "code": "P41",
+      "name": "PT-141",
+      "specification": "10mg*10vials",
+      "priceUsd": 58
+    },
+    {
+      "row": 149,
+      "code": "PE10",
+      "name": "PE-22-28",
+      "specification": "10mg*10vials",
+      "priceUsd": 48
+    },
+    {
+      "row": 150,
+      "code": "PE5",
+      "name": "PE-22-28",
+      "specification": "5mg*10vials",
+      "priceUsd": 29
+    },
+    {
+      "row": 151,
+      "code": "PN/PI5",
+      "name": "Pinealon",
+      "specification": "5mg*10vials",
+      "priceUsd": 37
+    },
+    {
+      "row": 152,
+      "code": "PIN10",
+      "name": "Pinealon",
+      "specification": "10mg*10vials",
+      "priceUsd": 61
+    },
+    {
+      "row": 153,
+      "code": "RA10",
+      "name": "ARA 290",
+      "specification": "10mg*10vials",
+      "priceUsd": 66
+    },
+    {
+      "row": 154,
+      "code": "SK10",
+      "name": "Selank",
+      "specification": "10mg*10vials",
+      "priceUsd": 46
+    },
+    {
+      "row": 155,
+      "code": "SK5",
+      "name": "Selank",
+      "specification": "5mg*10vials",
+      "priceUsd": 29
+    },
+    {
+      "row": 156,
+      "code": "SM10",
+      "name": "Semaglutide",
+      "specification": "10mg*10vials",
+      "priceUsd": 33
+    },
+    {
+      "row": 157,
+      "code": "SM15",
+      "name": "Semaglutide",
+      "specification": "15mg*10vials",
+      "priceUsd": 41
+    },
+    {
+      "row": 158,
+      "code": "SM20",
+      "name": "Semaglutide",
+      "specification": "20mg*10vials",
+      "priceUsd": 49
+    },
+    {
+      "row": 159,
+      "code": "SM30",
+      "name": "Semaglutide",
+      "specification": "30mg*10vials",
+      "priceUsd": 72
+    },
+    {
+      "row": 160,
+      "code": "SM5",
+      "name": "Semaglutide",
+      "specification": "5mg*10vials",
+      "priceUsd": 22
+    },
+    {
+      "row": 161,
+      "code": "SM50",
+      "name": "Semaglutide",
+      "specification": "50mg*10vials",
+      "priceUsd": 117
+    },
+    {
+      "row": 162,
+      "code": "SMO10",
+      "name": "Sermorelin",
+      "specification": "10mg*10vials",
+      "priceUsd": 137
+    },
+    {
+      "row": 163,
+      "code": "SMO5",
+      "name": "Sermorelin",
+      "specification": "5mg*10vials",
+      "priceUsd": 61
+    },
+    {
+      "row": 164,
+      "code": "SML5",
+      "name": "sermorelin Acetate",
+      "specification": "5mg*10vials",
+      "priceUsd": 82
+    },
+    {
+      "row": 165,
+      "code": "SML10",
+      "name": "sermorelin Acetate",
+      "specification": "10mg*10vials",
+      "priceUsd": 158
+    },
+    {
+      "row": 166,
+      "code": "SUR10",
+      "name": "Survovidutide",
+      "specification": "10mg*10vials",
+      "priceUsd": 267
+    },
+    {
+      "row": 167,
+      "code": "TA10",
+      "name": "Thymosin alpha-1",
+      "specification": "10mg*10vials",
+      "priceUsd": 148
+    },
+    {
+      "row": 168,
+      "code": "TA5",
+      "name": "Thymosin alpha-1",
+      "specification": "5mg*10vials",
+      "priceUsd": 89
+    },
+    {
+      "row": 169,
+      "code": "TBF10",
+      "name": "TB Frag",
+      "specification": "10mg*10vials",
+      "priceUsd": 103
+    },
+    {
+      "row": 170,
+      "code": "TBF2",
+      "name": "TB Frag",
+      "specification": "2mg*10vials",
+      "priceUsd": 33
+    },
+    {
+      "row": 171,
+      "code": "TBF5",
+      "name": "TB Frag",
+      "specification": "5mg*10vials",
+      "priceUsd": 61
+    },
+    {
+      "row": 172,
+      "code": "TI15",
+      "name": "Tesa10+ip5",
+      "specification": "15mg*10vials",
+      "priceUsd": 201
+    },
+    {
+      "row": 173,
+      "code": "TSM20",
+      "name": "Tesamorelin",
+      "specification": "20mg*10vials",
+      "priceUsd": 291
+    },
+    {
+      "row": 174,
+      "code": "TSM10",
+      "name": "Tesamorelin",
+      "specification": "10mg*10vials",
+      "priceUsd": 172
+    },
+    {
+      "row": 175,
+      "code": "TSM2",
+      "name": "Tesamorelin",
+      "specification": "2mg*10vials",
+      "priceUsd": 48
+    },
+    {
+      "row": 176,
+      "code": "TSM5",
+      "name": "Tesamorelin",
+      "specification": "5mg*10vials",
+      "priceUsd": 96
+    },
+    {
+      "row": 177,
+      "code": "TI",
+      "name": "TSM10+IP5",
+      "specification": "15mg*10vials",
+      "priceUsd": 201
+    },
+    {
+      "row": 178,
+      "code": "TY10",
+      "name": "Thymalin",
+      "specification": "10mg*10vials",
+      "priceUsd": 58
+    },
+    {
+      "row": 179,
+      "code": "VP10",
+      "name": "VIP",
+      "specification": "10mg*10vials",
+      "priceUsd": 127
+    },
+    {
+      "row": 180,
+      "code": "WA10",
+      "name": "bac.water",
+      "specification": "10ml*10vials",
+      "priceUsd": 9
+    },
+    {
+      "row": 181,
+      "code": "WA3",
+      "name": "bac.water",
+      "specification": "3ml*10vials",
+      "priceUsd": 5
+    },
+    {
+      "row": 182,
+      "code": "XA10",
+      "name": "Semax",
+      "specification": "10mg*10vials",
+      "priceUsd": 46
+    },
+    {
+      "row": 183,
+      "code": "XA5",
+      "name": "Semax",
+      "specification": "5mg*10vials",
+      "priceUsd": 29
+    },
+    {
+      "row": 184,
+      "code": "XS20",
+      "name": "Selank+Semax",
+      "specification": "20mg*10vials",
+      "priceUsd": 92
+    }
+  ]
+}
