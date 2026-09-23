@@ -174,7 +174,7 @@ export default async function AdminManualPage() {
           <dl className="mt-4 grid gap-x-8 gap-y-2 text-sm sm:grid-cols-[auto_1fr]">
             <dt className="font-semibold text-strong">公司 WhatsApp</dt>
             <dd>
-              +1 626 888 0425(客户付款页上的按钮直接跳到这个号码)
+              +1 209-443-7266(网站所有 WhatsApp 按钮都跳到这个号码。这是 API 号,消息在 api.pureformsciences.com 的客服系统里收发,手机 App 收不到)
             </dd>
             <dt className="font-semibold text-strong">客服邮箱</dt>
             <dd>
