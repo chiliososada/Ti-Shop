@@ -1,23 +1,29 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import type { CartProductSnapshot } from "./CartProvider";
 import { useCart } from "./CartProvider";
 import { WhatsAppIntentButton } from "@/components/whatsapp/WhatsAppIntentButton";
 import { MAXIMUM_DIRECT_CHECKOUT_QUANTITY } from "@/domain/minimum-order-quantity";
+import type { OrderMode } from "@/domain/order-mode";
 
 export function ProductBuyActions({
   product,
   directPurchaseAvailable = true,
   productSlug,
   whatsappEnabled,
+  orderMode,
 }: {
   product: CartProductSnapshot | null;
   directPurchaseAvailable?: boolean;
   productSlug: string;
   whatsappEnabled: boolean;
+  orderMode: OrderMode;
 }) {
-  const { add } = useCart();
+  const router = useRouter();
+  const { add, buyNow, close } = useCart();
+  const whatsappOrdering = orderMode === "whatsapp";
   const [qty, setQty] = useState(product?.minimumOrderQuantity ?? 1);
 
   if (!product) {
@@ -89,28 +95,53 @@ export function ProductBuyActions({
         >
           Add to cart
         </button>
-        {whatsappEnabled ? (
-          <WhatsAppIntentButton
-            intent={{
-              templateKey: "cart",
-              lines: [
-                {
-                  productSlug: product.slug,
-                  variantPublicId: product.variantPublicId,
-                  quantity: qty,
-                },
-              ],
+        {whatsappOrdering ? (
+          whatsappEnabled ? (
+            <WhatsAppIntentButton
+              intent={{
+                templateKey: "cart",
+                lines: [
+                  {
+                    productSlug: product.slug,
+                    variantPublicId: product.variantPublicId,
+                    quantity: qty,
+                  },
+                ],
+              }}
+              className="inline-flex flex-1 items-center justify-center rounded-full bg-ink-900 px-8 py-4 text-[0.95rem] font-semibold text-cream-50 transition-colors hover:bg-sage-600 disabled:cursor-wait disabled:opacity-70"
+            >
+              Order on WhatsApp
+            </WhatsAppIntentButton>
+          ) : null
+        ) : (
+          <button
+            onClick={() => {
+              if (!directPurchaseAvailable) return;
+              buyNow(product, qty);
+              close();
+              router.push("/checkout");
             }}
-            className="inline-flex flex-1 items-center justify-center rounded-full bg-ink-900 px-8 py-4 text-[0.95rem] font-semibold text-cream-50 transition-colors hover:bg-sage-600 disabled:cursor-wait disabled:opacity-70"
+            disabled={!directPurchaseAvailable}
+            className="inline-flex flex-1 items-center justify-center rounded-full bg-ink-900 px-8 py-4 text-[0.95rem] font-semibold text-cream-50 transition-colors hover:bg-sage-600 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            Order on WhatsApp
-          </WhatsAppIntentButton>
-        ) : null}
+            Buy now
+          </button>
+        )}
       </div>
       {product.minimumOrderQuantity > 1 ? (
         <p className="mt-3 text-sm text-muted">
           Minimum order quantity: {product.minimumOrderQuantity}.
         </p>
+      ) : null}
+      {!whatsappOrdering && whatsappEnabled ? (
+        <div className="mt-3 flex flex-col items-start gap-2">
+          <WhatsAppIntentButton
+            intent={{ templateKey: "product", productSlug }}
+            className="text-sm font-semibold text-sage-700 underline underline-offset-4 disabled:cursor-wait disabled:opacity-70"
+          >
+            Ask about this product on WhatsApp
+          </WhatsAppIntentButton>
+        </div>
       ) : null}
     </div>
   );

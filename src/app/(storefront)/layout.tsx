@@ -9,6 +9,7 @@ import { FloatingWhatsAppEntry } from "@/components/whatsapp/FloatingWhatsAppEnt
 import { getPublicCategories } from "@/server/catalog";
 import { getPublicNavigation } from "@/server/navigation/public";
 import { getPublicWhatsAppPresentation } from "@/server/whatsapp/config";
+import { getOrderMode } from "@/server/commerce/order-mode";
 
 /** Customer-facing chrome: header, footer, cart, WhatsApp entry, JSON-LD. */
 export default async function StorefrontLayout({
@@ -17,11 +18,12 @@ export default async function StorefrontLayout({
   children: React.ReactNode;
 }>) {
   await connection();
-  const [whatsapp, categories, headerNavigation, footerNavigation] = await Promise.all([
+  const [whatsapp, categories, headerNavigation, footerNavigation, orderMode] = await Promise.all([
     getPublicWhatsAppPresentation(),
     getPublicCategories(),
     getPublicNavigation("header"),
     getPublicNavigation("footer"),
+    getOrderMode(),
   ]);
 
   return (
@@ -39,7 +41,7 @@ export default async function StorefrontLayout({
           categories={categories}
           navigation={footerNavigation}
         />
-        <CartDrawer whatsappEnabled={whatsapp !== null} />
+        <CartDrawer whatsappEnabled={whatsapp !== null} orderMode={orderMode} />
         {whatsapp ? (
           <FloatingWhatsAppEntry
             welcomeMessage={whatsapp.welcomeMessage}

@@ -15,6 +15,7 @@ import { readStrictFormData } from "@/server/admin/audit/form-data";
 import {
   updateAdminCheckoutCharges,
   updateAdminOnlinePaymentSwitch,
+  updateAdminOrderMode,
   updateAdminPaymentMethodConfig,
 } from "@/server/admin/payments/mutations";
 import {
@@ -22,6 +23,8 @@ import {
   checkoutChargesSchema,
   ONLINE_PAYMENT_SWITCH_FORM_FIELDS,
   onlinePaymentSwitchSchema,
+  ORDER_MODE_FORM_FIELDS,
+  orderModeSchema,
   PAYMENT_METHOD_CONFIG_FORM_FIELDS,
   paymentMethodConfigSchema,
 } from "@/server/admin/payments/validators";
@@ -183,6 +186,34 @@ export async function updateCheckoutChargesAction(
   );
   return committedPaymentSuccess(
     "Checkout charge settings saved.",
+    refreshPending,
+  );
+}
+
+export async function updateOrderModeAction(
+  _previousState: AdminActionState,
+  formData: FormData,
+): Promise<PaymentsActionState> {
+  const fields = readStrictFormData(formData, ORDER_MODE_FORM_FIELDS);
+  if (!fields.success) return formDataFailure(fields.message);
+  const parsed = orderModeSchema.safeParse(fields.data);
+  if (!parsed.success) return validationFailure(parsed.error);
+
+  let result: Awaited<ReturnType<typeof updateAdminOrderMode>>;
+  try {
+    result = await updateAdminOrderMode(parsed.data);
+  } catch (error) {
+    unstable_rethrow(error);
+    logUnexpectedAdminActionError("settings.order_mode.update", error);
+    return actionFailure("The ordering mode could not be saved.");
+  }
+  const refreshPending = revalidatePaymentSettings(
+    "settings.order_mode.update.cache-refresh",
+  );
+  return committedPaymentSuccess(
+    result.orderMode === "whatsapp"
+      ? "Storefront now takes orders on WhatsApp. Checkout buttons are hidden."
+      : "Storefront checkout is enabled. Customers can place orders directly.",
     refreshPending,
   );
 }

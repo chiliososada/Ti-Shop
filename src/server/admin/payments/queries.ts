@@ -6,17 +6,19 @@ import {
   checkoutChargesValueSchema,
   isSafePublicPaymentInstructions,
 } from "@/server/admin/payments/validators";
+import { parseOrderMode } from "@/domain/order-mode";
 import { getNowPaymentsRuntimeConfig } from "@/server/payments/nowpayments/runtime-config";
 
 const ONLINE_PAYMENT_SWITCH_KEY = "commerce.online_payments_enabled";
 const CHECKOUT_CHARGES_KEY = "commerce.checkout_charges";
+const ORDER_MODE_SETTING_KEY = "commerce.order_mode";
 
 export async function getAdminPaymentSettings() {
   const authorization = await requirePermission(
     "payments.read",
     "/admin/payments",
   );
-  const [methods, onlinePaymentSwitch, checkoutChargesSetting] = await Promise.all([
+  const [methods, onlinePaymentSwitch, checkoutChargesSetting, orderModeSetting] = await Promise.all([
     getDb().paymentMethodConfig.findMany({
       orderBy: [{ method: "asc" }],
       select: {
@@ -34,6 +36,10 @@ export async function getAdminPaymentSettings() {
     getDb().siteSetting.findUnique({
       where: { key: CHECKOUT_CHARGES_KEY },
       select: { key: true, value: true, updatedAt: true },
+    }),
+    getDb().siteSetting.findUnique({
+      where: { key: ORDER_MODE_SETTING_KEY },
+      select: { value: true, updatedAt: true },
     }),
   ]);
   const checkoutCharges = checkoutChargesSetting
@@ -86,6 +92,10 @@ export async function getAdminPaymentSettings() {
     checkoutChargesInvalid:
       checkoutChargesSetting !== null && checkoutCharges?.success === false,
     nowPaymentsRuntime,
+    orderMode: {
+      mode: parseOrderMode(orderModeSetting?.value),
+      updatedAt: orderModeSetting?.updatedAt.toISOString() ?? null,
+    },
     canManagePaymentMethods: authorization.permissions.has("payments.manage"),
     canManageOnlinePaymentSwitch:
       authorization.permissions.has("settings.manage"),

@@ -21,6 +21,7 @@ import {
   getPublicProductList,
 } from "@/server/catalog";
 import { getPublicWhatsAppPresentation } from "@/server/whatsapp/config";
+import { getOrderMode } from "@/server/commerce/order-mode";
 
 type ProductPageProps = {
   params: Promise<{ id: string }>;
@@ -79,9 +80,10 @@ export async function generateMetadata({
 export default async function ProductDetail({ params }: ProductPageProps) {
   await connection();
   const { id } = await params;
-  const [product, whatsapp] = await Promise.all([
+  const [product, whatsapp, orderMode] = await Promise.all([
     getPublicProductBySlug(id),
     getPublicWhatsAppPresentation(),
+    getOrderMode(),
   ]);
   if (!product) notFound();
 
@@ -205,6 +207,7 @@ export default async function ProductDetail({ params }: ProductPageProps) {
                 }}
                 primaryImage={primaryImage}
                 whatsappEnabled={whatsapp !== null}
+                orderMode={orderMode}
               />
               <Link
                 href="/faq"

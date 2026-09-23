@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { ORDER_MODES } from "@/domain/order-mode";
+
 import {
   checkboxSchema,
   nullableText,
@@ -20,6 +22,7 @@ export const PAYMENT_METHOD_CONFIG_FORM_FIELDS = [
 ] as const;
 
 export const ONLINE_PAYMENT_SWITCH_FORM_FIELDS = ["isEnabled"] as const;
+export const ORDER_MODE_FORM_FIELDS = ["orderMode"] as const;
 export const CHECKOUT_CHARGES_FORM_FIELDS = [
   "configured",
   "shippingFirstBlockMinor",
@@ -160,6 +163,12 @@ export const onlinePaymentSwitchSchema = z
   })
   .strict();
 
+export const orderModeSchema = z
+  .object({
+    orderMode: z.enum(ORDER_MODES),
+  })
+  .strict();
+
 const REQUIRED_CHARGE_FIELDS = [
   "shippingFirstBlockMinor",
   "shippingBlockUnits",
@@ -218,6 +227,8 @@ export const checkoutChargesValueSchema = z
 export type PaymentMethodConfigInput = z.output<
   typeof paymentMethodConfigSchema
 >;
+export type OrderModeInput = z.output<typeof orderModeSchema>;
+
 export type OnlinePaymentSwitchInput = z.output<
   typeof onlinePaymentSwitchSchema
 >;

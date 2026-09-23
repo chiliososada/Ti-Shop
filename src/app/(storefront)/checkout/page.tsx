@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { connection } from "next/server";
 
 import { CheckoutForm } from "@/app/(storefront)/checkout/CheckoutForm";
@@ -9,6 +10,7 @@ import {
   getEnabledPaymentMethods,
 } from "@/server/orders/queries";
 import { getPublicWhatsAppPresentation } from "@/server/whatsapp/config";
+import { getOrderMode } from "@/server/commerce/order-mode";
 
 export const metadata: Metadata = {
   title: "Checkout",
@@ -17,6 +19,7 @@ export const metadata: Metadata = {
 
 export default async function CheckoutPage() {
   await connection();
+  if ((await getOrderMode()) === "whatsapp") redirect("/products");
   const session = await requireUser("/checkout");
   const [
     paymentMethods,

@@ -4,8 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatUsdMinor, useCart } from "./CartProvider";
 import { WhatsAppIntentButton } from "@/components/whatsapp/WhatsAppIntentButton";
+import type { OrderMode } from "@/domain/order-mode";
 
-export function CartDrawer({ whatsappEnabled }: { whatsappEnabled: boolean }) {
+export function CartDrawer({
+  whatsappEnabled,
+  orderMode,
+}: {
+  whatsappEnabled: boolean;
+  orderMode: OrderMode;
+}) {
+  const whatsappOrdering = orderMode === "whatsapp";
   const {
     items,
     isOpen,
@@ -169,10 +177,27 @@ export function CartDrawer({ whatsappEnabled }: { whatsappEnabled: boolean }) {
                 Displayed product subtotal only. The server rechecks current USD
                 prices when an order is created.
               </p>
-              <p className="mt-3 rounded-lg bg-surface-alt px-3 py-2 text-caption text-body">
-                Orders are confirmed on WhatsApp. Send this cart and we will
-                confirm availability, shipping and payment details in the chat.
-              </p>
+              {whatsappOrdering ? (
+                <p className="mt-3 rounded-lg bg-surface-alt px-3 py-2 text-caption text-body">
+                  Orders are confirmed on WhatsApp. Send this cart and we will
+                  confirm availability, shipping and payment details in the chat.
+                </p>
+              ) : (
+                <>
+                  <p className="mt-3 rounded-lg bg-surface-alt px-3 py-2 text-caption text-body">
+                    Checkout requires an email/password account. Creating an order
+                    does not mark a payment as paid; payment status is confirmed
+                    separately.
+                  </p>
+                  <Link
+                    href="/checkout"
+                    onClick={close}
+                    className="mt-4 flex w-full items-center justify-center rounded-full bg-ink-900 px-6 py-3.5 text-sm font-semibold text-cream-50 transition-colors hover:bg-sage-600"
+                  >
+                    Continue to checkout
+                  </Link>
+                </>
+              )}
               {whatsappEnabled ? (
                 <WhatsAppIntentButton
                   intent={{
@@ -183,10 +208,16 @@ export function CartDrawer({ whatsappEnabled }: { whatsappEnabled: boolean }) {
                       quantity: line.qty,
                     })),
                   }}
-                  className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-ink-900 px-6 py-3.5 text-sm font-semibold text-cream-50 transition-colors hover:bg-sage-600 disabled:cursor-wait disabled:opacity-70"
+                  className={
+                    whatsappOrdering
+                      ? "mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-ink-900 px-6 py-3.5 text-sm font-semibold text-cream-50 transition-colors hover:bg-sage-600 disabled:cursor-wait disabled:opacity-70"
+                      : "mt-3 flex w-full items-center justify-center gap-2 rounded-full border border-ink-900/15 px-6 py-3.5 text-sm font-semibold text-strong transition-colors hover:bg-surface-alt disabled:cursor-wait disabled:opacity-70"
+                  }
                   fallbackClassName="mt-2 block text-center text-caption font-semibold text-strong underline"
                 >
-                  Order this cart on WhatsApp
+                  {whatsappOrdering
+                    ? "Order this cart on WhatsApp"
+                    : "Ask about this cart on WhatsApp"}
                 </WhatsAppIntentButton>
               ) : (
                 <p className="mt-3 text-center text-caption text-muted">

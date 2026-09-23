@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { ProductBuyActions } from "@/components/cart/ProductBuyActions";
+import type { OrderMode } from "@/domain/order-mode";
 import {
   buildVariantCartSnapshot,
   selectInitialPurchaseVariant,
@@ -33,10 +34,12 @@ export function ProductPurchasePanel({
   product,
   primaryImage,
   whatsappEnabled,
+  orderMode,
 }: {
   product: PurchaseProduct;
   primaryImage: PublicImageDto | null;
   whatsappEnabled: boolean;
+  orderMode: OrderMode;
 }) {
   const initialVariant = selectInitialPurchaseVariant(product.variants);
   const [selectedPublicId, setSelectedPublicId] = useState(
@@ -58,6 +61,7 @@ export function ProductPurchasePanel({
             product={null}
             productSlug={product.slug}
             whatsappEnabled={whatsappEnabled}
+            orderMode={orderMode}
           />
         </div>
       </div>
@@ -144,6 +148,7 @@ export function ProductPurchasePanel({
           }
           productSlug={product.slug}
           whatsappEnabled={whatsappEnabled}
+          orderMode={orderMode}
         />
       </div>
       <p className="mt-3 text-caption leading-relaxed text-muted">

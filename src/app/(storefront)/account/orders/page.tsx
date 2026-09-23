@@ -10,6 +10,7 @@ import {
   type SearchParameter,
 } from "@/lib/pagination";
 import { listCurrentUserOrders } from "@/server/orders/queries";
+import { getOrderMode } from "@/server/commerce/order-mode";
 import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default async function CustomerOrdersPage({
   searchParams: Promise<Record<string, SearchParameter>>;
 }) {
   await connection();
+  const checkoutEnabled = (await getOrderMode()) === "checkout";
   const query = await searchParams;
   const { orders, pagination } = await listCurrentUserOrders(
     normalizePageSearchParameter(query.page),
@@ -50,10 +52,10 @@ export default async function CustomerOrdersPage({
             </p>
           </div>
           <Link
-            href="/products"
+            href={checkoutEnabled ? "/checkout" : "/products"}
             className="inline-flex rounded-full bg-ink-900 px-6 py-3 text-sm font-semibold text-cream-50 hover:bg-sage-600"
           >
-            Browse products
+            {checkoutEnabled ? "Go to checkout" : "Browse products"}
           </Link>
         </div>
 

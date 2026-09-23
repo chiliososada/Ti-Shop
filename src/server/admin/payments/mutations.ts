@@ -5,12 +5,14 @@ import { writeAdminAuditLog } from "@/server/admin/audit/log";
 import type {
   CheckoutChargesInput,
   OnlinePaymentSwitchInput,
+  OrderModeInput,
   PaymentMethodConfigInput,
 } from "@/server/admin/payments/validators";
 import { requirePermission } from "@/server/auth/rbac";
 import { getDb } from "@/server/db/client";
 
 const ONLINE_PAYMENT_SWITCH_KEY = "commerce.online_payments_enabled";
+const ORDER_MODE_SETTING_KEY = "commerce.order_mode";
 const CHECKOUT_CHARGES_KEY = "commerce.checkout_charges";
 
 const paymentMethodAuditSelect = {
@@ -153,6 +155,60 @@ export async function updateAdminOnlinePaymentSwitch(
       });
 
       return { ok: true as const, isEnabled: input.isEnabled };
+    },
+    { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
+  );
+}
+
+export async function updateAdminOrderMode(input: OrderModeInput) {
+  const authorization = await requirePermission(
+    "settings.manage",
+    "/admin/payments",
+  );
+
+  return getDb().$transaction(
+    async (tx) => {
+      const existing = await tx.siteSetting.findUnique({
+        where: { key: ORDER_MODE_SETTING_KEY },
+        select: settingAuditSelect,
+      });
+
+      const after = await tx.siteSetting.upsert({
+        where: { key: ORDER_MODE_SETTING_KEY },
+        create: {
+          key: ORDER_MODE_SETTING_KEY,
+          value: input.orderMode,
+          description:
+            "Storefront ordering mode: whatsapp (chat orders) or checkout (self-service).",
+          isPublic: false,
+          updatedByUserId: authorization.session.user.id,
+        },
+        update: {
+          value: input.orderMode,
+          updatedByUserId: authorization.session.user.id,
+        },
+        select: settingAuditSelect,
+      });
+
+      await writeAdminAuditLog(tx, {
+        actorUserId: authorization.session.user.id,
+        action: "settings.order_mode.update",
+        resourceType: "site_setting",
+        resourceId: ORDER_MODE_SETTING_KEY,
+        before: existing,
+        after,
+      });
+      await tx.outboxEvent.create({
+        data: {
+          aggregateType: "site_setting",
+          aggregateId: ORDER_MODE_SETTING_KEY,
+          eventType: "commerce.order_mode.updated",
+          payload: { orderMode: input.orderMode },
+        },
+        select: { id: true },
+      });
+
+      return { ok: true as const, orderMode: input.orderMode };
     },
     { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
   );

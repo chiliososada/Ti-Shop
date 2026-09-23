@@ -7,6 +7,7 @@ vi.mock("next/navigation", () => ({
 }));
 
 import { CartProvider } from "@/components/cart/CartProvider";
+import type { OrderMode } from "@/domain/order-mode";
 import { ProductPurchasePanel } from "@/components/cart/ProductPurchasePanel";
 import type { PublicProductVariantDto } from "@/domain/catalog";
 
@@ -34,7 +35,10 @@ function variant(
   };
 }
 
-function renderPanel(variants: PublicProductVariantDto[]) {
+function renderPanel(
+  variants: PublicProductVariantDto[],
+  orderMode: OrderMode = "checkout",
+) {
   return renderToStaticMarkup(
     createElement(
       CartProvider,
@@ -49,6 +53,7 @@ function renderPanel(variants: PublicProductVariantDto[]) {
         },
         primaryImage: null,
         whatsappEnabled: true,
+        orderMode,
       }),
     ),
   );
@@ -90,7 +95,18 @@ describe("ProductPurchasePanel", () => {
     expect(html).toMatch(
       /<button(?=[^>]*disabled="")[^>]*>Add to cart<\/button>/u,
     );
+    expect(html).toMatch(
+      /<button(?=[^>]*disabled="")[^>]*>Buy now<\/button>/u,
+    );
+    expect(html).toContain("Ask about this product on WhatsApp");
+  });
+
+  it("replaces Buy now with a WhatsApp order button in WhatsApp ordering mode", () => {
+    const html = renderPanel([variant("available")], "whatsapp");
+
     expect(html).not.toContain("Buy now");
     expect(html).toContain("Order on WhatsApp");
+    expect(html).not.toContain("Ask about this product on WhatsApp");
+    expect(html).toContain("Add to cart");
   });
 });

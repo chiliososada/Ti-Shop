@@ -9,6 +9,7 @@ import { getAdminPaymentSettings } from "@/server/admin/payments/queries";
 import {
   updateCheckoutChargesAction,
   updateOnlinePaymentSwitchAction,
+  updateOrderModeAction,
   updatePaymentMethodConfigAction,
 } from "./actions";
 import { DISPLAY_TIME_ZONE } from "@/lib/display-timezone";
@@ -47,6 +48,62 @@ export default async function AdminPaymentSettingsPage() {
             keys and recipient credentials are never stored or shown here.
           </p>
         </header>
+
+        <section className="rounded-2xl border border-ink-900/[0.08] bg-surface p-6 md:p-8">
+          <h2 className="text-h4 text-strong">Storefront ordering mode</h2>
+          <p className="mt-3 max-w-3xl text-body">
+            Current mode:{" "}
+            <strong>
+              {settings.orderMode.mode === "whatsapp"
+                ? "WhatsApp orders"
+                : "Self-service checkout"}
+            </strong>
+            {settings.orderMode.updatedAt
+              ? ` · Updated ${formatDate(settings.orderMode.updatedAt)} CT`
+              : " · Default (never changed)"}
+          </p>
+          {settings.canManageOnlinePaymentSwitch ? (
+            <AdminActionForm
+              action={updateOrderModeAction}
+              submitLabel="Save ordering mode"
+              className="mt-6 space-y-4"
+            >
+              <label className="flex items-start gap-3 text-sm text-body">
+                <input
+                  type="radio"
+                  name="orderMode"
+                  value="whatsapp"
+                  defaultChecked={settings.orderMode.mode === "whatsapp"}
+                  className="mt-1"
+                />
+                <span>
+                  <strong className="text-strong">WhatsApp orders</strong> —
+                  product and cart buttons open a prefilled WhatsApp chat;
+                  checkout is hidden. Staff create the order under Orders → New.
+                </span>
+              </label>
+              <label className="flex items-start gap-3 text-sm text-body">
+                <input
+                  type="radio"
+                  name="orderMode"
+                  value="checkout"
+                  defaultChecked={settings.orderMode.mode === "checkout"}
+                  className="mt-1"
+                />
+                <span>
+                  <strong className="text-strong">Self-service checkout</strong>{" "}
+                  — Buy now and Continue to checkout are shown; customers sign in
+                  and place orders themselves. Payment methods below must be
+                  enabled first.
+                </span>
+              </label>
+            </AdminActionForm>
+          ) : (
+            <p className="mt-4 text-sm text-muted">
+              You need the settings.manage permission to change the ordering mode.
+            </p>
+          )}
+        </section>
 
         <section className="rounded-2xl border border-ink-900/[0.08] bg-surface p-6 md:p-8">
           <h2 className="text-h4 text-strong">Online payment kill switch</h2>
