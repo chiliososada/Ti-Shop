@@ -65,6 +65,22 @@ export function SiteFooter({
               Catalog
             </div>
             <ul className="mt-4 space-y-2.5">
+              <li>
+                <Link
+                  href="/products"
+                  className="text-sm text-cream-200/70 transition-colors hover:text-cream-50"
+                >
+                  All products
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/research-materials"
+                  className="text-sm text-cream-200/70 transition-colors hover:text-cream-50"
+                >
+                  Materials A–Z &amp; prices
+                </Link>
+              </li>
               {categories.map((c) => (
                 <li key={c.slug}>
                   <Link

@@ -1,7 +1,11 @@
 import { company } from "@/data/company";
-import type { PublicProductDetailDto } from "@/domain/catalog";
+import type {
+  PublicProductDetailDto,
+  PublicProductSummaryDto,
+} from "@/domain/catalog";
 import type { PublicBlogPostDto } from "@/domain/content";
 import { preparePublicProductGallery } from "@/components/product-image-gallery";
+import { getCatalogSpecification } from "@/lib/catalog-specifications";
 import { sanitizePublicAssetUrl } from "@/lib/public-asset-url";
 import { resolvePublicSiteOrigin } from "@/lib/site-url";
 
@@ -29,6 +33,51 @@ function usdMinorToDecimal(amountMinor: string) {
   if (!/^\d+$/u.test(amountMinor)) return null;
   const padded = amountMinor.padStart(3, "0");
   return `${padded.slice(0, -2).replace(/^0+(?=\d)/u, "")}.${padded.slice(-2)}`;
+}
+
+/** The displayed product code doubles as the SKU when no dedicated SKU exists. */
+function variantSku(variant: PublicProductDetailDto["variants"][number]) {
+  if (variant.sku) return variant.sku;
+  const code = variant.optionValues?.catalogNumber;
+  return typeof code === "string" && code.trim() ? code.trim() : null;
+}
+
+export function CatalogJsonLd({
+  title,
+  url,
+  products,
+  total,
+  start = 0,
+}: {
+  title: string;
+  url: string;
+  products: readonly PublicProductSummaryDto[];
+  total: number;
+  start?: number;
+}) {
+  const canonicalUrl = absolutePublicUrl(url);
+  return (
+    <Script
+      data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": `${canonicalUrl}#collection`,
+        url: canonicalUrl,
+        name: title,
+        isPartOf: { "@id": `${publicSiteOrigin}/#website` },
+        mainEntity: {
+          "@type": "ItemList",
+          numberOfItems: total,
+          itemListElement: products.map((product, index) => ({
+            "@type": "ListItem",
+            position: start + index + 1,
+            name: product.title,
+            url: absolutePublicUrl(`/products/${product.slug}`),
+          })),
+        },
+      }}
+    />
+  );
 }
 
 function Script({ data }: { data: object }) {
@@ -113,8 +162,14 @@ export function ProductJsonLd({
   const canonicalUrl = absolutePublicUrl(
     product.seo?.canonicalUrl ?? `/products/${product.slug}`,
   );
+  const catalogCode = getCatalogSpecification(product.slug)?.codes[0] ?? null;
+  const productSku =
+    product.variants
+      .map((variant) => variantSku(variant))
+      .find((sku): sku is string => sku !== null) ?? catalogCode;
   const offers = product.variants.flatMap((variant) => {
     const price = usdMinorToDecimal(variant.price.amountMinor);
+    const sku = variantSku(variant) ?? catalogCode;
     return price === null
       ? []
       : [
@@ -122,7 +177,7 @@ export function ProductJsonLd({
             "@type": "Offer",
             name: variant.title,
             url: canonicalUrl,
-            ...(variant.sku ? { sku: variant.sku } : {}),
+            ...(sku ? { sku } : {}),
             priceCurrency: variant.price.currency,
             price,
             availability: variant.directPurchaseAvailable
@@ -176,6 +231,7 @@ export function ProductJsonLd({
         "@type": "Product",
         "@id": `${canonicalUrl}#product`,
         name: product.title,
+        ...(productSku ? { sku: productSku } : {}),
         brand: {
           "@type": "Brand",
           name: product.brand ?? company.name,

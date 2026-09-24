@@ -21,6 +21,31 @@ import type { PublicPageSitemapEntryDto } from "@/domain/content";
 const catalogTimestamp = "2026-07-13T00:00:00.000Z";
 
 describe("public sitemap", () => {
+  it("includes safe product image URLs without leaking invalid asset URLs", () => {
+    const entries = buildPublicSitemap(
+      [
+        {
+          kind: "product",
+          slug: "example",
+          path: "/products/example",
+          canonicalUrl: null,
+          lastModified: catalogTimestamp,
+          title: "Example",
+          images: [
+            "/products/example.jpg",
+            "javascript:alert(1)",
+            "//untrusted.example/image.jpg",
+          ],
+        },
+      ],
+      [],
+      "https://example.test",
+    );
+    expect(
+      entries.find((entry) => entry.url.endsWith("/products/example"))?.images,
+    ).toEqual(["https://example.test/products/example.jpg"]);
+  });
+
   it("includes every catalog URL, policy page and DTO date", () => {
     const catalogEntries: PublicCatalogSitemapEntryDto[] = [
       ...categories.map((category) => ({
@@ -53,6 +78,7 @@ describe("public sitemap", () => {
     const legacyStaticPaths = [
       "/",
       "/products",
+      "/research-materials",
       "/about",
       "/blog",
       "/faq",
@@ -267,7 +293,7 @@ describe("public sitemap", () => {
     );
     const urls = entries.map((entry) => entry.url);
 
-    expect(urls).toHaveLength(12);
+    expect(urls).toHaveLength(13);
     expect(urls.join("\n")).not.toMatch(
       /external-(?:product|category|blog|page)/u,
     );

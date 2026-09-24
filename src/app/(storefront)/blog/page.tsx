@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { connection } from "next/server";
 
 import {
-  publicRobots,
+  catalogListingSeo,
+  isValidListingPage,
   type PublicSearchParams,
 } from "@/app/_lib/public-seo";
 import { BlogCard } from "@/components/BlogCard";
@@ -20,17 +22,25 @@ type BlogIndexProps = {
   searchParams: Promise<PublicSearchParams>;
 };
 
+const BLOG_PAGE_SIZE = 12;
+
 export async function generateMetadata({
   searchParams,
 }: BlogIndexProps): Promise<Metadata> {
   await connection();
   const query = await searchParams;
+  const result = await getPublicBlogPage({
+    page: normalizePageSearchParameter(query.page),
+    pageSize: BLOG_PAGE_SIZE,
+  });
+  if (!isValidListingPage(query, result.pagination.page)) notFound();
+  const page = result.pagination.page;
+
   return createPublicPageMetadata({
-    title: "Research Peptide Insights & Lab Guides",
+    title: `Research Peptide Insights & Lab Guides${page > 1 ? ` — Page ${page}` : ""}`,
     description:
       "Guides on peptide purity, Certificate of Analysis, reconstitution and peptide science from Flintmarrow. Research use only.",
-    canonical: "/blog",
-    robots: publicRobots(query),
+    ...catalogListingSeo("/blog", query, page),
   });
 }
 
@@ -39,8 +49,9 @@ export default async function BlogIndex({ searchParams }: BlogIndexProps) {
   const query = await searchParams;
   const result = await getPublicBlogPage({
     page: normalizePageSearchParameter(query.page),
-    pageSize: 12,
+    pageSize: BLOG_PAGE_SIZE,
   });
+  if (!isValidListingPage(query, result.pagination.page)) notFound();
 
   return (
     <>

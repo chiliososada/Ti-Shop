@@ -9,6 +9,7 @@ import type {
 } from "@/domain/content";
 import type { PublicSitemapEntryDto } from "@/domain/public";
 import { normalizeCanonicalUrl } from "@/lib/canonical-url";
+import { sanitizePublicAssetUrl } from "@/lib/public-asset-url";
 import { resolvePublicSiteOrigin } from "@/lib/site-url";
 import { getPublicCatalogSitemapEntries } from "@/server/catalog";
 import {
@@ -21,6 +22,7 @@ import type { ManagedPageSitemapState } from "@/server/content/public-managed-pa
 const STATIC_PATHS = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/products", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/research-materials", changeFrequency: "weekly", priority: 0.8 },
   { path: "/about", changeFrequency: "monthly", priority: 0.6 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.7 },
   { path: "/faq", changeFrequency: "monthly", priority: 0.5 },
@@ -141,6 +143,10 @@ export function buildPublicSitemap(
             lastModified: entry.lastModified,
             changeFrequency: "monthly" as const,
             priority: 0.7,
+            images: (entry.images ?? []).flatMap((image) => {
+              const safe = sanitizePublicAssetUrl(image);
+              return safe ? [absoluteUrl(safe, siteOrigin)] : [];
+            }),
           }]
         : [];
     });

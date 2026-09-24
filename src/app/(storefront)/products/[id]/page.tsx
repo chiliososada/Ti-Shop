@@ -14,6 +14,12 @@ import {
 import { ProductCard } from "@/components/ProductCard";
 import { ProductImageGallery } from "@/components/ProductImageGallery";
 import { ProductPurchasePanel } from "@/components/cart/ProductPurchasePanel";
+import { GuideReading } from "@/components/GuideReading";
+import {
+  getCatalogSpecification,
+  getSiblingPresentations,
+} from "@/lib/catalog-specifications";
+import { getPublicProductsBySlugs } from "@/server/catalog/public-directory";
 import { preparePublicProductGallery } from "@/components/product-image-gallery";
 import { Pill } from "@/components/ui";
 import {
@@ -88,16 +94,25 @@ export default async function ProductDetail({ params }: ProductPageProps) {
   if (!product) notFound();
 
   const category = product.primaryCategory ?? product.categories[0] ?? null;
-  const related = category
-    ? (
-        await getPublicProductList({
-          categorySlug: category.slug,
-          limit: 5,
-        })
-      )
-        .filter((candidate) => candidate.publicId !== product.publicId)
-        .slice(0, 4)
-    : [];
+  const siblingSlugs = getSiblingPresentations(product.slug).map(
+    (sibling) => sibling.slug,
+  );
+  const [siblings, categoryProducts] = await Promise.all([
+    siblingSlugs.length > 1
+      ? getPublicProductsBySlugs(siblingSlugs)
+      : Promise.resolve([]),
+    category
+      ? getPublicProductList({ categorySlug: category.slug, limit: 12 })
+      : Promise.resolve([]),
+  ]);
+  const siblingIds = new Set(siblings.map((sibling) => sibling.publicId));
+  const related = categoryProducts
+    .filter(
+      (candidate) =>
+        candidate.publicId !== product.publicId &&
+        !siblingIds.has(candidate.publicId),
+    )
+    .slice(0, 4);
   const galleryImages = preparePublicProductGallery(
     product.primaryImage,
     product.gallery,
@@ -195,6 +210,56 @@ export default async function ProductDetail({ params }: ProductPageProps) {
             <p className="mt-4 text-lg text-body">
               {product.description ?? product.shortDescription}
             </p>
+
+            {siblings.length > 1 ? (
+              <section
+                className="mt-6 rounded-xl border border-line bg-surface-alt p-4"
+                aria-labelledby="compare-presentations-heading"
+              >
+                <h2
+                  id="compare-presentations-heading"
+                  className="text-sm font-semibold text-strong"
+                >
+                  Compare presentations
+                </h2>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {siblings.map((sibling) => {
+                    const current = sibling.publicId === product.publicId;
+                    const strength =
+                      getCatalogSpecification(sibling.slug)?.strength ??
+                      sibling.title;
+                    return (
+                      <li key={sibling.publicId}>
+                        <Link
+                          href={`/products/${sibling.slug}`}
+                          aria-current={current ? "page" : undefined}
+                          className={`inline-flex items-baseline gap-2 rounded-lg border px-3 py-2 text-sm ${
+                            current
+                              ? "border-sage-600 bg-sage-600 text-white"
+                              : "border-line bg-base text-strong hover:border-sage-500"
+                          }`}
+                        >
+                          <span className="font-semibold">{strength}</span>
+                          {sibling.price ? (
+                            <span
+                              className={
+                                current ? "text-white/80" : "text-muted"
+                              }
+                            >
+                              {sibling.price.display}
+                            </span>
+                          ) : null}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <p className="mt-3 text-caption text-muted">
+                  Every listed strength of this material, priced per 10-vial
+                  box. Each option opens its own specification page.
+                </p>
+              </section>
+            ) : null}
 
             <div className="mt-6">
               <ProductPurchasePanel
@@ -321,6 +386,7 @@ export default async function ProductDetail({ params }: ProductPageProps) {
           </div>
         </section>
       ) : null}
+      <GuideReading />
     </>
   );
 }

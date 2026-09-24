@@ -170,7 +170,9 @@ describe("JSON-LD", () => {
     );
     const offer = structuredProduct.offers as Record<string, unknown>;
 
-    expect(structuredProduct).not.toHaveProperty("sku");
+    // A single-presentation product carries its variant SKU at product level
+    // as well, which is what Google's Product markup reads.
+    expect(structuredProduct.sku).toBe("EXAMPLE-5MG");
     expect(offer.sku).toBe("EXAMPLE-5MG");
     expect(offer.availability).toBe("https://schema.org/InStock");
     expect(offer.priceCurrency).toBe("USD");

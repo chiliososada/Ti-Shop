@@ -156,12 +156,14 @@ END $$;`,
         syncedAt,
       },
     };
+    // Public mappers only expose flat primitive option values, so codes are
+    // stored as a single string rather than an array.
     const optionValues = {
       source: "supplier-price-list",
       default: true,
       presentation: entry.presentation,
       catalogNumber: entry.codes[0],
-      supplierCodes: entry.codes,
+      supplierCodes: entry.codes.join(" / "),
       packCount: entry.packCount,
       quantityUnit: "box",
     };

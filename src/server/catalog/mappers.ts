@@ -410,6 +410,9 @@ function mapSitemapRow(
     return null;
   }
 
+  const image =
+    "media" in row ? mapPrimaryImage(row.media, row.publicId, row.title) : null;
+
   return {
     kind,
     slug: row.slug,
@@ -421,6 +424,8 @@ function mapSitemapRow(
       ? normalizeCanonicalUrl(row.seo.canonicalUrl)
       : null,
     lastModified,
+    ...("title" in row ? { title: row.title } : {}),
+    ...(image ? { images: [image.url] } : {}),
   };
 }
 

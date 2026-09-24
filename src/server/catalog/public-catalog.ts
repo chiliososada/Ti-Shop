@@ -44,6 +44,7 @@ import {
   buildPublicProductListWhere,
   buildPublicProductSummarySelect,
   publicCatalogSitemapSelect,
+  publicProductSitemapSelect,
 } from "@/server/catalog/query-contracts";
 
 export const DEFAULT_HOME_PLACEMENT_KEYS = CORE_MERCHANDISING_PLACEMENT_KEYS;
@@ -327,7 +328,7 @@ const getCatalogSitemapEntriesCached = cache(
           OR: [{ seo: { is: null } }, { seo: { is: { noIndex: false } } }],
         },
         orderBy: [{ slug: "asc" }],
-        select: publicCatalogSitemapSelect,
+        select: publicProductSitemapSelect,
       }),
       getDb().category.findMany({
         where: {

@@ -429,8 +429,16 @@ export type PublicPlacementRow = Prisma.MerchandisingPlacementGetPayload<{
   select: ReturnType<typeof buildPublicPlacementSelect>;
 }>;
 
+/** Product sitemap rows also carry the title and primary image for the image sitemap. */
+export const publicProductSitemapSelect = {
+  ...publicCatalogSitemapSelect,
+  publicId: true,
+  title: true,
+  media: buildPublicPrimaryMediaRelation(),
+} as const satisfies Prisma.ProductSelect;
+
 export type PublicProductSitemapRow = Prisma.ProductGetPayload<{
-  select: typeof publicCatalogSitemapSelect;
+  select: typeof publicProductSitemapSelect;
 }>;
 
 export type PublicCategorySitemapRow = Prisma.CategoryGetPayload<{

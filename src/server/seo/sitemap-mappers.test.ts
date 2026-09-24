@@ -14,6 +14,9 @@ describe("sitemap row mappers", () => {
       [
         {
           slug: "catalog-item",
+          publicId: "catalog-item-public",
+          title: "Catalog Item",
+          media: [],
           updatedAt: new Date("2026-07-10T00:00:00.000Z"),
           seo: {
             canonicalUrl: "/products/canonical-item",
@@ -31,6 +34,7 @@ describe("sitemap row mappers", () => {
         path: "/products/catalog-item",
         canonicalUrl: "/products/canonical-item",
         lastModified: "2026-07-12T00:00:00.000Z",
+        title: "Catalog Item",
       },
     ]);
   });

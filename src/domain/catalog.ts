@@ -109,4 +109,8 @@ export type PublicHomePlacementsDto = Record<
 
 export type PublicCatalogSitemapEntryDto = PublicSitemapEntryDto & {
   kind: "product" | "category";
+  /** Product title, used for image sitemap captions and directories. */
+  title?: string;
+  /** Public primary image URLs for the image sitemap. */
+  images?: string[];
 };

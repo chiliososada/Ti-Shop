@@ -9,7 +9,24 @@ const nextConfig: NextConfig = {
     serverActions: { bodySizeLimit: "2150kb" },
   },
   async headers() {
+    // Catalog imagery and brand media live in public/ and are safe to cache at
+    // the edge and in browsers for a day; a regenerated file is picked up
+    // within that window through stale-while-revalidate.
+    const staticMediaCache = {
+      key: "Cache-Control",
+      value: "public, max-age=86400, stale-while-revalidate=604800",
+    };
+    const mediaSources = [
+      "/products/:file(.*\\.webp|.*\\.jpg|.*\\.jpeg|.*\\.png|.*\\.avif)",
+      "/categories/:file(.*\\.webp|.*\\.jpg|.*\\.jpeg|.*\\.png|.*\\.avif)",
+      "/brand/:path*",
+      "/video/:path*",
+    ];
     return [
+      ...mediaSources.map((source) => ({
+        source,
+        headers: [staticMediaCache],
+      })),
       {
         source: "/:path*",
         headers: [
