@@ -6,6 +6,20 @@
   "currency": "USD",
   "priceUnit": "box",
   "generatedFrom": "scripts/build-supplier-catalog.ts",
+  "excludedRows": [
+    {
+      "row": 180,
+      "code": "WA10",
+      "name": "bac.water",
+      "reason": "Bacteriostatic water (WA10) is not listed. FDA's 2026 warning letters to research-peptide sellers cite reconstitution supplies sold alongside peptides as evidence of human-use intent."
+    },
+    {
+      "row": 181,
+      "code": "WA3",
+      "name": "bac.water",
+      "reason": "Bacteriostatic water (WA3) is not listed; see row 180."
+    }
+  ],
   "products": [
     {
       "slug": "tirzepatide",
@@ -4078,52 +4092,6 @@
       "shortDescription": "VIP 10mg catalog listing. Supplier presentation: 10mg per vial, 10 vials/box. Product code: VP10.",
       "description": "VIP 10mg catalog listing for laboratory procurement. Supplier presentation: 10mg per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code VP10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
       "legacySlug": "vip-10mg",
-      "matchedBy": "name"
-    },
-    {
-      "slug": "bacteriostatic-water-10ml",
-      "previousSlug": null,
-      "title": "Bacteriostatic Water 10ml",
-      "family": "Bacteriostatic Water",
-      "strength": "10ml",
-      "packCount": 10,
-      "presentation": "10ml per vial, 10 vials/box",
-      "category": "bac-water",
-      "codes": [
-        "WA10"
-      ],
-      "sourceRows": [
-        180
-      ],
-      "priceUsd": 9,
-      "available": true,
-      "image": "/products/bacteriostatic-water-10ml.jpg",
-      "shortDescription": "Bacteriostatic Water 10ml catalog listing. Supplier presentation: 10ml per vial, 10 vials/box. Product code: WA10.",
-      "description": "Bacteriostatic Water 10ml catalog listing for laboratory procurement. Supplier presentation: 10ml per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code WA10 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
-      "legacySlug": "bacteriostatic-water-10ml",
-      "matchedBy": "name"
-    },
-    {
-      "slug": "bac-water",
-      "previousSlug": null,
-      "title": "Bacteriostatic Water 3ml",
-      "family": "Bacteriostatic Water",
-      "strength": "3ml",
-      "packCount": 10,
-      "presentation": "3ml per vial, 10 vials/box",
-      "category": "bac-water",
-      "codes": [
-        "WA3"
-      ],
-      "sourceRows": [
-        181
-      ],
-      "priceUsd": 5,
-      "available": true,
-      "image": "/products/bac-water-1.jpg",
-      "shortDescription": "Bacteriostatic Water 3ml catalog listing. Supplier presentation: 3ml per vial, 10 vials/box. Product code: WA3.",
-      "description": "Bacteriostatic Water 3ml catalog listing for laboratory procurement. Supplier presentation: 3ml per vial, 10 vials/box; the listed price is per box of 10 vials. Reference product code WA3 when ordering on WhatsApp. Confirm current composition, documentation and handling instructions before ordering.",
-      "legacySlug": "bac-water",
       "matchedBy": "name"
     },
     {

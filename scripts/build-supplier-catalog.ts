@@ -81,6 +81,8 @@ type Decision = {
   newSlug?: string;
   /** Never match the legacy product by catalog number. */
   blockCodeMatch?: boolean;
+  /** Do not publish this row at all (compliance or business decision). */
+  exclude?: boolean;
   reason: string;
 };
 
@@ -227,6 +229,15 @@ const decisions: Record<number, Decision> = {
     renameTo: "sermorelin-5mg",
     reason: "See row 162 (5mg).",
   },
+  180: {
+    exclude: true,
+    reason:
+      "Bacteriostatic water (WA10) is not listed. FDA's 2026 warning letters to research-peptide sellers cite reconstitution supplies sold alongside peptides as evidence of human-use intent.",
+  },
+  181: {
+    exclude: true,
+    reason: "Bacteriostatic water (WA3) is not listed; see row 180.",
+  },
   164: {
     newSlug: "sermorelin-acetate-5mg",
     reason: "SML5 'sermorelin Acetate' 5mg is a new listing; it takes the URL freed by the row 163 rename.",
@@ -329,8 +340,13 @@ type Draft = Omit<SupplierCatalogEntry, "slug" | "previousSlug" | "image" | "sho
 };
 
 const drafts: Draft[] = [];
+const excludedRows: Array<{ row: number; code: string; name: string; reason: string }> = [];
 for (const row of priceList.products) {
   const decision = decisions[row.row];
+  if (decision?.exclude) {
+    excludedRows.push({ row: row.row, code: row.code, name: row.name, reason: decision.reason });
+    continue;
+  }
   const parsed = parseSpecification(row.specification);
   const sheetName = row.name.trim();
   const family = decision?.family ?? aliases[sheetName] ?? sheetName;
@@ -467,8 +483,10 @@ for (const entry of entries) {
     representedRows.add(row);
   }
 }
-if (representedRows.size !== priceList.products.length) {
-  throw new Error(`Represented ${representedRows.size} rows, expected ${priceList.products.length}`);
+if (representedRows.size + excludedRows.length !== priceList.products.length) {
+  throw new Error(
+    `Represented ${representedRows.size} + excluded ${excludedRows.length} rows, expected ${priceList.products.length}`,
+  );
 }
 const freedSlugs = new Set(entries.flatMap((entry) => (entry.previousSlug ? [entry.previousSlug] : [])));
 for (const entry of entries) {
@@ -505,6 +523,7 @@ writeFileSync(
       currency: "USD",
       priceUnit: "box",
       generatedFrom: "scripts/build-supplier-catalog.ts",
+      excludedRows,
       products: entries,
     },
     null,
@@ -514,6 +533,7 @@ writeFileSync(
 const reconciliation = {
   sourceRows: priceList.products.length,
   published: entries.length,
+  excluded: excludedRows,
   merged: entries
     .filter((entry) => entry.sourceRows.length > 1)
     .map((entry) => ({ title: entry.title, rows: entry.sourceRows, codes: entry.codes })),

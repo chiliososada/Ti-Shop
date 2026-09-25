@@ -3,7 +3,7 @@
 flintmarrow.com 的商品和价格以用户提供的供应商价格表为准:
 
 - 来源:`~/Desktop/Price_List.xlsx` 的 `Sheet1`,A 列产品编号、B 列产品名称、C 列规格、**H 列「<200 Boxes (Total Order)」美元价(每盒 10 支)**。I 列备注只用于标记缺货行和记录总体条款。
-- 表里每一行都必须在前台恰好出现一次;网站价格 = H 列 × 100 美分,写到规格的 USD 常规价(country_code = US)。
+- 表里每一行都必须在前台恰好出现一次(`decisions` 里标了 `exclude: true` 的行除外);网站价格 = H 列 × 100 美分,写到规格的 USD 常规价(country_code = US)。
 - 名称按前台既有规范整理拼写(例如 `BPC 157` → `BPC-157`);所有需要判断的行都记录在 `scripts/build-supplier-catalog.ts` 的 `decisions` 表里,并输出到对照报告,方便复核或推翻。
 
 ## 一次完整更新的步骤
@@ -64,7 +64,17 @@ SQL 脚本自带断言:活跃商品数必须等于目录条数,每个活跃商�
 - 每个商品一个 `Default` 规格,`price_mode = fixed`;缺货行(I 列 "Temporarily out of stock")把 `track_inventory` 设为 true,前台显示 Temporarily unavailable。
 - 需要改 slug 的商品(目前只有 Sermorelin/SMO 让出 `sermorelin-acetate-*` 给新增的 Sermorelin Acetate/SML)先改名再 upsert,主图重新指向新文件;不写 301,因为旧 URL 继续展示同名商品。
 - 表里没有的活跃商品改为 `archived`(不删除,订单历史不受影响),其首页推荐位停用。
+- 没有活跃商品的分类自动 `archived`;之后再有活跃商品时自动恢复为 `active`。
 - 不改动 WhatsApp 配置、成本(reference cost)、订单、用户。
+
+## 不上架的行(exclude)
+
+`decisions` 里 `exclude: true` 的行不生成商品,记录在 `supplier-catalog.json` 的 `excludedRows` 和对照报告的 `excluded` 里,测试按「上架行 + 排除行 = 全部行」校验覆盖。
+
+- 第 180/181 行(WA10 / WA3,Bacteriostatic Water):2026-09-26 起不上架。FDA 2026 年的警告信把「和多肽一起卖抑菌水/配制用品」列为人体使用意图的证据。对应商品已 archived,`bac-water` 分类因此自动 archived;旧 URL 由 `scripts/retired-product-redirects.ts` 301 到 `/products`。
+- 恢复方法:删掉这两条 decision,重新生成并同步即可(商品和分类会自动恢复);但请先确认合规风险。
+
+同一轮还下线了博客文章 `how-to-reconstitute-lyophilized-research-peptides`(含配制步骤、注射器等内容),在库里 `archived`,301 到 `/blog`;GLP-1 文章里「配制」一节改为「文档与储存」。
 
 ## 不要做的事
 

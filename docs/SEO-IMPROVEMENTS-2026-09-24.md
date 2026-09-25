@@ -75,6 +75,19 @@ structural: how listings are paginated, discovered, linked and cached.
   filters `noindex`; directory renders 95 materials; product page shows
   "Compare presentations"; retired URLs 301 to their replacement.
 
+## Compliance clean-up — 2026-09-26
+
+- Bacteriostatic water (price-list rows 180/181) is no longer listed; FDA's 2026
+  warning letters cite reconstitution supplies sold with peptides as evidence of
+  human-use intent. Product and category URLs 301 to `/products`.
+- The reconstitution how-to post was archived and 301s to `/blog`; the GLP-1
+  post's reconstitution section became "Documentation and Storage
+  Considerations". The blog now has 3 posts (`src/data/blog.ts` and the
+  database were updated together; the one-off SQL asserted that no published
+  post mentions reconstitution or syringes).
+- Do not add reconstitution guides, dosing calculators, syringe or needle
+  content, links to human-effect databases, or disease/weight-loss claims.
+
 ## Not done / next steps
 
 - **Search Console**: verify `flintmarrow.com` (DNS TXT, like PureForm) and

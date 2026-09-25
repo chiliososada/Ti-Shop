@@ -40,7 +40,7 @@ export const posts: BlogPost[] = [
     cover: "/categories/antibacterial.jpg",
     related: [
       "peptide-purity-hplc-mass-spectrometry-explained",
-      "how-to-reconstitute-lyophilized-research-peptides",
+      "glp-1-research-peptides-explained",
     ],
     body: [
       { type: "h2", text: "What a Certificate of Analysis Actually Is" },
@@ -130,137 +130,6 @@ export const posts: BlogPost[] = [
       {
         q: 'What does "net peptide content" mean on a COA?',
         a: "It is the portion of the vial's total mass that is the actual peptide, excluding residual salts and bound water, which is the correct basis for accurate solution preparation.",
-      },
-    ],
-  },
-  {
-    slug: "how-to-reconstitute-lyophilized-research-peptides",
-    title:
-      "How to Reconstitute Lyophilized Research Peptides with Bacteriostatic Water",
-    metaTitle: "How to Reconstitute Lyophilized Research Peptides",
-    metaDescription:
-      "A lab-procedure guide to reconstituting lyophilized research peptides with bacteriostatic water, covering handling, technique, and storage. Research use only.",
-    category: "Lab Protocols",
-    readingTime: "8 min",
-    excerpt:
-      "A clear laboratory-handling walkthrough for reconstituting lyophilized research peptides, from choosing a diluent to gentle mixing and correct cold storage.",
-    keyword: "how to reconstitute peptides",
-    date: "2026-06-25",
-    author: AUTHOR,
-    cover: "/categories/bac-water.jpg",
-    related: [
-      "peptide-certificate-of-analysis-coa-explained",
-      "peptide-purity-hplc-mass-spectrometry-explained",
-    ],
-    body: [
-      {
-        type: "p",
-        text: "Note: This article describes laboratory handling of Research Use Only materials. It is not guidance for human or animal use of any kind.",
-      },
-      { type: "h2", text: "Why Peptides Ship Lyophilized" },
-      {
-        type: "p",
-        text: "Most research peptides are supplied as a lyophilized (freeze-dried) powder because the dry state is far more stable during storage and international shipping than a solution. Removing water slows the degradation reactions that would otherwise shorten a peptide's usable life.",
-      },
-      {
-        type: "p",
-        text: "Reconstitution is simply the controlled process of returning that dry powder to a liquid solution so it can be handled in the lab. Done carefully, it preserves the integrity and characterized purity of the material.",
-      },
-      { type: "h2", text: "Choosing a Diluent" },
-      {
-        type: "p",
-        text: "The most common diluent for reconstituting research peptides in a laboratory setting is bacteriostatic water — sterile water containing a small amount of a bacteriostatic agent that suppresses microbial growth in a multi-draw container. Sterile water and certain buffered solutions are also used depending on the peptide's solubility profile.",
-      },
-      {
-        type: "p",
-        text: "Some peptides are poorly soluble in neutral water and may require a specific solvent noted on their documentation. Always check the peptide's COA and product page for solubility guidance before selecting a diluent.",
-      },
-      {
-        type: "ul",
-        items: [
-          "Bacteriostatic water — common choice for multi-use lab stock solutions",
-          "Sterile water — for single-use preparation",
-          "Buffered or mildly acidic solvents — for peptides with limited neutral-water solubility",
-        ],
-      },
-      { type: "h2", text: "Materials to Prepare" },
-      {
-        type: "p",
-        text: "Working cleanly reduces contamination and preserves solution quality. Assemble everything before opening the vial.",
-      },
-      {
-        type: "ul",
-        items: [
-          "The lyophilized peptide vial and its matching COA",
-          "Bacteriostatic water (or the specified diluent)",
-          "Sterile syringes and needles, or a calibrated pipette",
-          "Alcohol wipes for swabbing vial stoppers",
-          "A clean, draft-free work surface",
-          "Labels for lot number, concentration, and date",
-        ],
-      },
-      { type: "h2", text: "The Reconstitution Procedure" },
-      {
-        type: "p",
-        text: "The goal is to introduce the diluent slowly and let the powder dissolve without harsh agitation. Peptides are sensitive to mechanical and thermal stress.",
-      },
-      {
-        type: "ul",
-        items: [
-          "Let the vial equilibrate to room temperature to reduce condensation.",
-          "Swab both the peptide vial stopper and the diluent stopper with alcohol.",
-          "Draw the calculated volume of diluent to reach your target concentration.",
-          "Insert the needle at an angle and let the diluent run slowly down the inner glass wall, not directly onto the powder.",
-          "Do not shake. Allow the peptide to dissolve on its own, or swirl gently.",
-          "Wait until the solution is completely clear before use.",
-        ],
-      },
-      { type: "h2", text: "Calculating Concentration" },
-      {
-        type: "p",
-        text: "Concentration is determined by the mass of peptide in the vial divided by the volume of diluent added. Use the net peptide content from the COA rather than gross vial weight for an accurate figure.",
-      },
-      {
-        type: "p",
-        text: "For example, if a vial contains a known net quantity of peptide and you add a specific diluent volume, the resulting concentration follows directly from that ratio. Standardizing this calculation across your lab supports reproducible experimental preparation.",
-      },
-      { type: "h2", text: "Handling, Mixing, and Common Mistakes" },
-      {
-        type: "p",
-        text: "The most frequent handling errors damage the peptide or the solution. Avoid vigorous shaking, which can denature sensitive sequences and introduce foaming. Avoid adding hot diluent. Avoid spraying diluent directly onto the powder pellet with force.",
-      },
-      {
-        type: "p",
-        text: "A cloudy or persistently undissolved solution can indicate a solubility mismatch — pause and recheck the recommended diluent rather than forcing dissolution.",
-      },
-      { type: "h2", text: "Storage After Reconstitution" },
-      {
-        type: "p",
-        text: "Once in solution, peptides are less stable than in their dry form, so storage conditions matter. Reconstituted solutions are generally kept refrigerated for short-term work and frozen for longer-term storage, with the exact conditions guided by the specific peptide's documentation.",
-      },
-      {
-        type: "p",
-        text: "Label prepared research material according to your laboratory's protocol and the applicable product documentation. Transport and handling requirements vary, so confirm them for the actual material and order rather than assuming a universal cold-chain service.",
-      },
-    ],
-    takeaways: [
-      "Reconstitution restores freeze-dried peptide to solution; do it gently to preserve integrity.",
-      "Add diluent slowly down the vial wall and never shake — swirl to dissolve.",
-      "Base concentration calculations on net peptide content from the COA, not gross weight.",
-      "Store reconstituted solutions cold, label fully, and limit freeze-thaw cycles.",
-    ],
-    faqs: [
-      {
-        q: "What is bacteriostatic water used for in peptide reconstitution?",
-        a: "It is a sterile diluent containing a bacteriostatic agent that suppresses microbial growth, making it a common choice for preparing multi-draw research stock solutions.",
-      },
-      {
-        q: "Why should you avoid shaking a peptide during reconstitution?",
-        a: "Shaking creates mechanical and foaming stress that can denature sensitive peptide sequences. Gentle swirling and slow diluent addition preserve solution quality.",
-      },
-      {
-        q: "How is peptide concentration calculated after reconstitution?",
-        a: "Divide the net peptide content (from the COA) by the volume of diluent added. Using net content rather than gross vial weight gives an accurate, reproducible concentration.",
       },
     ],
   },
@@ -467,14 +336,14 @@ export const posts: BlogPost[] = [
         type: "p",
         text: "If HPLC purity and MS identity are required for a GLP-1-related research material, confirm that those results are available for the actual lot. A category page or generic specification is not a substitute for lot-specific evidence.",
       },
-      { type: "h2", text: "Handling and Storage Considerations" },
+      { type: "h2", text: "Documentation and Storage Considerations" },
       {
         type: "p",
-        text: "Like other research peptides, GLP-1 class compounds are supplied lyophilized and require careful reconstitution and cold storage to preserve integrity. General laboratory handling principles — gentle reconstitution, accurate concentration calculation from net peptide content, and controlled cold storage — all apply.",
+        text: "Like other research peptides, GLP-1 class compounds are typically supplied lyophilized. Storage conditions, handling requirements and safety information depend on the specific material and lot, so they should be taken from the lot documentation rather than from general guidance.",
       },
       {
         type: "p",
-        text: "Following consistent handling protocols keeps these research inputs well-characterized from delivery through experimentation.",
+        text: "Confirming identity, purity and storage information for the actual lot keeps these research inputs well-characterized from delivery through experimentation.",
       },
     ],
     takeaways: [

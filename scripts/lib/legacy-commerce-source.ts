@@ -14,6 +14,8 @@ import rawProducts from "../../src/data/products.json";
 export const LEGACY_IMPORT_VERSION = 1;
 export const LEGACY_PUBLISHED_AT = new Date("2026-01-01T00:00:00.000Z");
 export const EXPECTED_CATALOG_PRODUCT_COUNT = 162;
+/** The reconstitution guide was withdrawn on 2026-09-25, leaving three posts. */
+export const EXPECTED_BLOG_COUNT = 3;
 export const STATIC_PUBLIC_PATHS = [
   "/",
   "/products",
@@ -350,12 +352,12 @@ export function validateLegacySource(source: LegacyCommerceSource): void {
   if (
     source.categories.length !== 6 ||
     source.products.length !== EXPECTED_CATALOG_PRODUCT_COUNT ||
-    source.blogs.length !== 4 ||
+    source.blogs.length !== EXPECTED_BLOG_COUNT ||
     source.faqs.length !== 8
   ) {
     throw new LegacySourceError(
       "SOURCE_COUNT_MISMATCH",
-      `Catalog source must contain exactly 6 categories, ${EXPECTED_CATALOG_PRODUCT_COUNT} products, 4 blogs, and 8 FAQs.`,
+      `Catalog source must contain exactly 6 categories, ${EXPECTED_CATALOG_PRODUCT_COUNT} products, ${EXPECTED_BLOG_COUNT} blogs, and 8 FAQs.`,
       {
         categories: source.categories.length,
         products: source.products.length,

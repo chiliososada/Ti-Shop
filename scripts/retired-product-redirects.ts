@@ -1,7 +1,8 @@
 /**
  * Emit SQL that 301-redirects retired product URLs to the closest published
  * listing (same material, nearest strength) or, when no listing of that
- * material remains, to the research category. Keeps link equity and sends
+ * material remains, to the research category or the catalog. Also covers a
+ * few retired non-product URLs (see `pathRedirects`). Keeps link equity and sends
  * visitors with old links somewhere useful instead of a 404.
  *
  *   tsx scripts/retired-product-redirects.ts > output/retired-product-redirects.sql
@@ -30,7 +31,7 @@ const redirects: Record<string, string> = {
   "semaglutide-40mg": "semaglutide-50mg",
   "semaglutide-60mg": "semaglutide-50mg",
   "semaglutide-100mg": "semaglutide-50mg",
-  "large-bottle-10ml": "/categories/bac-water",
+  "large-bottle-10ml": "/products",
   "bpc-157-15mg-plus-tb-500-15mg-blend": "bpc-157-10mg-plus-tb-500-10mg-blend",
   "cjc-1295-with-dac-10mg": "cjc-1295-with-dac-5mg",
   "oxytocin-10mg": "oxytocin-5mg",
@@ -43,7 +44,7 @@ const redirects: Record<string, string> = {
   "cbl-514-20mg": "/categories/metabolic",
   "os-01-100mg": "/categories/skin-aging",
   "melanotan-ii-20mg": "melanotan-il",
-  "bacteriostatic-water-7ml": "bacteriostatic-water-10ml",
+  "bacteriostatic-water-7ml": "/products",
   "sermorelin-acetate-20mg": "sermorelin-acetate-10mg",
   "follistatin-344-10mg": "follistatin-344-1mg",
   "hgh-fragment-176-191-10iu": "hgh-fragment-176-191-10mg",
@@ -69,29 +70,65 @@ const redirects: Record<string, string> = {
   "slu-pp-332-250mcg": "slu-pp-322",
   tesofensine: "/categories/metabolic",
   vip: "vip-10mg",
+  // Withdrawn on 2026-09-25: bacteriostatic water is no longer listed.
+  "bac-water": "/products",
+  "bacteriostatic-water-10ml": "/products",
 };
+
+/**
+ * Non-product URLs retired on 2026-09-25 (full source path → destination):
+ * the emptied solutions category and the withdrawn reconstitution article.
+ */
+const pathRedirects: Record<string, string> = {
+  "/categories/bac-water": "/products",
+  "/blog/how-to-reconstitute-lyophilized-research-peptides": "/blog",
+};
+
+const STATIC_TARGETS = new Set(["/products", "/blog", "/research-materials"]);
 
 function lit(value: string) {
   return `'${value.replace(/'/g, "''")}'`;
 }
 
+function resolveTarget(target: string) {
+  if (STATIC_TARGETS.has(target)) return target;
+  if (target.startsWith("/categories/")) {
+    const slug = target.slice("/categories/".length);
+    if (!categorySlugs.has(slug) || slug === "bac-water") return null;
+    return target;
+  }
+  return publishedSlugs.has(target) ? `/products/${target}` : null;
+}
+
+function upsert(sourcePath: string, destination: string, guardSlug: string | null) {
+  statements.push(
+    `INSERT INTO app.redirects (public_id, source_path, destination_path, status_code, preserve_query, is_active, updated_at)
+ SELECT gen_random_uuid(), ${lit(sourcePath)}, ${lit(destination)}, 301, true, true, now()${
+   guardSlug
+     ? `
+ WHERE NOT EXISTS (SELECT 1 FROM app.products WHERE slug = ${lit(guardSlug)} AND status = 'active' AND deleted_at IS NULL)`
+     : ""
+ }
+ ON CONFLICT (source_path) DO UPDATE SET destination_path = EXCLUDED.destination_path, status_code = 301, is_active = true, updated_at = now();`,
+  );
+}
+
 const statements = ["BEGIN;"];
+for (const [sourcePath, target] of Object.entries(pathRedirects)) {
+  const destination = resolveTarget(target);
+  if (!destination) throw new Error(`${sourcePath}: unknown redirect target ${target}`);
+  upsert(sourcePath, destination, null);
+}
 for (const [source, target] of Object.entries(redirects)) {
   if (publishedSlugs.has(source)) {
     throw new Error(`${source} is a published listing and must not be redirected`);
   }
-  const destination = target.startsWith("/categories/") ? target : `/products/${target}`;
-  const valid = target.startsWith("/categories/")
-    ? categorySlugs.has(target.slice("/categories/".length))
-    : publishedSlugs.has(target);
-  if (!valid) throw new Error(`${source}: unknown redirect target ${target}`);
-  statements.push(
-    `INSERT INTO app.redirects (public_id, source_path, destination_path, status_code, preserve_query, is_active, updated_at)
- SELECT gen_random_uuid(), ${lit(`/products/${source}`)}, ${lit(destination)}, 301, true, true, now()
- WHERE NOT EXISTS (SELECT 1 FROM app.products WHERE slug = ${lit(source)} AND status = 'active' AND deleted_at IS NULL)
- ON CONFLICT (source_path) DO UPDATE SET destination_path = EXCLUDED.destination_path, status_code = 301, is_active = true, updated_at = now();`,
-  );
+  const destination = resolveTarget(target);
+  if (!destination) throw new Error(`${source}: unknown redirect target ${target}`);
+  upsert(`/products/${source}`, destination, source);
 }
 statements.push("COMMIT;");
 process.stdout.write(`${statements.join("\n\n")}\n`);
-console.error(`${Object.keys(redirects).length} redirects`);
+console.error(
+  `${Object.keys(redirects).length + Object.keys(pathRedirects).length} redirects`,
+);

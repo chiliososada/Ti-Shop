@@ -22,12 +22,12 @@ describe("legacy commerce source", () => {
     expect(() => validateLegacySource(source)).not.toThrow();
     expect(source.categories).toHaveLength(6);
     expect(source.products).toHaveLength(EXPECTED_CATALOG_PRODUCT_COUNT);
-    expect(source.blogs).toHaveLength(4);
+    expect(source.blogs).toHaveLength(3);
     expect(source.faqs).toHaveLength(8);
 
     const urls = publicUrls(source);
-    expect(urls).toHaveLength(178);
-    expect(new Set(urls).size).toBe(178);
+    expect(urls).toHaveLength(177);
+    expect(new Set(urls).size).toBe(177);
     expect(urls).toContain("/products/selank");
     expect(urls).toContain("/products/selank-1");
   });
@@ -60,7 +60,7 @@ describe("legacy commerce source", () => {
     ).toBe(true);
     expect(audit.productPrimary.missing).toEqual([]);
     expect(audit.categoryHeroes.verified).toHaveLength(6);
-    expect(audit.blogCovers.verified).toHaveLength(4);
+    expect(audit.blogCovers.verified).toHaveLength(3);
     expect(audit.gallery.referenced).toBe(0);
     expect(audit.gallery.verified).toHaveLength(0);
     expect(audit.gallery.missing).toHaveLength(0);
@@ -117,12 +117,12 @@ describe("legacy commerce source", () => {
   });
 
   it("preserves every structured blog block, takeaway, FAQ, and related link", () => {
-    expect(source.blogs.reduce((count, post) => count + post.body.length, 0)).toBe(88);
-    expect(source.blogs.reduce((count, post) => count + post.takeaways.length, 0)).toBe(16);
-    expect(source.blogs.reduce((count, post) => count + post.faqs.length, 0)).toBe(12);
+    expect(source.blogs.reduce((count, post) => count + post.body.length, 0)).toBe(65);
+    expect(source.blogs.reduce((count, post) => count + post.takeaways.length, 0)).toBe(12);
+    expect(source.blogs.reduce((count, post) => count + post.faqs.length, 0)).toBe(9);
     expect(
       source.blogs.reduce((count, post) => count + (post.related?.length ?? 0), 0),
-    ).toBe(8);
+    ).toBe(6);
   });
 
   it("assigns stable slugs without changing the reviewed storefront FAQ copy", () => {

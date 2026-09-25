@@ -274,6 +274,16 @@ END $$;`,
  WHERE status = 'active' AND deleted_at IS NULL AND NOT (slug = ANY(${slugArray}));`,
     `UPDATE app.merchandising_placements SET is_active = false, updated_at = now()
  WHERE is_active AND product_id IN (SELECT id FROM app.products WHERE status <> 'active' OR deleted_at IS NOT NULL);`,
+    // A category with no active products would render as an empty page:
+    // archive it, and bring it back automatically once it has listings again.
+    `UPDATE app.categories c SET status = 'archived', updated_at = now()
+ WHERE c.status = 'active' AND NOT EXISTS (
+   SELECT 1 FROM app.product_categories pc JOIN app.products p ON p.id = pc.product_id
+   WHERE pc.category_id = c.id AND p.status = 'active' AND p.deleted_at IS NULL);`,
+    `UPDATE app.categories c SET status = 'active', published_at = COALESCE(c.published_at, now()), updated_at = now()
+ WHERE c.status = 'archived' AND c.deleted_at IS NULL AND EXISTS (
+   SELECT 1 FROM app.product_categories pc JOIN app.products p ON p.id = pc.product_id
+   WHERE pc.category_id = c.id AND p.status = 'active' AND p.deleted_at IS NULL);`,
     `UPDATE app.seo_metadata SET structured_data = NULL, updated_at = now()
  WHERE structured_data::text ILIKE '%sheng.an%';`,
   );

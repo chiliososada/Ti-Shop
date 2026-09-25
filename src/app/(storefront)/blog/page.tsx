@@ -39,7 +39,7 @@ export async function generateMetadata({
   return createPublicPageMetadata({
     title: `Research Peptide Insights & Lab Guides${page > 1 ? ` — Page ${page}` : ""}`,
     description:
-      "Guides on peptide purity, Certificate of Analysis, reconstitution and peptide science from Flintmarrow. Research use only.",
+      "Guides on peptide purity, Certificates of Analysis, lot documentation and peptide science from Flintmarrow. Research use only.",
     ...catalogListingSeo("/blog", query, page),
   });
 }

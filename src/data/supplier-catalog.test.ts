@@ -11,12 +11,24 @@ const entries = supplierCatalog.products;
 const rowsByNumber = new Map(priceList.products.map((row) => [row.row, row]));
 
 describe("supplier catalog (Price_List.xlsx column H)", () => {
-  it("publishes every price-list row exactly once", () => {
+  it("publishes every price-list row exactly once, except explicit exclusions", () => {
     const represented = entries.flatMap((entry) => entry.sourceRows);
+    const excluded = supplierCatalog.excludedRows.map((row) => row.row);
     expect(new Set(represented).size).toBe(represented.length);
-    expect([...represented].sort((a, b) => a - b)).toEqual(
+    expect(represented.some((row) => excluded.includes(row))).toBe(false);
+    expect([...represented, ...excluded].sort((a, b) => a - b)).toEqual(
       priceList.products.map((row) => row.row),
     );
+    for (const row of supplierCatalog.excludedRows) {
+      expect(row.reason.length, `row ${row.row}`).toBeGreaterThan(10);
+    }
+  });
+
+  it("does not list reconstitution supplies", () => {
+    for (const entry of entries) {
+      expect(entry.title, entry.slug).not.toMatch(/bacteriostatic|sterile water|bac\.? ?water/iu);
+      expect(entry.category, entry.slug).not.toBe("bac-water");
+    }
   });
 
   it("prices every listing at the column H box price of its rows", () => {
