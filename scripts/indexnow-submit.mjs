@@ -64,5 +64,9 @@ for (const endpoint of endpoints) {
   failed ||= !ok;
   console.log(`${endpoint}: ${response.status}${ok ? "" : ` ${await response.text()}`}`);
 }
-console.log(`${unique.length} URL(s) submitted.`);
+console.log(
+  failed
+    ? `${unique.length} URL(s) not accepted everywhere; 403 SiteVerificationNotCompleted right after a new key clears within minutes, then retry.`
+    : `${unique.length} URL(s) submitted.`,
+);
 process.exit(failed ? 1 : 0);
