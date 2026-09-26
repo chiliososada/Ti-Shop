@@ -14,6 +14,7 @@
     "typecheck": "prisma generate && tsc --noEmit",
     "test": "prisma generate && vitest run",
     "test:seo": "node scripts/verify-production.mjs",
+    "seo:indexnow": "node scripts/indexnow-submit.mjs",
     "test:watch": "vitest",
     "assets:products": "node scripts/generate-flintmarrow-product-images.mjs",
     "media:backfill-dimensions": "tsx scripts/backfill-local-media-dimensions.ts",

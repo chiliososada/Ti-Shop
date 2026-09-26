@@ -88,6 +88,18 @@ structural: how listings are paginated, discovered, linked and cached.
 - Do not add reconstitution guides, dosing calculators, syringe or needle
   content, links to human-effect databases, or disease/weight-loss claims.
 
+## IndexNow — 2026-09-26
+
+- Key file: `public/75212bc64d675c65ce9ff7aa32d02f4c.txt`, served at
+  `https://flintmarrow.com/75212bc64d675c65ce9ff7aa32d02f4c.txt`. Keep the file
+  name and content unchanged; a new key means re-validation by every engine.
+- `npm run seo:indexnow` submits every page URL in the live sitemap;
+  `npm run seo:indexnow -- /products/a /blog` submits only those paths (use this
+  for retired URLs that now 301); `--dry-run` prints the payload.
+- Submit after a deploy that adds, removes or substantially changes pages.
+  IndexNow reaches Bing, Yandex, Seznam and Naver; Google ignores it, so use
+  Search Console for Google.
+
 ## Not done / next steps
 
 - **Search Console**: verify `flintmarrow.com` (DNS TXT, like PureForm) and
