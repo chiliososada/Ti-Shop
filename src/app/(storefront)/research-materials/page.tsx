@@ -120,7 +120,16 @@ export default async function MaterialDirectoryPage() {
                       className="min-w-0 rounded-xl border border-line p-5"
                     >
                       <h3 className="break-words text-lg font-semibold text-strong">
-                        {group.family}
+                        {group.hubHref ? (
+                          <Link
+                            href={group.hubHref}
+                            className="underline-offset-4 hover:underline"
+                          >
+                            {group.family} →
+                          </Link>
+                        ) : (
+                          group.family
+                        )}
                       </h3>
                       <ul className="mt-3 divide-y divide-line">
                         {group.items.map((item) => (

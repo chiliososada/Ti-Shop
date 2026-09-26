@@ -11,7 +11,7 @@ export type Category = {
 export const categories: Category[] = [
   {
     slug: "bac-water",
-    name: "Laboratory & Reconstitution Solutions",
+    name: "Laboratory Solutions",
     short: "Lab Solutions",
     description:
       "Bacteriostatic water, sterile water, acetic-acid water and related laboratory solution listings. Confirm composition, presentation and handling documentation before ordering.",

@@ -136,8 +136,47 @@ async function verifyProduction() {
   ) {
     failures.push("root page is missing the WebSite JSON-LD graph node");
   }
-  if (rootHtml.includes('"SearchAction"')) {
-    failures.push("root page claims an unimplemented SearchAction");
+  // The WebSite SearchAction must point at the working product search.
+  const searchTemplate = `${publicOrigin}/products?q={search_term_string}`;
+  if (!rootHtml.includes(`"urlTemplate":"${searchTemplate}"`)) {
+    failures.push("root page SearchAction does not target /products?q=");
+  }
+  const searchHtml = await (await fetch(`${baseUrl}/products?q=tirzepatide`)).text();
+  if (
+    !searchHtml.includes('href="/products/tirzepatide"') ||
+    searchHtml.includes('href="/products/semaglutide-10mg"')
+  ) {
+    failures.push("/products?q= does not filter the catalog, so the SearchAction would be false");
+  }
+
+  // AI crawlers and the llms.txt map.
+  const robotsText = await (await fetch(`${baseUrl}/robots.txt`)).text();
+  for (const agent of ["OAI-SearchBot", "ChatGPT-User", "PerplexityBot", "Claude-SearchBot"]) {
+    if (!robotsText.includes(`User-Agent: ${agent}`)) {
+      failures.push(`robots.txt has no group for ${agent}`);
+    }
+  }
+  for (const path of ["/llms.txt", "/llms-full.txt"]) {
+    const response = await fetch(`${baseUrl}${path}`);
+    const text = await response.text();
+    if (
+      response.status !== 200 ||
+      !response.headers.get("content-type")?.startsWith("text/plain")
+    ) {
+      failures.push(`${path}: not served as text/plain`);
+    }
+    if (!text.startsWith("# ")) failures.push(`${path}: missing the H1 title`);
+    if (response.headers.get("x-robots-tag") !== "noindex") {
+      failures.push(`${path}: missing X-Robots-Tag noindex`);
+    }
+    const links = [...text.matchAll(/\]\((https?:[^)\s]+)\)/gu)].map((match) => match[1]);
+    for (const link of links) {
+      if (link.endsWith("/llms-full.txt")) continue;
+      if (!sitemapUrlSet.has(link)) {
+        failures.push(`${path}: links to ${link}, which is not a sitemap URL`);
+        break;
+      }
+    }
   }
 
   for (const path of ["/account", "/admin"]) {

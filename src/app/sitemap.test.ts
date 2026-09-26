@@ -17,6 +17,8 @@ import { products } from "@/data/products";
 import type { PublicCatalogSitemapEntryDto } from "@/domain/catalog";
 import type { PublicBlogSitemapEntryDto } from "@/domain/content";
 import type { PublicPageSitemapEntryDto } from "@/domain/content";
+import { getCatalogSpecification } from "@/lib/catalog-specifications";
+import { materialSlug } from "@/lib/material-hubs";
 
 const catalogTimestamp = "2026-07-13T00:00:00.000Z";
 
@@ -92,13 +94,23 @@ describe("public sitemap", () => {
       "/payment-policy",
       "/research-use",
     ];
+    const familyCounts = new Map<string, number>();
+    for (const product of products) {
+      const family = getCatalogSpecification(product.id)?.family;
+      if (family) familyCounts.set(family, (familyCounts.get(family) ?? 0) + 1);
+    }
+    const hubPaths = [...familyCounts.entries()]
+      .filter(([, count]) => count >= 2)
+      .map(([family]) => `/research-materials/${materialSlug(family)}`);
     const expectedPaths = [
       ...legacyStaticPaths,
       ...policyPaths,
       ...categories.map((category) => `/categories/${category.slug}`),
       ...products.map((product) => `/products/${product.id}`),
       ...posts.map((post) => `/blog/${post.slug}`),
+      ...hubPaths,
     ];
+    expect(hubPaths.length).toBeGreaterThan(0);
 
     expect(entries).toHaveLength(expectedPaths.length);
     expect(new Set(entries.map((entry) => entry.url)).size).toBe(expectedPaths.length);
@@ -111,6 +123,7 @@ describe("public sitemap", () => {
         (entry) => [entry.path, entry.lastModified] as const,
       ),
       ...blogEntries.map((entry) => [entry.path, entry.lastModified] as const),
+      ...hubPaths.map((path) => [path, catalogTimestamp] as const),
     ]);
     for (const entry of entries) {
       const pathname = new URL(entry.url).pathname;
@@ -121,6 +134,32 @@ describe("public sitemap", () => {
         expect(entry.lastModified).toBeUndefined();
       }
     }
+  });
+
+  it("adds a hub for each material with several published strengths", () => {
+    const product = (slug: string, lastModified: string): PublicCatalogSitemapEntryDto => ({
+      kind: "product",
+      slug,
+      path: `/products/${slug}`,
+      canonicalUrl: null,
+      lastModified,
+    });
+    const entries = buildPublicSitemap(
+      [
+        product("tirzepatide", "2026-09-20T00:00:00.000Z"),
+        product("tirzepatide-10mg", "2026-09-23T00:00:00.000Z"),
+        product("ll37", "2026-09-23T00:00:00.000Z"),
+      ],
+      [],
+      "https://example.test",
+    );
+    const hubs = entries.filter((entry) => entry.url.includes("/research-materials/"));
+    expect(hubs).toEqual([
+      expect.objectContaining({
+        url: "https://example.test/research-materials/tirzepatide",
+        lastModified: "2026-09-23T00:00:00.000Z",
+      }),
+    ]);
   });
 
   it("deduplicates canonical collisions and keeps the latest real update", () => {

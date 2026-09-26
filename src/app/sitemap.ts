@@ -9,6 +9,8 @@ import type {
 } from "@/domain/content";
 import type { PublicSitemapEntryDto } from "@/domain/public";
 import { normalizeCanonicalUrl } from "@/lib/canonical-url";
+import { getCatalogSpecification } from "@/lib/catalog-specifications";
+import { HUB_MIN_LISTINGS, materialSlug } from "@/lib/material-hubs";
 import { sanitizePublicAssetUrl } from "@/lib/public-asset-url";
 import { resolvePublicSiteOrigin } from "@/lib/site-url";
 import { getPublicCatalogSitemapEntries } from "@/server/catalog";
@@ -150,6 +152,24 @@ export function buildPublicSitemap(
           }]
         : [];
     });
+  // Material hubs: families with several published strengths.
+  const families = new Map<string, PublicCatalogSitemapEntryDto[]>();
+  for (const entry of catalogEntries) {
+    if (entry.kind !== "product") continue;
+    const family = getCatalogSpecification(entry.slug)?.family;
+    if (family) families.set(family, [...(families.get(family) ?? []), entry]);
+  }
+  const materialPages: MetadataRoute.Sitemap = [...families.entries()]
+    .filter(([, entries]) => entries.length >= HUB_MIN_LISTINGS)
+    .map(([family, entries]) => ({
+      url: absoluteUrl(`/research-materials/${materialSlug(family)}`, siteOrigin),
+      lastModified: entries.reduce<MetadataRoute.Sitemap[number]["lastModified"]>(
+        (latest, entry) => laterLastModified(latest, entry.lastModified),
+        undefined,
+      ),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    }));
   const blogPages: MetadataRoute.Sitemap = blogEntries.flatMap((entry) => {
     const url = resolveSameSiteSitemapUrl(entry, siteOrigin);
     return url
@@ -175,6 +195,7 @@ export function buildPublicSitemap(
   return deduplicateSitemap([
     ...staticPages,
     ...categoryPages,
+    ...materialPages,
     ...productPages,
     ...blogPages,
     ...contentPages,

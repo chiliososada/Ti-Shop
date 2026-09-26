@@ -9,6 +9,7 @@ import {
 } from "@/app/_lib/public-seo";
 import {
   BreadcrumbJsonLd,
+  FaqJsonLd,
   ProductJsonLd,
 } from "@/components/JsonLd";
 import { ProductCard } from "@/components/ProductCard";
@@ -19,7 +20,18 @@ import {
   getCatalogSpecification,
   getSiblingPresentations,
 } from "@/lib/catalog-specifications";
+import {
+  displayName,
+  groupMaterials,
+  hasHub,
+  hubPath,
+  productFaqs,
+} from "@/lib/material-hubs";
 import { getPublicProductsBySlugs } from "@/server/catalog/public-directory";
+import {
+  getPublicMaterialListings,
+  toMaterialListing,
+} from "@/server/catalog/material-listings";
 import { preparePublicProductGallery } from "@/components/product-image-gallery";
 import { Pill } from "@/components/ui";
 import {
@@ -97,14 +109,27 @@ export default async function ProductDetail({ params }: ProductPageProps) {
   const siblingSlugs = getSiblingPresentations(product.slug).map(
     (sibling) => sibling.slug,
   );
-  const [siblings, categoryProducts] = await Promise.all([
+  const [siblings, categoryProducts, siblingListings] = await Promise.all([
     siblingSlugs.length > 1
       ? getPublicProductsBySlugs(siblingSlugs)
       : Promise.resolve([]),
     category
       ? getPublicProductList({ categorySlug: category.slug, limit: 12 })
       : Promise.resolve([]),
+    siblingSlugs.length > 1
+      ? getPublicMaterialListings(siblingSlugs)
+      : Promise.resolve([]),
   ]);
+  const listing = toMaterialListing(product);
+  const material = groupMaterials([
+    listing,
+    ...siblingListings.filter(
+      (candidate) =>
+        candidate.slug !== listing.slug && candidate.family === listing.family,
+    ),
+  ])[0];
+  const faqs = productFaqs(listing, material);
+  const materialHref = hasHub(material) ? hubPath(material) : null;
   const siblingIds = new Set(siblings.map((sibling) => sibling.publicId));
   const related = categoryProducts
     .filter(
@@ -132,6 +157,13 @@ export default async function ProductDetail({ params }: ProductPageProps) {
   ];
   const specs: [string, string | null][] = [
     ["Supplier presentation", product.subtitle],
+    ["Product code", listing.codes.join(" / ") || null],
+    ["Material type", material.facts?.materialType ?? null],
+    ["Classification", material.facts?.classification ?? null],
+    [
+      "Also known as",
+      material.facts?.aliases.length ? material.facts.aliases.join("; ") : null,
+    ],
     ["CAS Number", product.casNumber],
     ["Catalog purity field", product.purity],
     ["Catalog appearance", product.appearance],
@@ -143,6 +175,7 @@ export default async function ProductDetail({ params }: ProductPageProps) {
     <>
       <ProductJsonLd product={product} />
       <BreadcrumbJsonLd items={crumbs} />
+      <FaqJsonLd faqs={faqs} />
 
       <div className="border-b border-line bg-surface-alt">
         <nav
@@ -258,6 +291,16 @@ export default async function ProductDetail({ params }: ProductPageProps) {
                   Every listed strength of this material, priced per 10-vial
                   box. Each option opens its own specification page.
                 </p>
+                {materialHref ? (
+                  <Link
+                    href={materialHref}
+                    className="mt-3 inline-block text-sm font-semibold text-strong underline underline-offset-4 hover:text-sage-600"
+                  >
+                    Compare all {material.listings.length}{" "}
+                    {displayName(material)} strengths: price per vial, per mg
+                    and availability →
+                  </Link>
+                ) : null}
               </section>
             ) : null}
 
@@ -365,6 +408,25 @@ export default async function ProductDetail({ params }: ProductPageProps) {
               drug, supplement or medical product and is not for human or
               veterinary consumption.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="border-t border-line section-y"
+        aria-labelledby="product-faq-heading"
+      >
+        <div className="container-x max-w-[80ch]">
+          <h2 id="product-faq-heading" className="text-h4 text-strong">
+            {product.title}: frequently asked questions
+          </h2>
+          <div className="mt-6 divide-y divide-line border-y border-line">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="py-5">
+                <h3 className="font-semibold text-strong">{faq.question}</h3>
+                <p className="mt-2 leading-relaxed text-body">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

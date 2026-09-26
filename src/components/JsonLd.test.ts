@@ -140,8 +140,15 @@ describe("JSON-LD", () => {
     );
     expect(page.isPartOf).toEqual({ "@id": website["@id"] });
     expect(page.publisher).toEqual({ "@id": organization["@id"] });
-    expect(website).not.toHaveProperty("potentialAction");
-    expect(JSON.stringify(website)).not.toContain("SearchAction");
+    // /products?q= filters the catalog server-side (verified by test:seo).
+    expect(website.potentialAction).toEqual({
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteOrigin}/products?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    });
   });
 
   it("does not turn a catalog purity field into an analytical verification claim", () => {

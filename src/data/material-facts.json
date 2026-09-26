@@ -1,0 +1,1062 @@
+{
+  "5-Amino-1MQ": {
+    "name": "5-Amino-1MQ",
+    "noun": "Research Compound",
+    "materialType": "Synthetic small molecule (quinolinium, non-peptide)",
+    "classification": "Nicotinamide N-methyltransferase (NNMT) inhibitor",
+    "aliases": [
+      "5-Amino-1-methylquinolinium",
+      "5-amino-1MQ"
+    ],
+    "licensedActive": false
+  },
+  "ACE-031": {
+    "name": "ACE-031",
+    "noun": "Research Protein",
+    "materialType": "Recombinant Fc-fusion protein",
+    "classification": "ActRIIB ligand trap",
+    "aliases": [
+      "Ramatercept",
+      "ActRIIB-Fc",
+      "ACVR2B-Fc"
+    ],
+    "licensedActive": false
+  },
+  "ACTH 1-39": {
+    "name": "ACTH 1-39",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 39 amino acids",
+    "classification": "Melanocortin 2 receptor (MC2R) agonist",
+    "aliases": [
+      "Adrenocorticotropic hormone",
+      "Corticotropin",
+      "ACTH(1-39)"
+    ],
+    "licensedActive": true
+  },
+  "AICAR": {
+    "name": "AICAR",
+    "noun": "Research Compound",
+    "materialType": "Nucleoside analogue (non-peptide)",
+    "classification": "AMPK activator",
+    "aliases": [
+      "Acadesine",
+      "AICA riboside",
+      "5-Aminoimidazole-4-carboxamide ribonucleoside"
+    ],
+    "licensedActive": false
+  },
+  "AOD9604": {
+    "name": "AOD9604",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 16 amino acids",
+    "classification": "Growth hormone C-terminal fragment analogue",
+    "aliases": [
+      "Tyr-hGH(177–191)",
+      "hGH fragment 177–191 analogue"
+    ],
+    "licensedActive": false
+  },
+  "ARA-290": {
+    "name": "ARA-290 (Cibinetide)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 11 amino acids",
+    "classification": "Innate repair receptor agonist (EPO-derived)",
+    "aliases": [
+      "Cibinetide",
+      "Pyroglutamate helix B surface peptide (pHBSP)"
+    ],
+    "licensedActive": false
+  },
+  "Adamax": {
+    "name": "Adamax",
+    "noun": "Research Peptide",
+    "materialType": "Modified synthetic peptide",
+    "classification": "Semax (ACTH 4-10 family) analogue",
+    "aliases": [
+      "Adamantyl Semax analogue"
+    ],
+    "licensedActive": false
+  },
+  "Adipotide": {
+    "name": "Adipotide (FTPP)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptidomimetic",
+    "classification": "Vascular-targeted pro-apoptotic peptide",
+    "aliases": [
+      "FTPP",
+      "Prohibitin-targeting peptide 1",
+      "CKGGRAKDC-GG-D(KLAKLAK)₂"
+    ],
+    "licensedActive": false
+  },
+  "B-12": {
+    "name": "Vitamin B12",
+    "noun": "Research Material",
+    "materialType": "Cobalamin (vitamin, non-peptide)",
+    "classification": "Enzyme cofactor",
+    "aliases": [
+      "Cobalamin",
+      "B-12"
+    ],
+    "licensedActive": false
+  },
+  "B7-33": {
+    "name": "B7-33",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide (relaxin-2 B-chain derived)",
+    "classification": "RXFP1 agonist (functionally selective)",
+    "aliases": [
+      "Single-chain relaxin analogue",
+      "H2 relaxin B-chain (7–33)"
+    ],
+    "licensedActive": false
+  },
+  "BPC-157": {
+    "name": "BPC-157",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 15 amino acids",
+    "classification": "Gastric-protein-derived pentadecapeptide",
+    "aliases": [
+      "Body Protection Compound-157",
+      "PL 14736",
+      "Pentadecapeptide BPC 157",
+      "GEPPPGKPADDAGLV"
+    ],
+    "licensedActive": false
+  },
+  "BPC-157 10mg + TB-500 10mg Blend": {
+    "name": "BPC-157 + TB-500 Blend",
+    "noun": "Peptide Blend",
+    "materialType": "Two-peptide blend",
+    "classification": "BPC-157 + thymosin β4 (TB-500) combination",
+    "aliases": [
+      "BPC/TB blend",
+      "BPC-157/TB-500"
+    ],
+    "licensedActive": false
+  },
+  "BPC-157 5mg + TB-500 5mg Blend": {
+    "name": "BPC-157 + TB-500 Blend",
+    "noun": "Peptide Blend",
+    "materialType": "Two-peptide blend",
+    "classification": "BPC-157 + thymosin β4 (TB-500) combination",
+    "aliases": [
+      "BPC/TB blend",
+      "BPC-157/TB-500"
+    ],
+    "licensedActive": false
+  },
+  "Bronchogen": {
+    "name": "Bronchogen",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic tetrapeptide",
+    "classification": "Short-peptide bioregulator (bronchial tissue)",
+    "aliases": [
+      "AEDL peptide",
+      "Ala-Glu-Asp-Leu"
+    ],
+    "licensedActive": false
+  },
+  "CJC-1295 No-DAC 5mg + Ipamorelin 5mg Blend": {
+    "name": "CJC-1295 + Ipamorelin Blend",
+    "noun": "Peptide Blend",
+    "materialType": "Two-peptide blend",
+    "classification": "GHRH analogue + ghrelin receptor agonist combination",
+    "aliases": [
+      "CJC/Ipamorelin blend",
+      "Mod GRF 1-29 + ipamorelin"
+    ],
+    "licensedActive": false
+  },
+  "CJC-1295 with DAC": {
+    "name": "CJC-1295",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 29 amino acids (plus DAC linker in the DAC form)",
+    "classification": "GHRH receptor agonist (GHRH analogue)",
+    "aliases": [
+      "Modified GRF (1-29)",
+      "Mod GRF 1-29",
+      "Tetrasubstituted GRF(1-29)",
+      "CJC-1295 DAC"
+    ],
+    "licensedActive": false
+  },
+  "CJC-1295 without DAC": {
+    "name": "CJC-1295",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 29 amino acids (plus DAC linker in the DAC form)",
+    "classification": "GHRH receptor agonist (GHRH analogue)",
+    "aliases": [
+      "Modified GRF (1-29)",
+      "Mod GRF 1-29",
+      "Tetrasubstituted GRF(1-29)",
+      "CJC-1295 DAC"
+    ],
+    "licensedActive": false
+  },
+  "CagriSema 10mg + 10mg Blend": {
+    "name": "CagriSema Blend (Cagrilintide + Semaglutide)",
+    "noun": "Peptide Blend",
+    "materialType": "Two-peptide blend (cagrilintide + semaglutide)",
+    "classification": "Amylin analogue + GLP-1 receptor agonist combination",
+    "aliases": [
+      "CagriSema",
+      "Cagrilintide/semaglutide"
+    ],
+    "licensedActive": false
+  },
+  "CagriSema 2.5mg + 2.5mg Blend": {
+    "name": "CagriSema Blend (Cagrilintide + Semaglutide)",
+    "noun": "Peptide Blend",
+    "materialType": "Two-peptide blend (cagrilintide + semaglutide)",
+    "classification": "Amylin analogue + GLP-1 receptor agonist combination",
+    "aliases": [
+      "CagriSema",
+      "Cagrilintide/semaglutide"
+    ],
+    "licensedActive": false
+  },
+  "CagriSema 5mg + 5mg Blend": {
+    "name": "CagriSema Blend (Cagrilintide + Semaglutide)",
+    "noun": "Peptide Blend",
+    "materialType": "Two-peptide blend (cagrilintide + semaglutide)",
+    "classification": "Amylin analogue + GLP-1 receptor agonist combination",
+    "aliases": [
+      "CagriSema",
+      "Cagrilintide/semaglutide"
+    ],
+    "licensedActive": false
+  },
+  "Cagrilintide": {
+    "name": "Cagrilintide",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, fatty-acid modified",
+    "classification": "Amylin and calcitonin receptor agonist (amylin analogue)",
+    "aliases": [
+      "Acylated amylin analogue",
+      "Long-acting amylin analogue"
+    ],
+    "licensedActive": false
+  },
+  "Cardiogen": {
+    "name": "Cardiogen",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic tetrapeptide",
+    "classification": "Short-peptide bioregulator (cardiac tissue)",
+    "aliases": [
+      "AEDR peptide",
+      "Ala-Glu-Asp-Arg"
+    ],
+    "licensedActive": false
+  },
+  "Cartalax": {
+    "name": "Cartalax",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic tripeptide",
+    "classification": "Short-peptide bioregulator (cartilage)",
+    "aliases": [
+      "AED peptide",
+      "Ala-Glu-Asp"
+    ],
+    "licensedActive": false
+  },
+  "Cerebrolysin": {
+    "name": "Cerebrolysin",
+    "noun": "Research Material",
+    "materialType": "Peptide preparation (porcine brain-derived)",
+    "classification": "Neuropeptide mixture",
+    "aliases": [
+      "Porcine brain-derived peptide preparation"
+    ],
+    "licensedActive": true
+  },
+  "Cortagen": {
+    "name": "Cortagen",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic tetrapeptide",
+    "classification": "Short-peptide bioregulator (nervous tissue)",
+    "aliases": [
+      "AEDP peptide",
+      "Ala-Glu-Asp-Pro"
+    ],
+    "licensedActive": false
+  },
+  "Crystagen": {
+    "name": "Crystagen",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic short peptide (sequence per lot documents)",
+    "classification": "Short-peptide bioregulator (immune system)",
+    "aliases": [
+      "Khavinson immune bioregulator"
+    ],
+    "licensedActive": false
+  },
+  "DSIP": {
+    "name": "DSIP (Delta Sleep-Inducing Peptide)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 9 amino acids",
+    "classification": "Neuropeptide (receptor not identified)",
+    "aliases": [
+      "Delta sleep-inducing peptide",
+      "Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu"
+    ],
+    "licensedActive": false
+  },
+  "Dermorphin": {
+    "name": "Dermorphin",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 7 amino acids",
+    "classification": "μ-opioid receptor agonist peptide",
+    "aliases": [
+      "Tyr-D-Ala-Phe-Gly-Tyr-Pro-Ser-NH₂"
+    ],
+    "licensedActive": false
+  },
+  "Dihexa": {
+    "name": "Dihexa",
+    "noun": "Research Peptide",
+    "materialType": "Modified oligopeptide (peptidomimetic)",
+    "classification": "HGF/c-Met signaling modulator (angiotensin IV analogue)",
+    "aliases": [
+      "PNB-0408",
+      "N-hexanoic-Tyr-Ile-(6)-aminohexanoic amide"
+    ],
+    "licensedActive": false
+  },
+  "Dulaglutide": {
+    "name": "Dulaglutide",
+    "noun": "Research Protein",
+    "materialType": "Recombinant Fc-fusion protein, about 60 kDa",
+    "classification": "GLP-1 receptor agonist (Fc fusion)",
+    "aliases": [
+      "LY2189265",
+      "GLP-1–Fc fusion protein"
+    ],
+    "licensedActive": true
+  },
+  "EPO": {
+    "name": "EPO (Erythropoietin)",
+    "noun": "Research Protein",
+    "materialType": "Recombinant glycoprotein, 165 amino acids",
+    "classification": "Erythropoietin receptor agonist",
+    "aliases": [
+      "Erythropoietin",
+      "Epoetin",
+      "rhEPO"
+    ],
+    "licensedActive": true
+  },
+  "Epitalon": {
+    "name": "Epitalon",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic tetrapeptide",
+    "classification": "Pineal-derived peptide bioregulator",
+    "aliases": [
+      "Epithalon",
+      "Epithalone",
+      "AEDG peptide",
+      "Ala-Glu-Asp-Gly"
+    ],
+    "licensedActive": false
+  },
+  "FOXO4-DRI": {
+    "name": "FOXO4-DRI",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic D-retro-inverso peptide",
+    "classification": "FOXO4–p53 interaction inhibitor (senolytic research tool)",
+    "aliases": [
+      "FOXO4 D-retro-inverso peptide"
+    ],
+    "licensedActive": false
+  },
+  "Follistatin-344": {
+    "name": "Follistatin-344",
+    "noun": "Research Protein",
+    "materialType": "Glycoprotein",
+    "classification": "Activin and myostatin binding protein",
+    "aliases": [
+      "FST-344",
+      "FS-344",
+      "Follistatin"
+    ],
+    "licensedActive": false
+  },
+  "GHK-Cu": {
+    "name": "GHK-Cu",
+    "noun": "Research Peptide",
+    "materialType": "Copper–peptide complex (tripeptide + Cu²⁺)",
+    "classification": "Copper-binding matrikine",
+    "aliases": [
+      "Copper tripeptide-1",
+      "Copper peptide GHK",
+      "Gly-His-Lys–Cu(II)"
+    ],
+    "licensedActive": false
+  },
+  "GHRP-2 Acetate": {
+    "name": "GHRP-2 (Pralmorelin)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 6 amino acids",
+    "classification": "Ghrelin receptor (GHS-R1a) agonist",
+    "aliases": [
+      "Pralmorelin",
+      "KP-102",
+      "D-Ala-D-2-Nal-Ala-Trp-D-Phe-Lys-NH₂"
+    ],
+    "licensedActive": false
+  },
+  "GHRP-6 Acetate": {
+    "name": "GHRP-6",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 6 amino acids",
+    "classification": "Ghrelin receptor (GHS-R1a) agonist",
+    "aliases": [
+      "Growth hormone-releasing hexapeptide",
+      "His-D-Trp-Ala-Trp-D-Phe-Lys-NH₂"
+    ],
+    "licensedActive": false
+  },
+  "GLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg)": {
+    "name": "GLOW Blend",
+    "noun": "Peptide Blend",
+    "materialType": "Three-component peptide blend",
+    "classification": "BPC-157 + GHK-Cu + thymosin β4 combination",
+    "aliases": [
+      "GLOW peptide blend",
+      "BPC-157/GHK-Cu/TB-500"
+    ],
+    "licensedActive": false
+  },
+  "GLOW Blend (TB-500 10mg + BPC-157 10mg + GHK-Cu 50mg)": {
+    "name": "GLOW Blend",
+    "noun": "Peptide Blend",
+    "materialType": "Three-component peptide blend",
+    "classification": "BPC-157 + GHK-Cu + thymosin β4 combination",
+    "aliases": [
+      "GLOW peptide blend",
+      "BPC-157/GHK-Cu/TB-500"
+    ],
+    "licensedActive": false
+  },
+  "Glutathione": {
+    "name": "Glutathione",
+    "noun": "Research Compound",
+    "materialType": "Tripeptide (γ-L-glutamyl-L-cysteinyl-glycine)",
+    "classification": "Thiol antioxidant and redox buffer",
+    "aliases": [
+      "GSH",
+      "L-Glutathione (reduced)",
+      "γ-Glu-Cys-Gly"
+    ],
+    "licensedActive": false
+  },
+  "Gonadorelin Acetate": {
+    "name": "Gonadorelin (GnRH)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 10 amino acids",
+    "classification": "GnRH receptor agonist (native GnRH sequence)",
+    "aliases": [
+      "GnRH",
+      "LHRH",
+      "Luteinizing hormone-releasing hormone",
+      "pGlu-His-Trp-Ser-Tyr-Gly-Leu-Arg-Pro-Gly-NH₂"
+    ],
+    "licensedActive": true
+  },
+  "HCG": {
+    "name": "HCG (Human Chorionic Gonadotropin)",
+    "noun": "Research Protein",
+    "materialType": "Glycoprotein hormone (α and β subunits)",
+    "classification": "LH/choriogonadotropin receptor agonist",
+    "aliases": [
+      "Human chorionic gonadotropin",
+      "hCG",
+      "Chorionic gonadotropin"
+    ],
+    "licensedActive": true
+  },
+  "HGH 191AA (Somatropin)": {
+    "name": "HGH 191AA (Somatropin)",
+    "noun": "Research Protein",
+    "materialType": "Recombinant protein, 191 amino acids (about 22 kDa)",
+    "classification": "Growth hormone receptor agonist",
+    "aliases": [
+      "Somatropin",
+      "Recombinant human growth hormone",
+      "rhGH",
+      "22 kDa GH"
+    ],
+    "licensedActive": true
+  },
+  "HGH Fragment 176-191": {
+    "name": "HGH Fragment 176-191",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 16 amino acids",
+    "classification": "Growth hormone C-terminal fragment",
+    "aliases": [
+      "hGH (176–191)",
+      "Growth hormone fragment 176-191",
+      "Frag 176-191"
+    ],
+    "licensedActive": false
+  },
+  "HMG": {
+    "name": "HMG (Menotropins)",
+    "noun": "Research Protein",
+    "materialType": "Gonadotropin preparation (FSH and LH activity)",
+    "classification": "FSH and LH receptor agonist preparation",
+    "aliases": [
+      "Menotropins",
+      "Human menopausal gonadotropin",
+      "hMG"
+    ],
+    "licensedActive": true
+  },
+  "Hexarelin Acetate": {
+    "name": "Hexarelin (Examorelin)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 6 amino acids",
+    "classification": "Ghrelin receptor agonist and CD36 ligand",
+    "aliases": [
+      "Examorelin",
+      "His-D-2-Me-Trp-Ala-Trp-D-Phe-Lys-NH₂"
+    ],
+    "licensedActive": false
+  },
+  "Humanin": {
+    "name": "Humanin",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 24 amino acids",
+    "classification": "Mitochondrial-derived peptide (MDP)",
+    "aliases": [
+      "HN",
+      "Mitochondrial-derived peptide"
+    ],
+    "licensedActive": false
+  },
+  "IGF-1 LR3": {
+    "name": "IGF-1 LR3",
+    "noun": "Research Peptide",
+    "materialType": "Recombinant polypeptide, 83 amino acids",
+    "classification": "IGF-1 receptor agonist (IGF-1 analogue)",
+    "aliases": [
+      "Long R3 IGF-1",
+      "LR3 IGF-1",
+      "[Arg3]IGF-1 with N-terminal extension"
+    ],
+    "licensedActive": false
+  },
+  "IGF-DES": {
+    "name": "IGF-DES",
+    "noun": "Research Peptide",
+    "materialType": "Polypeptide, 67 amino acids",
+    "classification": "IGF-1 receptor agonist (truncated IGF-1)",
+    "aliases": [
+      "des(1-3)IGF-1",
+      "IGF-1 DES"
+    ],
+    "licensedActive": false
+  },
+  "Ipamorelin": {
+    "name": "Ipamorelin",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 5 amino acids",
+    "classification": "Ghrelin receptor (GHS-R1a) agonist",
+    "aliases": [
+      "NNC 26-0161",
+      "Aib-His-D-2-Nal-D-Phe-Lys-NH₂"
+    ],
+    "licensedActive": false
+  },
+  "KLOW Blend (BPC-157 10mg + GHK-Cu 50mg + TB-500 10mg + KPV 10mg)": {
+    "name": "KLOW Blend",
+    "noun": "Peptide Blend",
+    "materialType": "Four-component peptide blend",
+    "classification": "GLOW composition + KPV",
+    "aliases": [
+      "KLOW peptide blend",
+      "BPC-157/GHK-Cu/TB-500/KPV"
+    ],
+    "licensedActive": false
+  },
+  "KPV": {
+    "name": "KPV",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic tripeptide",
+    "classification": "α-MSH C-terminal fragment",
+    "aliases": [
+      "Lys-Pro-Val",
+      "α-MSH (11–13)"
+    ],
+    "licensedActive": false
+  },
+  "Kisspeptin-10": {
+    "name": "Kisspeptin-10",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 10 amino acids",
+    "classification": "KISS1R (GPR54) agonist",
+    "aliases": [
+      "KP-10",
+      "Metastin (45–54)"
+    ],
+    "licensedActive": false
+  },
+  "L-Carnitine 1200": {
+    "name": "L-Carnitine",
+    "noun": "Laboratory Solution",
+    "materialType": "Quaternary ammonium compound, supplied as a solution",
+    "classification": "Fatty-acid transport cofactor",
+    "aliases": [
+      "Levocarnitine",
+      "β-Hydroxy-γ-trimethylaminobutyric acid"
+    ],
+    "licensedActive": true
+  },
+  "L-Carnitine 600": {
+    "name": "L-Carnitine",
+    "noun": "Laboratory Solution",
+    "materialType": "Quaternary ammonium compound, supplied as a solution",
+    "classification": "Fatty-acid transport cofactor",
+    "aliases": [
+      "Levocarnitine",
+      "β-Hydroxy-γ-trimethylaminobutyric acid"
+    ],
+    "licensedActive": true
+  },
+  "LC120": {
+    "name": "LC120",
+    "noun": "Laboratory Solution",
+    "materialType": "Solution (composition per lot documents)",
+    "classification": "Lipotropic-type formulation",
+    "aliases": [
+      "LC120/Lipo-C"
+    ],
+    "licensedActive": false
+  },
+  "LL-37": {
+    "name": "LL-37",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 37 amino acids",
+    "classification": "Cathelicidin antimicrobial peptide",
+    "aliases": [
+      "Human cathelicidin LL-37",
+      "hCAP18 (134–170)",
+      "CAMP peptide"
+    ],
+    "licensedActive": false
+  },
+  "Lemon Bottle": {
+    "name": "Lemon Bottle",
+    "noun": "Laboratory Solution",
+    "materialType": "Proprietary multi-ingredient solution",
+    "classification": "Branded formulation (ingredient list per manufacturer)",
+    "aliases": [
+      "Lemon Bottle solution"
+    ],
+    "licensedActive": false
+  },
+  "Lipo-C": {
+    "name": "Lipo-C",
+    "noun": "Laboratory Solution",
+    "materialType": "Multi-ingredient solution",
+    "classification": "Lipotropic nutrient formulation",
+    "aliases": [
+      "Lipo-C solution",
+      "Lipotropic solution"
+    ],
+    "licensedActive": false
+  },
+  "Liraglutide": {
+    "name": "Liraglutide",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, fatty-acid modified",
+    "classification": "GLP-1 receptor agonist (GLP-1 analogue)",
+    "aliases": [
+      "Arg34Lys26-(N-ε-(γ-Glu(N-α-hexadecanoyl)))-GLP-1(7-37)"
+    ],
+    "licensedActive": true
+  },
+  "MGF": {
+    "name": "MGF (Mechano Growth Factor)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide (IGF-1 E-domain)",
+    "classification": "IGF-1 splice-variant peptide",
+    "aliases": [
+      "Mechano growth factor",
+      "IGF-1Ec E-domain peptide"
+    ],
+    "licensedActive": false
+  },
+  "MK-677": {
+    "name": "MK-677 (Ibutamoren)",
+    "noun": "Research Compound",
+    "materialType": "Synthetic small molecule (non-peptide)",
+    "classification": "Ghrelin receptor (GHS-R1a) agonist",
+    "aliases": [
+      "Ibutamoren",
+      "MK-0677",
+      "L-163,191",
+      "Ibutamoren mesylate"
+    ],
+    "licensedActive": false
+  },
+  "MOTS-c": {
+    "name": "MOTS-c",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 16 amino acids",
+    "classification": "Mitochondrial-derived peptide (MDP)",
+    "aliases": [
+      "Mitochondrial open reading frame of the 12S rRNA type-c",
+      "MRWQEMGYIFYPRKLR"
+    ],
+    "licensedActive": false
+  },
+  "Matrixyl": {
+    "name": "Matrixyl (Palmitoyl Pentapeptide-4)",
+    "noun": "Research Peptide",
+    "materialType": "Lipidated synthetic pentapeptide",
+    "classification": "Collagen-fragment signal peptide (matrikine)",
+    "aliases": [
+      "Palmitoyl pentapeptide-4",
+      "Pal-KTTKS",
+      "Palmitoyl pentapeptide-3 (former INCI name)"
+    ],
+    "licensedActive": false
+  },
+  "Mazdutide": {
+    "name": "Mazdutide",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, fatty-acid modified",
+    "classification": "GLP-1 and glucagon receptor dual agonist",
+    "aliases": [
+      "IBI362",
+      "LY3305677"
+    ],
+    "licensedActive": false
+  },
+  "Melanotan I": {
+    "name": "Melanotan I (Afamelanotide)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 13 amino acids",
+    "classification": "MC1R-preferring melanocortin receptor agonist",
+    "aliases": [
+      "Afamelanotide",
+      "[Nle4, D-Phe7]-α-MSH",
+      "NDP-α-MSH",
+      "MT-I"
+    ],
+    "licensedActive": true
+  },
+  "Melanotan II": {
+    "name": "Melanotan II",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic cyclic peptide, 7 amino acids",
+    "classification": "Non-selective melanocortin receptor agonist",
+    "aliases": [
+      "MT-II",
+      "Ac-Nle-cyclo[Asp-His-D-Phe-Arg-Trp-Lys]-NH₂"
+    ],
+    "licensedActive": false
+  },
+  "Melatonin": {
+    "name": "Melatonin",
+    "noun": "Research Compound",
+    "materialType": "Indoleamine (non-peptide)",
+    "classification": "MT1/MT2 melatonin receptor agonist",
+    "aliases": [
+      "N-Acetyl-5-methoxytryptamine"
+    ],
+    "licensedActive": false
+  },
+  "NAD+": {
+    "name": "NAD+",
+    "noun": "Research Compound",
+    "materialType": "Dinucleotide coenzyme (non-peptide)",
+    "classification": "Redox coenzyme and enzyme substrate",
+    "aliases": [
+      "β-NAD+",
+      "Nicotinamide adenine dinucleotide (oxidized form)"
+    ],
+    "licensedActive": false
+  },
+  "Oxytocin Acetate": {
+    "name": "Oxytocin",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 9 amino acids (cyclic disulfide)",
+    "classification": "Oxytocin receptor agonist",
+    "aliases": [
+      "Oxytocin acetate",
+      "Cys-Tyr-Ile-Gln-Asn-Cys-Pro-Leu-Gly-NH₂"
+    ],
+    "licensedActive": true
+  },
+  "P21": {
+    "name": "P21 (P021)",
+    "noun": "Research Peptide",
+    "materialType": "Adamantylated synthetic peptide",
+    "classification": "CNTF-derived neurotrophic peptidomimetic",
+    "aliases": [
+      "P021",
+      "CNTF-derived peptide"
+    ],
+    "licensedActive": false
+  },
+  "PE-22-28": {
+    "name": "PE-22-28",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 7 amino acids",
+    "classification": "TREK-1 potassium channel inhibitor (spadin analogue)",
+    "aliases": [
+      "PE 22-28",
+      "Spadin analogue"
+    ],
+    "licensedActive": false
+  },
+  "PEG-MGF": {
+    "name": "PEG-MGF",
+    "noun": "Research Peptide",
+    "materialType": "PEGylated synthetic peptide",
+    "classification": "IGF-1 splice-variant peptide, PEGylated",
+    "aliases": [
+      "Pegylated MGF",
+      "PEG mechano growth factor"
+    ],
+    "licensedActive": false
+  },
+  "PT-141": {
+    "name": "PT-141 (Bremelanotide)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic cyclic peptide, 7 amino acids",
+    "classification": "Melanocortin receptor agonist (MC4R/MC3R)",
+    "aliases": [
+      "Bremelanotide",
+      "Ac-Nle-cyclo[Asp-His-D-Phe-Arg-Trp-Lys]-OH"
+    ],
+    "licensedActive": true
+  },
+  "Pinealon": {
+    "name": "Pinealon",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic tripeptide",
+    "classification": "Short-peptide bioregulator",
+    "aliases": [
+      "EDR peptide",
+      "Glu-Asp-Arg"
+    ],
+    "licensedActive": false
+  },
+  "Retatrutide": {
+    "name": "Retatrutide",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, fatty-acid modified",
+    "classification": "GIP, GLP-1 and glucagon receptor triple agonist",
+    "aliases": [
+      "LY3437943",
+      "Triple hormone receptor agonist"
+    ],
+    "licensedActive": false
+  },
+  "SLU-PP-332": {
+    "name": "SLU-PP-332",
+    "noun": "Research Compound",
+    "materialType": "Synthetic small molecule (non-peptide)",
+    "classification": "Estrogen-related receptor (ERR) pan-agonist",
+    "aliases": [
+      "ERR pan-agonist",
+      "ERRα/β/γ agonist"
+    ],
+    "licensedActive": false
+  },
+  "SNAP-8": {
+    "name": "SNAP-8 (Acetyl Octapeptide-3)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic octapeptide, acetylated and amidated",
+    "classification": "SNARE-complex modulating peptide",
+    "aliases": [
+      "Acetyl octapeptide-3",
+      "Ac-EEMQRRAD-NH₂"
+    ],
+    "licensedActive": false
+  },
+  "SS-31": {
+    "name": "SS-31 (Elamipretide)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic tetrapeptide",
+    "classification": "Mitochondria-targeted Szeto-Schiller peptide",
+    "aliases": [
+      "Elamipretide",
+      "MTP-131",
+      "Bendavia",
+      "D-Arg-Dmt-Lys-Phe-NH₂"
+    ],
+    "licensedActive": false
+  },
+  "Selank": {
+    "name": "Selank",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 7 amino acids",
+    "classification": "Tuftsin analogue neuropeptide",
+    "aliases": [
+      "Thr-Lys-Pro-Arg-Pro-Gly-Pro",
+      "Tuftsin analogue"
+    ],
+    "licensedActive": false
+  },
+  "Selank + Semax Blend": {
+    "name": "Selank + Semax Blend",
+    "noun": "Peptide Blend",
+    "materialType": "Two-peptide blend",
+    "classification": "Tuftsin analogue + ACTH(4-7) analogue combination",
+    "aliases": [
+      "Selank/Semax"
+    ],
+    "licensedActive": false
+  },
+  "Semaglutide": {
+    "name": "Semaglutide",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 31 amino acids, fatty-acid modified",
+    "classification": "Selective GLP-1 receptor agonist (GLP-1 analogue)",
+    "aliases": [
+      "GLP-1(7-37) analogue",
+      "Acylated GLP-1 analogue"
+    ],
+    "licensedActive": true
+  },
+  "Semax": {
+    "name": "Semax",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 7 amino acids",
+    "classification": "ACTH(4-10)-related neuropeptide analogue",
+    "aliases": [
+      "ACTH(4-7)-Pro-Gly-Pro",
+      "Met-Glu-His-Phe-Pro-Gly-Pro"
+    ],
+    "licensedActive": false
+  },
+  "Sermorelin": {
+    "name": "Sermorelin",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 29 amino acids",
+    "classification": "GHRH receptor agonist (GHRH fragment)",
+    "aliases": [
+      "GHRH(1-29)",
+      "GRF(1-29)",
+      "Sermorelin acetate"
+    ],
+    "licensedActive": false
+  },
+  "Sermorelin Acetate": {
+    "name": "Sermorelin",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 29 amino acids",
+    "classification": "GHRH receptor agonist (GHRH fragment)",
+    "aliases": [
+      "GHRH(1-29)",
+      "GRF(1-29)",
+      "Sermorelin acetate"
+    ],
+    "licensedActive": false
+  },
+  "Survodutide": {
+    "name": "Survodutide",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, fatty-acid modified",
+    "classification": "Glucagon and GLP-1 receptor dual agonist",
+    "aliases": [
+      "BI 456906"
+    ],
+    "licensedActive": false
+  },
+  "TB Fragment": {
+    "name": "TB Fragment (Thymosin β4 17–23)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide fragment",
+    "classification": "Thymosin β4 fragment",
+    "aliases": [
+      "Thymosin β4 fragment",
+      "Tβ4 (17–23)",
+      "Ac-LKKTETQ"
+    ],
+    "licensedActive": false
+  },
+  "TB-500 (Thymosin B4 Acetate)": {
+    "name": "TB-500 (Thymosin β4)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide (thymosin β4 acetate per supplier)",
+    "classification": "Actin-sequestering β-thymosin peptide",
+    "aliases": [
+      "Thymosin beta-4",
+      "Tβ4",
+      "Thymosin β4 acetate"
+    ],
+    "licensedActive": false
+  },
+  "Tesamorelin": {
+    "name": "Tesamorelin",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 44 amino acids, N-terminally modified",
+    "classification": "GHRH receptor agonist (GHRH analogue)",
+    "aliases": [
+      "TH9507",
+      "trans-3-Hexenoyl-hGHRH(1-44)-NH₂"
+    ],
+    "licensedActive": true
+  },
+  "Tesamorelin 10mg + Ipamorelin 5mg Blend": {
+    "name": "Tesamorelin + Ipamorelin Blend",
+    "noun": "Peptide Blend",
+    "materialType": "Two-peptide blend",
+    "classification": "GHRH analogue + ghrelin receptor agonist combination",
+    "aliases": [
+      "Tesa/Ipa blend",
+      "Tesamorelin/ipamorelin"
+    ],
+    "licensedActive": false
+  },
+  "Thymalin": {
+    "name": "Thymalin",
+    "noun": "Research Material",
+    "materialType": "Peptide preparation (composition per lot documents)",
+    "classification": "Thymic peptide bioregulator",
+    "aliases": [
+      "Tymalin"
+    ],
+    "licensedActive": false
+  },
+  "Thymosin Alpha-1": {
+    "name": "Thymosin Alpha-1",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 28 amino acids",
+    "classification": "Thymic immunoregulatory peptide",
+    "aliases": [
+      "Thymalfasin",
+      "Tα1",
+      "Thymosin α1"
+    ],
+    "licensedActive": true
+  },
+  "Tirzepatide": {
+    "name": "Tirzepatide",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 39 amino acids, fatty-acid modified",
+    "classification": "Dual GIP and GLP-1 receptor agonist (incretin analogue)",
+    "aliases": [
+      "LY3298176",
+      "GIP/GLP-1 dual agonist"
+    ],
+    "licensedActive": true
+  },
+  "VIP": {
+    "name": "VIP (Vasoactive Intestinal Peptide)",
+    "noun": "Research Peptide",
+    "materialType": "Synthetic peptide, 28 amino acids",
+    "classification": "VPAC1/VPAC2 receptor agonist neuropeptide",
+    "aliases": [
+      "Vasoactive intestinal polypeptide",
+      "Aviptadil"
+    ],
+    "licensedActive": false
+  }
+}

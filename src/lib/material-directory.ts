@@ -1,4 +1,5 @@
 import type { PublicProductSummaryDto } from "@/domain/catalog";
+import { HUB_MIN_LISTINGS, materialSlug } from "@/lib/material-hubs";
 import {
   compareStrengths,
   familyFromTitle,
@@ -17,6 +18,8 @@ export type MaterialDirectoryItem = {
 export type MaterialDirectoryGroup = {
   family: string;
   letter: string;
+  /** Hub page URL when the material has several published strengths. */
+  hubHref: string | null;
   items: MaterialDirectoryItem[];
 };
 
@@ -48,6 +51,10 @@ export function materialDirectory(
     .map(([family, items]) => ({
       family,
       letter: /^[a-z]/iu.test(family) ? family[0].toUpperCase() : "0–9",
+      hubHref:
+        items.length >= HUB_MIN_LISTINGS
+          ? `/research-materials/${materialSlug(family)}`
+          : null,
       items: items.sort((a, b) =>
         a.strength && b.strength
           ? compareStrengths(a.strength, b.strength)

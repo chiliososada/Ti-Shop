@@ -67,6 +67,10 @@ SQL 脚本自带断言:活跃商品数必须等于目录条数,每个活跃商�
 - 没有活跃商品的分类自动 `archived`;之后再有活跃商品时自动恢复为 `active`。
 - 不改动 WhatsApp 配置、成本(reference cost)、订单、用户。
 
+## 新物质需要补事实标签
+
+价格表出现新的物质家族时,`src/lib/material-hubs.test.ts` 会失败,提示缺少事实标签。需要在 `src/data/material-facts.json` 里为该家族手工补一条:material type、classification、aliases、noun、licensedActive。这些标签会显示在聚合页和商品页上。写法和合规要求见 `docs/GEO.md`。
+
 ## 不上架的行(exclude)
 
 `decisions` 里 `exclude: true` 的行不生成商品,记录在 `supplier-catalog.json` 的 `excludedRows` 和对照报告的 `excluded` 里,测试按「上架行 + 排除行 = 全部行」校验覆盖。

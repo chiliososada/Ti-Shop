@@ -63,3 +63,15 @@ export function getSiblingPresentations(slug: string) {
 export function familyFromTitle(title: string) {
   return title.replace(/\s\d+(?:\.\d+)?(?:mcg|mg|ml|iu)$/iu, "").trim();
 }
+
+/** Material family names described by the reviewed price list. */
+export const catalogFamilies: readonly string[] = [
+  ...new Set(specifications.map((spec) => spec.family)),
+];
+
+/** Every listed presentation of one material family, by ascending strength. */
+export function getFamilyPresentations(family: string) {
+  return specifications
+    .filter((candidate) => candidate.family === family)
+    .sort((a, b) => compareStrengths(a.strength, b.strength));
+}

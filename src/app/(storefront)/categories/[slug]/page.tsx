@@ -8,7 +8,9 @@ import {
   type PublicSearchParams,
 } from "@/app/_lib/public-seo";
 import { GuideReading } from "@/components/GuideReading";
-import { BreadcrumbJsonLd, CatalogJsonLd } from "@/components/JsonLd";
+import Link from "next/link";
+
+import { BreadcrumbJsonLd, CatalogJsonLd, FaqJsonLd } from "@/components/JsonLd";
 import { PaginationNav } from "@/components/PaginationNav";
 import { PageHero } from "@/components/PageHero";
 import { ProductCard } from "@/components/ProductCard";
@@ -19,7 +21,17 @@ import {
   buildQueryHref,
   normalizePageSearchParameter,
 } from "@/lib/pagination";
+import {
+  categoryFaqs,
+  displayName,
+  formatUsd,
+  groupMaterials,
+  hasHub,
+  hubPath,
+  strengthRange,
+} from "@/lib/material-hubs";
 import { createPublicPageMetadata } from "@/lib/public-page-metadata";
+import { getPublicMaterialListings } from "@/server/catalog/material-listings";
 import {
   getPublicCategoryBySlug,
   getPublicProductPage,
@@ -93,6 +105,16 @@ export default async function CategoryPage({
     notFound();
   }
 
+  const materials =
+    productPage.pagination.page === 1
+      ? groupMaterials(
+          (await getPublicMaterialListings()).filter(
+            (listing) => listing.categorySlug === category.slug,
+          ),
+        )
+      : [];
+  const faqs = categoryFaqs(category.name, materials);
+
   const listingSeo = catalogListingSeo(
     `/categories/${category.slug}`,
     query,
@@ -117,6 +139,7 @@ export default async function CategoryPage({
         total={productPage.pagination.total}
         start={(productPage.pagination.page - 1) * CATEGORY_PRODUCT_PAGE_SIZE}
       />
+      {faqs.length ? <FaqJsonLd faqs={faqs} /> : null}
       <PageHero
         eyebrow="Research Category"
         title={category.name}
@@ -184,6 +207,68 @@ export default async function CategoryPage({
           />
         </div>
       </section>
+      {materials.length ? (
+        <section
+          className="border-t border-line section-y"
+          aria-labelledby="category-materials-heading"
+        >
+          <div className="container-x">
+            <h2 id="category-materials-heading" className="text-h4 text-strong">
+              Materials in {category.name}
+            </h2>
+            <p className="mt-3 max-w-[68ch] leading-relaxed text-body">
+              {materials.length} materials, each with every listed strength and
+              its USD price per box. Materials with several strengths have an
+              overview page comparing price per vial, per mg and availability.
+            </p>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {materials.map((material) => {
+                const prices = material.listings
+                  .map((listing) => listing.priceMinor)
+                  .filter((price): price is number => price !== null);
+                return (
+                  <li key={material.slug}>
+                    <Link
+                      href={
+                        hasHub(material)
+                          ? hubPath(material)
+                          : `/products/${material.listings[0].slug}`
+                      }
+                      className="block h-full rounded-xl border border-line bg-base p-5 transition-colors hover:border-sage-500"
+                    >
+                      <span className="block font-semibold text-strong">
+                        {displayName(material)} →
+                      </span>
+                      {material.facts ? (
+                        <span className="mt-1.5 block text-sm leading-relaxed text-muted">
+                          {material.facts.classification}
+                        </span>
+                      ) : null}
+                      <span className="mt-3 block font-mono text-caption text-body">
+                        {material.listings.length}{" "}
+                        {material.listings.length === 1 ? "strength" : "strengths"} ·{" "}
+                        {strengthRange(material)}
+                        {prices.length ? ` · from ${formatUsd(Math.min(...prices))}` : ""}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <h2 className="mt-14 text-h5 text-strong">
+              {category.name}: frequently asked questions
+            </h2>
+            <div className="mt-5 max-w-[80ch] divide-y divide-line border-y border-line">
+              {faqs.map((faq) => (
+                <div key={faq.question} className="py-5">
+                  <h3 className="font-semibold text-strong">{faq.question}</h3>
+                  <p className="mt-2 leading-relaxed text-body">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
       <GuideReading />
     </>
   );

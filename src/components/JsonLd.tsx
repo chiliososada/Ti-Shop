@@ -1,3 +1,4 @@
+import { categories } from "@/data/categories";
 import { company } from "@/data/company";
 import type {
   PublicProductDetailDto,
@@ -80,6 +81,87 @@ export function CatalogJsonLd({
   );
 }
 
+/** A material hub: every published strength of one material, with offers. */
+export function MaterialHubJsonLd({
+  url,
+  name,
+  description,
+  aliases,
+  classification,
+  items,
+}: {
+  url: string;
+  name: string;
+  description: string;
+  aliases: readonly string[];
+  classification: string | null;
+  items: ReadonlyArray<{
+    name: string;
+    url: string;
+    sku: string | null;
+    priceMinor: number | null;
+    available: boolean;
+    image: string | null;
+  }>;
+}) {
+  const canonicalUrl = absolutePublicUrl(url);
+  return (
+    <Script
+      data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": `${canonicalUrl}#collection`,
+        url: canonicalUrl,
+        name,
+        description,
+        inLanguage: "en-US",
+        isPartOf: { "@id": `${publicSiteOrigin}/#website` },
+        publisher: { "@id": `${publicSiteOrigin}/#organization` },
+        about: {
+          "@type": "Thing",
+          name,
+          ...(classification ? { description: classification } : {}),
+          ...(aliases.length ? { alternateName: [...aliases] } : {}),
+        },
+        mainEntity: {
+          "@type": "ItemList",
+          numberOfItems: items.length,
+          itemListElement: items.map((item, index) => {
+            const price = item.priceMinor === null ? null : usdMinorToDecimal(String(item.priceMinor));
+            const image = item.image ? absolutePublicAssetUrl(item.image) : null;
+            return {
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "Product",
+                name: item.name,
+                url: absolutePublicUrl(item.url),
+                ...(item.sku ? { sku: item.sku } : {}),
+                ...(image ? { image } : {}),
+                brand: { "@type": "Brand", name: company.name },
+                ...(price
+                  ? {
+                      offers: {
+                        "@type": "Offer",
+                        url: absolutePublicUrl(item.url),
+                        price,
+                        priceCurrency: "USD",
+                        availability: item.available
+                          ? "https://schema.org/InStock"
+                          : "https://schema.org/OutOfStock",
+                        eligibleRegion: { "@type": "Country", name: "US" },
+                      },
+                    }
+                  : {}),
+              },
+            };
+          }),
+        },
+      }}
+    />
+  );
+}
+
 function Script({ data }: { data: object }) {
   return (
     <script
@@ -102,6 +184,15 @@ export function OrganizationJsonLd() {
         slogan: company.tagline,
         description: company.description,
         email: company.email,
+        logo: absolutePublicUrl("/brand/flintmarrow-logo-20260725.png"),
+        areaServed: { "@type": "Country", name: "United States" },
+        knowsAbout: [
+          "Research peptides",
+          "Laboratory research materials",
+          ...categories
+            .filter((category) => category.slug !== "bac-water")
+            .map((category) => category.name),
+        ],
         contactPoint: [
           {
             "@type": "ContactPoint",
@@ -128,6 +219,14 @@ export function WebSiteJsonLd() {
         description: company.description,
         inLanguage: "en-US",
         publisher: { "@id": `${publicSiteOrigin}/#organization` },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${publicSiteOrigin}/products?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
       }}
     />
   );
